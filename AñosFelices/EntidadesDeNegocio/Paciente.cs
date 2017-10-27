@@ -5,7 +5,7 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
     /// <summary>
     /// Paciente
     /// </summary>
-    public class Paciente : Persona
+    public class Paciente
     {
         /// <summary>
         /// Constructor
@@ -25,15 +25,29 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// <param name="apellido">Apellido del paciente</param>
         /// <param name="estadoFisico">Estado Físico del paciente</param>
         /// <param name="estado">Estado</param>
-        public Paciente(int dni, Cama cama, String nombre, String apellido, String estadoFisico, String estado)
+        public Paciente(int dni, Cama cama, String nombre, String apellido, String estadoFisico)
         {
             this.Dni = dni;
             this.Cama = cama;
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.EstadoFisico = estadoFisico;
-            this.Estado = String.IsNullOrEmpty(estado) ? "A" : estado;
         }
+
+        /// <summary>
+        /// Dni de la persona
+        /// </summary>
+        public virtual int Dni { get; set; }
+
+        /// <summary>
+        /// Nombre de la persona
+        /// </summary>
+        public virtual String Nombre { get; set; }
+
+        /// <summary>
+        /// Apellido de la persona
+        /// </summary>
+        public virtual String Apellido { get; set; }
 
         /// <summary>
         /// Cama del paciente
@@ -44,6 +58,11 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// Estado físico del paciente
         /// </summary>
         public virtual String EstadoFisico { get; set; }
+
+        /// <summary>
+        /// Estado
+        /// </summary>
+        public virtual String Estado { get; set; }
 
         /// <summary>
         /// Implementa la lógica necesaria para determinar la igualdad entre instancias de esta clase

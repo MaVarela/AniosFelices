@@ -33,6 +33,7 @@ namespace AñosFelices
             IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
             IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
             IRepositorioCama repositorioCama = new RepositorioCama();
+            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
             //repositorioRol.Agregar(fantasma);
             //repositorioRol.Agregar(admin);
             //repositorioRol.Agregar(enfermera);
@@ -99,6 +100,13 @@ namespace AñosFelices
                 //repositorioCama.Agregar(cama);
                 repositorioCama.Agregar(cama2);
             }*/
+
+            habitacion = repositorioHabitacion.ObtenerPorId(1);
+            if (habitacion.Camas.Count() > 0)
+            {
+                var paciente = new Paciente(34493020, habitacion.Camas.First(), "Pepe", "Grillo", "No Dependiente");
+                repositorioPaciente.Agregar(paciente);
+            }
         }
     }
 }
