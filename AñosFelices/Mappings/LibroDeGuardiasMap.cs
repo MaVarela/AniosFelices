@@ -12,6 +12,7 @@ namespace AñosFelices.Mappings
     {
         public LibroDeGuardiasMap()
         {
+            Table("LibroDeGuardias");
             CompositeId(x => x.Id)
                 .KeyReference(x => x.Paciente, "DniPaciente")
                 .KeyReference(x => x.Usuario, "DniUsuario")

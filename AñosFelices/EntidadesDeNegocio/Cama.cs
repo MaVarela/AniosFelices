@@ -27,6 +27,7 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
             this.Id = new CamaId();
             this.IdCama = idCama;
             this.Habitacion = habitacion;
+            this.Estado = "L";
         }
 
 

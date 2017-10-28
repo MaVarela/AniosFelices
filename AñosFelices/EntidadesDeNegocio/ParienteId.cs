@@ -5,19 +5,19 @@ using System.Globalization;
 namespace AñosFelices.EntidadesDeNegocio
 {
     /// <summary>
-    /// Identificador de cama
+    /// Identificador de Pariente
     /// </summary>
-    public class CamaId
+    public class ParienteId
     {
         /// <summary>
-        /// Número de la cama
+        /// Paciente
         /// </summary>
-        public virtual int IdCama { get; set; }
+        public virtual Paciente Paciente { get; set; }
 
         /// <summary>
-        /// Habitación a la que pertenece la cama
+        /// Dni de Pariente
         /// </summary>
-        public virtual Habitacion Habitacion { get; set; }
+        public virtual int DniPariente { get; set; }
 
         /// <summary>
         /// Implementa la lógica necesaria para determinar la igualdad entre instancias de esta clase
@@ -26,11 +26,11 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <returns>True si las instancias son iguales, false en caso contrario</returns>
         public override bool Equals(object obj)
         {
-            CamaId Id = obj as CamaId;
+            ParienteId Id = obj as ParienteId;
 
             if (Id == null)
                 return false;
-            return this.IdCama.Equals(Id.IdCama) && this.Habitacion.Equals(Id.Habitacion);
+            return this.DniPariente.Equals(Id.DniPariente) && this.Paciente.Equals(Id.Paciente);
         }
 
         /// <summary>
@@ -39,20 +39,20 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <returns>Hashcode de la instancia</returns>
         public override int GetHashCode()
         {
-            if (this.Habitacion == null)
+            if (this.Paciente == null)
                 return base.GetHashCode();
-            return (String.Format(CultureInfo.InvariantCulture, "{0}@@{1}", this.IdCama.GetHashCode(), this.Habitacion.IdHabitacion.GetHashCode())).GetHashCode();
+            return (String.Format(CultureInfo.InvariantCulture, "{0}@@{1}", this.DniPariente.GetHashCode(), this.Paciente.Dni.GetHashCode())).GetHashCode();
         }
 
         /// <summary>
-        /// Retorna el Identificador de Cama en forma de String
+        /// Retorna el Identificador de Pariente en forma de String
         /// </summary>
-        /// <returns>Retorna el Identificador de Cama en forma de String</returns>
+        /// <returns>Retorna el Identificador de Pariente en forma de String</returns>
         public override string ToString()
         {
-            return String.Format(CultureInfo.InvariantCulture, "Nro. Cama: {0}, Habitación: {1}",
-                this.IdCama.ToString(),
-                this.Habitacion.IdHabitacion.ToString());
+            return String.Format(CultureInfo.InvariantCulture, "Pariente: {0}, Paciente: {1}",
+                this.DniPariente.ToString(),
+                this.Paciente.Dni.ToString());
         }
     }
 }

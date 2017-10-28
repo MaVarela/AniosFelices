@@ -13,7 +13,10 @@ namespace AñosFelices.Mappings
         /// </summary>
         public ParienteMap()
         {
-            Id(x => x.Dni, "DniPariente").GeneratedBy.Assigned().Not.Nullable();
+            Table("Parientes");
+            CompositeId(x => x.Id)
+                .KeyReference(x => x.Paciente, "DniPaciente")
+                .KeyProperty(x => x.DniPariente, "DniPariente");
             Map(x => x.Nombre, "Nombre").Not.Nullable();
             Map(x => x.Apellido, "Apellido").Not.Nullable();
             Map(x => x.Direccion, "Direccion").Not.Nullable();
@@ -22,7 +25,6 @@ namespace AñosFelices.Mappings
             Map(x => x.Telefono2, "Telefono2");
             Map(x => x.Estado, "Estado").Not.Nullable();
             Map(x => x.Parentezco, "Parentezco").Not.Nullable();
-            References<Paciente>(x => x.Paciente, "DniPaciente").Not.Nullable();
         }
     }
 }

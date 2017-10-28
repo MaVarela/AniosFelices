@@ -73,16 +73,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// <returns>Una habitación</returns>
         public Habitacion ObtenerPorId(int id)
         {
-            if (id != null)
+            using (ISession session = NHibernateHelper.OpenSession())
             {
-                using (ISession session = NHibernateHelper.OpenSession())
-                {
-                    var habitacion = session.Get<Habitacion>(id);
-                    return habitacion;
-                }
-                    
+                return session.Get<Habitacion>(id);
             }
-            return null;
         }
 
         /// <summary>

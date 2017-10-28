@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AñosFelices.EntidadesDeNegocio;
+using System;
 
 namespace AniosFelicesSystem.EntidadesDeNegocio
 {
@@ -26,9 +27,10 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// <param name="direccion">Dirección del pariente</param>
         /// <param name="mail">Dirección de correo del pariente</param>
         /// <param name="estado">Estado</param>
-        public Pariente(int dni, String nombre, String apellido, Paciente paciente, String telefono1, String telefono2, String parentezco, String direccion, String mail, String estado)
-        {           
-            this.Dni = dni;
+        public Pariente(int dni, String nombre, String apellido, Paciente paciente, String telefono1, String telefono2, String parentezco, String direccion, String mail)
+        {
+            this.Id = new ParienteId();
+            this.DniPariente = dni;
             this.Paciente = paciente;
             this.Telefono1 = telefono1;
             this.Telefono2 = telefono2;
@@ -37,14 +39,37 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
             this.Mail = mail;
             this.Nombre = nombre;
             this.Apellido = apellido;
-            this.Estado = String.IsNullOrEmpty(estado) ? "A" : estado;
+            this.Estado = "A";
+        }
+
+         private ParienteId parienteId { get; set; }
+
+        /// <summary>
+        /// Identificador de Historia Clínica
+        /// </summary>
+        public virtual ParienteId Id
+        {
+            get { return this.parienteId; }
+            set { this.parienteId = value; }
         }
 
         /// <summary>
-        /// Paciente
+        /// Dni del Pariente
         /// </summary>
-        public virtual Paciente Paciente { get; set; }
+        public virtual int DniPariente
+        {
+            get { return this.Id.DniPariente; }
+            set { this.Id.DniPariente = value; }
+        }
 
+        /// <summary>
+        /// Habitación a la que pertenece la cama
+        /// </summary>
+        public virtual Paciente Paciente
+        {
+            get { return this.Id.Paciente; }
+            set { this.Id.Paciente = value; }
+        }
         /// <summary>
         /// Parentezco con el paciente
         /// </summary>
@@ -62,7 +87,7 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
             var entidad = (obj as Pariente);
             if (entidad == null)
                 return false;
-            return (this.Dni.Equals(entidad.Dni));
+            return (this.Id.Equals(entidad.Id));
         }
 
         /// <summary>
@@ -71,7 +96,7 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// <returns>Hashcode de la instancia</returns>
         public override int GetHashCode()
         {
-            return Dni.GetHashCode();
+            return Id.GetHashCode();
         }
     }
 }

@@ -13,7 +13,8 @@ namespace AñosFelices.Mappings
         /// </summary>
         public PacienteMap()
         {
-            Id(x => x.Dni, "DniPariente").GeneratedBy.Assigned().Not.Nullable();
+            Table("Pacientes");
+            Id(x => x.Dni, "DniPaciente").GeneratedBy.Assigned().Not.Nullable();
             Map(x => x.Nombre, "Nombre").Not.Nullable();
             Map(x => x.Apellido, "Apellido").Not.Nullable();
             Map(x => x.Estado, "Estado").Not.Nullable();
@@ -21,7 +22,14 @@ namespace AñosFelices.Mappings
             References(x => x.Cama)
                 .Columns("IdCama","IdHabitacion")
                 .Class<Cama>()
-                .Not.Nullable();
+                .Not.Nullable()
+                .Not.LazyLoad();
+            HasMany<Pariente>(x => x.Parientes)
+                    .AsBag()
+                    .Not.LazyLoad()
+                    .KeyColumn("DniPaciente")
+                    .Cascade.SaveUpdate();
         }
+
     }
 }

@@ -41,6 +41,11 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         }
 
         /// <summary>
+        /// Dni del Usuario
+        /// </summary>
+        public virtual int Dni { get; set; }
+
+        /// <summary>
         /// Rol del Usuario
         /// </summary>
         public virtual Rol Rol { get; set; }

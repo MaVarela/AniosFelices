@@ -13,6 +13,7 @@ namespace AñosFelices.Mappings
         /// </summary>
         public HabitacionMap()
         {
+            Table("Habitaciones");
             Id(x => x.IdHabitacion, "IdHabitacion").GeneratedBy.Increment();
             Map(x => x.Estado, "Estado");
             Map(x => x.Categoria, "Categoria");

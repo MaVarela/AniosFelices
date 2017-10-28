@@ -13,7 +13,7 @@ namespace AñosFelices.Mappings
         /// </summary>
         public HistoriaClinicaMap()
         {
-            Table("HistoriaClinica");
+            Table("HistoriasClinicas");
             CompositeId(x => x.Id)
                 .KeyReference(x => x.Paciente, "DniPaciente")
                 .KeyReference(x => x.Usuario, "DniUsuario")

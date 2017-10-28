@@ -22,90 +22,83 @@ namespace AñosFelices
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmPrincipal());
 
-            /*
-            Rol fantasma = new Rol("Fantasma");
             Rol admin = new Rol("Administrador");
             Rol enfermera = new Rol("Enfermera");
             Rol medico = new Rol("Médico");
-            */
 
             IRepositorioRol repositorioRol = new RepositorioRol();
             IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
             IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
             IRepositorioCama repositorioCama = new RepositorioCama();
             IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
-            //repositorioRol.Agregar(fantasma);
-            //repositorioRol.Agregar(admin);
-            //repositorioRol.Agregar(enfermera);
-            //repositorioRol.Agregar(medico);
-
-
-            /*var roles = repositorioRol.ObtenerTodos();
-            if (roles.Count() > 0)
-            {
-                foreach(var rol in roles)
-                {
-                    Console.WriteLine(rol.IdRol.ToString() + ": " + rol.Descripcion);
-                }
-            }*/
+            IRepositorioPariente repositorioPariente = new RepositorioPariente();
             
-            var rol3 = repositorioRol.ObtenerPorId(3);
-            if (rol3 != null)
+            //var rol1 = repositorioRol.ObtenerPorId(1);
+            //var rol2 = repositorioRol.ObtenerPorId(2);
+            //var rol3 = repositorioRol.ObtenerPorId(3);
+            //if (rol1 == null)
+            //    repositorioRol.Agregar(admin);
+            //if (rol2 == null)
+            //    repositorioRol.Agregar(enfermera);
+            //if (rol3 == null)
+            //    repositorioRol.Agregar(medico);
+
+
+            //if (rol1 != null)
+            //{
+            //    var getAdmin = repositorioUsuario.ObtenerPorId(34493011);
+            //    if (getAdmin == null)
+            //    {
+            //        Usuario administrador = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
+            //        repositorioUsuario.Agregar(administrador);
+            //    }
+            //}
+            //if (rol3 != null)
+            //{
+            //    var getMedico = repositorioUsuario.ObtenerPorId(34493012);
+            //    if (getMedico == null)
+            //    {
+            //        Usuario uMedico = new Usuario(34493012, rol3, "123456", "Juan", "Navarro", "Patagonia 235", "4740-2240", null, "juanNavarro@gmail.com");
+            //        repositorioUsuario.Agregar(uMedico);
+            //    }
+            //}
+
+            var hab1 = repositorioHabitacion.ObtenerPorId(1);
+            try
             {
-                Console.WriteLine(rol3.IdRol.ToString() + ": " + rol3.Descripcion);
-                //Usuario administrador = new Usuario(34493011, rol, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
-                /*Usuario medico = new Usuario(34493012, rol, "123456", "Juan", "Navarro", "Patagonia 235", "4740-2240", null, "juanNavarro@gmail.com");
-                repositorioUsuario.Agregar(medico);
-                var usuario = repositorioUsuario.ObtenerPorId(34493012);
-                if(usuario != null)
-                    Console.WriteLine(usuario.Dni.ToString() + ": " + usuario.Nombre + ", " + usuario.Apellido);*/
-            }
-            /*
-            rol.Descripcion = "Administrador";
-            repositorioRol.Update(rol);
-
-            rol = repositorioRol.ObtenerPorId(1);
-            Console.WriteLine("Rol Actualizado " + rol.IdRol.ToString() + ": " + rol.Descripcion);
-             */
-
-            Habitacion habitacion = new Habitacion("Hombres (Alta Dependencia)", null);
-            Habitacion habitacion2 = new Habitacion("Mujeres (Alta Dependencia)", null);
-            /*repositorioHabitacion.Agregar(habitacion);
-            repositorioHabitacion.Agregar(habitacion2);*/
-            /*habitacion = repositorioHabitacion.ObtenerPorId(1);
-            if(habitacion.Camas.Count() > 0)
-            {
-                habitacion.Categoria = "Hombres (No Dependientes)";
-
-                /*
-                foreach (var cama in habitacion.Camas)
+                if (hab1 == null)
                 {
-                    cama.Estado = "L";
+                    Habitacion habitacion = new Habitacion("Hombres (Alta Dependencia)", null);
+                    Cama cama = new Cama(1, habitacion);
+                    Cama cama2 = new Cama(2, habitacion);
+                    habitacion.Camas.Add(cama);
+                    habitacion.Camas.Add(cama2);
+                    repositorioHabitacion.Agregar(habitacion);
                 }
-                
-            }*/
-            //repositorioHabitacion.Editar(habitacion);
-            //habitacion2 = repositorioHabitacion.ObtenerPorId(2);
-            /*if (habitacion != null)
-            {
-                Cama cama = new Cama(1, habitacion);
-                Cama cama2 = new Cama(2, habitacion);
-                //repositorioCama.Agregar(cama);
-                repositorioCama.Agregar(cama2);
             }
-            if (habitacion2 != null)
+            catch (Exception e)
             {
-                Cama cama = new Cama(1, habitacion2);
-                Cama cama2 = new Cama(2, habitacion2);
-                //repositorioCama.Agregar(cama);
-                repositorioCama.Agregar(cama2);
-            }*/
+                Console.WriteLine(e.Message);
+            }
 
-            habitacion = repositorioHabitacion.ObtenerPorId(1);
-            if (habitacion.Camas.Count() > 0)
+
+            hab1 = repositorioHabitacion.ObtenerPorId(1);
+            if (hab1 != null && hab1.Camas.Count() > 0)
             {
-                var paciente = new Paciente(34493020, habitacion.Camas.First(), "Pepe", "Grillo", "No Dependiente");
-                repositorioPaciente.Agregar(paciente);
+                try
+                {
+                    if (repositorioPaciente.ObtenerPorId(34493020) == null)
+                    {
+                        var paciente = new Paciente(34493020, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
+                        var pariente = new Pariente(34493021, "Pepa", "Pig", paciente, "1144342200", null, "Hija", "Calle 123", "PepaPig@gmail.com");
+                        paciente.Parientes.Add(pariente);
+                        repositorioPaciente.Agregar(paciente);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
     }

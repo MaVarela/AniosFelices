@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AniosFelicesSystem.EntidadesDeNegocio
 {
@@ -12,7 +14,7 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// </summary>
         public Paciente()
         {
-
+            this.Parientes = new List<Pariente>();
         }
 
         /// <summary>
@@ -25,8 +27,9 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// <param name="apellido">Apellido del paciente</param>
         /// <param name="estadoFisico">Estado Físico del paciente</param>
         /// <param name="estado">Estado</param>
-        public Paciente(int dni, Cama cama, String nombre, String apellido, String estadoFisico)
+        public Paciente(int dni, Cama cama, String nombre, String apellido, String estadoFisico, ICollection<Pariente> parientes)
         {
+            this.Parientes = parientes != null ? parientes : new List<Pariente>();
             this.Dni = dni;
             this.Cama = cama;
             this.Nombre = nombre;
@@ -63,6 +66,12 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// Estado
         /// </summary>
         public virtual String Estado { get; set; }
+
+        /// <summary>
+        /// Camas de la habitación
+        /// </summary>
+        public virtual ICollection<Pariente> Parientes { get; set; }
+
 
         /// <summary>
         /// Implementa la lógica necesaria para determinar la igualdad entre instancias de esta clase

@@ -13,6 +13,7 @@ namespace AñosFelices.Mappings
         /// </summary>
         public UsuarioMap()
         {
+            Table("Usuarios");
             Id(x => x.Dni, "DniUsuario").GeneratedBy.Assigned().Not.Nullable();
             Map(x => x.Nombre, "Nombre").Not.Nullable();
             Map(x => x.Apellido, "Apellido").Not.Nullable();

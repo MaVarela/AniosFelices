@@ -13,6 +13,7 @@ namespace AñosFelices.Mappings
         /// </summary>
         public CamaMap()
         {
+            Table("Camas");
             CompositeId(x => x.Id)
                 .KeyReference(x => x.Habitacion, "IdHabitacion")
                 .KeyProperty(x => x.IdCama, "IdCama");

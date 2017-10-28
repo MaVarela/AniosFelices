@@ -62,12 +62,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// <returns>Un rol</returns>
         public Rol ObtenerPorId(int id)
         {
-            if (id != null)
+            using (ISession session = NHibernateHelper.OpenSession())
             {
-                using (ISession session = NHibernateHelper.OpenSession())
-                    return session.Get<Rol>(id);
+                return session.Get<Rol>(id);
             }
-            return null;
         }
 
         /// <summary>

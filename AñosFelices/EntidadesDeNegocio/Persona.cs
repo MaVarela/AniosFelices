@@ -13,11 +13,6 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         }
 
         /// <summary>
-        /// Dni de la persona
-        /// </summary>
-        public virtual int Dni { get; set; }
-
-        /// <summary>
         /// Nombre de la persona
         /// </summary>
         public virtual String Nombre { get; set; }
