@@ -16,5 +16,11 @@ namespace AñosFelices
         {
             InitializeComponent();
         }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var sarasa = new frmRolesList();
+            sarasa.Show();
+        }
     }
 }
