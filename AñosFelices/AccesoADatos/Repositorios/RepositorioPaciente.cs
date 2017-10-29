@@ -14,7 +14,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un Paciente
         /// </summary>
         /// <param name="obj">Paciente a persistir</param>
-        public void Agregar(Paciente obj)
+        /// <returns>Paciente</returns> 
+        public Paciente Agregar(Paciente obj)
         {
             if (obj != null)
             {
@@ -26,13 +27,15 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     transaction.Commit();
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un Paciente
         /// </summary>
         /// <param name="obj">Paciente modificado</param>
-        public void Editar(Paciente obj)
+        /// <returns>Paciente</returns> 
+        public Paciente Editar(Paciente obj)
         {
             if (obj != null)
             {
@@ -42,16 +45,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
-
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar un Paciente
         /// </summary>
         /// <param name="obj">Paciente a inhabilitar</param>
-        public void Inhabilitar(Paciente obj)
+        /// <returns>Paciente</returns> 
+        public Paciente Inhabilitar(Paciente obj)
         {
             if (obj != null)
             {
@@ -61,8 +66,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "B";
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>

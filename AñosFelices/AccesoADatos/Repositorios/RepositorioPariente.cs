@@ -14,7 +14,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un pariente
         /// </summary>
         /// <param name="obj">Pariente a persistir</param>
-        public void Agregar(Pariente obj)
+        /// <returns>Pariente</returns> 
+        public Pariente Agregar(Pariente obj)
         {
             if (obj != null)
             {
@@ -24,15 +25,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "A";
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un pariente
         /// </summary>
         /// <param name="obj">Pariente modificado</param>
-        public void Editar(Pariente obj)
+        /// <returns>Pariente</returns> 
+        public Pariente Editar(Pariente obj)
         {
             if (obj != null)
             {
@@ -42,16 +46,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
-
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar un pariente
         /// </summary>
         /// <param name="obj">Pariente a inhabilitar</param>
-        public void Inhabilitar(Pariente obj)
+        /// <returns>Pariente</returns> 
+        public Pariente Inhabilitar(Pariente obj)
         {
             if (obj != null)
             {
@@ -61,8 +67,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "B";
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>

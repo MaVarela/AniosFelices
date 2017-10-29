@@ -14,7 +14,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un usuario
         /// </summary>
         /// <param name="obj">Usuario a persistir</param>
-        public void Agregar(Usuario obj)
+        /// <returns>Usuario</returns>
+        public Usuario Agregar(Usuario obj)
         {
             if (obj != null)
             {
@@ -24,15 +25,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "A";
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un usuario
         /// </summary>
         /// <param name="obj">Usuario modificado</param>
-        public void Editar(Usuario obj)
+        /// <returns>Usuario</returns>
+        public Usuario Editar(Usuario obj)
         {
             if (obj != null)
             {
@@ -42,16 +46,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
-
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar un usuario
         /// </summary>
         /// <param name="obj">Usuario a inhabilitar</param>
-        public void Inhabilitar(Usuario obj)
+        /// <returns>Usuario</returns>
+        public Usuario Inhabilitar(Usuario obj)
         {
             if (obj != null)
             {
@@ -61,8 +67,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "B";
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>

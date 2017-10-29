@@ -15,7 +15,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir una habitación
         /// </summary>
         /// <param name="obj">Habitación a persistir</param>
-        public void Agregar(Habitacion obj)
+        /// <returns>Habitacion</returns>
+        public Habitacion Agregar(Habitacion obj)
         {
             if (obj != null)
             {
@@ -25,15 +26,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "A";
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar una habitación
         /// </summary>
         /// <param name="obj">Habitación modificada</param>
-        public void Editar(Habitacion obj)
+        /// <returns>Habitacion</returns>
+        public Habitacion Editar(Habitacion obj)
         {
             if (obj != null)
             {
@@ -43,16 +47,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
-
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar una habitación
         /// </summary>
         /// <param name="obj">Habitación a inhabilitar</param>
-        public void Inhabilitar(Habitacion obj)
+        /// <returns>Habitacion</returns>
+        public Habitacion Inhabilitar(Habitacion obj)
         {
             if (obj != null)
             {
@@ -62,8 +68,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "B";
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>

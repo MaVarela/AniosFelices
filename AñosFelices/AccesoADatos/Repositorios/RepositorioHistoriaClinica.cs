@@ -16,7 +16,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un registro de Historia clínica
         /// </summary>
         /// <param name="obj">Registro a persistir</param>
-        public void Agregar(HistoriaClinica obj)
+        /// <returns>HistoriaClinica</returns>
+        public HistoriaClinica Agregar(HistoriaClinica obj)
         {
             if (obj != null)
             {
@@ -25,15 +26,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 {
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un registro de Historia clínica (Método no implementado)
         /// </summary>
         /// <param name="obj">Registro a editar</param>
-        public void Editar(HistoriaClinica obj)
+        /// <returns>HistoriaClinica</returns>
+        public HistoriaClinica Editar(HistoriaClinica obj)
         {
             throw new NotImplementedException();
         }
@@ -42,7 +46,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite inhabilitar un registro de Historia clínica (Método no implementado)
         /// </summary>
         /// <param name="obj">Registro a inhabilitar</param>
-        public void Inhabilitar(HistoriaClinica obj)
+        /// <returns>HistoriaClinica</returns>
+        public HistoriaClinica Inhabilitar(HistoriaClinica obj)
         {
             throw new NotImplementedException();
         }

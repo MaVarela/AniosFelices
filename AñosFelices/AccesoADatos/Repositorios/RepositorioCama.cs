@@ -19,7 +19,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir una cama
         /// </summary>
         /// <param name="obj">Cama a persistir</param>
-        public void Agregar(Cama obj)
+        /// <return>Cama</return>
+        public Cama Agregar(Cama obj)
         {
             if (obj != null)
             {
@@ -29,15 +30,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "L";
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar una cama
         /// </summary>
         /// <param name="obj">Cama modificada</param>
-        public void Editar(Cama obj)
+        /// <return>Cama</return>
+        public Cama Editar(Cama obj)
         {
             if (obj != null)
             {
@@ -47,16 +51,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
-
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar una cama
         /// </summary>
         /// <param name="obj">Cama a inhabilitar</param>
-        public void Inhabilitar(Cama obj)
+        /// <return>Cama</return>
+        public Cama Inhabilitar(Cama obj)
         {
             if (obj != null)
             {
@@ -66,8 +72,10 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     obj.Estado = "B";
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AñosFelices.AccesoADatos.IRepositorios
 {
@@ -16,19 +12,22 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// Permite persistir un registro
         /// </summary>
         /// <param name="obj">Objeto a persistir</param>
-        void Agregar(T obj);
+        /// <returns>Objeto persistido</returns>
+        T Agregar(T obj);
 
         /// <summary>
         /// Permite editar un registro
         /// </summary>
         /// <param name="obj">Objeto modificado</param>
-        void Editar(T obj);
+        /// <returns>Objeto persistido</returns>
+        T Editar(T obj);
         
         /// <summary>
         /// Permite remover un registro
         /// </summary>
-        /// <param name="obj">Objeto a remover</param>
-        void Inhabilitar(T obj);
+        /// <param name="obj">Objeto a inhabilitar</param>
+        /// <returns>Objeto persistido</returns>
+        T Inhabilitar(T obj);
 
         /// <summary>
         /// Permite recuperar un registro en base a su identificador

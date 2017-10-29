@@ -16,7 +16,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un registro en el libro de guardias
         /// </summary>
         /// <param name="obj">Registro a persistir</param>
-        public void Agregar(LibroDeGuardias obj)
+        /// <return>LibroDeGuardias</return>
+        public LibroDeGuardias Agregar(LibroDeGuardias obj)
         {
             if (obj != null)
             {
@@ -25,15 +26,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 {
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un registro del libro de guardias (Método no implementado)
         /// </summary>
         /// <param name="obj">Registro a editar</param>
-        public void Editar(LibroDeGuardias obj)
+        /// <return>LibroDeGuardias</return>
+        public LibroDeGuardias Editar(LibroDeGuardias obj)
         {
             throw new NotImplementedException();
         }
@@ -42,7 +46,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite inhabilitar un registro del libro de guardias (Método no implementado)
         /// </summary>
         /// <param name="obj">Registro a inhabilitar</param>
-        public void Inhabilitar(LibroDeGuardias obj)
+        /// <return>LibroDeGuardias</return>
+        public LibroDeGuardias Inhabilitar(LibroDeGuardias obj)
         {
             throw new NotImplementedException();
         }

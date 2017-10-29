@@ -15,7 +15,8 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// Permite persistir un rol
         /// </summary>
         /// <param name="obj">Rol a persistir</param>
-        public void Agregar(Rol obj)
+        /// <returns>Rol</returns>
+        public Rol Agregar(Rol obj)
         {
             if(obj != null)
             {
@@ -24,15 +25,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 {
                     session.Save(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite editar un rol
         /// </summary>
         /// <param name="obj">Rol modificado</param>
-        public void Editar(Rol obj)
+        /// <returns>Rol</returns>
+        public Rol Editar(Rol obj)
         {
             if (obj != null)
             {
@@ -42,15 +46,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
 
                     session.Update(obj);
                     transaction.Commit();
+                    return obj;
                 }
             }
+            return null;
         }
 
         /// <summary>
         /// Permite inhabilitar un rol (Método no implementado)
         /// </summary>
         /// <param name="obj">Rol a inhabilitar</param>
-        public void Inhabilitar(Rol obj)
+        /// <returns>Rol</returns>
+        public Rol Inhabilitar(Rol obj)
         {
             throw new NotImplementedException();
         }
