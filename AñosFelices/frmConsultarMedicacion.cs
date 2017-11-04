@@ -21,15 +21,27 @@ namespace AñosFelices
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (cmbDato.Text == "")
+            {
+                this.Grilla1.DataSource = consultarhc.ObtenerTodos();
+            }
+
+            if (cmbDato.Text == "DNI Paciente")
+            {
+                if (txtDato.Text != "")
+                {
+                    this.Grilla1.DataSource = consultarhc.ObtenerPorId(txtDato.Text);
+                }
+                else
+                {
+                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            if (cmbDato.Text == "DNI Paciente")
-            {
-                this.Grilla1.DataSource = consultarhc.ObtenerPorId(txtDato.Text);
-            }
+            this.Close();
         }
     }
 }
