@@ -15,5 +15,10 @@ namespace AñosFelices
             
             this.dgvRoles.DataSource = repositorioRol.ObtenerTodos();
         }
+
+        private void frmRolesList_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

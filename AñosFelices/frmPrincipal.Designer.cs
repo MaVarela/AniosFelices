@@ -31,13 +31,19 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarHistoriaClinicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarMedicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarEstadoDePacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rolesToolStripMenuItem});
+            this.rolesToolStripMenuItem,
+            this.consultarHistoriaClinicaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1064, 24);
@@ -58,6 +64,45 @@
             this.listarToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            // 
+            // consultarHistoriaClinicaToolStripMenuItem
+            // 
+            this.consultarHistoriaClinicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarToolStripMenuItem1,
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem,
+            this.consultarMedicacionToolStripMenuItem,
+            this.consultarEstadoDePacientesToolStripMenuItem});
+            this.consultarHistoriaClinicaToolStripMenuItem.Name = "consultarHistoriaClinicaToolStripMenuItem";
+            this.consultarHistoriaClinicaToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
+            this.consultarHistoriaClinicaToolStripMenuItem.Text = "Consultar Historia Clinica";
+            // 
+            // listarToolStripMenuItem1
+            // 
+            this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
+            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(326, 22);
+            this.listarToolStripMenuItem1.Text = "Consultar Recomendaciones Alimentarias";
+            this.listarToolStripMenuItem1.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
+            // 
+            // consultarRecomendacionesDeActividadFisicaToolStripMenuItem
+            // 
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem.Name = "consultarRecomendacionesDeActividadFisicaToolStripMenuItem";
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem.Text = "Consultar Recomendaciones de Actividad Fisica";
+            this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem.Click += new System.EventHandler(this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem_Click);
+            // 
+            // consultarMedicacionToolStripMenuItem
+            // 
+            this.consultarMedicacionToolStripMenuItem.Name = "consultarMedicacionToolStripMenuItem";
+            this.consultarMedicacionToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.consultarMedicacionToolStripMenuItem.Text = "Consultar Medicacion";
+            this.consultarMedicacionToolStripMenuItem.Click += new System.EventHandler(this.consultarMedicacionToolStripMenuItem_Click);
+            // 
+            // consultarEstadoDePacientesToolStripMenuItem
+            // 
+            this.consultarEstadoDePacientesToolStripMenuItem.Name = "consultarEstadoDePacientesToolStripMenuItem";
+            this.consultarEstadoDePacientesToolStripMenuItem.Size = new System.Drawing.Size(326, 22);
+            this.consultarEstadoDePacientesToolStripMenuItem.Text = "Consultar Estado de Pacientes";
+            this.consultarEstadoDePacientesToolStripMenuItem.Click += new System.EventHandler(this.consultarEstadoDePacientesToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -82,6 +127,11 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarHistoriaClinicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem consultarRecomendacionesDeActividadFisicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarMedicacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarEstadoDePacientesToolStripMenuItem;
     }
 }
 

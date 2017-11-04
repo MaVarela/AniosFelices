@@ -8,5 +8,6 @@ namespace AñosFelices.AccesoADatos.IRepositorios
     /// </summary>
     public interface IRepositorioHistoriaClinica : IRepositorioGenerico<HistoriaClinica, HistoriaClinicaId>
     {
+        object ObtenerPorId(string p);
     }
 }
