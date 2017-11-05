@@ -30,6 +30,5 @@ namespace AñosFelices.Mappings
                     .KeyColumn("DniPaciente")
                     .Cascade.SaveUpdate();
         }
-
     }
 }
