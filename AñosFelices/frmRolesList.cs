@@ -8,11 +8,17 @@ namespace AñosFelices
     {
         IRepositorioRol repositorioRol = new RepositorioRol();
 
+        //HOLA JORGE HOLA MICHO
         public frmRolesList()
         {
             InitializeComponent();
             
             this.dgvRoles.DataSource = repositorioRol.ObtenerTodos();
+        }
+
+        private void frmRolesList_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

@@ -48,6 +48,7 @@
             this.Controls.Add(this.dgvRoles);
             this.Name = "frmRolesList";
             this.Text = "Roles";
+            this.Load += new System.EventHandler(this.frmRolesList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
             this.ResumeLayout(false);
 

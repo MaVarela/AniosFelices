@@ -18,7 +18,31 @@ namespace AñosFelices
             ListadoRoles.Show();
         }
 
-        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void consultarRecomendacionesAlimentariasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var consultarhc = new frmConsultarRecAlim();
+            consultarhc.Show();
+        }
+
+        private void consultarRecomendacionesDeActividadFisicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var consultarhc = new frmConsultarRecActiv();
+            consultarhc.Show();
+        }
+
+        private void consultarMedicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var consultarhc = new frmConsultarMedicacion();
+            consultarhc.Show();
+        }
+
+        private void consultarEstadoDePacientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var consultarhc = new frmConsultarEstadoPaciente();
+            consultarhc.Show();
+        }
+
+        private void listarHabitacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var ListadoHabitaciones = new frmHabitacionesList();
             ListadoHabitaciones.Show();

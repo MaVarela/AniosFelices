@@ -1,6 +1,5 @@
 ﻿using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.AccesoADatos.IRepositorios;
-using AñosFelices.EntidadesDeNegocio;
 using NHibernate;
 using System;
 using System.Collections.Generic;
