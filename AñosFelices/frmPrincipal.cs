@@ -14,8 +14,14 @@ namespace AñosFelices
 
         private void listarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var sarasa = new frmRolesList();
-            sarasa.Show();
+            var ListadoRoles = new frmRolesList();
+            ListadoRoles.Show();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var ListadoHabitaciones = new frmHabitacionesList();
+            ListadoHabitaciones.Show();
         }
     }
 }

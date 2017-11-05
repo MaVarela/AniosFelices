@@ -1,4 +1,4 @@
-﻿using AniosFelicesSystem.EntidadesDeNegocio;
+﻿using AñosFelices.EntidadesDeNegocio;
 using FluentNHibernate.Mapping;
 
 namespace AñosFelices.Mappings

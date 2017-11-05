@@ -89,6 +89,8 @@
     <Compile Include="AccesoADatos\Repositorios\RepositorioPariente.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioRol.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioUsuario.cs" />
+    <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
+    <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
     <Compile Include="EntidadesDeNegocio\Habitacion.cs" />
@@ -102,6 +104,12 @@
     <Compile Include="EntidadesDeNegocio\Persona.cs" />
     <Compile Include="EntidadesDeNegocio\Rol.cs" />
     <Compile Include="EntidadesDeNegocio\Usuario.cs" />
+    <Compile Include="frmHabitacionesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHabitacionesList.Designer.cs">
+      <DependentUpon>frmHabitacionesList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +140,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\LogueadorErrores.cs" />
+    <EmbeddedResource Include="frmHabitacionesList.resx">
+      <DependentUpon>frmHabitacionesList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

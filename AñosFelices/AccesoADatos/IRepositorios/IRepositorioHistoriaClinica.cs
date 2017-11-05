@@ -1,4 +1,4 @@
-﻿using AniosFelicesSystem.EntidadesDeNegocio;
+﻿using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.EntidadesDeNegocio;
 
 namespace AñosFelices.AccesoADatos.IRepositorios

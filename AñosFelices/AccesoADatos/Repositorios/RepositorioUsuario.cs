@@ -1,4 +1,4 @@
-﻿using AniosFelicesSystem.EntidadesDeNegocio;
+﻿using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System.Collections.Generic;

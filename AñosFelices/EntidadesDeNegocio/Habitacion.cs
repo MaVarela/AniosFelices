@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AniosFelicesSystem.EntidadesDeNegocio
+namespace AñosFelices.EntidadesDeNegocio
 {
     /// <summary>
     /// Habitación

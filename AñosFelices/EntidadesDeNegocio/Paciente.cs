@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AniosFelicesSystem.EntidadesDeNegocio
+namespace AñosFelices.EntidadesDeNegocio
 {
     /// <summary>
     /// Paciente

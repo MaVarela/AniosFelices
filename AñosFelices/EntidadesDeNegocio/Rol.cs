@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AniosFelicesSystem.EntidadesDeNegocio
+namespace AñosFelices.EntidadesDeNegocio
 {
     /// <summary>
     /// Rol
