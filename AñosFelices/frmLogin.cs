@@ -33,7 +33,9 @@ namespace AñosFelices
                 {
                     var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
                     if (usuario != null && usuario.Password == txtPass.Text)
+                    {
                         this.Close();
+                    }
                     else
                         MessageBox.Show("Usuario o Password inválidos");
                 }
