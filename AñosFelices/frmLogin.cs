@@ -1,5 +1,6 @@
 ﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
+using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,8 @@ namespace AñosFelices
                     var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
                     if (usuario != null && usuario.Password == txtPass.Text)
                     {
+                        VariablesGlobales.apellidoUsuario = usuario.Apellido;
+                        VariablesGlobales.nombreUsuario = usuario.Nombre;
                         this.Close();
                     }
                     else

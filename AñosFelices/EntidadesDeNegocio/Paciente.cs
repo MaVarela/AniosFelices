@@ -53,8 +53,9 @@ namespace AñosFelices.EntidadesDeNegocio
         public virtual String Apellido { get; set; }
 
         /// <summary>
-        /// Cama del paciente
+        /// Habitacion del paciente
         /// </summary>
+        
         public virtual Cama Cama { get; set; }
 
         /// <summary>
@@ -87,11 +88,11 @@ namespace AñosFelices.EntidadesDeNegocio
                 return false;
             return (this.Dni.Equals(entidad.Dni));
         }
-
         /// <summary>
         /// Implementa la lógica necesaria para obtener el hash de una instancia de esta clase
         /// </summary>
         /// <returns>Hashcode de la instancia</returns>
+
         public override int GetHashCode()
         {
             return Dni.GetHashCode();
