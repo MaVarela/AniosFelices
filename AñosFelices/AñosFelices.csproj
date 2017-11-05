@@ -91,6 +91,7 @@
     <Compile Include="AccesoADatos\Repositorios\RepositorioUsuario.cs" />
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
+    <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
     <Compile Include="EntidadesDeNegocio\Habitacion.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="EntidadesDeNegocio\LibroDeGuardias.cs" />
     <Compile Include="EntidadesDeNegocio\LibroDeGuardiasId.cs" />
     <Compile Include="EntidadesDeNegocio\Paciente.cs" />
+    <Compile Include="DTOs\PacienteDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Pariente.cs" />
     <Compile Include="EntidadesDeNegocio\ParienteId.cs" />
     <Compile Include="EntidadesDeNegocio\Persona.cs" />
@@ -134,11 +136,35 @@
     <Compile Include="frmHabitacionesList.Designer.cs">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPacientes.Designer.cs">
+      <DependentUpon>frmPacientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarActividadFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarActividadFisica.Designer.cs">
+      <DependentUpon>frmRegistrarActividadFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarComida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarComida.Designer.cs">
+      <DependentUpon>frmRegistrarComida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarEstadoGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarEstadoGeneral.Designer.cs">
+      <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRolesList.cs">
       <SubType>Form</SubType>
@@ -179,8 +205,21 @@
     <EmbeddedResource Include="frmHabitacionesList.resx">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Utilidades\VariablesGlobales.cs" />
+    <EmbeddedResource Include="frmPacientes.resx">
+      <DependentUpon>frmPacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarActividadFisica.resx">
+      <DependentUpon>frmRegistrarActividadFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarComida.resx">
+      <DependentUpon>frmRegistrarComida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarEstadoGeneral.resx">
+      <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRolesList.resx">
       <DependentUpon>frmRolesList.cs</DependentUpon>
