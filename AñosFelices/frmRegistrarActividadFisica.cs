@@ -1,5 +1,7 @@
 ﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
+using AñosFelices.DTOs;
+using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -62,7 +64,25 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+            LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+            idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(VariablesGlobales.dniUsuario));
+            idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(VariablesGlobales.DniPaciente));
+            idLibroGuardias.Turno = this.cmbTurno.Text;
+            var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+            var fecha = dtpFecha.Value.Date;
 
+            if(actividadFisica == null)
+            {
+                actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
+                actividadFisica.Fecha = dtpFecha.Value;
+                actividadFisica.ActividadRealizada = txtActividad.Text;
+                actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
+                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
         }
     }
 }

@@ -81,6 +81,7 @@
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtDni
             // 
@@ -96,7 +97,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(227, 132);
+            this.ClientSize = new System.Drawing.Size(243, 141);
             this.ControlBox = false;
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);

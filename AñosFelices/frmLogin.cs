@@ -35,6 +35,7 @@ namespace AñosFelices
                     var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
                     if (usuario != null && usuario.Password == txtPass.Text)
                     {
+                        VariablesGlobales.dniUsuario = txtDni.Text;
                         VariablesGlobales.apellidoUsuario = usuario.Apellido;
                         VariablesGlobales.nombreUsuario = usuario.Nombre;
                         this.Close();
@@ -47,6 +48,11 @@ namespace AñosFelices
             }
             else
                 MessageBox.Show("El campo 'Dni' es Obligatorio");
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -3,6 +3,7 @@ using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System;
 using System.Collections.Generic;
+using AñosFelices.DTOs;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {

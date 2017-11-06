@@ -28,20 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(498, 267);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(88, 23);
-            this.btnAceptar.TabIndex = 48;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dgvPacientes
             // 
@@ -50,17 +39,18 @@
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(780, 224);
+            this.dgvPacientes.Size = new System.Drawing.Size(796, 224);
             this.dgvPacientes.TabIndex = 47;
+            this.dgvPacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacientes_CellContentClick);
             // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 312);
-            this.Controls.Add(this.btnAceptar);
+            this.ClientSize = new System.Drawing.Size(863, 290);
             this.Controls.Add(this.dgvPacientes);
             this.Name = "frmPacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.frmPacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
@@ -70,7 +60,6 @@
 
         #endregion
 
-        internal System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvPacientes;
     }
 }

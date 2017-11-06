@@ -45,31 +45,23 @@ namespace AñosFelices
             this.dgvPacientes.Columns["Estado"].DisplayIndex = 6;
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void dgvPacientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvPacientes.CurrentRow != null)
+            if (dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "A")
             {
-                if (dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "A")
-                {
-                    VariablesGlobales.DniPaciente = dgvPacientes.SelectedRows[0].Cells[0].Value.ToString();
-                    VariablesGlobales.Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString();
-                    VariablesGlobales.Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                    VariablesGlobales.EstadoFisico = dgvPacientes.SelectedRows[0].Cells[5].Value.ToString();
-                    VariablesGlobales.IdHabitacion = dgvPacientes.SelectedRows[0].Cells[3].Value.ToString();
-                    VariablesGlobales.IdCama = dgvPacientes.SelectedRows[0].Cells[4].Value.ToString();
-                    VariablesGlobales.Estado = dgvPacientes.SelectedRows[0].Cells[6].Value.ToString();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Paciente INACTIVO. No se puede Registrar Actividad Física", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                VariablesGlobales.DniPaciente = dgvPacientes.SelectedRows[0].Cells[0].Value.ToString();
+                VariablesGlobales.Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString();
+                VariablesGlobales.Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                VariablesGlobales.EstadoFisico = dgvPacientes.SelectedRows[0].Cells[5].Value.ToString();
+                VariablesGlobales.IdHabitacion = dgvPacientes.SelectedRows[0].Cells[3].Value.ToString();
+                VariablesGlobales.IdCama = dgvPacientes.SelectedRows[0].Cells[4].Value.ToString();
+                VariablesGlobales.Estado = dgvPacientes.SelectedRows[0].Cells[6].Value.ToString();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("No se ha seleccionado ningún Paciente", "Atención",
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Paciente INACTIVO. No se puede Registrar Actividad Física", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

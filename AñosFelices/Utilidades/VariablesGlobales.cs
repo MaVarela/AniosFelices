@@ -8,6 +8,6 @@ namespace AñosFelices.Utilidades
 {
     class VariablesGlobales
     {
-        public static string apellidoUsuario, nombreUsuario, DniPaciente, Apellido, Nombre, EstadoFisico, IdHabitacion, IdCama, Estado;
+        public static string dniUsuario, apellidoUsuario, nombreUsuario, DniPaciente, Apellido, Nombre, EstadoFisico, IdHabitacion, IdCama, Estado;
     }
 }
