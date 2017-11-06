@@ -2,13 +2,6 @@
 using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.Utilidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AñosFelices
@@ -27,8 +20,9 @@ namespace AñosFelices
 
         private void cargar()
         {
+            var usuarioLogueado = UsuarioLogueado.Instance();
             IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
-            txtUsuario.Text = VariablesGlobales.apellidoUsuario + " " + VariablesGlobales.nombreUsuario;
+            txtUsuario.Text = usuarioLogueado.Usuario.Apellido + " " + usuarioLogueado.Usuario.Nombre;
             cargarCmbTurno();   
         }
 
@@ -41,22 +35,19 @@ namespace AñosFelices
        
         private void btnPacientes_Click(object sender, EventArgs e)
         {
+            var pacienteSeleccionado = PacienteSeleccionado.Instance();
             frmPacientes frmPacientes = new frmPacientes();
             frmPacientes.ShowDialog();
-            txtPaciente.Text = VariablesGlobales.Apellido + " " + VariablesGlobales.Nombre;
-            txtHabitacion.Text = VariablesGlobales.IdHabitacion;
-            txtCama.Text = VariablesGlobales.IdCama;
+            
+            txtPaciente.Text = pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
+            txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
+            txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.DniPaciente = "";
-            VariablesGlobales.Apellido = "";
-            VariablesGlobales.Nombre = "";
-            VariablesGlobales.EstadoFisico = "";
-            VariablesGlobales.IdHabitacion = ""; 
-            VariablesGlobales.IdCama = "";
-            VariablesGlobales.Estado = "";
+            var pacienteSeleccionado = PacienteSeleccionado.Instance();
+            pacienteSeleccionado.Paciente = null;
             this.Close();
         }
 

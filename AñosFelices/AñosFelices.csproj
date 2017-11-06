@@ -186,6 +186,7 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -205,7 +206,7 @@
     <EmbeddedResource Include="frmHabitacionesList.resx">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="Utilidades\VariablesGlobales.cs" />
+    <Compile Include="Utilidades\PacienteSeleccionado.cs" />
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </EmbeddedResource>

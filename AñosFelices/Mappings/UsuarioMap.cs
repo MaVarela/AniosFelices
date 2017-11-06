@@ -23,7 +23,7 @@ namespace AñosFelices.Mappings
             Map(x => x.Telefono2, "Telefono2");
             Map(x => x.Estado, "Estado").Not.Nullable();
             Map(x => x.Password, "Password").Not.Nullable();
-            References<Rol>(x => x.Rol, "IdRol").Not.Nullable();
+            References<Rol>(x => x.Rol, "IdRol").Not.Nullable().Not.LazyLoad();
         }
     }
 }

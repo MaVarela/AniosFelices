@@ -2,14 +2,7 @@
 using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.DTOs.DTOMappers;
 using AñosFelices.EntidadesDeNegocio;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AñosFelices
@@ -21,6 +14,8 @@ namespace AñosFelices
         {
             InitializeComponent();
             HabitacionDTOMapper mapper = new HabitacionDTOMapper();
+
+            //var usuarioLogueado = UsuarioLogueado.Instance();
 
             var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
 
