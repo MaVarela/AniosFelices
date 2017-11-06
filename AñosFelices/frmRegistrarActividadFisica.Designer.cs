@@ -55,12 +55,14 @@
             this.btnAceptar.TabIndex = 66;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dtpFecha
             // 
+            this.dtpFecha.Enabled = false;
             this.dtpFecha.Location = new System.Drawing.Point(180, 239);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(301, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(197, 20);
             this.dtpFecha.TabIndex = 63;
             // 
             // txtPaciente
@@ -183,6 +185,7 @@
             this.btnCancelar.TabIndex = 74;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtCama
             // 
@@ -209,7 +212,6 @@
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(554, 477);
             this.ControlBox = false;
             this.Controls.Add(this.txtHabitacion);

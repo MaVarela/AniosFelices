@@ -14,11 +14,9 @@ namespace AñosFelices.DTO
         {
             var listadoPacientes = new List<PacienteDTO>();
 
-            //List<PacienteDTO> listaPacientes = new List<PacienteDTO>();
             foreach (var paciente in pacientes)
             {
                 var pacienteDTO = new PacienteDTO();
-                //PacienteDTO p = new PacienteDTO();
                 pacienteDTO.Dni = paciente.Dni;
                 pacienteDTO.Cama = paciente.Cama.IdCama.ToString();
                 pacienteDTO.Habitacion = paciente.Cama.Habitacion.IdHabitacion.ToString();
