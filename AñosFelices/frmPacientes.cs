@@ -1,6 +1,7 @@
 ﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
 using AniosFelicesSystem.EntidadesDeNegocio;
+using AñosFelices.DTO;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace AñosFelices
         private void frmPacientes_Load(object sender, EventArgs e)
         {
             cargar();
+        }
 
         private void cargar()
         {
