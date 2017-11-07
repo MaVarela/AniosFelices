@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(498, 267);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(88, 23);
-            this.btnAceptar.TabIndex = 48;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // dgvPacientes
             // 
@@ -50,17 +40,29 @@
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(780, 224);
+            this.dgvPacientes.Size = new System.Drawing.Size(796, 224);
             this.dgvPacientes.TabIndex = 47;
+            //this.dgvPacientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPacientes_CellContentClick);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(757, 275);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionar.TabIndex = 48;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 312);
-            this.Controls.Add(this.btnAceptar);
+            this.ClientSize = new System.Drawing.Size(863, 310);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvPacientes);
             this.Name = "frmPacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pacientes";
             this.Load += new System.EventHandler(this.frmPacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
@@ -70,7 +72,7 @@
 
         #endregion
 
-        internal System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridView dgvPacientes;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

@@ -37,7 +37,10 @@
             // 
             this.dgvHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHabitaciones.Location = new System.Drawing.Point(22, 55);
+            this.dgvHabitaciones.MultiSelect = false;
             this.dgvHabitaciones.Name = "dgvHabitaciones";
+            this.dgvHabitaciones.ReadOnly = true;
+            this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHabitaciones.Size = new System.Drawing.Size(352, 150);
             this.dgvHabitaciones.TabIndex = 1;
             // 
