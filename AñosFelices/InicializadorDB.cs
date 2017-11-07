@@ -22,12 +22,15 @@ namespace AñosFelices
             Rol medico = new Rol("Médico");
             Rol fantasma = new Rol("Fantasma");
 
+            NHibernateHelper.OpenSession();
+
             IRepositorioRol repositorioRol = new RepositorioRol();
             IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
             IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
             IRepositorioCama repositorioCama = new RepositorioCama();
             IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
             IRepositorioPariente repositorioPariente = new RepositorioPariente();
+            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
 
             var rol1 = repositorioRol.ObtenerPorId(1);
             var rol2 = repositorioRol.ObtenerPorId(2);
@@ -41,14 +44,15 @@ namespace AñosFelices
                 rol3 = repositorioRol.Agregar(medico);
             if (rol4 == null)
                 rol4 = repositorioRol.Agregar(fantasma);
+            Usuario Admin = new Usuario();
 
             if (rol1 != null)
             {
-                var getAdmin = repositorioUsuario.ObtenerPorId(34493011);
-                if (getAdmin == null)
+                Admin = repositorioUsuario.ObtenerPorId(34493011);
+                if (Admin == null)
                 {
                     Usuario administrador = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
-                    repositorioUsuario.Agregar(administrador);
+                    Admin = repositorioUsuario.Agregar(administrador);
                 }
             }
             if (rol3 != null)
@@ -83,12 +87,27 @@ namespace AñosFelices
             {
                 try
                 {
-                    if (repositorioPaciente.ObtenerPorId(34493020) == null)
+                    Paciente paciente = repositorioPaciente.ObtenerPorId(34493020);
+
+                    if (paciente == null)
                     {
-                        var paciente = new Paciente(34493020, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
+                        paciente = new Paciente(34493020, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
                         var pariente = new Pariente(34493021, "Pepa", "Pig", paciente, "1144342200", null, "Hija", "Calle 123", "PepaPig@gmail.com");
                         paciente.Parientes.Add(pariente);
                         repositorioPaciente.Agregar(paciente);
+                    }
+                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    idLibroGuardias.Paciente = paciente;
+                    idLibroGuardias.Turno = "Diurno";
+                    idLibroGuardias.Usuario = Admin;
+                    var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+                    if (actividadFisica == null)
+                    {
+                        actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
+                        actividadFisica.ActividadRealizada = "Yoga";
+                        actividadFisica.Observaciones = "El viejo es re elástico";
+                        actividadFisica.Fecha = System.DateTime.Today;
+                        actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
                     }
                 }
                 catch (Exception e)

@@ -42,5 +42,10 @@ namespace AñosFelices
             else
                 MessageBox.Show("El campo 'Dni' es Obligatorio");
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

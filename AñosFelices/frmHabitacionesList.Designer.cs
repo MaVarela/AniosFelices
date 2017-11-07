@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionarCama = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +41,22 @@
             this.dgvHabitaciones.Size = new System.Drawing.Size(352, 150);
             this.dgvHabitaciones.TabIndex = 1;
             // 
+            // btnSeleccionarCama
+            // 
+            this.btnSeleccionarCama.Location = new System.Drawing.Point(254, 226);
+            this.btnSeleccionarCama.Name = "btnSeleccionarCama";
+            this.btnSeleccionarCama.Size = new System.Drawing.Size(120, 23);
+            this.btnSeleccionarCama.TabIndex = 2;
+            this.btnSeleccionarCama.Text = "Seleccionar Cama";
+            this.btnSeleccionarCama.UseVisualStyleBackColor = true;
+            this.btnSeleccionarCama.Click += new System.EventHandler(this.btnSeleccionarCama_Click);
+            // 
             // frmHabitacionesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 261);
+            this.Controls.Add(this.btnSeleccionarCama);
             this.Controls.Add(this.dgvHabitaciones);
             this.Name = "frmHabitacionesList";
             this.Text = "Habitaciones";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHabitaciones;
+        private System.Windows.Forms.Button btnSeleccionarCama;
     }
 }

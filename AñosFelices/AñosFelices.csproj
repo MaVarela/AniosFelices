@@ -89,6 +89,8 @@
     <Compile Include="AccesoADatos\Repositorios\RepositorioPariente.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioRol.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioUsuario.cs" />
+    <Compile Include="DTOs\CamaDTO.cs" />
+    <Compile Include="DTOs\DTOMappers\CamaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
@@ -106,6 +108,12 @@
     <Compile Include="EntidadesDeNegocio\Persona.cs" />
     <Compile Include="EntidadesDeNegocio\Rol.cs" />
     <Compile Include="EntidadesDeNegocio\Usuario.cs" />
+    <Compile Include="frmCamas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCamas.Designer.cs">
+      <DependentUpon>frmCamas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarEstadoPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,11 +194,15 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\LogueadorErrores.cs" />
+    <EmbeddedResource Include="frmCamas.resx">
+      <DependentUpon>frmCamas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoPaciente.resx">
       <DependentUpon>frmConsultarEstadoPaciente.cs</DependentUpon>
     </EmbeddedResource>

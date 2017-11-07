@@ -14,9 +14,9 @@ namespace AñosFelices.AccesoADatos.Repositorios
     {
         private static ISessionFactory _sessionFactory;
 
-        private static ISessionFactory SessionFactory
+        private static ISessionFactory SessionFactoryGetInstance()
         {
-            get
+            if(_sessionFactory == null)
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString;
                 var configuration = Fluently.Configure()
@@ -37,14 +37,15 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 exporter.Execute(true, true);
 
                 _sessionFactory = configuration.BuildSessionFactory();
-                return _sessionFactory;
             }
-
+            return _sessionFactory;
         }
+
+        
 
         public static ISession OpenSession()
         {
-            return SessionFactory.OpenSession();
+            return SessionFactoryGetInstance().OpenSession();
         }
     }
 }
