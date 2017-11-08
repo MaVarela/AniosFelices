@@ -63,7 +63,7 @@ namespace AñosFelices
             LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
             idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
             idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-            idLibroGuardias.Turno = this.cmbTurno.Text;
+            idLibroGuardias.Turno = this.cmbTurno.Text + ", Comida";
             var comida = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
             var fecha = dtpFecha.Value.Date;
 
