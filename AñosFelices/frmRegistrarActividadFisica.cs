@@ -76,6 +76,10 @@ namespace AñosFelices
                 MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Actividad Física registrada con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

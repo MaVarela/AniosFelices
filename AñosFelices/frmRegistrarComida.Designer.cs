@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.txtComida = new System.Windows.Forms.TextBox();
-            this.cmbCama = new System.Windows.Forms.ComboBox();
-            this.cmbHabitacion = new System.Windows.Forms.ComboBox();
             this.btnPacientes = new System.Windows.Forms.Button();
             this.cmbTurno = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblComida = new System.Windows.Forms.Label();
@@ -45,6 +42,9 @@
             this.lblPaciente = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtHabitacion = new System.Windows.Forms.TextBox();
+            this.txtCama = new System.Windows.Forms.TextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtComida
@@ -56,24 +56,6 @@
             this.txtComida.Size = new System.Drawing.Size(301, 126);
             this.txtComida.TabIndex = 90;
             // 
-            // cmbCama
-            // 
-            this.cmbCama.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCama.FormattingEnabled = true;
-            this.cmbCama.Location = new System.Drawing.Point(157, 193);
-            this.cmbCama.Name = "cmbCama";
-            this.cmbCama.Size = new System.Drawing.Size(66, 21);
-            this.cmbCama.TabIndex = 89;
-            // 
-            // cmbHabitacion
-            // 
-            this.cmbHabitacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHabitacion.FormattingEnabled = true;
-            this.cmbHabitacion.Location = new System.Drawing.Point(157, 149);
-            this.cmbHabitacion.Name = "cmbHabitacion";
-            this.cmbHabitacion.Size = new System.Drawing.Size(66, 21);
-            this.cmbHabitacion.TabIndex = 88;
-            // 
             // btnPacientes
             // 
             this.btnPacientes.Location = new System.Drawing.Point(473, 106);
@@ -82,6 +64,7 @@
             this.btnPacientes.TabIndex = 87;
             this.btnPacientes.Text = "+";
             this.btnPacientes.UseVisualStyleBackColor = true;
+            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
             // cmbTurno
             // 
@@ -101,6 +84,7 @@
             this.btnCancelar.TabIndex = 85;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -110,13 +94,7 @@
             this.btnAceptar.TabIndex = 84;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Location = new System.Drawing.Point(157, 236);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(301, 20);
-            this.dtpFecha.TabIndex = 82;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // txtPaciente
             // 
@@ -199,6 +177,34 @@
             this.lblUsuario.TabIndex = 74;
             this.lblUsuario.Text = "Usuario:";
             // 
+            // txtHabitacion
+            // 
+            this.txtHabitacion.Enabled = false;
+            this.txtHabitacion.Location = new System.Drawing.Point(158, 148);
+            this.txtHabitacion.MaxLength = 50;
+            this.txtHabitacion.Name = "txtHabitacion";
+            this.txtHabitacion.ReadOnly = true;
+            this.txtHabitacion.Size = new System.Drawing.Size(60, 20);
+            this.txtHabitacion.TabIndex = 92;
+            // 
+            // txtCama
+            // 
+            this.txtCama.Enabled = false;
+            this.txtCama.Location = new System.Drawing.Point(158, 193);
+            this.txtCama.MaxLength = 50;
+            this.txtCama.Name = "txtCama";
+            this.txtCama.ReadOnly = true;
+            this.txtCama.Size = new System.Drawing.Size(60, 20);
+            this.txtCama.TabIndex = 91;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Location = new System.Drawing.Point(157, 236);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(197, 20);
+            this.dtpFecha.TabIndex = 93;
+            // 
             // frmRegistrarComida
             // 
             this.AcceptButton = this.btnAceptar;
@@ -207,14 +213,14 @@
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(529, 477);
             this.ControlBox = false;
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.txtHabitacion);
+            this.Controls.Add(this.txtCama);
             this.Controls.Add(this.txtComida);
-            this.Controls.Add(this.cmbCama);
-            this.Controls.Add(this.cmbHabitacion);
             this.Controls.Add(this.btnPacientes);
             this.Controls.Add(this.cmbTurno);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblComida);
@@ -229,6 +235,7 @@
             this.Name = "frmRegistrarComida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Comida";
+            this.Load += new System.EventHandler(this.frmRegistrarComida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,13 +244,10 @@
         #endregion
 
         internal System.Windows.Forms.TextBox txtComida;
-        internal System.Windows.Forms.ComboBox cmbCama;
-        internal System.Windows.Forms.ComboBox cmbHabitacion;
         internal System.Windows.Forms.Button btnPacientes;
         internal System.Windows.Forms.ComboBox cmbTurno;
         internal System.Windows.Forms.Button btnCancelar;
         internal System.Windows.Forms.Button btnAceptar;
-        internal System.Windows.Forms.DateTimePicker dtpFecha;
         internal System.Windows.Forms.TextBox txtPaciente;
         internal System.Windows.Forms.TextBox txtUsuario;
         internal System.Windows.Forms.Label lblComida;
@@ -253,5 +257,8 @@
         internal System.Windows.Forms.Label lblPaciente;
         internal System.Windows.Forms.Label lblTurno;
         internal System.Windows.Forms.Label lblUsuario;
+        internal System.Windows.Forms.TextBox txtHabitacion;
+        internal System.Windows.Forms.TextBox txtCama;
+        internal System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }
