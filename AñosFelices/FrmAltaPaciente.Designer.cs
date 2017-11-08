@@ -1,6 +1,6 @@
 ﻿namespace AñosFelices
 {
-    partial class FrmAltaPaciente
+    partial class frmAltaPaciente
     {
         /// <summary>
         /// Required designer variable.
@@ -172,8 +172,9 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Aceptar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // FrmAltaPaciente
+            // frmAltaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,7 +196,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmAltaPaciente";
+            this.Name = "frmAltaPaciente";
             this.Text = "Alta Paciente";
             this.ResumeLayout(false);
             this.PerformLayout();

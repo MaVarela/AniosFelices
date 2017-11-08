@@ -6,6 +6,8 @@ using AñosFelices.Utilidades;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
+using AñosFelices.DTOs;
+using System;
 
 namespace AñosFelices
 {
@@ -22,6 +24,25 @@ namespace AñosFelices
             
             var listado = mapper.LlenarListado((List<Cama>)habitacion.Camas.ToList());
             this.dgvCamas.DataSource = listado;
+        }
+
+        private void btnSeleccionarCama_Click(object sender, System.EventArgs e)
+        {
+            if (this.dgvCamas.CurrentRow != null)
+            {
+                if (this.dgvCamas.CurrentRow.Cells[2].Value.ToString() == "L")
+                {
+                    var camaSeleccionada = CamaSeleccionada.Instance();
+                    camaSeleccionada.Cama = new CamaDTO();
+
+                    camaSeleccionada.Cama.IdCama = Convert.ToInt32(this.dgvCamas.SelectedRows[0].Cells[0].Value);
+                    camaSeleccionada.Cama.IdHabitacion = Convert.ToInt32(this.dgvCamas.SelectedRows[0].Cells[1].Value);
+                    camaSeleccionada.Cama.Estado = this.dgvCamas.CurrentRow.Cells[2].Value.ToString();
+                    this.btnSeleccionarCama.Enabled = false;
+                    
+                    this.Close();
+                }
+            }
         }
     }
 }

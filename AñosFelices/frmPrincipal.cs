@@ -69,7 +69,7 @@ namespace AñosFelices
     
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var registrar = new FrmAltaPaciente();
+            var registrar = new frmAltaPaciente();
             registrar.Show();
         }
     }

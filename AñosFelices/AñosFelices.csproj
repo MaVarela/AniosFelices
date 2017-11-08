@@ -114,11 +114,11 @@
     <Compile Include="frmAgregarPariente.Designer.cs">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAltaPaciente.cs">
+    <Compile Include="frmAltaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAltaPaciente.Designer.cs">
-      <DependentUpon>FrmAltaPaciente.cs</DependentUpon>
+    <Compile Include="frmAltaPaciente.Designer.cs">
+      <DependentUpon>frmAltaPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCamas.cs">
       <SubType>Form</SubType>
@@ -216,8 +216,8 @@
     <EmbeddedResource Include="frmAgregarPariente.resx">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAltaPaciente.resx">
-      <DependentUpon>FrmAltaPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="frmAltaPaciente.resx">
+      <DependentUpon>frmAltaPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCamas.resx">
       <DependentUpon>frmCamas.cs</DependentUpon>

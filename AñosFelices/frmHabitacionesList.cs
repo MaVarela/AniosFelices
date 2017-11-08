@@ -30,6 +30,7 @@ namespace AñosFelices
                 if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "A")
                 {
                     var habitacionSeleccionada = HabitacionSeleccionada.Instance();
+                    var camaSeleccionada = CamaSeleccionada.Instance();
                     habitacionSeleccionada.Habitacion = new HabitacionDTO();
 
                     habitacionSeleccionada.Habitacion.Id = Convert.ToInt32(this.dgvHabitaciones.SelectedRows[0].Cells[0].Value);
@@ -39,6 +40,8 @@ namespace AñosFelices
                     frmCamas frmCamas = new frmCamas();
                     frmCamas.ShowDialog();
                     this.btnSeleccionarCama.Enabled = true;
+                    if (camaSeleccionada.Cama != null)
+                        this.Close();
                 }
             }
         }
