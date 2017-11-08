@@ -108,6 +108,18 @@
     <Compile Include="EntidadesDeNegocio\Persona.cs" />
     <Compile Include="EntidadesDeNegocio\Rol.cs" />
     <Compile Include="EntidadesDeNegocio\Usuario.cs" />
+    <Compile Include="frmAgregarPariente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarPariente.Designer.cs">
+      <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAltaPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaPaciente.Designer.cs">
+      <DependentUpon>FrmAltaPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCamas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,12 +206,19 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\LogueadorErrores.cs" />
+    <EmbeddedResource Include="frmAgregarPariente.resx">
+      <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaPaciente.resx">
+      <DependentUpon>FrmAltaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCamas.resx">
       <DependentUpon>frmCamas.cs</DependentUpon>
     </EmbeddedResource>

@@ -66,9 +66,11 @@ namespace AñosFelices
             estado.Show();
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
+    
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var registrar = new FrmAltaPaciente();
+            registrar.Show();
         }
     }
 }

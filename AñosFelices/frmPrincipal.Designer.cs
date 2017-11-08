@@ -42,6 +42,11 @@
             this.registrarActividadFísicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarComidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarEstadoGeneralDelPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darDeBajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +55,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rolesToolStripMenuItem,
             this.consultarHistoriaClinicaToolStripMenuItem,
-            this.habitacionesToolStripMenuItem, 
-            this.libroDeGuardiasToolStripMenuItem});
+            this.habitacionesToolStripMenuItem,
+            this.libroDeGuardiasToolStripMenuItem,
+            this.pacientesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1064, 24);
@@ -69,7 +75,7 @@
             // listarRolesToolStripMenuItem
             // 
             this.listarRolesToolStripMenuItem.Name = "listarRolesToolStripMenuItem";
-            this.listarRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarRolesToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.listarRolesToolStripMenuItem.Text = "Listar";
             this.listarRolesToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
@@ -123,7 +129,7 @@
             // listarHabitacionesToolStripMenuItem
             // 
             this.listarHabitacionesToolStripMenuItem.Name = "listarHabitacionesToolStripMenuItem";
-            this.listarHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.listarHabitacionesToolStripMenuItem.Text = "Listar";
             this.listarHabitacionesToolStripMenuItem.Click += new System.EventHandler(this.listarHabitacionesToolStripMenuItem_Click);
             // 
@@ -158,6 +164,42 @@
             this.registrarEstadoGeneralDelPacienteToolStripMenuItem.Text = "Registrar Estado General del Paciente";
             this.registrarEstadoGeneralDelPacienteToolStripMenuItem.Click += new System.EventHandler(this.registrarEstadoGeneralDelPacienteToolStripMenuItem_Click);
             // 
+            // pacientesToolStripMenuItem
+            // 
+            this.pacientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarToolStripMenuItem,
+            this.modificarToolStripMenuItem,
+            this.listarToolStripMenuItem,
+            this.darDeBajaToolStripMenuItem});
+            this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
+            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.pacientesToolStripMenuItem.Text = "Pacientes";
+            // 
+            // registrarToolStripMenuItem
+            // 
+            this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem.Text = "Registrar";
+            this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
+            // 
+            // modificarToolStripMenuItem
+            // 
+            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modificarToolStripMenuItem.Text = "Modificar";
+            // 
+            // listarToolStripMenuItem
+            // 
+            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem.Text = "Listar";
+            // 
+            // darDeBajaToolStripMenuItem
+            // 
+            this.darDeBajaToolStripMenuItem.Name = "darDeBajaToolStripMenuItem";
+            this.darDeBajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.darDeBajaToolStripMenuItem.Text = "Dar de Baja";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,7 +211,7 @@
             this.Name = "frmPrincipal";
             this.ShowIcon = false;
             this.Text = "Años Felices";
-            this.Load += new System.EventHandler(this.frmPrincipal_Load);
+           
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -193,6 +235,11 @@
         private System.Windows.Forms.ToolStripMenuItem registrarActividadFísicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarComidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEstadoGeneralDelPacienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem darDeBajaToolStripMenuItem;
     }
 }
 
