@@ -7,6 +7,5 @@ namespace AñosFelices.AccesoADatos.IRepositorios
     /// </summary>
     public interface IRepositorioCama : IRepositorioGenerico<Cama, CamaId>
     {
-        int ObtenerPorId(int p);
     }
 }
