@@ -32,6 +32,7 @@ namespace AñosFelices
         {
             cmbTurno.Items.Add("Diurno");
             cmbTurno.Items.Add("Vespertino");
+            cmbTurno.Items.Add("Nocturno");
             cmbTurno.SelectedIndex = 0;
         }
 
@@ -63,7 +64,7 @@ namespace AñosFelices
             LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
             idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
             idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-            idLibroGuardias.Turno = this.cmbTurno.Text;
+            idLibroGuardias.Turno = this.cmbTurno.Text + ", Actividad Física";
             var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
             var fecha = dtpFecha.Value.Date;
 
