@@ -96,7 +96,7 @@ namespace AñosFelices
                         paciente.Parientes.Add(pariente);
                         repositorioPaciente.Agregar(paciente);
                     }
-                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    /*LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
                     idLibroGuardias.Paciente = paciente;
                     idLibroGuardias.Turno = "Diurno";
                     idLibroGuardias.Usuario = Admin;
@@ -108,7 +108,7 @@ namespace AñosFelices
                         actividadFisica.Observaciones = "El viejo es re elástico";
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
-                    }
+                    }*/
                 }
                 catch (Exception e)
                 {

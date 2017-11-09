@@ -72,5 +72,23 @@ namespace AñosFelices
             var registrar = new frmAltaPaciente();
             registrar.Show();
         }
+
+        private void consultarActividadFísicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var actividadFisicaC = new frmConsultarActividadFisica();
+            actividadFisicaC.Show();
+        }
+
+        private void consultarComidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var comidaC = new frmConsultarComida();
+            comidaC.Show();
+        }
+
+        private void consultarEstadoGeneralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var estadoC = new frmConsultarEstadoGeneral();
+            estadoC.Show();
+        }
     }
 }

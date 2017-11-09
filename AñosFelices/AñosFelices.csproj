@@ -92,8 +92,10 @@
     <Compile Include="DTOs\CamaDTO.cs" />
     <Compile Include="DTOs\DTOMappers\CamaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\LibroDeGuardiasDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
+    <Compile Include="DTOs\LibroDeGuardiasDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
     <Compile Include="EntidadesDeNegocio\Habitacion.cs" />
@@ -125,6 +127,24 @@
     </Compile>
     <Compile Include="frmCamas.Designer.cs">
       <DependentUpon>frmCamas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarActividadFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarActividadFisica.Designer.cs">
+      <DependentUpon>frmConsultarActividadFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarComida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarComida.Designer.cs">
+      <DependentUpon>frmConsultarComida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarEstadoGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarEstadoGeneral.Designer.cs">
+      <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultarEstadoPaciente.cs">
       <SubType>Form</SubType>
@@ -207,6 +227,7 @@
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
+    <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
@@ -221,6 +242,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCamas.resx">
       <DependentUpon>frmCamas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarActividadFisica.resx">
+      <DependentUpon>frmConsultarActividadFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarComida.resx">
+      <DependentUpon>frmConsultarComida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarEstadoGeneral.resx">
+      <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoPaciente.resx">
       <DependentUpon>frmConsultarEstadoPaciente.cs</DependentUpon>

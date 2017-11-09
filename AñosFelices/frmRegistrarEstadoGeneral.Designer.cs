@@ -49,18 +49,23 @@
             this.lblPresion = new System.Windows.Forms.Label();
             this.lblTemperatura = new System.Windows.Forms.Label();
             this.lblAzucar = new System.Windows.Forms.Label();
-            this.txtPresion = new System.Windows.Forms.TextBox();
-            this.txtAzucar = new System.Windows.Forms.TextBox();
-            this.txtTemperatura = new System.Windows.Forms.TextBox();
             this.txtHabitacion = new System.Windows.Forms.TextBox();
             this.txtCama = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.lnlGrado = new System.Windows.Forms.Label();
+            this.lblGazucar = new System.Windows.Forms.Label();
+            this.lblGpresion = new System.Windows.Forms.Label();
+            this.txtPresion2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtTemperatura = new System.Windows.Forms.MaskedTextBox();
+            this.txtAzucar = new System.Windows.Forms.MaskedTextBox();
+            this.txtPresion1 = new System.Windows.Forms.MaskedTextBox();
+            this.lblBarra = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtRecomendaciones
             // 
             this.txtRecomendaciones.Location = new System.Drawing.Point(179, 605);
-            this.txtRecomendaciones.MaxLength = 10;
+            this.txtRecomendaciones.MaxLength = 255;
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
             this.txtRecomendaciones.Size = new System.Drawing.Size(300, 80);
@@ -190,7 +195,7 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Location = new System.Drawing.Point(178, 501);
-            this.txtObservaciones.MaxLength = 10;
+            this.txtObservaciones.MaxLength = 255;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(300, 80);
@@ -208,7 +213,7 @@
             // txtMedicacion
             // 
             this.txtMedicacion.Location = new System.Drawing.Point(179, 401);
-            this.txtMedicacion.MaxLength = 10;
+            this.txtMedicacion.MaxLength = 255;
             this.txtMedicacion.Multiline = true;
             this.txtMedicacion.Name = "txtMedicacion";
             this.txtMedicacion.Size = new System.Drawing.Size(300, 80);
@@ -250,33 +255,8 @@
             this.lblAzucar.TabIndex = 114;
             this.lblAzucar.Text = "Azúcar:";
             // 
-            // txtPresion
-            // 
-            this.txtPresion.Location = new System.Drawing.Point(179, 277);
-            this.txtPresion.MaxLength = 10;
-            this.txtPresion.Name = "txtPresion";
-            this.txtPresion.Size = new System.Drawing.Size(65, 20);
-            this.txtPresion.TabIndex = 117;
-            // 
-            // txtAzucar
-            // 
-            this.txtAzucar.Location = new System.Drawing.Point(179, 356);
-            this.txtAzucar.MaxLength = 10;
-            this.txtAzucar.Name = "txtAzucar";
-            this.txtAzucar.Size = new System.Drawing.Size(65, 20);
-            this.txtAzucar.TabIndex = 118;
-            // 
-            // txtTemperatura
-            // 
-            this.txtTemperatura.Location = new System.Drawing.Point(179, 315);
-            this.txtTemperatura.MaxLength = 10;
-            this.txtTemperatura.Name = "txtTemperatura";
-            this.txtTemperatura.Size = new System.Drawing.Size(65, 20);
-            this.txtTemperatura.TabIndex = 119;
-            // 
             // txtHabitacion
             // 
-            this.txtHabitacion.Enabled = false;
             this.txtHabitacion.Location = new System.Drawing.Point(177, 149);
             this.txtHabitacion.MaxLength = 50;
             this.txtHabitacion.Name = "txtHabitacion";
@@ -286,7 +266,6 @@
             // 
             // txtCama
             // 
-            this.txtCama.Enabled = false;
             this.txtCama.Location = new System.Drawing.Point(177, 193);
             this.txtCama.MaxLength = 50;
             this.txtCama.Name = "txtCama";
@@ -302,6 +281,79 @@
             this.dtpFecha.Size = new System.Drawing.Size(197, 20);
             this.dtpFecha.TabIndex = 122;
             // 
+            // lnlGrado
+            // 
+            this.lnlGrado.AutoSize = true;
+            this.lnlGrado.Location = new System.Drawing.Point(242, 319);
+            this.lnlGrado.Name = "lnlGrado";
+            this.lnlGrado.Size = new System.Drawing.Size(11, 13);
+            this.lnlGrado.TabIndex = 123;
+            this.lnlGrado.Text = "°";
+            // 
+            // lblGazucar
+            // 
+            this.lblGazucar.AutoSize = true;
+            this.lblGazucar.Location = new System.Drawing.Point(243, 358);
+            this.lblGazucar.Name = "lblGazucar";
+            this.lblGazucar.Size = new System.Drawing.Size(34, 13);
+            this.lblGazucar.TabIndex = 124;
+            this.lblGazucar.Text = "mg/dl";
+            // 
+            // lblGpresion
+            // 
+            this.lblGpresion.AutoSize = true;
+            this.lblGpresion.Location = new System.Drawing.Point(283, 281);
+            this.lblGpresion.Name = "lblGpresion";
+            this.lblGpresion.Size = new System.Drawing.Size(37, 13);
+            this.lblGpresion.TabIndex = 125;
+            this.lblGpresion.Text = "mmHg";
+            // 
+            // txtPresion2
+            // 
+            this.txtPresion2.AllowPromptAsInput = false;
+            this.txtPresion2.Location = new System.Drawing.Point(238, 277);
+            this.txtPresion2.Mask = "99";
+            this.txtPresion2.Name = "txtPresion2";
+            this.txtPresion2.PromptChar = ' ';
+            this.txtPresion2.Size = new System.Drawing.Size(45, 20);
+            this.txtPresion2.TabIndex = 130;
+            // 
+            // txtTemperatura
+            // 
+            this.txtTemperatura.Location = new System.Drawing.Point(178, 315);
+            this.txtTemperatura.Mask = "99";
+            this.txtTemperatura.Name = "txtTemperatura";
+            this.txtTemperatura.PromptChar = ' ';
+            this.txtTemperatura.Size = new System.Drawing.Size(65, 20);
+            this.txtTemperatura.TabIndex = 131;
+            // 
+            // txtAzucar
+            // 
+            this.txtAzucar.Location = new System.Drawing.Point(178, 354);
+            this.txtAzucar.Mask = "999";
+            this.txtAzucar.Name = "txtAzucar";
+            this.txtAzucar.PromptChar = ' ';
+            this.txtAzucar.Size = new System.Drawing.Size(65, 20);
+            this.txtAzucar.TabIndex = 132;
+            // 
+            // txtPresion1
+            // 
+            this.txtPresion1.Location = new System.Drawing.Point(178, 276);
+            this.txtPresion1.Mask = "999";
+            this.txtPresion1.Name = "txtPresion1";
+            this.txtPresion1.PromptChar = ' ';
+            this.txtPresion1.Size = new System.Drawing.Size(45, 20);
+            this.txtPresion1.TabIndex = 133;
+            // 
+            // lblBarra
+            // 
+            this.lblBarra.AutoSize = true;
+            this.lblBarra.Location = new System.Drawing.Point(225, 281);
+            this.lblBarra.Name = "lblBarra";
+            this.lblBarra.Size = new System.Drawing.Size(12, 13);
+            this.lblBarra.TabIndex = 134;
+            this.lblBarra.Text = "/";
+            // 
             // frmRegistrarEstadoGeneral
             // 
             this.AcceptButton = this.btnAceptar;
@@ -310,12 +362,17 @@
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(564, 741);
             this.ControlBox = false;
+            this.Controls.Add(this.lblBarra);
+            this.Controls.Add(this.txtPresion1);
+            this.Controls.Add(this.txtAzucar);
+            this.Controls.Add(this.txtTemperatura);
+            this.Controls.Add(this.txtPresion2);
+            this.Controls.Add(this.lblGpresion);
+            this.Controls.Add(this.lblGazucar);
+            this.Controls.Add(this.lnlGrado);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtHabitacion);
             this.Controls.Add(this.txtCama);
-            this.Controls.Add(this.txtTemperatura);
-            this.Controls.Add(this.txtAzucar);
-            this.Controls.Add(this.txtPresion);
             this.Controls.Add(this.lblAzucar);
             this.Controls.Add(this.lblTemperatura);
             this.Controls.Add(this.lblPresion);
@@ -370,11 +427,16 @@
         internal System.Windows.Forms.Label lblPresion;
         internal System.Windows.Forms.Label lblTemperatura;
         internal System.Windows.Forms.Label lblAzucar;
-        internal System.Windows.Forms.TextBox txtPresion;
-        internal System.Windows.Forms.TextBox txtAzucar;
-        internal System.Windows.Forms.TextBox txtTemperatura;
         internal System.Windows.Forms.TextBox txtHabitacion;
         internal System.Windows.Forms.TextBox txtCama;
         internal System.Windows.Forms.DateTimePicker dtpFecha;
+        internal System.Windows.Forms.Label lnlGrado;
+        internal System.Windows.Forms.Label lblGazucar;
+        internal System.Windows.Forms.Label lblGpresion;
+        private System.Windows.Forms.MaskedTextBox txtPresion2;
+        private System.Windows.Forms.MaskedTextBox txtTemperatura;
+        private System.Windows.Forms.MaskedTextBox txtAzucar;
+        private System.Windows.Forms.MaskedTextBox txtPresion1;
+        internal System.Windows.Forms.Label lblBarra;
     }
 }

@@ -55,38 +55,79 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, System.EventArgs e)
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
-            var usuarioLogueado = UsuarioLogueado.Instance();
-            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
-            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
-            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
-            LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
-            idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
-            idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-            idLibroGuardias.Turno = this.cmbTurno.Text + ", Estado General";
-            var estado = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-            var fecha = dtpFecha.Value.Date;
-
-            if (estado == null)
+            if (!String.IsNullOrEmpty(this.txtPaciente.Text))
             {
-                estado = new LibroDeGuardias() { Id = idLibroGuardias };
-                estado.Fecha = dtpFecha.Value;
-                estado.Presion = Convert.ToDecimal(txtPresion.Text);
-                estado.Temperatura = Convert.ToDecimal(txtTemperatura.Text);
-                estado.Azucar = Convert.ToDecimal(txtAzucar.Text);
-                estado.MedicacionAdministrada = txtMedicacion.Text;
-                estado.Observaciones = txtObservaciones.Text;
-                estado.Recomendaciones = txtRecomendaciones.Text;
-                estado = repositorioLibroDeGuardias.Agregar(estado);
-                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (!String.IsNullOrEmpty(this.txtPresion1.Text))
+                {
+                    if (!String.IsNullOrEmpty(this.txtPresion2.Text))
+                    {
+                        if (!String.IsNullOrEmpty(this.txtTemperatura.Text))
+                        {
+                            if (!String.IsNullOrEmpty(this.txtAzucar.Text))
+                            {
+                                if (!String.IsNullOrEmpty(this.txtMedicacion.Text.Trim()) && txtRecomendaciones.Text != "")
+                                {
+                                    if (!String.IsNullOrEmpty(this.txtObservaciones.Text.Trim()) && txtRecomendaciones.Text != "")
+                                    {
+                                        if (!String.IsNullOrEmpty(this.txtRecomendaciones.Text.Trim()) && txtRecomendaciones.Text != "")
+                                        {
+                                            var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                                            var usuarioLogueado = UsuarioLogueado.Instance();
+                                            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+                                            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+                                            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+                                            LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                                            idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
+                                            idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
+                                            idLibroGuardias.Turno = this.cmbTurno.Text + ", Estado General";
+                                            var estado = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+                                            var fecha = dtpFecha.Value.Date;
+
+                                            if (estado == null)
+                                            {
+                                                if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                                {
+                                                    estado = new LibroDeGuardias() { Id = idLibroGuardias };
+                                                    estado.Fecha = dtpFecha.Value;
+                                                    estado.Presion = txtPresion1.Text + "/" + txtPresion2.Text;
+                                                    estado.Temperatura = Convert.ToDecimal(txtTemperatura.Text);
+                                                    estado.Azucar = Convert.ToDecimal(txtAzucar.Text);
+                                                    estado.MedicacionAdministrada = txtMedicacion.Text.Trim();
+                                                    estado.Observaciones = txtObservaciones.Text.Trim();
+                                                    estado.Recomendaciones = txtRecomendaciones.Text.Trim();
+                                                    estado = repositorioLibroDeGuardias.Agregar(estado);
+                                                    MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    this.Close();
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Estado General registrado con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+                                        }
+                                        else
+                                            MessageBox.Show("El campo 'Recomendaciones' es Obligatorio");
+                                    }
+                                    else
+                                        MessageBox.Show("El campo 'Observaciones' es Obligatorio");
+                                }
+                                else
+                                    MessageBox.Show("El campo 'Medicación Administrada' es Obligatorio");
+                            }
+                            else
+                                MessageBox.Show("El campo 'Azúcar' es Obligatorio");
+                        }
+                        else
+                            MessageBox.Show("El campo 'Temperatura' es Obligatorio");
+                    }
+                    else
+                        MessageBox.Show("El campo 'Presión' es Obligatorio");
+                }
+                else
+                    MessageBox.Show("El campo 'Presión' es Obligatorio");
             }
             else
-            {
-                MessageBox.Show("Estado General registrado con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("El campo 'Paciente' es Obligatorio"); 
         }
-
-
     }
 }

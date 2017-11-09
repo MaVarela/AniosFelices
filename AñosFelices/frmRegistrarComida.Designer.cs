@@ -50,7 +50,7 @@
             // txtComida
             // 
             this.txtComida.Location = new System.Drawing.Point(157, 277);
-            this.txtComida.MaxLength = 10;
+            this.txtComida.MaxLength = 255;
             this.txtComida.Multiline = true;
             this.txtComida.Name = "txtComida";
             this.txtComida.Size = new System.Drawing.Size(301, 126);
@@ -179,7 +179,6 @@
             // 
             // txtHabitacion
             // 
-            this.txtHabitacion.Enabled = false;
             this.txtHabitacion.Location = new System.Drawing.Point(158, 148);
             this.txtHabitacion.MaxLength = 50;
             this.txtHabitacion.Name = "txtHabitacion";
@@ -189,7 +188,6 @@
             // 
             // txtCama
             // 
-            this.txtCama.Enabled = false;
             this.txtCama.Location = new System.Drawing.Point(158, 193);
             this.txtCama.MaxLength = 50;
             this.txtCama.Name = "txtCama";

@@ -67,16 +67,15 @@
             // 
             // txtPaciente
             // 
-            this.txtPaciente.Enabled = false;
             this.txtPaciente.Location = new System.Drawing.Point(180, 111);
             this.txtPaciente.MaxLength = 10;
             this.txtPaciente.Name = "txtPaciente";
+            this.txtPaciente.ReadOnly = true;
             this.txtPaciente.Size = new System.Drawing.Size(301, 20);
             this.txtPaciente.TabIndex = 51;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Enabled = false;
             this.txtUsuario.Location = new System.Drawing.Point(180, 27);
             this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
@@ -170,7 +169,7 @@
             // txtActividad
             // 
             this.txtActividad.Location = new System.Drawing.Point(180, 279);
-            this.txtActividad.MaxLength = 10;
+            this.txtActividad.MaxLength = 255;
             this.txtActividad.Multiline = true;
             this.txtActividad.Name = "txtActividad";
             this.txtActividad.Size = new System.Drawing.Size(301, 126);
@@ -189,7 +188,6 @@
             // 
             // txtCama
             // 
-            this.txtCama.Enabled = false;
             this.txtCama.Location = new System.Drawing.Point(180, 199);
             this.txtCama.MaxLength = 50;
             this.txtCama.Name = "txtCama";
@@ -199,7 +197,6 @@
             // 
             // txtHabitacion
             // 
-            this.txtHabitacion.Enabled = false;
             this.txtHabitacion.Location = new System.Drawing.Point(180, 152);
             this.txtHabitacion.MaxLength = 50;
             this.txtHabitacion.Name = "txtHabitacion";

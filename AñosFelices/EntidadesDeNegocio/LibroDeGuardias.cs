@@ -31,7 +31,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <param name="presion">Presión</param>
         /// <param name="azucar">Azúcar</param>
         /// <param name="temperatura">Temperatura</param>
-        public LibroDeGuardias(Paciente paciente, Usuario usuario, String turno, DateTime fecha, String actividadRealizada, String comidaRealizada, String medicacionAdministrada, String recomendaciones, String observaciones, Decimal presion, Decimal azucar, Decimal temperatura)
+        public LibroDeGuardias(Paciente paciente, Usuario usuario, String turno, DateTime fecha, String actividadRealizada, String comidaRealizada, String medicacionAdministrada, String recomendaciones, String observaciones, String presion, Decimal azucar, Decimal temperatura)
         {
             this.Paciente = paciente;
             this.Usuario = usuario;
@@ -119,7 +119,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <summary>
         /// Presión
         /// </summary>
-        public virtual Decimal Presion { get; set; }
+        public virtual String Presion { get; set; }
 
         /// <summary>
         /// Nivel de azúcar

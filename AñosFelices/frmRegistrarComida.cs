@@ -55,33 +55,44 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, System.EventArgs e)
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
-            var usuarioLogueado = UsuarioLogueado.Instance();
-            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
-            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
-            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
-            LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
-            idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
-            idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-            idLibroGuardias.Turno = this.cmbTurno.Text + ", Comida";
-            var comida = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-            var fecha = dtpFecha.Value.Date;
-
-            if (comida == null)
+            if (!String.IsNullOrEmpty(this.txtPaciente.Text))
             {
-                comida = new LibroDeGuardias() { Id = idLibroGuardias };
-                comida.Fecha = dtpFecha.Value;
-                comida.ComidaRealizada = txtComida.Text;
-                comida = repositorioLibroDeGuardias.Agregar(comida);
-                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (!String.IsNullOrEmpty(this.txtComida.Text.Trim()) && txtComida.Text != "")
+                {
+                    var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                    var usuarioLogueado = UsuarioLogueado.Instance();
+                    IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+                    IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+                    IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
+                    idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
+                    idLibroGuardias.Turno = this.cmbTurno.Text + ", Comida";
+                    var comida = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+                    var fecha = dtpFecha.Value.Date;
+
+                    if (comida == null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            comida = new LibroDeGuardias() { Id = idLibroGuardias };
+                            comida.Fecha = dtpFecha.Value;
+                            comida.ComidaRealizada = txtComida.Text.Trim();
+                            comida = repositorioLibroDeGuardias.Agregar(comida);
+                            MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Comida registrada con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("El campo 'Comida Preparada' es Obligatorio");
             }
             else
-            {
-                MessageBox.Show("Comida registrada con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("El campo 'Paciente' es Obligatorio"); 
         }
-
-
     }
 }

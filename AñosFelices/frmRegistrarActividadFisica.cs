@@ -32,7 +32,6 @@ namespace AñosFelices
         {
             cmbTurno.Items.Add("Diurno");
             cmbTurno.Items.Add("Vespertino");
-            cmbTurno.Items.Add("Nocturno");
             cmbTurno.SelectedIndex = 0;
         }
 
@@ -56,31 +55,44 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
-            var usuarioLogueado = UsuarioLogueado.Instance();
-            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
-            IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
-            IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
-            LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
-            idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
-            idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-            idLibroGuardias.Turno = this.cmbTurno.Text + ", Actividad Física";
-            var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-            var fecha = dtpFecha.Value.Date;
-
-            if (actividadFisica == null)
+            if (!String.IsNullOrEmpty(this.txtPaciente.Text))
             {
-                actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
-                actividadFisica.Fecha = dtpFecha.Value;
-                actividadFisica.ActividadRealizada = txtActividad.Text;
-                actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
-                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (!String.IsNullOrEmpty(this.txtActividad.Text.Trim()) && txtActividad.Text != "")
+                {
+                    var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                    var usuarioLogueado = UsuarioLogueado.Instance();
+                    IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+                    IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+                    IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    idLibroGuardias.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
+                    idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
+                    idLibroGuardias.Turno = this.cmbTurno.Text + ", Actividad Física";
+                    var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+                    var fecha = dtpFecha.Value.Date;
+
+                    if (actividadFisica == null)
+                    {
+                        if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
+                            actividadFisica.Fecha = dtpFecha.Value;
+                            actividadFisica.ActividadRealizada = txtActividad.Text.Trim();
+                            actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
+                            MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Actividad Física registrada con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("El campo 'Actividad Física Realizada' es Obligatorio");
             }
             else
-            {
-                MessageBox.Show("Actividad Física registrada con anterioridad. No se puede guardar un Registro Duplicado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("El campo 'Paciente' es Obligatorio"); 
         }
     }
 }

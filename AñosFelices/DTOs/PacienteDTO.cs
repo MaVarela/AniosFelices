@@ -4,22 +4,6 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
 {
     public class PacienteDTO
     {
-        /*public PacienteDTO()
-        {
-
-        }*/
-
-        /*public PacienteDTO(int dni, string cama, string habitacion, string nombre, String apellido, String estadoFisico, string estado)
-        {
-            this.Dni = dni;
-            this.Cama = cama;
-            this.Habitacion = habitacion;
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.EstadoFisico = estadoFisico;
-            this.Estado = estado;
-        }*/
-
         /// <summary>
         /// Dni de la persona
         /// </summary>
