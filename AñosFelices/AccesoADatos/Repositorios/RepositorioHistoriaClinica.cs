@@ -3,6 +3,8 @@ using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System;
 using System.Collections.Generic;
+using NHibernate.Criterion;
+using NHibernate.SqlCommand;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {
@@ -77,6 +79,33 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 var registrosHistoriaClinica = session
                     .CreateCriteria(typeof(HistoriaClinica))
                     .List<HistoriaClinica>();
+                return registrosHistoriaClinica;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene registros de historia clínica en en base a los filtros
+        /// </summary>
+        /// <param name="dni">Dni del paciente</param>
+        /// <param name="nombre">Nombre del paciente</param>
+        /// <param name="apellido">Apellido del paciente</param>
+        /// <returns>Un listado</returns>
+        public IList<HistoriaClinica> BuscarRegistros(int? dni, String nombre, String apellido)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(HistoriaClinica));
+                criteria.CreateCriteria("Id.Paciente", "Paciente", JoinType.InnerJoin);
+                if (dni != null)
+                    criteria.Add(Restrictions.Eq("Paciente.Dni", dni));
+                if (!String.IsNullOrEmpty(nombre))
+                    criteria.Add(Restrictions.Like("Paciente.Nombre", nombre, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(apellido))
+                    criteria.Add(Restrictions.Like("Paciente.Apellido", apellido, MatchMode.Anywhere));
+
+                var registrosHistoriaClinica = criteria.List<HistoriaClinica>();
+
                 return registrosHistoriaClinica;
             }
         }

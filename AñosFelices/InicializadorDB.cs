@@ -31,6 +31,7 @@ namespace AñosFelices
             IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
             IRepositorioPariente repositorioPariente = new RepositorioPariente();
             IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+            IRepositorioHistoriaClinica repositorioHistoriaClinica = new RepositorioHistoriaClinica();
 
             var rol1 = repositorioRol.ObtenerPorId(1);
             var rol2 = repositorioRol.ObtenerPorId(2);
@@ -45,6 +46,7 @@ namespace AñosFelices
             if (rol4 == null)
                 rol4 = repositorioRol.Agregar(fantasma);
             Usuario Admin = new Usuario();
+            Usuario getMedico = new Usuario();
 
             if (rol1 != null)
             {
@@ -57,7 +59,7 @@ namespace AñosFelices
             }
             if (rol3 != null)
             {
-                var getMedico = repositorioUsuario.ObtenerPorId(34493012);
+                getMedico = repositorioUsuario.ObtenerPorId(34493012);
                 if (getMedico == null)
                 {
                     Usuario uMedico = new Usuario(34493012, rol3, "123456", "Juan", "Navarro", "Patagonia 235", "4740-2240", null, "juanNavarro@gmail.com");
@@ -83,11 +85,13 @@ namespace AñosFelices
                 Console.WriteLine(e.Message);
             }
 
+            Paciente paciente = new Paciente();
+
             if (hab1 != null && hab1.Camas.Count() > 0)
             {
                 try
                 {
-                    Paciente paciente = repositorioPaciente.ObtenerPorId(34493020);
+                    paciente = repositorioPaciente.ObtenerPorId(34493020);
 
                     if (paciente == null)
                     {
@@ -96,24 +100,47 @@ namespace AñosFelices
                         paciente.Parientes.Add(pariente);
                         repositorioPaciente.Agregar(paciente);
                     }
-                    /*LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
                     idLibroGuardias.Paciente = paciente;
-                    idLibroGuardias.Turno = "Diurno";
+                    idLibroGuardias.Turno = "Diurno, Actividad Física";
                     idLibroGuardias.Usuario = Admin;
                     var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
                     if (actividadFisica == null)
                     {
                         actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
                         actividadFisica.ActividadRealizada = "Yoga";
-                        actividadFisica.Observaciones = "El viejo es re elástico";
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
-                    }*/
+                    }
+                     var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
                 }
                 catch (Exception e)
                 {
                     LogueadorErrores.Loguear(e);
                 }
+
+                if (getMedico != null && paciente != null)
+                {
+                    try 
+                    {
+                        HistoriaClinicaId id = new HistoriaClinicaId();
+                        id.Usuario = getMedico;
+                        id.Paciente = paciente;
+                        id.FechaVisita = System.DateTime.Today;
+                        if (repositorioHistoriaClinica.ObtenerPorId(id) == null)
+                        {
+                            HistoriaClinica historiaClinica = new HistoriaClinica() { Id = id };
+                            historiaClinica.EstadoGeneral = "Hecho hilacha y arruinado";
+                            historiaClinica = repositorioHistoriaClinica.Agregar(historiaClinica);
+                        }
+                        var historias = repositorioHistoriaClinica.BuscarRegistros(null, "Pepe", "G");
+                    }
+                    catch(Exception e)
+                    {
+                        LogueadorErrores.Loguear(e);
+                    }
+                }
+
             }
         }
     }
