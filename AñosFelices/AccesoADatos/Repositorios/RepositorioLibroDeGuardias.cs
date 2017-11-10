@@ -3,6 +3,8 @@ using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System;
 using System.Collections.Generic;
+using NHibernate.Criterion;
+using NHibernate.SqlCommand;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {
@@ -77,6 +79,36 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 var registrosLibroDeGuardias = session
                     .CreateCriteria(typeof(LibroDeGuardias))
                     .List<LibroDeGuardias>();
+                return registrosLibroDeGuardias;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene registros de libro de guardias en en base a los filtros
+        /// </summary>
+        /// <param name="fecha">Fecha</param>
+        /// <param name="nombre">Nombre del paciente</param>
+        /// <param name="apellido">Apellido del paciente</param>
+        /// <param name="turno">Turno</param>
+        /// <returns>Un listado</returns>
+        public IList<LibroDeGuardias> BuscarRegistros(DateTime? fecha, String nombre, String apellido, String turno)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(LibroDeGuardias));
+                criteria.CreateCriteria("Id.Paciente", "Paciente", JoinType.InnerJoin);
+                if(fecha != null)
+                    criteria.Add(Restrictions.Eq("Fecha", fecha));
+                if (!String.IsNullOrEmpty(nombre))
+                    criteria.Add(Restrictions.Like("Paciente.Nombre", nombre, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(apellido))
+                    criteria.Add(Restrictions.Like("Paciente.Apellido", apellido, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(turno))
+                    criteria.Add(Restrictions.Like("Id.Turno", turno, MatchMode.Anywhere));
+
+                var registrosLibroDeGuardias = criteria.List<LibroDeGuardias>();
+
                 return registrosLibroDeGuardias;
             }
         }
