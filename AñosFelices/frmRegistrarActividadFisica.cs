@@ -69,14 +69,13 @@ namespace AñosFelices
                     idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
                     idLibroGuardias.Turno = this.cmbTurno.Text + ", Actividad Física";
                     var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-                    var fecha = dtpFecha.Value.Date;
 
                     if (actividadFisica == null)
                     {
                         if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
                             actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
-                            actividadFisica.Fecha = dtpFecha.Value;
+                            actividadFisica.Fecha = dtpFecha.Value.Date;
                             actividadFisica.ActividadRealizada = txtActividad.Text.Trim();
                             actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
                             MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

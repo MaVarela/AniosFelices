@@ -65,9 +65,9 @@ namespace AñosFelices
                         {
                             if (!String.IsNullOrEmpty(this.txtAzucar.Text))
                             {
-                                if (!String.IsNullOrEmpty(this.txtMedicacion.Text.Trim()) && txtRecomendaciones.Text != "")
+                                if (!String.IsNullOrEmpty(this.txtMedicacion.Text.Trim()) && txtMedicacion.Text != "")
                                 {
-                                    if (!String.IsNullOrEmpty(this.txtObservaciones.Text.Trim()) && txtRecomendaciones.Text != "")
+                                    if (!String.IsNullOrEmpty(this.txtObservaciones.Text.Trim()) && txtObservaciones.Text != "")
                                     {
                                         if (!String.IsNullOrEmpty(this.txtRecomendaciones.Text.Trim()) && txtRecomendaciones.Text != "")
                                         {
@@ -81,14 +81,13 @@ namespace AñosFelices
                                             idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
                                             idLibroGuardias.Turno = this.cmbTurno.Text + ", Estado General";
                                             var estado = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-                                            var fecha = dtpFecha.Value.Date;
 
                                             if (estado == null)
                                             {
                                                 if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                                 {
                                                     estado = new LibroDeGuardias() { Id = idLibroGuardias };
-                                                    estado.Fecha = dtpFecha.Value;
+                                                    estado.Fecha = dtpFecha.Value.Date;
                                                     estado.Presion = txtPresion1.Text + "/" + txtPresion2.Text;
                                                     estado.Temperatura = Convert.ToDecimal(txtTemperatura.Text);
                                                     estado.Azucar = Convert.ToDecimal(txtAzucar.Text);

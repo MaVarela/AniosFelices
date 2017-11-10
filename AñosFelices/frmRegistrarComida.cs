@@ -69,14 +69,13 @@ namespace AñosFelices
                     idLibroGuardias.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
                     idLibroGuardias.Turno = this.cmbTurno.Text + ", Comida";
                     var comida = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
-                    var fecha = dtpFecha.Value.Date;
 
                     if (comida == null)
                     {
                         if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
                             comida = new LibroDeGuardias() { Id = idLibroGuardias };
-                            comida.Fecha = dtpFecha.Value;
+                            comida.Fecha = dtpFecha.Value.Date;
                             comida.ComidaRealizada = txtComida.Text.Trim();
                             comida = repositorioLibroDeGuardias.Agregar(comida);
                             MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

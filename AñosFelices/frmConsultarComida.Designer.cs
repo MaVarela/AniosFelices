@@ -37,12 +37,12 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnReestablecer = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dgvActividad = new System.Windows.Forms.DataGridView();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.dgvComida = new System.Windows.Forms.DataGridView();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
+            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
+            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComida)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbTurno
@@ -124,31 +124,18 @@
             this.btnBuscar.TabIndex = 19;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvActividad
+            // dgvComida
             // 
-            this.dgvActividad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividad.Location = new System.Drawing.Point(14, 82);
-            this.dgvActividad.MultiSelect = false;
-            this.dgvActividad.Name = "dgvActividad";
-            this.dgvActividad.RowHeadersVisible = false;
-            this.dgvActividad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActividad.Size = new System.Drawing.Size(769, 300);
-            this.dgvActividad.TabIndex = 18;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(563, 49);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(172, 20);
-            this.txtNombre.TabIndex = 17;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(563, 12);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(172, 20);
-            this.txtApellido.TabIndex = 16;
+            this.dgvComida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComida.Location = new System.Drawing.Point(14, 82);
+            this.dgvComida.MultiSelect = false;
+            this.dgvComida.Name = "dgvComida";
+            this.dgvComida.RowHeadersVisible = false;
+            this.dgvComida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvComida.Size = new System.Drawing.Size(769, 300);
+            this.dgvComida.TabIndex = 18;
             // 
             // cmbFiltrar
             // 
@@ -169,11 +156,31 @@
             this.lblFiltrar.TabIndex = 14;
             this.lblFiltrar.Text = "Filtrar por:";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(564, 48);
+            this.txtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PromptChar = ' ';
+            this.txtNombre.Size = new System.Drawing.Size(172, 20);
+            this.txtNombre.TabIndex = 135;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(564, 12);
+            this.txtApellido.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.PromptChar = ' ';
+            this.txtApellido.Size = new System.Drawing.Size(172, 20);
+            this.txtApellido.TabIndex = 134;
+            // 
             // frmConsultarComida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 406);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.cmbTurno);
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.dtpFecha);
@@ -183,16 +190,14 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnReestablecer);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dgvActividad);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.dgvComida);
             this.Controls.Add(this.cmbFiltrar);
             this.Controls.Add(this.lblFiltrar);
             this.Name = "frmConsultarComida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Comidas";
             this.Load += new System.EventHandler(this.frmConsultarComida_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComida)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +214,10 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnReestablecer;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dgvActividad;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.DataGridView dgvComida;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.MaskedTextBox txtNombre;
+        private System.Windows.Forms.MaskedTextBox txtApellido;
     }
 }

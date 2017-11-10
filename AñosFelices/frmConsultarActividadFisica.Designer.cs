@@ -30,8 +30,6 @@
         {
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.dgvActividad = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnReestablecer = new System.Windows.Forms.Button();
@@ -42,6 +40,8 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblTurno = new System.Windows.Forms.Label();
             this.cmbTurno = new System.Windows.Forms.ComboBox();
+            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,20 +64,6 @@
             this.cmbFiltrar.TabIndex = 1;
             this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(564, 11);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(172, 20);
-            this.txtApellido.TabIndex = 2;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(564, 48);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(172, 20);
-            this.txtNombre.TabIndex = 3;
-            // 
             // dgvActividad
             // 
             this.dgvActividad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -97,6 +83,7 @@
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnReestablecer
             // 
@@ -106,6 +93,7 @@
             this.btnReestablecer.TabIndex = 6;
             this.btnReestablecer.Text = "Reestablecer";
             this.btnReestablecer.UseVisualStyleBackColor = true;
+            this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
             // btnVolver
             // 
@@ -169,11 +157,31 @@
             this.cmbTurno.Size = new System.Drawing.Size(111, 21);
             this.cmbTurno.TabIndex = 13;
             // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(566, 12);
+            this.txtApellido.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.PromptChar = ' ';
+            this.txtApellido.Size = new System.Drawing.Size(172, 20);
+            this.txtApellido.TabIndex = 132;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(566, 47);
+            this.txtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PromptChar = ' ';
+            this.txtNombre.Size = new System.Drawing.Size(172, 20);
+            this.txtNombre.TabIndex = 133;
+            // 
             // frmConsultarActividadFisica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 406);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.cmbTurno);
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.dtpFecha);
@@ -184,8 +192,6 @@
             this.Controls.Add(this.btnReestablecer);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvActividad);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.cmbFiltrar);
             this.Controls.Add(this.lblFiltrar);
             this.Name = "frmConsultarActividadFisica";
@@ -202,8 +208,6 @@
 
         private System.Windows.Forms.Label lblFiltrar;
         private System.Windows.Forms.ComboBox cmbFiltrar;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DataGridView dgvActividad;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnReestablecer;
@@ -214,5 +218,7 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.ComboBox cmbTurno;
+        private System.Windows.Forms.MaskedTextBox txtApellido;
+        private System.Windows.Forms.MaskedTextBox txtNombre;
     }
 }
