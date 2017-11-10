@@ -43,6 +43,7 @@
             this.txtApe_Pariente = new System.Windows.Forms.TextBox();
             this.txtNom_Pariente = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -169,19 +170,30 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(307, 145);
+            this.button1.Location = new System.Drawing.Point(316, 145);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 47);
+            this.button1.Size = new System.Drawing.Size(149, 47);
             this.button1.TabIndex = 14;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(316, 242);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(149, 47);
+            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmAgregarPariente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 372);
+            this.ClientSize = new System.Drawing.Size(545, 372);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtNom_Pariente);
             this.Controls.Add(this.txtApe_Pariente);
@@ -198,7 +210,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAgregarPariente";
             this.Text = "Registrar Pariente";
             this.ResumeLayout(false);
@@ -223,5 +235,6 @@
         private System.Windows.Forms.TextBox txtApe_Pariente;
         private System.Windows.Forms.TextBox txtNom_Pariente;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

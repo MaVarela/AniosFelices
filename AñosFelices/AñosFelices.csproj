@@ -170,11 +170,59 @@
     <Compile Include="frmConsultarRecAlim.Designer.cs">
       <DependentUpon>frmConsultarRecAlim.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDarDeBajaPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDarDeBajaPaciente.Designer.cs">
+      <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDarDeBajaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDarDeBajaEmpleados.Designer.cs">
+      <DependentUpon>frmDarDeBajaEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHabitacionesList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHabitacionesList.Designer.cs">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaEmpleados.Designer.cs">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarPacientes.Designer.cs">
+      <DependentUpon>frmListarPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.Designer.cs">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPaciente.Designer.cs">
+      <DependentUpon>frmModificarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarEmpleado.Designer.cs">
+      <DependentUpon>frmRegistrarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListadoPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoPacientes.Designer.cs">
+      <DependentUpon>frmListadoPacientes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPacientes.cs">
       <SubType>Form</SubType>
@@ -218,6 +266,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarEmpleados.Designer.cs">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Mappings\CamaMap.cs" />
     <Compile Include="Mappings\HabitacionMap.cs" />
@@ -264,10 +318,34 @@
     <EmbeddedResource Include="frmConsultarRecAlim.resx">
       <DependentUpon>frmConsultarRecAlim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDarDeBajaEmpleados.resx">
+      <DependentUpon>frmDarDeBajaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDarDeBajaPaciente.resx">
+      <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHabitacionesList.resx">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Utilidades\PacienteSeleccionado.cs" />
+    <EmbeddedResource Include="frmListaEmpleados.resx">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarPacientes.resx">
+      <DependentUpon>frmListarPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarEmpleado.resx">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPaciente.resx">
+      <DependentUpon>frmModificarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarEmpleado.resx">
+      <DependentUpon>frmRegistrarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoPacientes.resx">
+      <DependentUpon>frmListadoPacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarEmpleados.resx">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

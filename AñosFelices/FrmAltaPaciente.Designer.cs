@@ -43,6 +43,7 @@
             this.mkdDni = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +85,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 262);
+            this.label5.Location = new System.Drawing.Point(32, 278);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 4;
@@ -93,7 +94,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(63, 308);
+            this.label6.Location = new System.Drawing.Point(63, 324);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 16);
             this.label6.TabIndex = 5;
@@ -123,25 +124,25 @@
             // 
             // txtHabitacion
             // 
-            this.txtHabitacion.Location = new System.Drawing.Point(132, 256);
+            this.txtHabitacion.Location = new System.Drawing.Point(132, 272);
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.Size = new System.Drawing.Size(100, 22);
             this.txtHabitacion.TabIndex = 10;
             // 
             // txtCama
             // 
-            this.txtCama.Location = new System.Drawing.Point(132, 302);
+            this.txtCama.Location = new System.Drawing.Point(132, 318);
             this.txtCama.Name = "txtCama";
             this.txtCama.Size = new System.Drawing.Size(100, 22);
             this.txtCama.TabIndex = 11;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(393, 274);
+            this.button1.Location = new System.Drawing.Point(283, 278);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 50);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Habitaciones";
+            this.button1.Text = "Seleccionar Habitación";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -156,9 +157,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(393, 28);
+            this.button2.Location = new System.Drawing.Point(471, 28);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(143, 49);
+            this.button2.Size = new System.Drawing.Size(143, 50);
             this.button2.TabIndex = 14;
             this.button2.Text = "Agregar Pariente";
             this.button2.UseVisualStyleBackColor = true;
@@ -166,19 +167,30 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(393, 152);
+            this.button3.Location = new System.Drawing.Point(471, 122);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 51);
+            this.button3.Size = new System.Drawing.Size(143, 50);
             this.button3.TabIndex = 15;
             this.button3.Text = "Aceptar";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(471, 208);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(143, 50);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Cancelar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // frmAltaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 385);
+            this.ClientSize = new System.Drawing.Size(703, 385);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.mkdDni);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.MaskedTextBox mkdDni;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -22,6 +22,18 @@ namespace AñosFelices
         //    var nombrePariente = NombrePariente.Instance();
         //    this.Close();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtNom_Pariente.Text = null;
+            txtApe_Pariente.Text = null;
+            txtDireccion.Text = null;
+            txtParentezco.Text = null;
+            txtMail.Text = null;
+            mkdTel_1.Text = null;
+            mkdTel_2.Text = null;
+            this.Close();
+        }
     }
 }
 
