@@ -3,12 +3,12 @@ using AñosFelices.EntidadesDeNegocio;
 using System.Collections.Generic;
 
 
-namespace AñosFelices.DTOs.DTOMappers
+namespace AñosFelices.DTO
 {
     class HistoriaClinicaDTOMapper
     {
 
-        public List<HistoriaClinicaDTO> ListarConsultasHistoriaClinica(List<HistoriaClinica> historiaclinica)
+        public List<HistoriaClinicaDTO> ListarConsultasHistoriasClinicas(List<HistoriaClinica> historiaclinica)
         {
             var listadoRecomendacionesAlim = new List<HistoriaClinicaDTO>();
 
@@ -21,8 +21,8 @@ namespace AñosFelices.DTOs.DTOMappers
                 historiaclinicaDTO.Usuario=historiaclinicaRecAlim.Usuario.Dni;
                 historiaclinicaDTO.Fecha=historiaclinicaRecAlim.FechaVisita;
                 historiaclinicaDTO.RecomendacionAlimentaria=historiaclinicaRecAlim.RecomendacionAlimentaria;
-                historiaclinicaDTO.RecomendacionActividadFisica=historiaclinicaRecAlim.RecomendacionActividadFisica;
-                historiaclinicaDTO.MedicacionRecomendada=historiaclinicaRecAlim.MedicacionRecomendada;
+                historiaclinicaDTO.RecomendacionActividadFisica = historiaclinicaRecAlim.RecomendacionActividadFisica;
+                historiaclinicaDTO.MedicacionRecomendada = historiaclinicaRecAlim.MedicacionRecomendada;
                 historiaclinicaDTO.EstadoGeneral = historiaclinicaRecAlim.EstadoGeneral;
 
                 listadoRecomendacionesAlim.Add(historiaclinicaDTO);
@@ -30,5 +30,6 @@ namespace AñosFelices.DTOs.DTOMappers
 
             return listadoRecomendacionesAlim;
         }
+
     }
 }

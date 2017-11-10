@@ -1,15 +1,17 @@
-﻿using System;
-using AñosFelices.AccesoADatos.IRepositorios;
+﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
-using AñosFelices.EntidadesDeNegocio;
+using AñosFelices.DTO;
+using AñosFelices.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using AñosFelices.EntidadesDeNegocio;
 
 namespace AñosFelices
 {
     public partial class frmConsultarRecAlim : Form
     {
-        IRepositorioHistoriaClinica consultarhc = new RepositorioHistoriaClinica();
+        IRepositorioHistoriaClinica repositoriohisoriaclinica = new RepositorioHistoriaClinica();
         public frmConsultarRecAlim()
         {
             InitializeComponent();
@@ -22,17 +24,19 @@ namespace AñosFelices
 
         private void cargar()
         {
-            HistoriaClinicaDTOMapper mapper = new PacienteDTOMapper();
-            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos());
+            HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
+            var listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
 
-            this.dgvPacientes.DataSource = listado;
-            this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
-            this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
-            this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
-            this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
-            this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
-            this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-            this.dgvPacientes.Columns["Estado"].DisplayIndex = 6;
+            this.Grilla1.DataSource = listado;
+            this.Grilla1.Columns[0].Visible = true;
+            this.Grilla1.Columns[1].Visible = true;
+            this.Grilla1.Columns[2].Visible = true;
+            this.Grilla1.Columns[3].Visible = true;
+            this.Grilla1.Columns[4].Visible = true;
+            this.Grilla1.Columns[5].Visible = false;
+            this.Grilla1.Columns[6].Visible = true;
+            this.Grilla1.Columns[7].Visible = false;
+            this.Grilla1.Columns[8].Visible = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace AñosFelices
         {
             if (cmbDato.Text == "")
             {
-                this.Grilla1.DataSource = consultarhc.ObtenerTodos();
+                this.Grilla1.DataSource = repositoriohisoriaclinica.ObtenerTodos();
             }
 
             if (cmbDato.Text == "DNI Paciente")
