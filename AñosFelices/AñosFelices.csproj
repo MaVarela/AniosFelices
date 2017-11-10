@@ -92,9 +92,11 @@
     <Compile Include="DTOs\CamaDTO.cs" />
     <Compile Include="DTOs\DTOMappers\CamaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\HistoriaClinicaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\LibroDeGuardiasDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
+    <Compile Include="DTOs\HistoriaClinicaDTO.cs" />
     <Compile Include="DTOs\LibroDeGuardiasDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
