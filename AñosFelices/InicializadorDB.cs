@@ -112,35 +112,12 @@ namespace AñosFelices
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
                     }
-                     var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
+                    var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
                 }
                 catch (Exception e)
                 {
                     LogueadorErrores.Loguear(e);
                 }
-
-                if (getMedico != null && paciente != null)
-                {
-                    try 
-                    {
-                        HistoriaClinicaId id = new HistoriaClinicaId();
-                        id.Usuario = getMedico;
-                        id.Paciente = paciente;
-                        id.FechaVisita = System.DateTime.Today;
-                        if (repositorioHistoriaClinica.ObtenerPorId(id) == null)
-                        {
-                            HistoriaClinica historiaClinica = new HistoriaClinica() { Id = id };
-                            historiaClinica.EstadoGeneral = "Hecho hilacha y arruinado";
-                            historiaClinica = repositorioHistoriaClinica.Agregar(historiaClinica);
-                        }
-                        var historias = repositorioHistoriaClinica.BuscarRegistros(null, "Pepe", "G");
-                    }
-                    catch(Exception e)
-                    {
-                        LogueadorErrores.Loguear(e);
-                    }
-                }
-
             }
         }
     }

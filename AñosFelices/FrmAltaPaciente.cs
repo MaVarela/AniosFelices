@@ -28,7 +28,7 @@ namespace AñosFelices
         private void button1_Click(object sender, EventArgs e)
         {
             var ListadoHabitaciones = new frmHabitacionesList();
-            ListadoHabitaciones.Show();
+            ListadoHabitaciones.ShowDialog();
             var camaSeleccionada = CamaSeleccionada.Instance();
             if (camaSeleccionada.Cama != null)
             {

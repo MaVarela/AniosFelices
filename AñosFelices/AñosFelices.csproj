@@ -262,6 +262,30 @@
     <Compile Include="frmRegistrarEstadoGeneral.Designer.cs">
       <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarEstadoPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarEstadoPaciente.Designer.cs">
+      <DependentUpon>frmRegistrarEstadoPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionActFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionActFisica.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionActFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionAlimentaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionAlimentaria.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionAlimentaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionMedicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionMedicacion.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicializadorDB.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -362,6 +386,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarEstadoPaciente.resx">
+      <DependentUpon>frmRegistrarEstadoPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionActFisica.resx">
+      <DependentUpon>frmRegistrarRecomendacionActFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionAlimentaria.resx">
+      <DependentUpon>frmRegistrarRecomendacionAlimentaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionMedicacion.resx">
+      <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -17,5 +17,12 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// <param name="apellido">Apellido del paciente</param>
         /// <returns>Un listado</returns>
         IList<HistoriaClinica> BuscarRegistros(int? dni, String nombre, String apellido);
+
+        /// <summary>
+        /// Permite recuperar un registro de Historia clínica en base a su identificador
+        /// </summary>
+        /// <param name="id">Identificador del registro de Historia clínica</param>
+        /// <returns>Un registro de Historia clínica</returns>
+        IList<HistoriaClinica> ObtenerPorUsuarioPacienteFecha(HistoriaClinicaId id);
     }
 }

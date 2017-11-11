@@ -60,10 +60,32 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// <returns>Un registro de Historia clínica</returns>
         public HistoriaClinica ObtenerPorId(HistoriaClinicaId id)
         {
-            if(id != null)
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Permite recuperar un registro de Historia clínica en base a su identificador
+        /// </summary>
+        /// <param name="id">Identificador del registro de Historia clínica</param>
+        /// <returns>Un registro de Historia clínica</returns>
+        public IList<HistoriaClinica> ObtenerPorUsuarioPacienteFecha(HistoriaClinicaId id)
+        {
+            if (id != null)
             {
                 using (ISession session = NHibernateHelper.OpenSession())
-                    return session.Get<HistoriaClinica>(id);
+                {
+                    var criteria = session
+                       .CreateCriteria(typeof(HistoriaClinica));
+                    criteria.CreateCriteria("Id.Paciente", "Paciente", JoinType.InnerJoin);
+                    criteria.CreateCriteria("Id.Usuario", "Usuario", JoinType.InnerJoin);
+                    criteria.Add(Restrictions.Eq("Paciente.Dni", id.Paciente.Dni));
+                    criteria.Add(Restrictions.Eq("Usuario.Dni", id.Usuario.Dni));
+                    criteria.Add(Expression.Sql("convert(varchar(10), FechaVisita, 103) = convert(varchar(10), (?), 103)", id.FechaVisita.ToShortDateString(), NHibernateUtil.String));
+
+                    var historiaClinica = criteria.List<HistoriaClinica>();
+
+                    return historiaClinica;
+                }
             }
             return null;
         }
