@@ -34,8 +34,8 @@
             this.txtDato = new System.Windows.Forms.TextBox();
             this.cmbDato = new System.Windows.Forms.ComboBox();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.Grilla1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).BeginInit();
+            this.dgvEstadoPaciente = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoPaciente)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -95,13 +95,13 @@
             this.lbl1.TabIndex = 8;
             this.lbl1.Text = "Buscar por:";
             // 
-            // Grilla1
+            // dgvEstadoPaciente
             // 
-            this.Grilla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla1.Location = new System.Drawing.Point(71, 108);
-            this.Grilla1.Name = "Grilla1";
-            this.Grilla1.Size = new System.Drawing.Size(662, 338);
-            this.Grilla1.TabIndex = 7;
+            this.dgvEstadoPaciente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstadoPaciente.Location = new System.Drawing.Point(71, 108);
+            this.dgvEstadoPaciente.Name = "dgvEstadoPaciente";
+            this.dgvEstadoPaciente.Size = new System.Drawing.Size(662, 338);
+            this.dgvEstadoPaciente.TabIndex = 7;
             // 
             // frmConsultarEstadoPaciente
             // 
@@ -114,11 +114,11 @@
             this.Controls.Add(this.txtDato);
             this.Controls.Add(this.cmbDato);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.Grilla1);
+            this.Controls.Add(this.dgvEstadoPaciente);
             this.Name = "frmConsultarEstadoPaciente";
-            this.Text = "frmConsultarEstadoPaciente";
+            this.Text = "Consultar Estado de Paciente";
             this.Load += new System.EventHandler(this.frmConsultarEstadoPaciente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoPaciente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +132,6 @@
         private System.Windows.Forms.TextBox txtDato;
         private System.Windows.Forms.ComboBox cmbDato;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.DataGridView Grilla1;
+        private System.Windows.Forms.DataGridView dgvEstadoPaciente;
     }
 }

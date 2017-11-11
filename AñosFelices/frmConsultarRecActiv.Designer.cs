@@ -34,8 +34,8 @@
             this.txtDato = new System.Windows.Forms.TextBox();
             this.cmbDato = new System.Windows.Forms.ComboBox();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.Grilla1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).BeginInit();
+            this.dgvRecActividades = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecActividades)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -95,13 +95,13 @@
             this.lbl1.TabIndex = 15;
             this.lbl1.Text = "Buscar por:";
             // 
-            // Grilla1
+            // dgvRecActividades
             // 
-            this.Grilla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla1.Location = new System.Drawing.Point(91, 132);
-            this.Grilla1.Name = "Grilla1";
-            this.Grilla1.Size = new System.Drawing.Size(685, 338);
-            this.Grilla1.TabIndex = 14;
+            this.dgvRecActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecActividades.Location = new System.Drawing.Point(91, 132);
+            this.dgvRecActividades.Name = "dgvRecActividades";
+            this.dgvRecActividades.Size = new System.Drawing.Size(685, 338);
+            this.dgvRecActividades.TabIndex = 14;
             // 
             // frmConsultarRecActiv
             // 
@@ -114,11 +114,11 @@
             this.Controls.Add(this.txtDato);
             this.Controls.Add(this.cmbDato);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.Grilla1);
+            this.Controls.Add(this.dgvRecActividades);
             this.Name = "frmConsultarRecActiv";
-            this.Text = "frmConsultarRecActiv";
+            this.Text = "Consultar Recomendaciones de Actividad Fisica";
             this.Load += new System.EventHandler(this.frmConsultarRecActiv_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecActividades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +132,6 @@
         private System.Windows.Forms.TextBox txtDato;
         private System.Windows.Forms.ComboBox cmbDato;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.DataGridView Grilla1;
+        private System.Windows.Forms.DataGridView dgvRecActividades;
     }
 }
