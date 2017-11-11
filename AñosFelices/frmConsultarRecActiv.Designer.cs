@@ -116,7 +116,7 @@
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.dgvRecActividades);
             this.Name = "frmConsultarRecActiv";
-            this.Text = "frmConsultarRecActiv";
+            this.Text = "Consultar Recomendaciones de Actividad Fisica";
             this.Load += new System.EventHandler(this.frmConsultarRecActiv_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecActividades)).EndInit();
             this.ResumeLayout(false);

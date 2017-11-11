@@ -116,7 +116,7 @@
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.dgvEstadoPaciente);
             this.Name = "frmConsultarEstadoPaciente";
-            this.Text = "frmConsultarEstadoPaciente";
+            this.Text = "Consultar Estado de Paciente";
             this.Load += new System.EventHandler(this.frmConsultarEstadoPaciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoPaciente)).EndInit();
             this.ResumeLayout(false);

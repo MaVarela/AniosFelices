@@ -116,7 +116,7 @@
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.dgvRecAliment);
             this.Name = "frmConsultarRecAlim";
-            this.Text = "frmConsultarRecAlim";
+            this.Text = "Consultar Recomendaciones Alimentarias";
             this.Load += new System.EventHandler(this.frmConsultarRecAlim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecAliment)).EndInit();
             this.ResumeLayout(false);

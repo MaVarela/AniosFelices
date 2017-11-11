@@ -116,7 +116,7 @@
             this.Controls.Add(this.lbl1);
             this.Controls.Add(this.dgvMedicacion);
             this.Name = "frmConsultarMedicacion";
-            this.Text = "frmConsultarMedicacion";
+            this.Text = "Consultar Medicacion";
             this.Load += new System.EventHandler(this.frmConsultarMedicacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicacion)).EndInit();
             this.ResumeLayout(false);

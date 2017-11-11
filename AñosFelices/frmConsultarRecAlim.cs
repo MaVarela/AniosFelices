@@ -43,6 +43,10 @@ namespace AñosFelices
             this.dgvRecAliment.Columns[6].Visible = true;
             this.dgvRecAliment.Columns[7].Visible = false;
             this.dgvRecAliment.Columns[8].Visible = false;
+
+            this.dgvRecAliment.Columns[0].HeaderText = "DNI del Paciente";
+            this.dgvRecAliment.Columns[4].HeaderText = "Fecha de Visita";
+            this.dgvRecAliment.Columns[6].HeaderText = "Recomendacion Alimentaria";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

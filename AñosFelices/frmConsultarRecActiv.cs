@@ -43,6 +43,11 @@ namespace AñosFelices
             this.dgvRecActividades.Columns[6].Visible = false;
             this.dgvRecActividades.Columns[7].Visible = false;
             this.dgvRecActividades.Columns[8].Visible = false;
+
+            this.dgvRecActividades.Columns[0].HeaderText = "DNI del Paciente";
+            this.dgvRecActividades.Columns[4].HeaderText = "Fecha de Visita";
+            this.dgvRecActividades.Columns[5].HeaderText = "Recomendacion de Actividad Fisica";
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

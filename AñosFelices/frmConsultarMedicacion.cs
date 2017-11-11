@@ -42,6 +42,10 @@ namespace AñosFelices
             this.dgvMedicacion.Columns[6].Visible = false;
             this.dgvMedicacion.Columns[7].Visible = true;
             this.dgvMedicacion.Columns[8].Visible = false;
+
+            this.dgvMedicacion.Columns[0].HeaderText = "DNI del Paciente";
+            this.dgvMedicacion.Columns[4].HeaderText = "Fecha de Visita";
+            this.dgvMedicacion.Columns[7].HeaderText = "Medicacion Recomendada";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
