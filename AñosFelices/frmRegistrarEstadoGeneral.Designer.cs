@@ -317,6 +317,7 @@
             this.txtPresion2.PromptChar = ' ';
             this.txtPresion2.Size = new System.Drawing.Size(45, 20);
             this.txtPresion2.TabIndex = 130;
+            this.txtPresion2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPresion2_MouseClick);
             // 
             // txtTemperatura
             // 
@@ -326,6 +327,7 @@
             this.txtTemperatura.PromptChar = ' ';
             this.txtTemperatura.Size = new System.Drawing.Size(65, 20);
             this.txtTemperatura.TabIndex = 131;
+            this.txtTemperatura.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTemperatura_MouseClick);
             // 
             // txtAzucar
             // 
@@ -335,6 +337,7 @@
             this.txtAzucar.PromptChar = ' ';
             this.txtAzucar.Size = new System.Drawing.Size(65, 20);
             this.txtAzucar.TabIndex = 132;
+            this.txtAzucar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAzucar_MouseClick);
             // 
             // txtPresion1
             // 
@@ -344,6 +347,7 @@
             this.txtPresion1.PromptChar = ' ';
             this.txtPresion1.Size = new System.Drawing.Size(45, 20);
             this.txtPresion1.TabIndex = 133;
+            this.txtPresion1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPresion1_MouseClick);
             // 
             // lblBarra
             // 

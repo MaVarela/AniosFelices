@@ -128,5 +128,25 @@ namespace AñosFelices
             else
                 MessageBox.Show("El campo 'Paciente' es Obligatorio"); 
         }
+
+        private void txtPresion1_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtPresion1.SelectionStart = 0;
+        }
+
+        private void txtPresion2_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtPresion2.SelectionStart = 0;
+        }
+
+        private void txtTemperatura_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtTemperatura.SelectionStart = 0;
+        }
+
+        private void txtAzucar_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtAzucar.SelectionStart = 0;
+        }
     }
 }

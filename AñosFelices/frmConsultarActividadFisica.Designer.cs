@@ -165,6 +165,7 @@
             this.txtApellido.PromptChar = ' ';
             this.txtApellido.Size = new System.Drawing.Size(172, 20);
             this.txtApellido.TabIndex = 132;
+            this.txtApellido.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtApellido_MouseClick);
             // 
             // txtNombre
             // 
@@ -174,6 +175,7 @@
             this.txtNombre.PromptChar = ' ';
             this.txtNombre.Size = new System.Drawing.Size(172, 20);
             this.txtNombre.TabIndex = 133;
+            this.txtNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNombre_MouseClick);
             // 
             // frmConsultarActividadFisica
             // 

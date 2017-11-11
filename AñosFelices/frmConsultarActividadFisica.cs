@@ -172,5 +172,15 @@ namespace AñosFelices
             txtNombre.Text = null;
             cargar();
         }
+
+        private void txtApellido_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtApellido.SelectionStart = 0;
+        }
+
+        private void txtNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtNombre.SelectionStart = 0;
+        }
     }
 }

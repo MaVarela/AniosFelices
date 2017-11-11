@@ -164,6 +164,7 @@
             this.txtNombre.PromptChar = ' ';
             this.txtNombre.Size = new System.Drawing.Size(172, 20);
             this.txtNombre.TabIndex = 135;
+            this.txtNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNombre_MouseClick);
             // 
             // txtApellido
             // 
@@ -173,6 +174,7 @@
             this.txtApellido.PromptChar = ' ';
             this.txtApellido.Size = new System.Drawing.Size(172, 20);
             this.txtApellido.TabIndex = 134;
+            this.txtApellido.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtApellido_MouseClick);
             // 
             // frmConsultarComida
             // 

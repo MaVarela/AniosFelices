@@ -164,5 +164,15 @@ namespace AñosFelices
             this.dgvComida.Columns[12].Visible = false;
             this.dgvComida.Columns[13].Visible = false;
         }
+
+        private void txtApellido_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtApellido.SelectionStart = 0;
+        }
+
+        private void txtNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.txtNombre.SelectionStart = 0;
+        }
     }
 }
