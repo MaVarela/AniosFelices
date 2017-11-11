@@ -172,6 +172,12 @@
     <Compile Include="frmConsultarRecAlim.Designer.cs">
       <DependentUpon>frmConsultarRecAlim.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDarDeBajaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDarDeBajaEmpleados.designer.cs">
+      <DependentUpon>frmDarDeBajaEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDarDeBajaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,30 @@
     </Compile>
     <Compile Include="frmListadoPacientes.Designer.cs">
       <DependentUpon>frmListadoPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaEmpleados.Designer.cs">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarEmpleados.Designer.cs">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarEmpleado.Designer.cs">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPaciente.Designer.cs">
+      <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPacientes.cs">
       <SubType>Form</SubType>
@@ -213,6 +243,12 @@
     </Compile>
     <Compile Include="frmRegistrarComida.Designer.cs">
       <DependentUpon>frmRegistrarComida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarEmpleado.designer.cs">
+      <DependentUpon>frmRegistrarEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistrarEstadoGeneral.cs">
       <SubType>Form</SubType>
@@ -278,6 +314,9 @@
     <EmbeddedResource Include="frmConsultarRecAlim.resx">
       <DependentUpon>frmConsultarRecAlim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDarDeBajaEmpleados.resx">
+      <DependentUpon>frmDarDeBajaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDarDeBajaPaciente.resx">
       <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +326,18 @@
     <Compile Include="Utilidades\PacienteSeleccionado.cs" />
     <EmbeddedResource Include="frmListadoPacientes.resx">
       <DependentUpon>frmListadoPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaEmpleados.resx">
+      <DependentUpon>frmListaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarEmpleados.resx">
+      <DependentUpon>frmListarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarEmpleado.resx">
+      <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPaciente.resx">
+      <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
@@ -299,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarComida.resx">
       <DependentUpon>frmRegistrarComida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarEmpleado.resx">
+      <DependentUpon>frmRegistrarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarEstadoGeneral.resx">
       <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
