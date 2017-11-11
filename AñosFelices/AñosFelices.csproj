@@ -118,6 +118,12 @@
     <Compile Include="frmAgregarPariente.Designer.cs">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAltaHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaHabitacion.Designer.cs">
+      <DependentUpon>frmAltaHabitacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAltaPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,12 @@
     </Compile>
     <Compile Include="frmConsultarEstadoGeneral.Designer.cs">
       <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarEstadoHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarEstadoHabitaciones.Designer.cs">
+      <DependentUpon>frmConsultarEstadoHabitaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultarEstadoPaciente.cs">
       <SubType>Form</SubType>
@@ -300,6 +312,7 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\CamasSeleccionadas.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
@@ -310,6 +323,9 @@
     <Compile Include="Utilidades\LogueadorErrores.cs" />
     <EmbeddedResource Include="frmAgregarPariente.resx">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaHabitacion.resx">
+      <DependentUpon>frmAltaHabitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaPaciente.resx">
       <DependentUpon>frmAltaPaciente.cs</DependentUpon>
@@ -325,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoGeneral.resx">
       <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarEstadoHabitaciones.resx">
+      <DependentUpon>frmConsultarEstadoHabitaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoPaciente.resx">
       <DependentUpon>frmConsultarEstadoPaciente.cs</DependentUpon>

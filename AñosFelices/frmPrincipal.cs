@@ -38,7 +38,7 @@ namespace AñosFelices
 
         private void listarHabitacionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ListadoHabitaciones = new frmHabitacionesList();
+            var ListadoHabitaciones = new frmConsultarEstadoHabitaciones();
             ListadoHabitaciones.Show();
         }
 
@@ -150,6 +150,12 @@ namespace AñosFelices
         {
             var registrarMedicacion = new frmRegistrarRecomendacionMedicacion();
             registrarMedicacion.Show();
+        }
+
+        private void altaDeHabitacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var altaHabitacion = new frmAltaHabitacion();
+            altaHabitacion.Show();
         }
     }
 }

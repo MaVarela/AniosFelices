@@ -26,7 +26,7 @@ namespace AñosFelices
         private void cargar()
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
-            var listado = mapper.ListarEstadoGeneral((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+            var listado = mapper.ListarEstadoGeneral((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
 
             configurarGrilla(listado);
 
@@ -56,7 +56,7 @@ namespace AñosFelices
             List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
             if (cmbDato.Text == "")
             {
-                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
             }
 
             if (cmbDato.Text == "DNI Paciente")
@@ -69,7 +69,7 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
@@ -83,7 +83,7 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
@@ -97,7 +97,7 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
