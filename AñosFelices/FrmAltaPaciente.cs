@@ -1,5 +1,6 @@
 ﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
+using AñosFelices.DTOs;
 using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
@@ -27,23 +28,32 @@ namespace AñosFelices
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var ListadoHabitaciones = new frmHabitacionesList();
-            ListadoHabitaciones.Show();
             var camaSeleccionada = CamaSeleccionada.Instance();
-            if (camaSeleccionada.Cama != null)
-            {
-                this.txtCama.Text = camaSeleccionada.Cama.IdCama.ToString();
-                this.txtCama.ReadOnly = true;
-                this.txtHabitacion.Text = camaSeleccionada.Cama.IdHabitacion.ToString();
-                this.txtHabitacion.ReadOnly = true;
-            }
+            var ListadoHabitaciones = new frmHabitacionesList();
+            ListadoHabitaciones.ShowDialog();
+            
+                
+                if (camaSeleccionada.Cama != null)
+                {
+                    this.txtCama.Text = camaSeleccionada.Cama.IdCama.ToString();
+                    this.txtHabitacion.Text = camaSeleccionada.Cama.IdHabitacion.ToString();
+                }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            var Paciente = PacienteSeleccionado.Instance();
             var agregarPariente = new frmAgregarPariente();
-            agregarPariente.Show();
+            agregarPariente.ShowDialog();
 
+            var Pariente = ParienteSeleccionado.Instance();
+
+
+
+
+
+
+            dataGridView1.DataSource = Pariente.Pariente;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -84,6 +94,11 @@ namespace AñosFelices
             txtHabitacion.Text = null;
             txtNombre.Text = null;
             this.Close();
+        }
+
+        private void frmAltaPaciente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

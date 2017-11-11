@@ -98,6 +98,7 @@
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
     <Compile Include="DTOs\HistoriaClinicaDTO.cs" />
     <Compile Include="DTOs\LibroDeGuardiasDTO.cs" />
+    <Compile Include="DTOs\ParienteDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
     <Compile Include="EntidadesDeNegocio\Habitacion.cs" />
@@ -279,6 +280,7 @@
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
+    <Compile Include="Utilidades\ParienteSeleccionado.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Program.cs" />
