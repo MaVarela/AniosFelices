@@ -260,28 +260,28 @@
             // registrarToolStripMenuItem1
             // 
             this.registrarToolStripMenuItem1.Name = "registrarToolStripMenuItem1";
-            this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.registrarToolStripMenuItem1.Text = "Registrar";
             this.registrarToolStripMenuItem1.Click += new System.EventHandler(this.registrarToolStripMenuItem1_Click);
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.modificarToolStripMenuItem1_Click);
             // 
             // listarToolStripMenuItem1
             // 
             this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.listarToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.listarToolStripMenuItem1.Text = "Listar";
             this.listarToolStripMenuItem1.Click += new System.EventHandler(this.listarToolStripMenuItem1_Click);
             // 
             // darDeBajaToolStripMenuItem1
             // 
             this.darDeBajaToolStripMenuItem1.Name = "darDeBajaToolStripMenuItem1";
-            this.darDeBajaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.darDeBajaToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.darDeBajaToolStripMenuItem1.Text = "Dar de Baja";
             this.darDeBajaToolStripMenuItem1.Click += new System.EventHandler(this.darDeBajaToolStripMenuItem1_Click);
             // 

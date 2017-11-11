@@ -47,5 +47,11 @@ namespace AñosFelices
         {
             Application.Exit();
         }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
     }
 }

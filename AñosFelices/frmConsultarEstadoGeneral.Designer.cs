@@ -37,12 +37,12 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnReestablecer = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.dgvActividad = new System.Windows.Forms.DataGridView();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.dgvEstado = new System.Windows.Forms.DataGridView();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
+            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
+            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbTurno
@@ -115,6 +115,7 @@
             this.btnReestablecer.TabIndex = 34;
             this.btnReestablecer.Text = "Reestablecer";
             this.btnReestablecer.UseVisualStyleBackColor = true;
+            this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
             // btnBuscar
             // 
@@ -124,31 +125,18 @@
             this.btnBuscar.TabIndex = 33;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvActividad
+            // dgvEstado
             // 
-            this.dgvActividad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActividad.Location = new System.Drawing.Point(14, 82);
-            this.dgvActividad.MultiSelect = false;
-            this.dgvActividad.Name = "dgvActividad";
-            this.dgvActividad.RowHeadersVisible = false;
-            this.dgvActividad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvActividad.Size = new System.Drawing.Size(1166, 300);
-            this.dgvActividad.TabIndex = 32;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(563, 49);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(172, 20);
-            this.txtNombre.TabIndex = 31;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(563, 12);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(172, 20);
-            this.txtApellido.TabIndex = 30;
+            this.dgvEstado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstado.Location = new System.Drawing.Point(14, 82);
+            this.dgvEstado.MultiSelect = false;
+            this.dgvEstado.Name = "dgvEstado";
+            this.dgvEstado.RowHeadersVisible = false;
+            this.dgvEstado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEstado.Size = new System.Drawing.Size(1166, 300);
+            this.dgvEstado.TabIndex = 32;
             // 
             // cmbFiltrar
             // 
@@ -169,11 +157,31 @@
             this.lblFiltrar.TabIndex = 28;
             this.lblFiltrar.Text = "Filtrar por:";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(566, 48);
+            this.txtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PromptChar = ' ';
+            this.txtNombre.Size = new System.Drawing.Size(172, 20);
+            this.txtNombre.TabIndex = 135;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(566, 13);
+            this.txtApellido.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.PromptChar = ' ';
+            this.txtApellido.Size = new System.Drawing.Size(172, 20);
+            this.txtApellido.TabIndex = 134;
+            // 
             // frmConsultarEstadoGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 406);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.cmbTurno);
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.dtpFecha);
@@ -183,16 +191,14 @@
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnReestablecer);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.dgvActividad);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.dgvEstado);
             this.Controls.Add(this.cmbFiltrar);
             this.Controls.Add(this.lblFiltrar);
             this.Name = "frmConsultarEstadoGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Estado General";
             this.Load += new System.EventHandler(this.frmConsultarEstadoGeneral_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +215,10 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnReestablecer;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView dgvActividad;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.DataGridView dgvEstado;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.MaskedTextBox txtNombre;
+        private System.Windows.Forms.MaskedTextBox txtApellido;
     }
 }

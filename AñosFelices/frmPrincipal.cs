@@ -105,33 +105,33 @@ namespace AñosFelices
 
         private void listarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            var listarPacientes = new frmListarPacientes();
-            listarPacientes.Show();
+            /*var listarPacientes = new frmListarPacientes();
+            listarPacientes.Show();*/
         }
 
         private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var registrarEmpleado = new frmRegistrarEmpleado();
-            registrarEmpleado.Show();
+            /*var registrarEmpleado = new frmRegistrarEmpleado();
+            registrarEmpleado.Show();*/
 
         }
 
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var listaEmpleados = new frmListaEmpleados();
-            listaEmpleados.Show();
+            /*var listaEmpleados = new frmListaEmpleados();
+            listaEmpleados.Show();*/
         }
 
         private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var listarEmpleados = new frmListarEmpleados();
-            listarEmpleados.Show();
+            /*var listarEmpleados = new frmListarEmpleados();
+            listarEmpleados.Show();*/
         }
 
         private void darDeBajaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var darBaja = new frmDarDeBajaEmpleados();
-            darBaja.Show();
+           /* var darBaja = new frmDarDeBajaEmpleados();
+            darBaja.Show();*/
         }
     }
 }

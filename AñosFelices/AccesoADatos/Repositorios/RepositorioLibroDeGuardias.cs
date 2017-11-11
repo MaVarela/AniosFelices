@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
+using AñosFelices.DTOs;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {

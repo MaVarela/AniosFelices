@@ -74,24 +74,32 @@ namespace AñosFelices
         {
             if(cmbFiltrar.Text == "Paciente - Fecha")
             {
+                txtApellido.Text = null;
+                txtNombre.Text = null;
                 lblTurno.Visible = false;
                 cmbTurno.Visible = false;
+                cmbTurno.Items.Clear();
                 lblApellido.Visible = true;
                 txtApellido.Visible = true;
                 lblNombre.Visible = true;
                 txtNombre.Visible = true;
                 lblFecha.Visible = true;
                 dtpFecha.Visible = true;
+                dtpFecha.MaxDate = System.DateTime.Today;
             }
             else
             {
                 if(cmbFiltrar.Text == "Turno - Fecha")
                 {
+                    txtApellido.Text = null;
+                    txtNombre.Text = null;
+                    cmbTurno.Items.Clear();
                     lblTurno.Visible = true;
                     cmbTurno.Visible = true;
                     cargarCmbTurno();
                     lblFecha.Visible = true;
                     dtpFecha.Visible = true;
+                    dtpFecha.MaxDate = System.DateTime.Today;
                     lblApellido.Visible = false;
                     txtApellido.Visible = false;
                     lblNombre.Visible = false;
@@ -99,17 +107,70 @@ namespace AñosFelices
                 }
                 else
                 {
+                    txtApellido.Text = null;
+                    txtNombre.Text = null;
                     lblApellido.Visible = true;
                     txtApellido.Visible = true;
                     lblNombre.Visible = true;
                     txtNombre.Visible = true;
                     lblTurno.Visible = false;
                     cmbTurno.Visible = false;
+                    cmbTurno.Items.Clear();
                     lblFecha.Visible = false;
                     dtpFecha.Visible = false;
 
                 }
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
+            if(cmbFiltrar.SelectedItem.ToString() == "Paciente")
+            {
+                if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                {
+                    if(!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                        this.dgvActividad.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(null, txtNombre.Text, txtApellido.Text, null));
+                    else
+                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                }
+                else
+                    MessageBox.Show("El campo 'Apellido' es Obligatorio");
+            }
+            else
+            {
+                if(cmbFiltrar.SelectedItem.ToString() == "Paciente - Fecha")
+                {
+                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                    {
+                        if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                            this.dgvActividad.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, txtNombre.Text, txtApellido.Text, null));
+                        else
+                            MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                    }
+                    else
+                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                }
+                else
+                    this.dgvActividad.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, null, null, cmbTurno.Text));
+            }
+            this.dgvActividad.Columns[7].Visible = false;
+            this.dgvActividad.Columns[8].Visible = false;
+            this.dgvActividad.Columns[9].Visible = false;
+            this.dgvActividad.Columns[10].Visible = false;
+            this.dgvActividad.Columns[11].Visible = false;
+            this.dgvActividad.Columns[12].Visible = false;
+            this.dgvActividad.Columns[13].Visible = false;
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            cmbTurno.Items.Clear();
+            cmbFiltrar.Items.Clear();
+            txtApellido.Text = null;
+            txtNombre.Text = null;
+            cargar();
         }
     }
 }

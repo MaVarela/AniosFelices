@@ -33,7 +33,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtDni = new System.Windows.Forms.MaskedTextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblDni
@@ -85,19 +85,19 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(112, 21);
-            this.txtDni.Mask = "99999999";
+            this.txtDni.Location = new System.Drawing.Point(112, 22);
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
-            this.txtDni.PromptChar = ' ';
             this.txtDni.Size = new System.Drawing.Size(100, 20);
             this.txtDni.TabIndex = 0;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(239, 137);
+            this.ClientSize = new System.Drawing.Size(235, 133);
             this.ControlBox = false;
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);
@@ -125,6 +125,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.MaskedTextBox txtDni;
+        private System.Windows.Forms.TextBox txtDni;
     }
 }

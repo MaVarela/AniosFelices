@@ -24,8 +24,8 @@ namespace AñosFelices
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            var modificarPaciente = new frmModificarPaciente();
-            modificarPaciente.Show();
+            /*var modificarPaciente = new frmModificarPaciente();
+            modificarPaciente.Show();*/
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
