@@ -40,7 +40,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(563, 507);
+            this.btnVolver.Location = new System.Drawing.Point(617, 505);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(77, 34);
             this.btnVolver.TabIndex = 20;
@@ -50,7 +50,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(563, 60);
+            this.btnBuscar.Location = new System.Drawing.Point(617, 60);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(77, 34);
             this.btnBuscar.TabIndex = 19;
@@ -79,7 +79,8 @@
             this.cmbDato.Items.AddRange(new object[] {
             "",
             "DNI Paciente",
-            "Habitacion"});
+            "Nombre",
+            "Apellido"});
             this.cmbDato.Location = new System.Drawing.Point(181, 68);
             this.cmbDato.Name = "cmbDato";
             this.cmbDato.Size = new System.Drawing.Size(121, 21);
@@ -99,14 +100,14 @@
             this.Grilla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grilla1.Location = new System.Drawing.Point(91, 132);
             this.Grilla1.Name = "Grilla1";
-            this.Grilla1.Size = new System.Drawing.Size(549, 338);
+            this.Grilla1.Size = new System.Drawing.Size(685, 338);
             this.Grilla1.TabIndex = 14;
             // 
             // frmConsultarRecActiv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 584);
+            this.ClientSize = new System.Drawing.Size(852, 584);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label1);
