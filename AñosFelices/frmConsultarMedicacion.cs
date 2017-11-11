@@ -26,12 +26,13 @@ namespace AñosFelices
         private void cargar()
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
-            var listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+            var listado = mapper.ListarRecMedicacion((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
 
             configurarGrilla(listado);
         }
         private void configurarGrilla(List<HistoriaClinicaDTO> listado)
         {
+            
             this.dgvMedicacion.DataSource = listado;
             this.dgvMedicacion.Columns[0].Visible = true;
             this.dgvMedicacion.Columns[1].Visible = true;
@@ -52,6 +53,7 @@ namespace AñosFelices
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
             List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
+
             if (cmbDato.Text == "")
             {
                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
@@ -67,6 +69,7 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
                 }
             }
 
@@ -80,6 +83,7 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
                 }
             }
 
@@ -93,11 +97,14 @@ namespace AñosFelices
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
                 }
             }
 
             configurarGrilla(listado);
         }
+
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
