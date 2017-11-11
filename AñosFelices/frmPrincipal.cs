@@ -12,12 +12,6 @@ namespace AñosFelices
             login.ShowDialog();
         }
 
-        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var ListadoRoles = new frmRolesList();
-            ListadoRoles.Show();
-        }
-
         private void consultarRecomendacionesAlimentariasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var consultarhc = new frmConsultarRecAlim();

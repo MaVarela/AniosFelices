@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarHistoriaClinicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarRecomendacionesAlimentariasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarRecomendacionesDeActividadFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,13 +55,18 @@
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.darDeBajaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarRecomendaciónDeActividadFísicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarRecomendaciónAlimentariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarMedicaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarEstadoDelPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rolesToolStripMenuItem,
+            this.registrarToolStripMenuItem2,
             this.consultarHistoriaClinicaToolStripMenuItem,
             this.habitacionesToolStripMenuItem,
             this.libroDeGuardiasToolStripMenuItem,
@@ -75,21 +78,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1064, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // rolesToolStripMenuItem
-            // 
-            this.rolesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarRolesToolStripMenuItem});
-            this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-            this.rolesToolStripMenuItem.Text = "Roles";
-            // 
-            // listarRolesToolStripMenuItem
-            // 
-            this.listarRolesToolStripMenuItem.Name = "listarRolesToolStripMenuItem";
-            this.listarRolesToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            this.listarRolesToolStripMenuItem.Text = "Listar";
-            this.listarRolesToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
             // 
             // consultarHistoriaClinicaToolStripMenuItem
             // 
@@ -285,6 +273,41 @@
             this.darDeBajaToolStripMenuItem1.Text = "Dar de Baja";
             this.darDeBajaToolStripMenuItem1.Click += new System.EventHandler(this.darDeBajaToolStripMenuItem1_Click);
             // 
+            // registrarToolStripMenuItem2
+            // 
+            this.registrarToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarRecomendaciónAlimentariaToolStripMenuItem,
+            this.registrarRecomendaciónDeActividadFísicaToolStripMenuItem,
+            this.registrarMedicaciónToolStripMenuItem,
+            this.registrarEstadoDelPacienteToolStripMenuItem});
+            this.registrarToolStripMenuItem2.Name = "registrarToolStripMenuItem2";
+            this.registrarToolStripMenuItem2.Size = new System.Drawing.Size(99, 20);
+            this.registrarToolStripMenuItem2.Text = "Historia Clínica";
+            // 
+            // registrarRecomendaciónDeActividadFísicaToolStripMenuItem
+            // 
+            this.registrarRecomendaciónDeActividadFísicaToolStripMenuItem.Name = "registrarRecomendaciónDeActividadFísicaToolStripMenuItem";
+            this.registrarRecomendaciónDeActividadFísicaToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.registrarRecomendaciónDeActividadFísicaToolStripMenuItem.Text = "Registrar Recomendación de Actividad Física";
+            // 
+            // registrarRecomendaciónAlimentariaToolStripMenuItem
+            // 
+            this.registrarRecomendaciónAlimentariaToolStripMenuItem.Name = "registrarRecomendaciónAlimentariaToolStripMenuItem";
+            this.registrarRecomendaciónAlimentariaToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.registrarRecomendaciónAlimentariaToolStripMenuItem.Text = "Registrar Recomendación Alimentaria";
+            // 
+            // registrarMedicaciónToolStripMenuItem
+            // 
+            this.registrarMedicaciónToolStripMenuItem.Name = "registrarMedicaciónToolStripMenuItem";
+            this.registrarMedicaciónToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.registrarMedicaciónToolStripMenuItem.Text = "Registrar Medicación";
+            // 
+            // registrarEstadoDelPacienteToolStripMenuItem
+            // 
+            this.registrarEstadoDelPacienteToolStripMenuItem.Name = "registrarEstadoDelPacienteToolStripMenuItem";
+            this.registrarEstadoDelPacienteToolStripMenuItem.Size = new System.Drawing.Size(310, 22);
+            this.registrarEstadoDelPacienteToolStripMenuItem.Text = "Registrar Estado del Paciente";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,8 +331,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem rolesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarRolesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarHistoriaClinicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarRecomendacionesAlimentariasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarHabitacionesToolStripMenuItem;
@@ -335,6 +356,11 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem darDeBajaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem registrarRecomendaciónAlimentariaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarRecomendaciónDeActividadFísicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarMedicaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarEstadoDelPacienteToolStripMenuItem;
     }
 }
 

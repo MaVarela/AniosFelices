@@ -208,6 +208,12 @@
     <Compile Include="frmListarEmpleados.Designer.cs">
       <DependentUpon>frmListarEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarPacientes.Designer.cs">
+      <DependentUpon>frmListarPacientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,12 +261,6 @@
     </Compile>
     <Compile Include="frmRegistrarEstadoGeneral.Designer.cs">
       <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRolesList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRolesList.Designer.cs">
-      <DependentUpon>frmRolesList.cs</DependentUpon>
     </Compile>
     <Compile Include="InicializadorDB.cs" />
     <Compile Include="frmLogin.cs">
@@ -333,6 +333,9 @@
     <EmbeddedResource Include="frmListarEmpleados.resx">
       <DependentUpon>frmListarEmpleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListarPacientes.resx">
+      <DependentUpon>frmListarPacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificarEmpleado.resx">
       <DependentUpon>frmModificarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,9 +359,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarEstadoGeneral.resx">
       <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRolesList.resx">
-      <DependentUpon>frmRolesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
