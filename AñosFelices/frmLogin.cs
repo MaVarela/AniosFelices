@@ -3,6 +3,7 @@ using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.Utilidades;
 using System;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace AñosFelices
 {
@@ -12,6 +13,7 @@ namespace AñosFelices
         public frmLogin()
         {
             InitializeComponent();
+           var usuarioLogueado = UsuarioLogueado.Instance();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -21,6 +23,7 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
             if (!String.IsNullOrEmpty(this.txtDni.Text))
             {
                 if (!String.IsNullOrEmpty(this.txtPass.Text))
@@ -30,7 +33,7 @@ namespace AñosFelices
                     {
                         var usuarioLogueado = UsuarioLogueado.Instance();
                         usuarioLogueado.Usuario = usuario;
-                        
+
                         this.Close();
                     }
                     else

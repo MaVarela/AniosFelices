@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-
 namespace AñosFelices
 {
     public partial class frmPrincipal : Form
@@ -10,6 +9,39 @@ namespace AñosFelices
             InitializeComponent();
             var login = new frmLogin();
             login.ShowDialog();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public  void FiltrarMenuSegunUsuario(String rol){
+
+            if(rol=="Medico")
+            {
+                libroDeGuardiasToolStripMenuItem.Visible = false;
+                pacientesToolStripMenuItem.Visible = false;
+                empleadosToolStripMenuItem.Visible = false;
+                habitacionesToolStripMenuItem.Visible = false;
+            }
+
+            if (rol == "Asistente" || rol == "Enfermera" || rol == "Encargada")
+            {
+                pacientesToolStripMenuItem.Visible = false;
+                empleadosToolStripMenuItem.Visible = false;
+                habitacionesToolStripMenuItem.Visible = false;
+                consultarHistoriaClinicaToolStripMenuItem.Visible = false;
+                registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
+            }
+            if (rol == "Encargada de cocina")
+            {
+                pacientesToolStripMenuItem.Visible = false;
+                empleadosToolStripMenuItem.Visible = false;
+                habitacionesToolStripMenuItem.Visible = false;
+                registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
+            }
+            return;
         }
 
         private void consultarRecomendacionesAlimentariasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -157,5 +189,7 @@ namespace AñosFelices
             var altaHabitacion = new frmAltaHabitacion();
             altaHabitacion.Show();
         }
+
+       
     }
 }
