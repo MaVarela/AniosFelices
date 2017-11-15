@@ -345,37 +345,37 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem consultarHistoriaClinicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarRecomendacionesAlimentariasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarHabitacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarRecomendacionesDeActividadFisicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarMedicacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarEstadoDePacientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem habitacionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem libroDeGuardiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarActividadFísicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarComidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEstadoGeneralDelPacienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarPacienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarPacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarPacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darDeBajaPacienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarLibroDeGuardiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarActividadFísicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarComidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarEstadoGeneralToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarEmpleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darDeBajaEmpleadoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registrarHistoriaClinicaToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem registrarRecomendaciónAlimentariaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarRecomendaciónDeActividadFísicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarMedicaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEstadoDelPacienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaDeHabitacionesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem consultarHistoriaClinicaToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem habitacionesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem libroDeGuardiasToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem consultarLibroDeGuardiasToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem registrarHistoriaClinicaToolStripMenuItem2;
     }
 }
 

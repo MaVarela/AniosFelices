@@ -1,14 +1,19 @@
-﻿using System;
+﻿using AñosFelices.Utilidades;
+using System;
 using System.Windows.Forms;
 namespace AñosFelices
+
 {
     public partial class frmPrincipal : Form
     {
+        UsuarioLogueado usuarioLogueado = UsuarioLogueado.Instance();
+
         public frmPrincipal()
         {
             InitializeComponent();
             var login = new frmLogin();
             login.ShowDialog();
+            RolUsuario();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -16,31 +21,55 @@ namespace AñosFelices
 
         }
 
-        public  void FiltrarMenuSegunUsuario(String rol){
+        public void RolUsuario()//FUNCION QUE OCULTA Y VISUALIZA LOS MENUES QUE CORRESPONDEN A CADA ROL
+        {
+            var rol = usuarioLogueado.Usuario.Rol.Descripcion;
 
-            if(rol=="Medico")
+            if (rol == "Responsable Legal") 
             {
-                libroDeGuardiasToolStripMenuItem.Visible = false;
-                pacientesToolStripMenuItem.Visible = false;
-                empleadosToolStripMenuItem.Visible = false;
-                habitacionesToolStripMenuItem.Visible = false;
+                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+                this.pacientesToolStripMenuItem.Visible = true;
+                this.empleadosToolStripMenuItem.Visible = true;
+                this.habitacionesToolStripMenuItem.Visible = true;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.registrarHistoriaClinicaToolStripMenuItem2.Visible = true;
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+            }
+            if (rol == "Médico")
+            {
+                this.libroDeGuardiasToolStripMenuItem.Visible = false;
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.registrarHistoriaClinicaToolStripMenuItem2.Visible = true;
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+
+            }
+            if (rol.ToString() == "Asistente" || rol.ToString() == "Enfermera" || rol.ToString() == "Encargada")
+            {
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = false;
+                this.registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
+
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+            }
+            if (rol.ToString() == "Encargada de Cocina")
+            {
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+                this.registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
+
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
             }
 
-            if (rol == "Asistente" || rol == "Enfermera" || rol == "Encargada")
-            {
-                pacientesToolStripMenuItem.Visible = false;
-                empleadosToolStripMenuItem.Visible = false;
-                habitacionesToolStripMenuItem.Visible = false;
-                consultarHistoriaClinicaToolStripMenuItem.Visible = false;
-                registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
-            }
-            if (rol == "Encargada de cocina")
-            {
-                pacientesToolStripMenuItem.Visible = false;
-                empleadosToolStripMenuItem.Visible = false;
-                habitacionesToolStripMenuItem.Visible = false;
-                registrarHistoriaClinicaToolStripMenuItem2.Visible = false;
-            }
             return;
         }
 

@@ -10,6 +10,8 @@ namespace AñosFelices
     public partial class frmLogin : Form
     {
         IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+        UsuarioLogueado usuarioLogueado = UsuarioLogueado.Instance();
+
         public frmLogin()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace AñosFelices
                     var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
                     if (usuario != null && usuario.Password == txtPass.Text)
                     {
-                        var usuarioLogueado = UsuarioLogueado.Instance();
+                        
                         usuarioLogueado.Usuario = usuario;
 
                         this.Close();
@@ -45,6 +47,7 @@ namespace AñosFelices
             else
                 MessageBox.Show("El campo 'Dni' es Obligatorio");
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
