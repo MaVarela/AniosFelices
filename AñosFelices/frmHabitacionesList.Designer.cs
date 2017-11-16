@@ -30,6 +30,7 @@
         {
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
             this.btnSeleccionarCama = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.dgvHabitaciones.MultiSelect = false;
             this.dgvHabitaciones.Name = "dgvHabitaciones";
             this.dgvHabitaciones.ReadOnly = true;
+            this.dgvHabitaciones.RowHeadersVisible = false;
             this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHabitaciones.Size = new System.Drawing.Size(352, 150);
             this.dgvHabitaciones.TabIndex = 1;
@@ -54,15 +56,27 @@
             this.btnSeleccionarCama.UseVisualStyleBackColor = true;
             this.btnSeleccionarCama.Click += new System.EventHandler(this.btnSeleccionarCama_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(163, 199);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // frmHabitacionesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 243);
             this.ControlBox = false;
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSeleccionarCama);
             this.Controls.Add(this.dgvHabitaciones);
             this.Name = "frmHabitacionesList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Habitaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();
             this.ResumeLayout(false);
@@ -73,5 +87,6 @@
 
         private System.Windows.Forms.DataGridView dgvHabitaciones;
         private System.Windows.Forms.Button btnSeleccionarCama;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

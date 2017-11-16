@@ -42,7 +42,15 @@ namespace AñosFelices
                     
                     this.Close();
                 }
+                else
+                    MessageBox.Show("La Cama seleccionada no se encuentra disponible. Seleccione otra.", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
