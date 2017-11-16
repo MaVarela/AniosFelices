@@ -99,8 +99,8 @@ namespace AñosFelices
 
         private void listarPacientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*var listarPacientes = new frmListarPacientes();
-            listarPacientes.Show();*/
+            var listarPacientes = new frmListarPacientes();
+            listarPacientes.Show();
         }
 
         private void registrarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)

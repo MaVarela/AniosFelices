@@ -66,5 +66,31 @@ namespace AñosFelices.DTOs.DTOMappers
 
             return listadoParientes;
         }
+
+        public List<ParienteDTO> LlenarListado(List<Pariente> parientes)
+        {
+            var pacienteSeleccionado = PacienteSeleccionado.Instance();
+            var listadoParientes = new List<ParienteDTO>();
+
+            foreach (var pariente in parientes)
+            {
+                var parienteDTO = new ParienteDTO();
+                parienteDTO.Dni = pariente.DniPariente;
+                parienteDTO.Nombre = pariente.Nombre;
+                parienteDTO.Apellido = pariente.Apellido;
+                parienteDTO.Direccion = pariente.Direccion;
+                parienteDTO.Mail = pariente.Mail;
+                parienteDTO.Telefono1 = pariente.Telefono1;
+                parienteDTO.Telefono2 = pariente.Telefono2;
+                parienteDTO.Parentezco = pariente.Parentezco;
+
+                if(pariente.Paciente.Dni == pacienteSeleccionado.Paciente.Dni)
+                {
+                    listadoParientes.Add(parienteDTO);
+                }
+            }
+
+            return listadoParientes;
+        }
     }
 }

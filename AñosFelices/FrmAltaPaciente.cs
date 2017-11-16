@@ -61,6 +61,7 @@ namespace AñosFelices
                 MessageBox.Show("Solo se pueden agregar 2 parientes por Paciente.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void cargarDGV()

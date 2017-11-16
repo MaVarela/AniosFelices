@@ -38,13 +38,17 @@
             // 
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Location = new System.Drawing.Point(61, 43);
+            this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
-            this.dgvPacientes.Size = new System.Drawing.Size(577, 184);
+            this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvPacientes.RowHeadersVisible = false;
+            this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPacientes.Size = new System.Drawing.Size(770, 184);
             this.dgvPacientes.TabIndex = 0;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(495, 260);
+            this.btnCerrar.Location = new System.Drawing.Point(688, 260);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(143, 50);
             this.btnCerrar.TabIndex = 1;
@@ -54,25 +58,28 @@
             // 
             // btnParientes
             // 
-            this.btnParientes.Location = new System.Drawing.Point(325, 260);
+            this.btnParientes.Location = new System.Drawing.Point(61, 260);
             this.btnParientes.Name = "btnParientes";
             this.btnParientes.Size = new System.Drawing.Size(143, 50);
             this.btnParientes.TabIndex = 2;
             this.btnParientes.Text = "Ver Parientes";
             this.btnParientes.UseVisualStyleBackColor = true;
+            this.btnParientes.Click += new System.EventHandler(this.btnParientes_Click);
             // 
             // frmListarPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 322);
+            this.ClientSize = new System.Drawing.Size(888, 322);
             this.Controls.Add(this.btnParientes);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvPacientes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListarPacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Pacientes";
+            this.Load += new System.EventHandler(this.frmListarPacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.ResumeLayout(false);
 

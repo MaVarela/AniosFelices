@@ -51,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 66);
+            this.label1.Location = new System.Drawing.Point(56, 107);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 16);
@@ -61,7 +61,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 107);
+            this.label2.Location = new System.Drawing.Point(55, 68);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 16);
@@ -158,14 +158,14 @@
             // 
             // txtApe_Pariente
             // 
-            this.txtApe_Pariente.Location = new System.Drawing.Point(141, 101);
+            this.txtApe_Pariente.Location = new System.Drawing.Point(141, 62);
             this.txtApe_Pariente.Name = "txtApe_Pariente";
             this.txtApe_Pariente.Size = new System.Drawing.Size(100, 22);
             this.txtApe_Pariente.TabIndex = 12;
             // 
             // txtNom_Pariente
             // 
-            this.txtNom_Pariente.Location = new System.Drawing.Point(141, 63);
+            this.txtNom_Pariente.Location = new System.Drawing.Point(141, 104);
             this.txtNom_Pariente.Name = "txtNom_Pariente";
             this.txtNom_Pariente.Size = new System.Drawing.Size(100, 22);
             this.txtNom_Pariente.TabIndex = 13;
