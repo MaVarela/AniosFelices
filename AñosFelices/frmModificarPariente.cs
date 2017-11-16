@@ -1,5 +1,4 @@
 ﻿using AñosFelices.DTOs;
-using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -13,11 +12,15 @@ using System.Windows.Forms;
 
 namespace AñosFelices
 {
-    public partial class frmAgregarPariente : Form
+    public partial class frmModificarPariente : Form
     {
-        public frmAgregarPariente()
+        int index;
+        ParienteDTO parienteM = new ParienteDTO();
+        public frmModificarPariente(int index, ParienteDTO parienteDTO)
         {
             InitializeComponent();
+            this.index = index;
+            this.parienteM = parienteDTO;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,10 +28,6 @@ namespace AñosFelices
             var pariente = ParienteSeleccionado.Instance();
             var parienteDTO = new ParienteDTO();
 
-            if (pariente.Parientes == null)
-            {
-                pariente.Parientes = new List<ParienteDTO>();
-            }
             parienteDTO.Dni = Convert.ToInt32(txtDni.Text.Trim());
             parienteDTO.Nombre = txtNom_Pariente.Text.Trim();
             parienteDTO.Apellido = txtApe_Pariente.Text.Trim();
@@ -38,7 +37,8 @@ namespace AñosFelices
             parienteDTO.Telefono2 = mkdTel_2.Text.Trim();
             parienteDTO.Parentezco = txtParentezco.Text.Trim();
 
-            pariente.Parientes.Add(parienteDTO);
+            pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteM.Dni).First());
+            pariente.Parientes.Insert(index, parienteDTO);
 
             this.Close();
 
@@ -64,8 +64,17 @@ namespace AñosFelices
         {
             this.Close();
         }
+
+        private void frmModificarPariente_Load(object sender, EventArgs e)
+        {
+            txtDni.Text = parienteM.Dni.ToString();
+            txtNom_Pariente.Text = parienteM.Nombre;
+            txtApe_Pariente.Text = parienteM.Apellido;
+            txtDireccion.Text = parienteM.Direccion;
+            txtMail.Text = parienteM.Mail;
+            mkdTel_1.Text = parienteM.Telefono1;
+            mkdTel_2.Text = parienteM.Telefono2;
+            txtParentezco.Text = parienteM.Parentezco;
+        }
     }
 }
-
-
-

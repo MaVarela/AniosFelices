@@ -94,6 +94,7 @@
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HistoriaClinicaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\LibroDeGuardiasDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\ParienteDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
     <Compile Include="DTOs\HistoriaClinicaDTO.cs" />
@@ -118,6 +119,12 @@
     </Compile>
     <Compile Include="frmAgregarPariente.Designer.cs">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAltaHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaHabitacion.Designer.cs">
+      <DependentUpon>frmAltaHabitacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAltaPaciente.cs">
       <SubType>Form</SubType>
@@ -148,6 +155,12 @@
     </Compile>
     <Compile Include="frmConsultarEstadoGeneral.Designer.cs">
       <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarEstadoHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarEstadoHabitaciones.Designer.cs">
+      <DependentUpon>frmConsultarEstadoHabitaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultarEstadoPaciente.cs">
       <SubType>Form</SubType>
@@ -227,6 +240,12 @@
     <Compile Include="frmModificarPaciente.Designer.cs">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarPariente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPariente.Designer.cs">
+      <DependentUpon>frmModificarPariente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +282,30 @@
     <Compile Include="frmRegistrarEstadoGeneral.Designer.cs">
       <DependentUpon>frmRegistrarEstadoGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarEstadoPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarEstadoPaciente.Designer.cs">
+      <DependentUpon>frmRegistrarEstadoPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionActFisica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionActFisica.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionActFisica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionAlimentaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionAlimentaria.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionAlimentaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionMedicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRecomendacionMedicacion.Designer.cs">
+      <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicializadorDB.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -277,6 +320,7 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\CamasSeleccionadas.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
@@ -288,6 +332,9 @@
     <Compile Include="Utilidades\LogueadorErrores.cs" />
     <EmbeddedResource Include="frmAgregarPariente.resx">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaHabitacion.resx">
+      <DependentUpon>frmAltaHabitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaPaciente.resx">
       <DependentUpon>frmAltaPaciente.cs</DependentUpon>
@@ -303,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoGeneral.resx">
       <DependentUpon>frmConsultarEstadoGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarEstadoHabitaciones.resx">
+      <DependentUpon>frmConsultarEstadoHabitaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarEstadoPaciente.resx">
       <DependentUpon>frmConsultarEstadoPaciente.cs</DependentUpon>
@@ -344,6 +394,9 @@
     <EmbeddedResource Include="frmModificarPaciente.resx">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPariente.resx">
+      <DependentUpon>frmModificarPariente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +417,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarEstadoPaciente.resx">
+      <DependentUpon>frmRegistrarEstadoPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionActFisica.resx">
+      <DependentUpon>frmRegistrarRecomendacionActFisica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionAlimentaria.resx">
+      <DependentUpon>frmRegistrarRecomendacionAlimentaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRecomendacionMedicacion.resx">
+      <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

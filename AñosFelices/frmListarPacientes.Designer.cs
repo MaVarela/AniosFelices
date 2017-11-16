@@ -30,6 +30,7 @@
         {
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnParientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(274, 245);
+            this.btnCerrar.Location = new System.Drawing.Point(495, 260);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(143, 50);
             this.btnCerrar.TabIndex = 1;
@@ -51,15 +52,25 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnParientes
+            // 
+            this.btnParientes.Location = new System.Drawing.Point(325, 260);
+            this.btnParientes.Name = "btnParientes";
+            this.btnParientes.Size = new System.Drawing.Size(143, 50);
+            this.btnParientes.TabIndex = 2;
+            this.btnParientes.Text = "Ver Parientes";
+            this.btnParientes.UseVisualStyleBackColor = true;
+            // 
             // frmListarPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 322);
+            this.Controls.Add(this.btnParientes);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvPacientes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListarPacientes";
             this.Text = "Listado de Pacientes";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
@@ -71,5 +82,6 @@
 
         private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnParientes;
     }
 }

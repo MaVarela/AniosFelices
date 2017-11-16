@@ -1,6 +1,6 @@
 ﻿namespace AñosFelices
 {
-    partial class frmHabitacionesList
+    partial class frmConsultarEstadoHabitaciones
     {
         /// <summary>
         /// Required designer variable.
@@ -29,41 +29,44 @@
         private void InitializeComponent()
         {
             this.dgvHabitaciones = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionarCama = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvHabitaciones
             // 
+            this.dgvHabitaciones.AllowUserToAddRows = false;
+            this.dgvHabitaciones.AllowUserToDeleteRows = false;
             this.dgvHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHabitaciones.Location = new System.Drawing.Point(22, 24);
+            this.dgvHabitaciones.Location = new System.Drawing.Point(35, 39);
             this.dgvHabitaciones.MultiSelect = false;
             this.dgvHabitaciones.Name = "dgvHabitaciones";
             this.dgvHabitaciones.ReadOnly = true;
             this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHabitaciones.Size = new System.Drawing.Size(352, 150);
-            this.dgvHabitaciones.TabIndex = 1;
+            this.dgvHabitaciones.Size = new System.Drawing.Size(414, 168);
+            this.dgvHabitaciones.TabIndex = 2;
             // 
-            // btnSeleccionarCama
+            // btnVolver
             // 
-            this.btnSeleccionarCama.Location = new System.Drawing.Point(254, 199);
-            this.btnSeleccionarCama.Name = "btnSeleccionarCama";
-            this.btnSeleccionarCama.Size = new System.Drawing.Size(120, 23);
-            this.btnSeleccionarCama.TabIndex = 2;
-            this.btnSeleccionarCama.Text = "Seleccionar Cama";
-            this.btnSeleccionarCama.UseVisualStyleBackColor = true;
-            this.btnSeleccionarCama.Click += new System.EventHandler(this.btnSeleccionarCama_Click);
+            this.btnVolver.Location = new System.Drawing.Point(367, 228);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(82, 23);
+            this.btnVolver.TabIndex = 3;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
-            // frmHabitacionesList
+            // frmConsultarEstadoHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 243);
+            this.ClientSize = new System.Drawing.Size(477, 263);
             this.ControlBox = false;
-            this.Controls.Add(this.btnSeleccionarCama);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvHabitaciones);
-            this.Name = "frmHabitacionesList";
-            this.Text = "Habitaciones";
+            this.Name = "frmConsultarEstadoHabitaciones";
+            this.ShowIcon = false;
+            this.Text = "Estado de las Habitaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();
             this.ResumeLayout(false);
 
@@ -72,6 +75,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHabitaciones;
-        private System.Windows.Forms.Button btnSeleccionarCama;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

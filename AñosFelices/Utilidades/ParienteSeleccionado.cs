@@ -22,7 +22,7 @@ namespace AñosFelices.Utilidades
             return pariente;
         }
 
-        List<ParienteSeleccionado> parientes = new List<ParienteSeleccionado>();
+        public List<ParienteDTO> Parientes { get; set; }
 
         public ParienteDTO Pariente { get; set; }
     }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using AñosFelices.EntidadesDeNegocio;
+using AniosFelicesSystem.EntidadesDeNegocio;
 
 namespace AñosFelices
 {
@@ -25,39 +26,85 @@ namespace AñosFelices
         private void cargar()
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
-            var listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
+            var listado = mapper.ListarRecMedicacion((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
 
-            this.Grilla1.DataSource = listado;
-            this.Grilla1.Columns[0].Visible = true;
-            this.Grilla1.Columns[1].Visible = true;
-            this.Grilla1.Columns[2].Visible = true;
-            this.Grilla1.Columns[3].Visible = true;
-            this.Grilla1.Columns[4].Visible = true;
-            this.Grilla1.Columns[5].Visible = false;
-            this.Grilla1.Columns[6].Visible = false;
-            this.Grilla1.Columns[7].Visible = true;
-            this.Grilla1.Columns[8].Visible = false;
+            configurarGrilla(listado);
+        }
+        private void configurarGrilla(List<HistoriaClinicaDTO> listado)
+        {
+            
+            this.dgvMedicacion.DataSource = listado;
+            this.dgvMedicacion.Columns[0].Visible = true;
+            this.dgvMedicacion.Columns[1].Visible = true;
+            this.dgvMedicacion.Columns[2].Visible = true;
+            this.dgvMedicacion.Columns[3].Visible = true;
+            this.dgvMedicacion.Columns[4].Visible = true;
+            this.dgvMedicacion.Columns[5].Visible = false;
+            this.dgvMedicacion.Columns[6].Visible = false;
+            this.dgvMedicacion.Columns[7].Visible = true;
+            this.dgvMedicacion.Columns[8].Visible = false;
+
+            this.dgvMedicacion.Columns[0].HeaderText = "DNI del Paciente";
+            this.dgvMedicacion.Columns[4].HeaderText = "Fecha de Visita";
+            this.dgvMedicacion.Columns[7].HeaderText = "Medicacion Recomendada";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
+            List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
+
             if (cmbDato.Text == "")
             {
-                this.Grilla1.DataSource = repositoriohisoriaclinica.ObtenerTodos();
+                listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.ObtenerTodos());
             }
 
             if (cmbDato.Text == "DNI Paciente")
             {
-                /*if (txtDato.Text != "")
+
+                if (txtDato.Text != "")
                 {
-                    this.Grilla1.DataSource = consultarhc.ObtenerPorId();
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(int.Parse(txtDato.Text), null, null));
                 }
                 else
-                {*/
+                {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //}
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                }
             }
+
+            if (cmbDato.Text == "Nombre")
+            {
+
+                if (txtDato.Text != "")
+                {
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, txtDato.Text, null));
+                }
+                else
+                {
+                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                }
+            }
+
+            if (cmbDato.Text == "Apellido")
+            {
+
+                if (txtDato.Text != "")
+                {
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, txtDato.Text));
+                }
+                else
+                {
+                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                }
+            }
+
+            configurarGrilla(listado);
         }
+
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {

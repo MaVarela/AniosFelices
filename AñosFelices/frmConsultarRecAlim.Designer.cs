@@ -34,8 +34,8 @@
             this.txtDato = new System.Windows.Forms.TextBox();
             this.cmbDato = new System.Windows.Forms.ComboBox();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.Grilla1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).BeginInit();
+            this.dgvRecAliment = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecAliment)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVolver
@@ -95,13 +95,13 @@
             this.lbl1.TabIndex = 15;
             this.lbl1.Text = "Buscar por:";
             // 
-            // Grilla1
+            // dgvRecAliment
             // 
-            this.Grilla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla1.Location = new System.Drawing.Point(83, 137);
-            this.Grilla1.Name = "Grilla1";
-            this.Grilla1.Size = new System.Drawing.Size(658, 338);
-            this.Grilla1.TabIndex = 14;
+            this.dgvRecAliment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecAliment.Location = new System.Drawing.Point(83, 137);
+            this.dgvRecAliment.Name = "dgvRecAliment";
+            this.dgvRecAliment.Size = new System.Drawing.Size(658, 338);
+            this.dgvRecAliment.TabIndex = 14;
             // 
             // frmConsultarRecAlim
             // 
@@ -114,11 +114,11 @@
             this.Controls.Add(this.txtDato);
             this.Controls.Add(this.cmbDato);
             this.Controls.Add(this.lbl1);
-            this.Controls.Add(this.Grilla1);
+            this.Controls.Add(this.dgvRecAliment);
             this.Name = "frmConsultarRecAlim";
-            this.Text = "frmConsultarRecAlim";
+            this.Text = "Consultar Recomendaciones Alimentarias";
             this.Load += new System.EventHandler(this.frmConsultarRecAlim_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecAliment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +132,6 @@
         private System.Windows.Forms.TextBox txtDato;
         private System.Windows.Forms.ComboBox cmbDato;
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.DataGridView Grilla1;
+        private System.Windows.Forms.DataGridView dgvRecAliment;
     }
 }
