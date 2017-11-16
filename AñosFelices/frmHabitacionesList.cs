@@ -43,7 +43,15 @@ namespace AñosFelices
                     if (camaSeleccionada.Cama != null)
                         this.Close();
                 }
+                else
+                    MessageBox.Show("La Habitación seleccionada no se encuentra Disponible. Seleccione otra.", "Error",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

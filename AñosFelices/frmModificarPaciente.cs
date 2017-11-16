@@ -16,15 +16,5 @@ namespace AñosFelices
         {
             InitializeComponent();
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            txtApellido.Text = null;
-            txtCama.Text = null;
-            txtNombre.Text = null;
-            txtEstadoFisico.Text = null;
-            txtHabitacion.Text = null;
-            this.Close();
-        }
     }
 }

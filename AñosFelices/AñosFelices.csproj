@@ -94,10 +94,12 @@
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HistoriaClinicaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\LibroDeGuardiasDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\ParienteDTOMapper.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
     <Compile Include="DTOs\HistoriaClinicaDTO.cs" />
     <Compile Include="DTOs\LibroDeGuardiasDTO.cs" />
+    <Compile Include="DTOs\ParienteDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Cama.cs" />
     <Compile Include="EntidadesDeNegocio\CamaId.cs" />
     <Compile Include="EntidadesDeNegocio\Habitacion.cs" />
@@ -208,6 +210,12 @@
     <Compile Include="frmListadoPacientes.Designer.cs">
       <DependentUpon>frmListadoPacientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListadoParientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListadoParientes.Designer.cs">
+      <DependentUpon>frmListadoParientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListaEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,11 +246,23 @@
     <Compile Include="frmModificarPaciente.Designer.cs">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarPariente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarPariente.Designer.cs">
+      <DependentUpon>frmModificarPariente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPacientes.Designer.cs">
       <DependentUpon>frmPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmParientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParientes.Designer.cs">
+      <DependentUpon>frmParientes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -316,6 +336,7 @@
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
+    <Compile Include="Utilidades\ParienteSeleccionado.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
     <Compile Include="Program.cs" />
@@ -370,6 +391,9 @@
     <EmbeddedResource Include="frmListadoPacientes.resx">
       <DependentUpon>frmListadoPacientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoParientes.resx">
+      <DependentUpon>frmListadoParientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaEmpleados.resx">
       <DependentUpon>frmListaEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,8 +409,14 @@
     <EmbeddedResource Include="frmModificarPaciente.resx">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarPariente.resx">
+      <DependentUpon>frmModificarPariente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParientes.resx">
+      <DependentUpon>frmParientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
