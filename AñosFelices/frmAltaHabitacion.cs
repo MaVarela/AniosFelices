@@ -46,6 +46,7 @@ namespace AñosFelices
             this.dgvCamas.Columns["Estado"].DisplayIndex = 1;
             this.dgvCamas.Columns["Estado"].ReadOnly = true; ;
             this.dgvCamas.Columns["IdHabitacion"].Visible = false;
+            ((DataGridViewTextBoxColumn)this.dgvCamas.Columns[0]).MaxInputLength = 2;
         }
 
         private void cargarCmbCategorias()
@@ -140,10 +141,64 @@ namespace AñosFelices
             }
         }
 
-        private void dgvCamas_KeyPress(object sender, KeyPressEventArgs e)
+        private void dgvCamas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            const char Delete = (char)8;
-            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+            e.Control.KeyPress -= new KeyPressEventHandler(IdCama_KeyPress);
+            if (dgvCamas.CurrentCell.ColumnIndex == 0)
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(IdCama_KeyPress);
+                }
+            }
+        }
+
+        private void IdCama_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void dgvCamas_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvCamas.SelectedRows.Count > 0 && Convert.ToInt32(this.dgvCamas.SelectedRows[0].Cells[0].Value) > 10)
+            {
+                var papa = sender as DataGridView;
+            }
+        }
+
+        private void frmAltaHabitacion_Load(object sender, EventArgs e)
+        {
+            this.dgvCamas.CellValidating += dgvCamas_CellValidating;
+        }
+
+        void dgvCamas_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                int val;
+                if (int.TryParse(e.FormattedValue.ToString(), out val))
+                {
+                    if (val < 0 || val > 10)
+                    {
+                        dgvCamas.Rows[e.RowIndex].ErrorText = "El número de cama debe ser entre 1 y 10";
+                    }
+                    else
+                        dgvCamas.Rows[e.RowIndex].ErrorText = "";
+                }
+                else
+                {
+                    dgvCamas.Rows[e.RowIndex].ErrorText = "La columna adminte solo valores numéricos";
+                }
+            }
+        }
+
+        private void dgvCamas_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿namespace AñosFelices
+﻿using System.Windows.Forms;
+namespace AñosFelices
 {
     partial class frmAltaHabitacion
     {
@@ -52,11 +53,12 @@
             this.dgvCamas.Location = new System.Drawing.Point(51, 206);
             this.dgvCamas.MultiSelect = false;
             this.dgvCamas.Name = "dgvCamas";
-            this.dgvCamas.ReadOnly = true;
             this.dgvCamas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCamas.Size = new System.Drawing.Size(245, 168);
             this.dgvCamas.TabIndex = 3;
-            this.dgvCamas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvCamas_KeyPress);
+            this.dgvCamas.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCamas_CellValidated);
+            this.dgvCamas.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCamas_DataError);
+            this.dgvCamas.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCamas_EditingControlShowing);
             // 
             // lblNroHabitacion
             // 
@@ -95,6 +97,8 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.AllowDrop = true;
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(137, 87);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -151,6 +155,7 @@
             // 
             // frmAltaHabitacion
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 427);
@@ -168,6 +173,7 @@
             this.Controls.Add(this.dgvCamas);
             this.Name = "frmAltaHabitacion";
             this.Text = "frmAltaHabitacion";
+            this.Load += new System.EventHandler(this.frmAltaHabitacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCamas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
