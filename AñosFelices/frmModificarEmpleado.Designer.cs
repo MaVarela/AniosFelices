@@ -37,17 +37,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.mkdDni = new System.Windows.Forms.MaskedTextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.mkdTelefono_1 = new System.Windows.Forms.MaskedTextBox();
-            this.mkdTelefono_2 = new System.Windows.Forms.MaskedTextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtTelefono_1 = new System.Windows.Forms.TextBox();
+            this.txtTelefono_2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEstado = new System.Windows.Forms.TextBox();
+            this.txtPrueba = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -132,71 +135,52 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Rol:";
             // 
-            // mkdDni
-            // 
-            this.mkdDni.Location = new System.Drawing.Point(180, 20);
-            this.mkdDni.Mask = "99999999";
-            this.mkdDni.Name = "mkdDni";
-            this.mkdDni.Size = new System.Drawing.Size(100, 22);
-            this.mkdDni.TabIndex = 9;
-            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(180, 61);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 22);
+            this.txtNombre.Size = new System.Drawing.Size(143, 22);
             this.txtNombre.TabIndex = 10;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(180, 105);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 22);
+            this.txtApellido.Size = new System.Drawing.Size(143, 22);
             this.txtApellido.TabIndex = 11;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(180, 150);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(100, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(143, 22);
             this.txtDireccion.TabIndex = 12;
             // 
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(180, 195);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(100, 22);
+            this.txtMail.Size = new System.Drawing.Size(143, 22);
             this.txtMail.TabIndex = 13;
-            // 
-            // mkdTelefono_1
-            // 
-            this.mkdTelefono_1.Location = new System.Drawing.Point(180, 234);
-            this.mkdTelefono_1.Mask = "9999999999";
-            this.mkdTelefono_1.Name = "mkdTelefono_1";
-            this.mkdTelefono_1.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_1.TabIndex = 14;
-            // 
-            // mkdTelefono_2
-            // 
-            this.mkdTelefono_2.Location = new System.Drawing.Point(180, 275);
-            this.mkdTelefono_2.Mask = "9999999999";
-            this.mkdTelefono_2.Name = "mkdTelefono_2";
-            this.mkdTelefono_2.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_2.TabIndex = 15;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(180, 317);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 22);
+            this.txtPassword.Size = new System.Drawing.Size(143, 22);
             this.txtPassword.TabIndex = 16;
             // 
             // cmbRol
             // 
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(180, 359);
+            this.cmbRol.Items.AddRange(new object[] {
+            "Administrador",
+            "Médico",
+            "Enfermera",
+            "Fantasma"});
+            this.cmbRol.Location = new System.Drawing.Point(181, 359);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(121, 24);
+            this.cmbRol.Size = new System.Drawing.Size(143, 24);
             this.cmbRol.TabIndex = 17;
             // 
             // btnModificar
@@ -207,6 +191,7 @@
             this.btnModificar.TabIndex = 18;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
@@ -218,22 +203,69 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtDni
+            // 
+            this.txtDni.Location = new System.Drawing.Point(181, 21);
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 20;
+            // 
+            // txtTelefono_1
+            // 
+            this.txtTelefono_1.Location = new System.Drawing.Point(181, 235);
+            this.txtTelefono_1.Name = "txtTelefono_1";
+            this.txtTelefono_1.Size = new System.Drawing.Size(142, 22);
+            this.txtTelefono_1.TabIndex = 21;
+            // 
+            // txtTelefono_2
+            // 
+            this.txtTelefono_2.Location = new System.Drawing.Point(180, 275);
+            this.txtTelefono_2.Name = "txtTelefono_2";
+            this.txtTelefono_2.Size = new System.Drawing.Size(143, 22);
+            this.txtTelefono_2.TabIndex = 22;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(103, 410);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 16);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Estado: ";
+            // 
+            // txtEstado
+            // 
+            this.txtEstado.Location = new System.Drawing.Point(181, 404);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.Size = new System.Drawing.Size(100, 22);
+            this.txtEstado.TabIndex = 24;
+            // 
+            // txtPrueba
+            // 
+            this.txtPrueba.Location = new System.Drawing.Point(467, 367);
+            this.txtPrueba.Name = "txtPrueba";
+            this.txtPrueba.Size = new System.Drawing.Size(100, 22);
+            this.txtPrueba.TabIndex = 25;
+            // 
             // frmModificarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 421);
+            this.ClientSize = new System.Drawing.Size(652, 454);
+            this.Controls.Add(this.txtPrueba);
+            this.Controls.Add(this.txtEstado);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtTelefono_2);
+            this.Controls.Add(this.txtTelefono_1);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.mkdTelefono_2);
-            this.Controls.Add(this.mkdTelefono_1);
             this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.mkdDni);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -244,9 +276,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmModificarEmpleado";
             this.Text = "Modificar Empleado";
+            this.Load += new System.EventHandler(this.frmModificarEmpleado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,16 +296,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox mkdDni;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_1;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_2;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtTelefono_1;
+        private System.Windows.Forms.TextBox txtTelefono_2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEstado;
+        private System.Windows.Forms.TextBox txtPrueba;
     }
 }

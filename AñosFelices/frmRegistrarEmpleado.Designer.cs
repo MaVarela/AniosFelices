@@ -43,11 +43,11 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.mkdTelefono_2 = new System.Windows.Forms.MaskedTextBox();
-            this.mkdTelefono_1 = new System.Windows.Forms.MaskedTextBox();
-            this.mkdDni = new System.Windows.Forms.MaskedTextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtTelefono_1 = new System.Windows.Forms.TextBox();
+            this.txtTelefono_2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -127,7 +127,7 @@
             this.cmbRol.FormattingEnabled = true;
             this.cmbRol.Location = new System.Drawing.Point(178, 363);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(121, 24);
+            this.cmbRol.Size = new System.Drawing.Size(214, 24);
             this.cmbRol.TabIndex = 8;
             // 
             // label9
@@ -145,6 +145,7 @@
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(100, 22);
             this.txtMail.TabIndex = 11;
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // txtDireccion
             // 
@@ -159,6 +160,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 22);
             this.txtApellido.TabIndex = 13;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
@@ -166,6 +168,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 22);
             this.txtNombre.TabIndex = 14;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtPassword
             // 
@@ -173,30 +176,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(121, 22);
             this.txtPassword.TabIndex = 16;
-            // 
-            // mkdTelefono_2
-            // 
-            this.mkdTelefono_2.Location = new System.Drawing.Point(178, 272);
-            this.mkdTelefono_2.Mask = "9999999999";
-            this.mkdTelefono_2.Name = "mkdTelefono_2";
-            this.mkdTelefono_2.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_2.TabIndex = 17;
-            // 
-            // mkdTelefono_1
-            // 
-            this.mkdTelefono_1.Location = new System.Drawing.Point(178, 231);
-            this.mkdTelefono_1.Mask = "9999999999";
-            this.mkdTelefono_1.Name = "mkdTelefono_1";
-            this.mkdTelefono_1.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_1.TabIndex = 18;
-            // 
-            // mkdDni
-            // 
-            this.mkdDni.Location = new System.Drawing.Point(178, 18);
-            this.mkdDni.Mask = "99999999";
-            this.mkdDni.Name = "mkdDni";
-            this.mkdDni.Size = new System.Drawing.Size(100, 22);
-            this.mkdDni.TabIndex = 19;
             // 
             // btnRegistrar
             // 
@@ -206,6 +185,7 @@
             this.btnRegistrar.TabIndex = 20;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCancelar
             // 
@@ -217,16 +197,44 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // txtDni
+            // 
+            this.txtDni.AcceptsTab = true;
+            this.txtDni.Location = new System.Drawing.Point(178, 24);
+            this.txtDni.MaxLength = 8;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 22;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            // 
+            // txtTelefono_1
+            // 
+            this.txtTelefono_1.Location = new System.Drawing.Point(178, 231);
+            this.txtTelefono_1.MaxLength = 12;
+            this.txtTelefono_1.Name = "txtTelefono_1";
+            this.txtTelefono_1.Size = new System.Drawing.Size(100, 22);
+            this.txtTelefono_1.TabIndex = 23;
+            this.txtTelefono_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // txtTelefono_2
+            // 
+            this.txtTelefono_2.Location = new System.Drawing.Point(178, 273);
+            this.txtTelefono_2.MaxLength = 12;
+            this.txtTelefono_2.Name = "txtTelefono_2";
+            this.txtTelefono_2.Size = new System.Drawing.Size(100, 22);
+            this.txtTelefono_2.TabIndex = 24;
+            this.txtTelefono_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_2_KeyPress);
+            // 
             // frmRegistrarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 421);
+            this.Controls.Add(this.txtTelefono_2);
+            this.Controls.Add(this.txtTelefono_1);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.mkdDni);
-            this.Controls.Add(this.mkdTelefono_1);
-            this.Controls.Add(this.mkdTelefono_2);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtApellido);
@@ -246,6 +254,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRegistrarEmpleado";
             this.Text = "Registrar Empleado";
+            this.Load += new System.EventHandler(this.frmRegistrarEmpleado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,10 +277,10 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_2;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_1;
-        private System.Windows.Forms.MaskedTextBox mkdDni;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtTelefono_1;
+        private System.Windows.Forms.TextBox txtTelefono_2;
     }
 }

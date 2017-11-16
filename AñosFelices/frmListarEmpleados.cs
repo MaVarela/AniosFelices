@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
+using AñosFelices.DTO;
+using AñosFelices.DTOs.DTOMappers;
+using AñosFelices.EntidadesDeNegocio;
 
 namespace AñosFelices
 {
@@ -19,7 +22,11 @@ namespace AñosFelices
         public frmListarEmpleados()
         {
             InitializeComponent();
-            this.dgvEmpleados.DataSource = repositorioUsuario.ObtenerTodos();
+            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+            RolDTOMapper mapperRol = new RolDTOMapper();
+            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
+
+            this.dgvEmpleados.DataSource = listado;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

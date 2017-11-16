@@ -75,6 +75,7 @@ namespace AñosFelices.AccesoADatos.Repositorios
             }
         }
 
+   
         /// <summary>
         /// Permite recuperar un listado de roles
         /// </summary>
