@@ -113,5 +113,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return registrosLibroDeGuardias;
             }
         }
+
+        public void Borrar(LibroDeGuardias obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

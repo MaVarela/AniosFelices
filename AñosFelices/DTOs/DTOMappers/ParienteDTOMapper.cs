@@ -1,4 +1,6 @@
-﻿using AñosFelices.EntidadesDeNegocio;
+﻿using AñosFelices.AccesoADatos.IRepositorios;
+using AñosFelices.AccesoADatos.Repositorios;
+using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,8 @@ namespace AñosFelices.DTOs.DTOMappers
 {
     public class ParienteDTOMapper
     {
+        IRepositorioPariente repositorioPariente = new RepositorioPariente();
+        IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
         /// <summary>
         /// Retorna un listado de DTOs de Pariente
         /// </summary>
@@ -40,7 +44,7 @@ namespace AñosFelices.DTOs.DTOMappers
         public List<Pariente> LlenarListadoPersist(List<ParienteDTO> parientes, Paciente paciente)
         {
             var listadoParientes = new List<Pariente>();
-            
+
             foreach (var parienteDTO in parientes)
             {
                 ParienteId idPariente = new ParienteId();
@@ -59,6 +63,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 pariente.Telefono1 = parienteDTO.Telefono1;
                 pariente.Telefono2 = parienteDTO.Telefono2;
                 pariente.Parentezco = parienteDTO.Parentezco;
+                //pariente.Estado = parienteDTO.Estado;
                 pariente.Estado = "A";
 
                 listadoParientes.Add(pariente);
@@ -83,6 +88,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 parienteDTO.Telefono1 = pariente.Telefono1;
                 parienteDTO.Telefono2 = pariente.Telefono2;
                 parienteDTO.Parentezco = pariente.Parentezco;
+                //parienteDTO.Estado = pariente.Estado;
 
                 if(pariente.Paciente.Dni == pacienteSeleccionado.Paciente.Dni)
                 {
@@ -92,5 +98,32 @@ namespace AñosFelices.DTOs.DTOMappers
 
             return listadoParientes;
         }
+
+        /*public List<ParienteDTO> LlenarListado(List<Pariente> parientes)
+        {
+            var pacienteSeleccionado = PacienteSeleccionado.Instance();
+            var listadoParientes = new List<ParienteDTO>();
+
+            foreach (var pariente in parientes)
+            {
+                var parienteDTO = new ParienteDTO();
+                parienteDTO.Dni = pariente.DniPariente;
+                parienteDTO.Nombre = pariente.Nombre;
+                parienteDTO.Apellido = pariente.Apellido;
+                parienteDTO.Direccion = pariente.Direccion;
+                parienteDTO.Mail = pariente.Mail;
+                parienteDTO.Telefono1 = pariente.Telefono1;
+                parienteDTO.Telefono2 = pariente.Telefono2;
+                parienteDTO.Parentezco = pariente.Parentezco;
+                parienteDTO.Estado = pariente.Estado;
+
+                if (pariente.Paciente.Dni == pacienteSeleccionado.Paciente.Dni && pariente.Estado == "A")
+                {
+                    listadoParientes.Add(parienteDTO);
+                }
+            }
+
+            return listadoParientes;
+        }*/
     }
 }

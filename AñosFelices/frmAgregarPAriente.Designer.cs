@@ -71,22 +71,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 202);
+            this.label3.Location = new System.Drawing.Point(39, 202);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Teléfono: ";
+            this.label3.Text = "Teléfono 1: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 248);
+            this.label4.Location = new System.Drawing.Point(40, 248);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Teléfono";
+            this.label4.Text = "Teléfono 2:";
             // 
             // label5
             // 

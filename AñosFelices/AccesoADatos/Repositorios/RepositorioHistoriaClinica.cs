@@ -131,5 +131,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return registrosHistoriaClinica;
             }
         }
+
+        public void Borrar(HistoriaClinica obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

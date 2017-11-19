@@ -155,6 +155,7 @@ namespace AñosFelices
             txtEstadoFisico.Text = null;
             txtHabitacion.Text = null;
             txtNombre.Text = null;
+            ParienteSeleccionado.Parientes = null;
             this.Close();
         }
 
@@ -167,6 +168,7 @@ namespace AñosFelices
         {
             if (dataGridView1.RowCount > 0)
             {
+                var nombreForm = new frmAltaPaciente().Name;
                 int index;
                 var parienteDTO = new ParienteDTO();
                 index = Convert.ToInt32(dataGridView1.CurrentRow.Index.ToString());
@@ -179,7 +181,7 @@ namespace AñosFelices
                 parienteDTO.Mail = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
                 parienteDTO.Parentezco = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
                 
-                var modificarPariente = new frmModificarPariente(index, parienteDTO);
+                var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
                 modificarPariente.ShowDialog();
 
                 cargarDGV();

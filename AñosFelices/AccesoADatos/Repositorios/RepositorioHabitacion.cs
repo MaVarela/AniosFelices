@@ -101,5 +101,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return habitaciones;
             }
         }
+
+        public void Borrar(Habitacion obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

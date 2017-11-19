@@ -97,5 +97,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return pacientes;
             }
         }
+
+        public void Borrar(Paciente obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

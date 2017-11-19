@@ -41,5 +41,7 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// </summary>
         /// <returns>Una lista de objetos</returns>
         IList<T> ObtenerTodos();
+
+        void Borrar(T obj);
     }
 }

@@ -101,5 +101,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return camas;
             }
         }
+
+        public void Borrar(Cama obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

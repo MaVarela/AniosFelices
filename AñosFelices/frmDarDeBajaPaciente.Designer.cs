@@ -32,6 +32,7 @@
             this.btnBaja = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
+            this.btnParientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(143, 50);
             this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cerrar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -76,11 +77,22 @@
             this.dgvPacientes.Size = new System.Drawing.Size(770, 212);
             this.dgvPacientes.TabIndex = 4;
             // 
+            // btnParientes
+            // 
+            this.btnParientes.Location = new System.Drawing.Point(54, 298);
+            this.btnParientes.Name = "btnParientes";
+            this.btnParientes.Size = new System.Drawing.Size(143, 50);
+            this.btnParientes.TabIndex = 6;
+            this.btnParientes.Text = "Eliminar Parientes";
+            this.btnParientes.UseVisualStyleBackColor = true;
+            this.btnParientes.Click += new System.EventHandler(this.btnParientes_Click);
+            // 
             // frmDarDeBajaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 360);
+            this.Controls.Add(this.btnParientes);
             this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBaja);
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvPacientes;
+        private System.Windows.Forms.Button btnParientes;
     }
 }

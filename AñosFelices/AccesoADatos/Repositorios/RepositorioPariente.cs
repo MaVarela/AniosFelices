@@ -98,5 +98,18 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 return parientes;
             }
         }
+
+        public void Borrar(Pariente obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    transaction.Commit();
+                }
+            }
+        }
     }
 }

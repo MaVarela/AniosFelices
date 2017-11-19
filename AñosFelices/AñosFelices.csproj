@@ -198,6 +198,12 @@
     <Compile Include="frmDarDeBajaPaciente.Designer.cs">
       <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDarDeBajaPariente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDarDeBajaPariente.Designer.cs">
+      <DependentUpon>frmDarDeBajaPariente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHabitacionesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDarDeBajaPaciente.resx">
       <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDarDeBajaPariente.resx">
+      <DependentUpon>frmDarDeBajaPariente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHabitacionesList.resx">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>

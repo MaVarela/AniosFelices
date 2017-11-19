@@ -34,25 +34,28 @@ namespace AñosFelices
                             {
                                 if (!String.IsNullOrEmpty(this.txtDireccion.Text.Trim()) && txtDireccion.Text != "")
                                 {
-                                    var pariente = ParienteSeleccionado.Instance();
-                                    var parienteDTO = new ParienteDTO();
-
-                                    if (pariente.Parientes == null)
+                                    if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                     {
-                                        pariente.Parientes = new List<ParienteDTO>();
+                                        var pariente = ParienteSeleccionado.Instance();
+                                        var parienteDTO = new ParienteDTO();
+
+                                        if (pariente.Parientes == null)
+                                        {
+                                            pariente.Parientes = new List<ParienteDTO>();
+                                        }
+                                        parienteDTO.Dni = Convert.ToInt32(txtDni.Text.Trim());
+                                        parienteDTO.Nombre = txtNom_Pariente.Text.Trim();
+                                        parienteDTO.Apellido = txtApe_Pariente.Text.Trim();
+                                        parienteDTO.Direccion = txtDireccion.Text.Trim();
+                                        parienteDTO.Mail = txtMail.Text.Trim();
+                                        parienteDTO.Telefono1 = mkdTel_1.Text.Trim();
+                                        parienteDTO.Telefono2 = mkdTel_2.Text.Trim();
+                                        parienteDTO.Parentezco = txtParentezco.Text.Trim();
+
+                                        pariente.Parientes.Add(parienteDTO);
+
+                                        this.Close();
                                     }
-                                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text.Trim());
-                                    parienteDTO.Nombre = txtNom_Pariente.Text.Trim();
-                                    parienteDTO.Apellido = txtApe_Pariente.Text.Trim();
-                                    parienteDTO.Direccion = txtDireccion.Text.Trim();
-                                    parienteDTO.Mail = txtMail.Text.Trim();
-                                    parienteDTO.Telefono1 = mkdTel_1.Text.Trim();
-                                    parienteDTO.Telefono2 = mkdTel_2.Text.Trim();
-                                    parienteDTO.Parentezco = txtParentezco.Text.Trim();
-
-                                    pariente.Parientes.Add(parienteDTO);
-
-                                    this.Close();
                                 }
                                 else
                                     MessageBox.Show("El campo 'Dirección' es Obligatorio");
