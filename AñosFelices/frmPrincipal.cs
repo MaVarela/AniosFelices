@@ -1,15 +1,20 @@
-﻿using System;
+﻿using AñosFelices.Utilidades;
+using System;
 using System.Windows.Forms;
 
 namespace AñosFelices
 {
     public partial class frmPrincipal : Form
     {
+        UsuarioLogueado usuarioLogueado = UsuarioLogueado.Instance();
+
         public frmPrincipal()
         {
             InitializeComponent();
             var login = new frmLogin();
             login.ShowDialog();
+            if(usuarioLogueado.Usuario != null)
+                ConfigurarVista();
         }
 
         private void consultarRecomendacionesAlimentariasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,7 +47,7 @@ namespace AñosFelices
             ListadoHabitaciones.Show();
         }
 
-        private void registrarActividadFísicaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarActividadFisicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var actividadFisica = new frmRegistrarActividadFisica();
             actividadFisica.Show();
@@ -67,7 +72,7 @@ namespace AñosFelices
             registrar.Show();
         }
 
-        private void consultarActividadFísicaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultarActividadFisicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var actividadFisicaC = new frmConsultarActividadFisica();
             actividadFisicaC.Show();
@@ -105,36 +110,35 @@ namespace AñosFelices
 
         private void registrarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*var registrarEmpleado = new frmRegistrarEmpleado();
-            registrarEmpleado.Show();*/
-
+            var registrarEmpleado = new frmRegistrarEmpleado();
+            registrarEmpleado.Show();
         }
 
         private void modificarEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*var listaEmpleados = new frmListaEmpleados();
-            listaEmpleados.Show();*/
+            var listaEmpleados = new frmListaEmpleados();
+            listaEmpleados.Show();
         }
 
         private void listarEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*var listarEmpleados = new frmListarEmpleados();
-            listarEmpleados.Show();*/
+            var listarEmpleados = new frmListarEmpleados();
+            listarEmpleados.Show();
         }
 
         private void darDeBajaEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           /* var darBaja = new frmDarDeBajaEmpleados();
-            darBaja.Show();*/
+             var darBaja = new frmDarDeBajaEmpleados();
+             darBaja.Show();
         }
 
-        private void registrarRecomendaciónDeActividadFísicaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarRecomendacionDeActividadFisicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var registrarActFisica = new frmRegistrarRecomendacionActFisica();
             registrarActFisica.Show();
         }
 
-        private void registrarRecomendaciónAlimentariaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void registrarRecomendacionAlimentariaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var registrarRecAlimentaria = new frmRegistrarRecomendacionAlimentaria();
             registrarRecAlimentaria.Show();
@@ -156,6 +160,58 @@ namespace AñosFelices
         {
             var altaHabitacion = new frmAltaHabitacion();
             altaHabitacion.Show();
+        }
+
+        public void ConfigurarVista()
+        {
+            var rol = usuarioLogueado.Usuario.Rol.Descripcion;
+
+            /*if (rol == "Responsable Legal")
+            {
+                this.libroDeGuardiasToolStripMenuItem.Visible = false;
+                this.pacientesToolStripMenuItem.Visible = true;
+                this.empleadosToolStripMenuItem.Visible = true;
+                this.habitacionesToolStripMenuItem.Visible = true;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.registrarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+            }*/
+            if (rol == "Médico")
+            {
+                this.libroDeGuardiasToolStripMenuItem.Visible = false;
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.registrarHistoriaClinicaToolStripMenuItem.Visible = true;
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+
+            }
+            if (rol.ToString() == "Asistente" || rol.ToString() == "Enfermera" || rol.ToString() == "Encargada")
+            {
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = false;
+                this.registrarHistoriaClinicaToolStripMenuItem.Visible = false;
+
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+            }
+            if (rol.ToString() == "Encargada de Cocina")
+            {
+                this.pacientesToolStripMenuItem.Visible = false;
+                this.empleadosToolStripMenuItem.Visible = false;
+                this.habitacionesToolStripMenuItem.Visible = false;
+                this.registrarHistoriaClinicaToolStripMenuItem.Visible = false;
+
+                this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
+                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+                this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
+            }
+
+            return;
         }
     }
 }

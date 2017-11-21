@@ -43,190 +43,222 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.mkdTelefono_2 = new System.Windows.Forms.MaskedTextBox();
-            this.mkdTelefono_1 = new System.Windows.Forms.MaskedTextBox();
-            this.mkdDni = new System.Windows.Forms.MaskedTextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtDni = new System.Windows.Forms.TextBox();
+            this.txtTelefono_1 = new System.Windows.Forms.TextBox();
+            this.txtTelefono_2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 24);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(37, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(95, 65);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 16);
+            this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(88, 108);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(24, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Apellido: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 149);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(24, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 16);
+            this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 3;
             this.label4.Text = "Dirección: ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(117, 193);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(24, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 16);
+            this.label5.Size = new System.Drawing.Size(39, 16);
             this.label5.TabIndex = 4;
             this.label5.Text = "Mail: ";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 237);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(23, 231);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 16);
+            this.label6.Size = new System.Drawing.Size(65, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Teléfono:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 278);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(23, 273);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(138, 16);
+            this.label7.Size = new System.Drawing.Size(120, 16);
             this.label7.TabIndex = 6;
             this.label7.Text = "Teléfono opcional:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(80, 326);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 320);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 16);
+            this.label8.Size = new System.Drawing.Size(74, 16);
             this.label8.TabIndex = 7;
             this.label8.Text = "Password: ";
             // 
             // cmbRol
             // 
+            this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(178, 363);
+            this.cmbRol.Location = new System.Drawing.Point(165, 363);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(121, 24);
-            this.cmbRol.TabIndex = 8;
+            this.cmbRol.Size = new System.Drawing.Size(214, 24);
+            this.cmbRol.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(122, 371);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(24, 363);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 16);
+            this.label9.Size = new System.Drawing.Size(35, 16);
             this.label9.TabIndex = 9;
             this.label9.Text = "Rol: ";
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(178, 187);
+            this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMail.Location = new System.Drawing.Point(165, 187);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(100, 22);
-            this.txtMail.TabIndex = 11;
+            this.txtMail.Size = new System.Drawing.Size(214, 22);
+            this.txtMail.TabIndex = 5;
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(178, 143);
+            this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(165, 143);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(100, 22);
-            this.txtDireccion.TabIndex = 12;
+            this.txtDireccion.Size = new System.Drawing.Size(214, 22);
+            this.txtDireccion.TabIndex = 4;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(178, 102);
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Location = new System.Drawing.Point(165, 102);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 22);
-            this.txtApellido.TabIndex = 13;
+            this.txtApellido.Size = new System.Drawing.Size(214, 22);
+            this.txtApellido.TabIndex = 3;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(178, 59);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(165, 59);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 22);
-            this.txtNombre.TabIndex = 14;
+            this.txtNombre.Size = new System.Drawing.Size(214, 22);
+            this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(178, 320);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(165, 320);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(121, 22);
-            this.txtPassword.TabIndex = 16;
-            // 
-            // mkdTelefono_2
-            // 
-            this.mkdTelefono_2.Location = new System.Drawing.Point(178, 272);
-            this.mkdTelefono_2.Mask = "9999999999";
-            this.mkdTelefono_2.Name = "mkdTelefono_2";
-            this.mkdTelefono_2.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_2.TabIndex = 17;
-            // 
-            // mkdTelefono_1
-            // 
-            this.mkdTelefono_1.Location = new System.Drawing.Point(178, 231);
-            this.mkdTelefono_1.Mask = "9999999999";
-            this.mkdTelefono_1.Name = "mkdTelefono_1";
-            this.mkdTelefono_1.Size = new System.Drawing.Size(100, 22);
-            this.mkdTelefono_1.TabIndex = 18;
-            // 
-            // mkdDni
-            // 
-            this.mkdDni.Location = new System.Drawing.Point(178, 18);
-            this.mkdDni.Mask = "99999999";
-            this.mkdDni.Name = "mkdDni";
-            this.mkdDni.Size = new System.Drawing.Size(100, 22);
-            this.mkdDni.TabIndex = 19;
+            this.txtPassword.TabIndex = 8;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(454, 102);
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(137, 412);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(143, 50);
-            this.btnRegistrar.TabIndex = 20;
+            this.btnRegistrar.Size = new System.Drawing.Size(113, 29);
+            this.btnRegistrar.TabIndex = 10;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(454, 231);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(266, 412);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(143, 50);
-            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.Size = new System.Drawing.Size(113, 29);
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // txtDni
+            // 
+            this.txtDni.AcceptsTab = true;
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(165, 24);
+            this.txtDni.MaxLength = 8;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 1;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
+            // 
+            // txtTelefono_1
+            // 
+            this.txtTelefono_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono_1.Location = new System.Drawing.Point(165, 231);
+            this.txtTelefono_1.MaxLength = 12;
+            this.txtTelefono_1.Name = "txtTelefono_1";
+            this.txtTelefono_1.Size = new System.Drawing.Size(100, 22);
+            this.txtTelefono_1.TabIndex = 6;
+            this.txtTelefono_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_1_KeyPress);
+            this.txtTelefono_1.Leave += new System.EventHandler(this.txtTelefono_1_Leave);
+            // 
+            // txtTelefono_2
+            // 
+            this.txtTelefono_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono_2.Location = new System.Drawing.Point(165, 273);
+            this.txtTelefono_2.MaxLength = 12;
+            this.txtTelefono_2.Name = "txtTelefono_2";
+            this.txtTelefono_2.Size = new System.Drawing.Size(100, 22);
+            this.txtTelefono_2.TabIndex = 7;
+            this.txtTelefono_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_2_KeyPress);
+            this.txtTelefono_2.Leave += new System.EventHandler(this.txtTelefono_2_Leave);
             // 
             // frmRegistrarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 421);
+            this.ClientSize = new System.Drawing.Size(409, 465);
+            this.ControlBox = false;
+            this.Controls.Add(this.txtTelefono_2);
+            this.Controls.Add(this.txtTelefono_1);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.mkdDni);
-            this.Controls.Add(this.mkdTelefono_1);
-            this.Controls.Add(this.mkdTelefono_2);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtApellido);
@@ -244,8 +276,11 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(425, 504);
+            this.MinimumSize = new System.Drawing.Size(425, 504);
             this.Name = "frmRegistrarEmpleado";
             this.Text = "Registrar Empleado";
+            this.Load += new System.EventHandler(this.frmRegistrarEmpleado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,10 +303,10 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_2;
-        private System.Windows.Forms.MaskedTextBox mkdTelefono_1;
-        private System.Windows.Forms.MaskedTextBox mkdDni;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.TextBox txtTelefono_1;
+        private System.Windows.Forms.TextBox txtTelefono_2;
     }
 }

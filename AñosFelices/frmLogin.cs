@@ -9,14 +9,11 @@ namespace AñosFelices
     public partial class frmLogin : Form
     {
         IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+        UsuarioLogueado usuarioLogueado = UsuarioLogueado.Instance();
+
         public frmLogin()
         {
             InitializeComponent();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -28,7 +25,6 @@ namespace AñosFelices
                     var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
                     if (usuario != null && usuario.Password == txtPass.Text)
                     {
-                        var usuarioLogueado = UsuarioLogueado.Instance();
                         usuarioLogueado.Usuario = usuario;
                         
                         this.Close();
@@ -52,6 +48,13 @@ namespace AñosFelices
         {
             const char Delete = (char)8;
             e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Enter = (char)13;
+            if (e.KeyChar == Enter)
+                btnAceptar_Click(sender, e);
         }
     }
 }

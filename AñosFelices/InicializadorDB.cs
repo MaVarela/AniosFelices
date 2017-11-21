@@ -17,10 +17,12 @@ namespace AñosFelices
         /// </summary>
         public static void InicializarDB()
         {
-            Rol admin = new Rol("Administrador");
+            Rol resplegal = new Rol("Responsable Legal");
             Rol enfermera = new Rol("Enfermera");
             Rol medico = new Rol("Médico");
-            Rol fantasma = new Rol("Fantasma");
+            Rol encargada = new Rol("Encargada");
+            Rol encargadacocina = new Rol("Encargada de Cocina");
+            Rol asistente = new Rol("Asistente");
 
             NHibernateHelper.OpenSession();
 
@@ -37,24 +39,30 @@ namespace AñosFelices
             var rol2 = repositorioRol.ObtenerPorId(2);
             var rol3 = repositorioRol.ObtenerPorId(3);
             var rol4 = repositorioRol.ObtenerPorId(4);
+            var rol5 = repositorioRol.ObtenerPorId(5);
+            var rol6 = repositorioRol.ObtenerPorId(6);
             if (rol1 == null)
-                rol1 = repositorioRol.Agregar(admin);
+                rol1 = repositorioRol.Agregar(resplegal);
             if (rol2 == null)
                 rol2 = repositorioRol.Agregar(enfermera);
             if (rol3 == null)
                 rol3 = repositorioRol.Agregar(medico);
             if (rol4 == null)
-                rol4 = repositorioRol.Agregar(fantasma);
-            Usuario Admin = new Usuario();
+                rol4 = repositorioRol.Agregar(encargada);
+            if (rol5 == null)
+                rol5 = repositorioRol.Agregar(encargadacocina);
+            if (rol6 == null)
+                rol6 = repositorioRol.Agregar(asistente);
+            Usuario RespLegal = new Usuario();
             Usuario getMedico = new Usuario();
 
             if (rol1 != null)
             {
-                Admin = repositorioUsuario.ObtenerPorId(34493011);
-                if (Admin == null)
+                RespLegal = repositorioUsuario.ObtenerPorId(34493011);
+                if (RespLegal == null)
                 {
-                    Usuario administrador = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
-                    Admin = repositorioUsuario.Agregar(administrador);
+                    Usuario reslegal = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
+                    RespLegal = repositorioUsuario.Agregar(reslegal);
                 }
             }
             if (rol3 != null)
@@ -103,7 +111,7 @@ namespace AñosFelices
                     LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
                     idLibroGuardias.Paciente = paciente;
                     idLibroGuardias.Turno = "Diurno, Actividad Física";
-                    idLibroGuardias.Usuario = Admin;
+                    idLibroGuardias.Usuario = RespLegal;
                     var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
                     if (actividadFisica == null)
                     {

@@ -37,20 +37,21 @@
             // dgvPacientes
             // 
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(61, 43);
+            this.dgvPacientes.Location = new System.Drawing.Point(54, 43);
             this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
             this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(770, 184);
+            this.dgvPacientes.Size = new System.Drawing.Size(684, 184);
             this.dgvPacientes.TabIndex = 0;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(688, 260);
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(639, 251);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(143, 50);
+            this.btnCerrar.Size = new System.Drawing.Size(99, 29);
             this.btnCerrar.TabIndex = 1;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // 
             // btnParientes
             // 
-            this.btnParientes.Location = new System.Drawing.Point(61, 260);
+            this.btnParientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParientes.Location = new System.Drawing.Point(523, 251);
             this.btnParientes.Name = "btnParientes";
-            this.btnParientes.Size = new System.Drawing.Size(143, 50);
+            this.btnParientes.Size = new System.Drawing.Size(99, 29);
             this.btnParientes.TabIndex = 2;
             this.btnParientes.Text = "Ver Parientes";
             this.btnParientes.UseVisualStyleBackColor = true;
@@ -68,13 +70,14 @@
             // 
             // frmListarPacientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 322);
+            this.ClientSize = new System.Drawing.Size(764, 308);
+            this.ControlBox = false;
             this.Controls.Add(this.btnParientes);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvPacientes);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListarPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

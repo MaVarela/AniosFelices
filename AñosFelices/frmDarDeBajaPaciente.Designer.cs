@@ -38,55 +38,60 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(541, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Seleccione el Paciente";
+            this.label1.Size = new System.Drawing.Size(217, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Seleccione el Paciente a Inhabilitar";
             // 
             // btnBaja
             // 
-            this.btnBaja.Location = new System.Drawing.Point(507, 298);
+            this.btnBaja.Location = new System.Drawing.Point(515, 319);
             this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(143, 50);
-            this.btnBaja.TabIndex = 2;
-            this.btnBaja.Text = "Dar de Baja";
+            this.btnBaja.Size = new System.Drawing.Size(111, 29);
+            this.btnBaja.TabIndex = 1;
+            this.btnBaja.Text = "Inhabilitar";
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(681, 298);
+            this.btnCancelar.Location = new System.Drawing.Point(647, 319);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(143, 50);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cerrar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvPacientes
             // 
+            this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(54, 57);
+            this.dgvPacientes.Location = new System.Drawing.Point(25, 57);
             this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(770, 212);
-            this.dgvPacientes.TabIndex = 4;
+            this.dgvPacientes.Size = new System.Drawing.Size(733, 238);
+            this.dgvPacientes.TabIndex = 3;
             // 
             // frmDarDeBajaPaciente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 360);
+            this.ClientSize = new System.Drawing.Size(782, 360);
+            this.ControlBox = false;
             this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(798, 399);
+            this.MinimumSize = new System.Drawing.Size(798, 399);
             this.Name = "frmDarDeBajaPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dar de Baja Paciente";

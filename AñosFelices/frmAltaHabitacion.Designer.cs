@@ -49,8 +49,9 @@ namespace AñosFelices
             this.dgvCamas.AllowUserToDeleteRows = false;
             this.dgvCamas.AllowUserToResizeColumns = false;
             this.dgvCamas.AllowUserToResizeRows = false;
+            this.dgvCamas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvCamas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCamas.Location = new System.Drawing.Point(51, 206);
+            this.dgvCamas.Location = new System.Drawing.Point(126, 206);
             this.dgvCamas.MultiSelect = false;
             this.dgvCamas.Name = "dgvCamas";
             this.dgvCamas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -63,59 +64,66 @@ namespace AñosFelices
             // lblNroHabitacion
             // 
             this.lblNroHabitacion.AutoSize = true;
-            this.lblNroHabitacion.Location = new System.Drawing.Point(48, 32);
+            this.lblNroHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroHabitacion.Location = new System.Drawing.Point(21, 25);
             this.lblNroHabitacion.Name = "lblNroHabitacion";
-            this.lblNroHabitacion.Size = new System.Drawing.Size(81, 13);
+            this.lblNroHabitacion.Size = new System.Drawing.Size(101, 16);
             this.lblNroHabitacion.TabIndex = 4;
             this.lblNroHabitacion.Text = "Nro. Habitación";
             // 
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(48, 87);
+            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(21, 87);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(54, 13);
+            this.lblCategoria.Size = new System.Drawing.Size(67, 16);
             this.lblCategoria.TabIndex = 5;
             this.lblCategoria.Text = "Categoría";
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(48, 148);
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(21, 148);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblEstado.Size = new System.Drawing.Size(51, 16);
             this.lblEstado.TabIndex = 6;
             this.lblEstado.Text = "Estado";
             // 
             // txtNroHabitacion
             // 
+            this.txtNroHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNroHabitacion.Location = new System.Drawing.Point(137, 25);
             this.txtNroHabitacion.Name = "txtNroHabitacion";
             this.txtNroHabitacion.ReadOnly = true;
-            this.txtNroHabitacion.Size = new System.Drawing.Size(73, 20);
+            this.txtNroHabitacion.Size = new System.Drawing.Size(73, 22);
             this.txtNroHabitacion.TabIndex = 7;
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.AllowDrop = true;
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(137, 87);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(159, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(159, 24);
             this.cmbCategoria.TabIndex = 8;
             // 
             // txtEstado
             // 
+            this.txtEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstado.Location = new System.Drawing.Point(137, 148);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
-            this.txtEstado.Size = new System.Drawing.Size(100, 20);
+            this.txtEstado.Size = new System.Drawing.Size(100, 22);
             this.txtEstado.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(311, 206);
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(78, 206);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(31, 23);
             this.btnAgregar.TabIndex = 10;
@@ -125,7 +133,8 @@ namespace AñosFelices
             // 
             // btnRemover
             // 
-            this.btnRemover.Location = new System.Drawing.Point(311, 239);
+            this.btnRemover.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.Location = new System.Drawing.Point(78, 239);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(31, 23);
             this.btnRemover.TabIndex = 11;
@@ -135,19 +144,21 @@ namespace AñosFelices
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(182, 393);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(126, 404);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(70, 22);
+            this.btnAceptar.Size = new System.Drawing.Size(111, 29);
             this.btnAceptar.TabIndex = 12;
-            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.Text = "Registrar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(272, 393);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(260, 404);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(70, 22);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -158,7 +169,7 @@ namespace AñosFelices
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 427);
+            this.ClientSize = new System.Drawing.Size(393, 456);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);

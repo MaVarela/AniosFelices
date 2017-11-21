@@ -7,5 +7,11 @@ namespace AñosFelices.AccesoADatos.IRepositorios
     /// </summary>
     public interface IRepositorioUsuario : IRepositorioGenerico<Usuario, int>
     {
+        /// <summary>
+        /// Permite habilitar un usuario
+        /// </summary>
+        /// <param name="obj">Usuario a habilitar</param>
+        /// <returns>Usuario</returns>
+        Usuario Habilitar(Usuario obj);
     }
 }

@@ -74,6 +74,27 @@ namespace AñosFelices.AccesoADatos.Repositorios
         }
 
         /// <summary>
+        /// Permite habilitar un usuario
+        /// </summary>
+        /// <param name="obj">Usuario a habilitar</param>
+        /// <returns>Usuario</returns>
+        public Usuario Habilitar(Usuario obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    obj.Estado = "A";
+                    session.Update(obj);
+                    transaction.Commit();
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Permite recuperar un usuario en base a su identificador
         /// </summary>
         /// <param name="id">Identificador del usuario</param>

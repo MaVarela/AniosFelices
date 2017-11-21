@@ -7,12 +7,7 @@ using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AñosFelices
@@ -29,7 +24,7 @@ namespace AñosFelices
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSeleccionarHabitacion_Click(object sender, EventArgs e)
         {
             var camaSeleccionada = CamaSeleccionada.Instance();
             var ListadoHabitaciones = new frmHabitacionesList();
@@ -43,9 +38,9 @@ namespace AñosFelices
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.RowCount < 2)
+            if(dgvParientes.RowCount < 2)
             {
                 var agregarPariente = new frmAgregarPariente();
                 agregarPariente.ShowDialog();
@@ -70,10 +65,10 @@ namespace AñosFelices
             var listado = mapper.LlenarListado(ParienteSeleccionado.Parientes);
 
 
-            dataGridView1.DataSource = listado;
+            dgvParientes.DataSource = listado;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             var camaSeleccionada = CamaSeleccionada.Instance();
             if (!String.IsNullOrEmpty(mkdDni.Text))
@@ -86,7 +81,7 @@ namespace AñosFelices
                         {
                             if (camaSeleccionada.Cama != null)
                             {
-                                if (this.dataGridView1.RowCount > 0)
+                                if (this.dgvParientes.RowCount > 0)
                                 {
                                     if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                     {
@@ -147,7 +142,7 @@ namespace AñosFelices
                 MessageBox.Show("El campo 'Dni' es Obligatorio");
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             mkdDni.Text = null;
             txtApellido.Text = null;
@@ -163,21 +158,21 @@ namespace AñosFelices
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount > 0)
+            if (dgvParientes.RowCount > 0)
             {
                 int index;
                 var parienteDTO = new ParienteDTO();
-                index = Convert.ToInt32(dataGridView1.CurrentRow.Index.ToString());
-                parienteDTO.Dni = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                parienteDTO.Nombre = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                parienteDTO.Apellido = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                parienteDTO.Direccion = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                parienteDTO.Telefono1 = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                parienteDTO.Telefono2 = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                parienteDTO.Mail = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                parienteDTO.Parentezco = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
+                parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
+                parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value.ToString();
+                parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value.ToString();
+                parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value.ToString();
+                parienteDTO.Telefono1 = dgvParientes.SelectedRows[0].Cells[4].Value.ToString();
+                parienteDTO.Telefono2 = dgvParientes.SelectedRows[0].Cells[5].Value.ToString();
+                parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value.ToString();
+                parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value.ToString();
                 
                 var modificarPariente = new frmModificarPariente(index, parienteDTO);
                 modificarPariente.ShowDialog();
@@ -186,14 +181,14 @@ namespace AñosFelices
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnRemover_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.RowCount > 0)
+            if(dgvParientes.RowCount > 0)
             {
                 if (MessageBox.Show("¿Está seguro de que desea eliminar el Pariente?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     var parienteDTO = new ParienteDTO();
-                    parienteDTO.Dni = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
                     if (ParienteSeleccionado.Parientes.Count() > 0)
                     {
                         ParienteSeleccionado.Parientes.Remove(ParienteSeleccionado.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());

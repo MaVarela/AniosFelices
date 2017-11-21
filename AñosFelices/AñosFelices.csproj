@@ -95,6 +95,10 @@
     <Compile Include="DTOs\DTOMappers\HistoriaClinicaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\LibroDeGuardiasDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\ParienteDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\RolDTOMapper.cs" />
+    <Compile Include="DTOs\DTOMappers\UsuarioDTOMapper.cs" />
+    <Compile Include="DTOs\RolDTO.cs" />
+    <Compile Include="DTOs\UsuarioDTO.cs" />
     <Compile Include="DTOs\HabitacionDTO.cs" />
     <Compile Include="DTOs\DTOMappers\PacienteDTOMapper.cs" />
     <Compile Include="DTOs\HistoriaClinicaDTO.cs" />
@@ -282,6 +286,12 @@
     <Compile Include="frmRegistrarComida.Designer.cs">
       <DependentUpon>frmRegistrarComida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarEmpleado.designer.cs">
+      <DependentUpon>frmConsultarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +345,7 @@
     <Compile Include="Utilidades\CamasSeleccionadas.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
+    <Compile Include="Utilidades\EmpleadoSeleccionado.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
     <Compile Include="Utilidades\ParienteSeleccionado.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
@@ -426,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarComida.resx">
       <DependentUpon>frmRegistrarComida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarEmpleado.resx">
+      <DependentUpon>frmConsultarEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarEmpleado.resx">
       <DependentUpon>frmRegistrarEmpleado.cs</DependentUpon>

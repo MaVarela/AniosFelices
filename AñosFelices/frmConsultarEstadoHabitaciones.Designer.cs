@@ -37,6 +37,7 @@
             // 
             this.dgvHabitaciones.AllowUserToAddRows = false;
             this.dgvHabitaciones.AllowUserToDeleteRows = false;
+            this.dgvHabitaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHabitaciones.Location = new System.Drawing.Point(35, 39);
             this.dgvHabitaciones.MultiSelect = false;
@@ -48,11 +49,12 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(367, 228);
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(338, 222);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(82, 23);
+            this.btnVolver.Size = new System.Drawing.Size(111, 29);
             this.btnVolver.TabIndex = 3;
-            this.btnVolver.Text = "Volver";
+            this.btnVolver.Text = "Cerrar";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
@@ -64,6 +66,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.dgvHabitaciones);
+            this.MaximumSize = new System.Drawing.Size(493, 302);
+            this.MinimumSize = new System.Drawing.Size(493, 302);
             this.Name = "frmConsultarEstadoHabitaciones";
             this.ShowIcon = false;
             this.Text = "Estado de las Habitaciones";

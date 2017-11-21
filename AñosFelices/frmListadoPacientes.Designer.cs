@@ -39,18 +39,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Location = new System.Drawing.Point(658, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 16);
+            this.label1.Size = new System.Drawing.Size(146, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione el Paciente";
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(508, 260);
+            this.btnModificar.Location = new System.Drawing.Point(565, 283);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(143, 50);
+            this.btnModificar.Size = new System.Drawing.Size(111, 29);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -58,31 +58,33 @@
             // 
             // dgvPacientes
             // 
+            this.dgvPacientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPacientes.Location = new System.Drawing.Point(59, 50);
+            this.dgvPacientes.Location = new System.Drawing.Point(33, 50);
             this.dgvPacientes.MultiSelect = false;
             this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.ReadOnly = true;
             this.dgvPacientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvPacientes.RowHeadersVisible = false;
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPacientes.Size = new System.Drawing.Size(770, 184);
+            this.dgvPacientes.Size = new System.Drawing.Size(771, 204);
             this.dgvPacientes.TabIndex = 3;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(686, 260);
+            this.btnCancelar.Location = new System.Drawing.Point(693, 283);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(143, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
             this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cerrar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnParientes
             // 
-            this.btnParientes.Location = new System.Drawing.Point(59, 260);
+            this.btnParientes.Location = new System.Drawing.Point(394, 283);
             this.btnParientes.Name = "btnParientes";
-            this.btnParientes.Size = new System.Drawing.Size(143, 50);
+            this.btnParientes.Size = new System.Drawing.Size(150, 29);
             this.btnParientes.TabIndex = 5;
             this.btnParientes.Text = "Modificar Parientes";
             this.btnParientes.UseVisualStyleBackColor = true;
@@ -90,16 +92,19 @@
             // 
             // frmListadoPacientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 322);
+            this.ClientSize = new System.Drawing.Size(839, 335);
+            this.ControlBox = false;
             this.Controls.Add(this.btnParientes);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(855, 374);
+            this.MinimumSize = new System.Drawing.Size(855, 374);
             this.Name = "frmListadoPacientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Pacientes";

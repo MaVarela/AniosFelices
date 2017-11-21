@@ -48,32 +48,36 @@
             // dtpFecha
             // 
             this.dtpFecha.Enabled = false;
-            this.dtpFecha.Location = new System.Drawing.Point(171, 67);
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(208, 67);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(197, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(197, 22);
             this.dtpFecha.TabIndex = 110;
             // 
             // txtHabitacion
             // 
-            this.txtHabitacion.Location = new System.Drawing.Point(172, 149);
+            this.txtHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHabitacion.Location = new System.Drawing.Point(209, 149);
             this.txtHabitacion.MaxLength = 50;
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.ReadOnly = true;
-            this.txtHabitacion.Size = new System.Drawing.Size(60, 20);
+            this.txtHabitacion.Size = new System.Drawing.Size(60, 22);
             this.txtHabitacion.TabIndex = 109;
             // 
             // txtCama
             // 
-            this.txtCama.Location = new System.Drawing.Point(172, 194);
+            this.txtCama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCama.Location = new System.Drawing.Point(209, 194);
             this.txtCama.MaxLength = 50;
             this.txtCama.Name = "txtCama";
             this.txtCama.ReadOnly = true;
-            this.txtCama.Size = new System.Drawing.Size(60, 20);
+            this.txtCama.Size = new System.Drawing.Size(60, 22);
             this.txtCama.TabIndex = 108;
             // 
             // txtRecAlimentaria
             // 
-            this.txtRecAlimentaria.Location = new System.Drawing.Point(171, 236);
+            this.txtRecAlimentaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRecAlimentaria.Location = new System.Drawing.Point(208, 236);
             this.txtRecAlimentaria.MaxLength = 255;
             this.txtRecAlimentaria.Multiline = true;
             this.txtRecAlimentaria.Name = "txtRecAlimentaria";
@@ -82,7 +86,8 @@
             // 
             // btnPacientes
             // 
-            this.btnPacientes.Location = new System.Drawing.Point(487, 107);
+            this.btnPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPacientes.Location = new System.Drawing.Point(524, 107);
             this.btnPacientes.Name = "btnPacientes";
             this.btnPacientes.Size = new System.Drawing.Size(31, 23);
             this.btnPacientes.TabIndex = 106;
@@ -93,9 +98,10 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(428, 388);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(444, 388);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
             this.btnCancelar.TabIndex = 104;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(305, 388);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(310, 388);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(90, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(111, 29);
             this.btnAceptar.TabIndex = 103;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -113,73 +120,81 @@
             // 
             // txtPaciente
             // 
-            this.txtPaciente.Location = new System.Drawing.Point(171, 109);
+            this.txtPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaciente.Location = new System.Drawing.Point(208, 109);
             this.txtPaciente.MaxLength = 10;
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.ReadOnly = true;
-            this.txtPaciente.Size = new System.Drawing.Size(301, 20);
+            this.txtPaciente.Size = new System.Drawing.Size(301, 22);
             this.txtPaciente.TabIndex = 98;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(171, 25);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(208, 25);
             this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(301, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(301, 22);
             this.txtUsuario.TabIndex = 95;
             // 
             // lblRecAlimentaria
             // 
             this.lblRecAlimentaria.AutoSize = true;
-            this.lblRecAlimentaria.Location = new System.Drawing.Point(12, 236);
+            this.lblRecAlimentaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecAlimentaria.Location = new System.Drawing.Point(21, 236);
             this.lblRecAlimentaria.Name = "lblRecAlimentaria";
-            this.lblRecAlimentaria.Size = new System.Drawing.Size(141, 13);
+            this.lblRecAlimentaria.Size = new System.Drawing.Size(180, 16);
             this.lblRecAlimentaria.TabIndex = 102;
             this.lblRecAlimentaria.Text = "Recomendación alimentaria:";
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(111, 70);
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(21, 67);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.Size = new System.Drawing.Size(49, 16);
             this.lblFecha.TabIndex = 101;
             this.lblFecha.Text = "Fecha:";
             // 
             // lblCama
             // 
             this.lblCama.AutoSize = true;
-            this.lblCama.Location = new System.Drawing.Point(60, 197);
+            this.lblCama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCama.Location = new System.Drawing.Point(21, 194);
             this.lblCama.Name = "lblCama";
-            this.lblCama.Size = new System.Drawing.Size(92, 13);
+            this.lblCama.Size = new System.Drawing.Size(117, 16);
             this.lblCama.TabIndex = 100;
             this.lblCama.Text = "Número de Cama:";
             // 
             // lblHabitacion
             // 
             this.lblHabitacion.AutoSize = true;
-            this.lblHabitacion.Location = new System.Drawing.Point(36, 153);
+            this.lblHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHabitacion.Location = new System.Drawing.Point(21, 149);
             this.lblHabitacion.Name = "lblHabitacion";
-            this.lblHabitacion.Size = new System.Drawing.Size(116, 13);
+            this.lblHabitacion.Size = new System.Drawing.Size(146, 16);
             this.lblHabitacion.TabIndex = 99;
             this.lblHabitacion.Text = "Número de Habitación:";
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Location = new System.Drawing.Point(99, 113);
+            this.lblPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaciente.Location = new System.Drawing.Point(21, 107);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(52, 13);
+            this.lblPaciente.Size = new System.Drawing.Size(64, 16);
             this.lblPaciente.TabIndex = 97;
             this.lblPaciente.Text = "Paciente:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(105, 27);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(21, 25);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(58, 16);
             this.lblUsuario.TabIndex = 94;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -187,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 434);
+            this.ClientSize = new System.Drawing.Size(584, 434);
             this.ControlBox = false;
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtHabitacion);
@@ -204,6 +219,8 @@
             this.Controls.Add(this.lblHabitacion);
             this.Controls.Add(this.lblPaciente);
             this.Controls.Add(this.lblUsuario);
+            this.MaximumSize = new System.Drawing.Size(600, 473);
+            this.MinimumSize = new System.Drawing.Size(600, 473);
             this.Name = "frmRegistrarRecomendacionAlimentaria";
             this.ShowIcon = false;
             this.Text = "Registrar Recomendación Alimentaria";

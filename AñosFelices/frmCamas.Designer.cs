@@ -36,6 +36,7 @@
             // 
             // dgvCamas
             // 
+            this.dgvCamas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvCamas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCamas.Location = new System.Drawing.Point(51, 47);
             this.dgvCamas.MultiSelect = false;
@@ -47,9 +48,10 @@
             // 
             // btnSeleccionarCama
             // 
-            this.btnSeleccionarCama.Location = new System.Drawing.Point(294, 215);
+            this.btnSeleccionarCama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarCama.Location = new System.Drawing.Point(128, 220);
             this.btnSeleccionarCama.Name = "btnSeleccionarCama";
-            this.btnSeleccionarCama.Size = new System.Drawing.Size(75, 23);
+            this.btnSeleccionarCama.Size = new System.Drawing.Size(111, 29);
             this.btnSeleccionarCama.TabIndex = 1;
             this.btnSeleccionarCama.Text = "Seleccionar";
             this.btnSeleccionarCama.UseVisualStyleBackColor = true;
@@ -57,11 +59,12 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(204, 215);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(258, 220);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
             this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Cerrar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -75,7 +78,9 @@
             this.Controls.Add(this.btnSeleccionarCama);
             this.Controls.Add(this.dgvCamas);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(427, 300);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(427, 300);
             this.Name = "frmCamas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Camas";

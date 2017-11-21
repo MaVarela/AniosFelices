@@ -64,15 +64,17 @@
             // 
             // txtRecomendaciones
             // 
-            this.txtRecomendaciones.Location = new System.Drawing.Point(179, 605);
+            this.txtRecomendaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRecomendaciones.Location = new System.Drawing.Point(230, 484);
             this.txtRecomendaciones.MaxLength = 255;
             this.txtRecomendaciones.Multiline = true;
             this.txtRecomendaciones.Name = "txtRecomendaciones";
-            this.txtRecomendaciones.Size = new System.Drawing.Size(300, 80);
+            this.txtRecomendaciones.Size = new System.Drawing.Size(389, 80);
             this.txtRecomendaciones.TabIndex = 107;
             // 
             // btnPacientes
             // 
+            this.btnPacientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPacientes.Location = new System.Drawing.Point(494, 106);
             this.btnPacientes.Name = "btnPacientes";
             this.btnPacientes.Size = new System.Drawing.Size(31, 23);
@@ -84,18 +86,20 @@
             // cmbTurno
             // 
             this.cmbTurno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTurno.FormattingEnabled = true;
             this.cmbTurno.Location = new System.Drawing.Point(178, 65);
             this.cmbTurno.Name = "cmbTurno";
-            this.cmbTurno.Size = new System.Drawing.Size(112, 21);
+            this.cmbTurno.Size = new System.Drawing.Size(112, 24);
             this.cmbTurno.TabIndex = 103;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(436, 706);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(508, 575);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(111, 29);
             this.btnCancelar.TabIndex = 102;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -103,9 +107,10 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(313, 706);
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(385, 575);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(90, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(111, 29);
             this.btnAceptar.TabIndex = 101;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -113,248 +118,275 @@
             // 
             // txtPaciente
             // 
+            this.txtPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPaciente.Location = new System.Drawing.Point(178, 108);
             this.txtPaciente.MaxLength = 10;
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.ReadOnly = true;
-            this.txtPaciente.Size = new System.Drawing.Size(301, 20);
+            this.txtPaciente.Size = new System.Drawing.Size(301, 22);
             this.txtPaciente.TabIndex = 95;
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(177, 24);
             this.txtUsuario.MaxLength = 50;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(301, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(301, 22);
             this.txtUsuario.TabIndex = 92;
             // 
             // lblRecomendaciones
             // 
             this.lblRecomendaciones.AutoSize = true;
-            this.lblRecomendaciones.Location = new System.Drawing.Point(62, 609);
+            this.lblRecomendaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecomendaciones.Location = new System.Drawing.Point(30, 484);
             this.lblRecomendaciones.Name = "lblRecomendaciones";
-            this.lblRecomendaciones.Size = new System.Drawing.Size(99, 13);
+            this.lblRecomendaciones.Size = new System.Drawing.Size(126, 16);
             this.lblRecomendaciones.TabIndex = 100;
             this.lblRecomendaciones.Text = "Recomendaciones:";
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(118, 239);
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(30, 236);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 13);
+            this.lblFecha.Size = new System.Drawing.Size(49, 16);
             this.lblFecha.TabIndex = 98;
             this.lblFecha.Text = "Fecha:";
             // 
             // lblCama
             // 
             this.lblCama.AutoSize = true;
-            this.lblCama.Location = new System.Drawing.Point(67, 196);
+            this.lblCama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCama.Location = new System.Drawing.Point(30, 193);
             this.lblCama.Name = "lblCama";
-            this.lblCama.Size = new System.Drawing.Size(92, 13);
+            this.lblCama.Size = new System.Drawing.Size(117, 16);
             this.lblCama.TabIndex = 97;
             this.lblCama.Text = "Número de Cama:";
             // 
             // lblHabitacion
             // 
             this.lblHabitacion.AutoSize = true;
-            this.lblHabitacion.Location = new System.Drawing.Point(43, 152);
+            this.lblHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHabitacion.Location = new System.Drawing.Point(30, 147);
             this.lblHabitacion.Name = "lblHabitacion";
-            this.lblHabitacion.Size = new System.Drawing.Size(116, 13);
+            this.lblHabitacion.Size = new System.Drawing.Size(146, 16);
             this.lblHabitacion.TabIndex = 96;
             this.lblHabitacion.Text = "Número de Habitación:";
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Location = new System.Drawing.Point(106, 112);
+            this.lblPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaciente.Location = new System.Drawing.Point(30, 106);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(52, 13);
+            this.lblPaciente.Size = new System.Drawing.Size(64, 16);
             this.lblPaciente.TabIndex = 94;
             this.lblPaciente.Text = "Paciente:";
             // 
             // lblTurno
             // 
             this.lblTurno.AutoSize = true;
-            this.lblTurno.Location = new System.Drawing.Point(120, 68);
+            this.lblTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurno.Location = new System.Drawing.Point(30, 65);
             this.lblTurno.Name = "lblTurno";
-            this.lblTurno.Size = new System.Drawing.Size(38, 13);
+            this.lblTurno.Size = new System.Drawing.Size(46, 16);
             this.lblTurno.TabIndex = 93;
             this.lblTurno.Text = "Turno:";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(111, 26);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(30, 24);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(58, 16);
             this.lblUsuario.TabIndex = 91;
             this.lblUsuario.Text = "Usuario:";
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(178, 501);
+            this.txtObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.Location = new System.Drawing.Point(230, 386);
             this.txtObservaciones.MaxLength = 255;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(300, 80);
+            this.txtObservaciones.Size = new System.Drawing.Size(389, 80);
             this.txtObservaciones.TabIndex = 109;
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(77, 505);
+            this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObservaciones.Location = new System.Drawing.Point(30, 383);
             this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(81, 13);
+            this.lblObservaciones.Size = new System.Drawing.Size(103, 16);
             this.lblObservaciones.TabIndex = 108;
             this.lblObservaciones.Text = "Observaciones:";
             // 
             // txtMedicacion
             // 
-            this.txtMedicacion.Location = new System.Drawing.Point(179, 401);
+            this.txtMedicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedicacion.Location = new System.Drawing.Point(230, 289);
             this.txtMedicacion.MaxLength = 255;
             this.txtMedicacion.Multiline = true;
             this.txtMedicacion.Name = "txtMedicacion";
-            this.txtMedicacion.Size = new System.Drawing.Size(300, 80);
+            this.txtMedicacion.Size = new System.Drawing.Size(389, 80);
             this.txtMedicacion.TabIndex = 111;
             // 
             // lblMedicacion
             // 
             this.lblMedicacion.AutoSize = true;
-            this.lblMedicacion.Location = new System.Drawing.Point(30, 405);
+            this.lblMedicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicacion.Location = new System.Drawing.Point(30, 289);
             this.lblMedicacion.Name = "lblMedicacion";
-            this.lblMedicacion.Size = new System.Drawing.Size(128, 13);
+            this.lblMedicacion.Size = new System.Drawing.Size(163, 16);
             this.lblMedicacion.TabIndex = 110;
             this.lblMedicacion.Text = "Medicación Administrada:";
             // 
             // lblPresion
             // 
             this.lblPresion.AutoSize = true;
-            this.lblPresion.Location = new System.Drawing.Point(113, 281);
+            this.lblPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPresion.Location = new System.Drawing.Point(389, 148);
             this.lblPresion.Name = "lblPresion";
-            this.lblPresion.Size = new System.Drawing.Size(45, 13);
+            this.lblPresion.Size = new System.Drawing.Size(57, 16);
             this.lblPresion.TabIndex = 112;
             this.lblPresion.Text = "Presión:";
             // 
             // lblTemperatura
             // 
             this.lblTemperatura.AutoSize = true;
-            this.lblTemperatura.Location = new System.Drawing.Point(88, 318);
+            this.lblTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperatura.Location = new System.Drawing.Point(389, 193);
             this.lblTemperatura.Name = "lblTemperatura";
-            this.lblTemperatura.Size = new System.Drawing.Size(70, 13);
+            this.lblTemperatura.Size = new System.Drawing.Size(89, 16);
             this.lblTemperatura.TabIndex = 113;
             this.lblTemperatura.Text = "Temperatura:";
             // 
             // lblAzucar
             // 
             this.lblAzucar.AutoSize = true;
-            this.lblAzucar.Location = new System.Drawing.Point(115, 358);
+            this.lblAzucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAzucar.Location = new System.Drawing.Point(389, 230);
             this.lblAzucar.Name = "lblAzucar";
-            this.lblAzucar.Size = new System.Drawing.Size(43, 13);
+            this.lblAzucar.Size = new System.Drawing.Size(52, 16);
             this.lblAzucar.TabIndex = 114;
             this.lblAzucar.Text = "Azúcar:";
             // 
             // txtHabitacion
             // 
+            this.txtHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHabitacion.Location = new System.Drawing.Point(177, 149);
             this.txtHabitacion.MaxLength = 50;
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.ReadOnly = true;
-            this.txtHabitacion.Size = new System.Drawing.Size(60, 20);
+            this.txtHabitacion.Size = new System.Drawing.Size(60, 22);
             this.txtHabitacion.TabIndex = 121;
             // 
             // txtCama
             // 
+            this.txtCama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCama.Location = new System.Drawing.Point(177, 193);
             this.txtCama.MaxLength = 50;
             this.txtCama.Name = "txtCama";
             this.txtCama.ReadOnly = true;
-            this.txtCama.Size = new System.Drawing.Size(60, 20);
+            this.txtCama.Size = new System.Drawing.Size(60, 22);
             this.txtCama.TabIndex = 120;
             // 
             // dtpFecha
             // 
             this.dtpFecha.Enabled = false;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Location = new System.Drawing.Point(179, 236);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(197, 20);
+            this.dtpFecha.Size = new System.Drawing.Size(197, 22);
             this.dtpFecha.TabIndex = 122;
             // 
             // lnlGrado
             // 
             this.lnlGrado.AutoSize = true;
-            this.lnlGrado.Location = new System.Drawing.Point(242, 319);
+            this.lnlGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnlGrado.Location = new System.Drawing.Point(554, 190);
             this.lnlGrado.Name = "lnlGrado";
-            this.lnlGrado.Size = new System.Drawing.Size(11, 13);
+            this.lnlGrado.Size = new System.Drawing.Size(17, 22);
             this.lnlGrado.TabIndex = 123;
             this.lnlGrado.Text = "°";
             // 
             // lblGazucar
             // 
             this.lblGazucar.AutoSize = true;
-            this.lblGazucar.Location = new System.Drawing.Point(243, 358);
+            this.lblGazucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGazucar.Location = new System.Drawing.Point(554, 227);
             this.lblGazucar.Name = "lblGazucar";
-            this.lblGazucar.Size = new System.Drawing.Size(34, 13);
+            this.lblGazucar.Size = new System.Drawing.Size(42, 16);
             this.lblGazucar.TabIndex = 124;
             this.lblGazucar.Text = "mg/dl";
             // 
             // lblGpresion
             // 
             this.lblGpresion.AutoSize = true;
-            this.lblGpresion.Location = new System.Drawing.Point(283, 281);
+            this.lblGpresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGpresion.Location = new System.Drawing.Point(590, 152);
             this.lblGpresion.Name = "lblGpresion";
-            this.lblGpresion.Size = new System.Drawing.Size(37, 13);
+            this.lblGpresion.Size = new System.Drawing.Size(48, 16);
             this.lblGpresion.TabIndex = 125;
             this.lblGpresion.Text = "mmHg";
             // 
             // txtPresion2
             // 
             this.txtPresion2.AllowPromptAsInput = false;
-            this.txtPresion2.Location = new System.Drawing.Point(238, 277);
+            this.txtPresion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPresion2.Location = new System.Drawing.Point(545, 148);
             this.txtPresion2.Mask = "99";
             this.txtPresion2.Name = "txtPresion2";
             this.txtPresion2.PromptChar = ' ';
-            this.txtPresion2.Size = new System.Drawing.Size(45, 20);
+            this.txtPresion2.Size = new System.Drawing.Size(45, 22);
             this.txtPresion2.TabIndex = 130;
             this.txtPresion2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPresion2_MouseClick);
             // 
             // txtTemperatura
             // 
-            this.txtTemperatura.Location = new System.Drawing.Point(178, 315);
+            this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperatura.Location = new System.Drawing.Point(485, 193);
             this.txtTemperatura.Mask = "99";
             this.txtTemperatura.Name = "txtTemperatura";
             this.txtTemperatura.PromptChar = ' ';
-            this.txtTemperatura.Size = new System.Drawing.Size(65, 20);
+            this.txtTemperatura.Size = new System.Drawing.Size(65, 22);
             this.txtTemperatura.TabIndex = 131;
             this.txtTemperatura.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtTemperatura_MouseClick);
             // 
             // txtAzucar
             // 
-            this.txtAzucar.Location = new System.Drawing.Point(178, 354);
+            this.txtAzucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAzucar.Location = new System.Drawing.Point(485, 230);
             this.txtAzucar.Mask = "999";
             this.txtAzucar.Name = "txtAzucar";
             this.txtAzucar.PromptChar = ' ';
-            this.txtAzucar.Size = new System.Drawing.Size(65, 20);
+            this.txtAzucar.Size = new System.Drawing.Size(65, 22);
             this.txtAzucar.TabIndex = 132;
             this.txtAzucar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAzucar_MouseClick);
             // 
             // txtPresion1
             // 
-            this.txtPresion1.Location = new System.Drawing.Point(178, 276);
+            this.txtPresion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPresion1.Location = new System.Drawing.Point(485, 147);
             this.txtPresion1.Mask = "999";
             this.txtPresion1.Name = "txtPresion1";
             this.txtPresion1.PromptChar = ' ';
-            this.txtPresion1.Size = new System.Drawing.Size(45, 20);
+            this.txtPresion1.Size = new System.Drawing.Size(45, 22);
             this.txtPresion1.TabIndex = 133;
             this.txtPresion1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtPresion1_MouseClick);
             // 
             // lblBarra
             // 
             this.lblBarra.AutoSize = true;
-            this.lblBarra.Location = new System.Drawing.Point(225, 281);
+            this.lblBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBarra.Location = new System.Drawing.Point(532, 152);
             this.lblBarra.Name = "lblBarra";
-            this.lblBarra.Size = new System.Drawing.Size(12, 13);
+            this.lblBarra.Size = new System.Drawing.Size(12, 16);
             this.lblBarra.TabIndex = 134;
             this.lblBarra.Text = "/";
             // 
@@ -365,7 +397,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(564, 741);
+            this.ClientSize = new System.Drawing.Size(651, 615);
             this.ControlBox = false;
             this.Controls.Add(this.lblBarra);
             this.Controls.Add(this.txtPresion1);
@@ -400,6 +432,8 @@
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.lblUsuario);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(667, 654);
+            this.MinimumSize = new System.Drawing.Size(667, 654);
             this.Name = "frmRegistrarEstadoGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Estado General";
