@@ -18,10 +18,12 @@ namespace AñosFelices.Mappings
             Map(x => x.Estado, "Estado");
             Map(x => x.Categoria, "Categoria");
             HasMany<Cama>(x => x.Camas)
-                .AsBag()
+                .AsSet()
                 .Not.LazyLoad()
                 .KeyColumn("IdHabitacion")
-                .Cascade.SaveUpdate();
+                .Cascade.SaveUpdate()
+                .Cascade.AllDeleteOrphan()
+                .Inverse();
         }
     }
 }

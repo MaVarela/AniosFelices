@@ -6,7 +6,6 @@ using AñosFelices.DTOs.DTOMappers;
 using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,11 +16,14 @@ namespace AñosFelices
         IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
         IRepositorioCama repositorioCama = new RepositorioCama();
         IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
-        ParienteSeleccionado ParienteSeleccionado = ParienteSeleccionado.Instance();
+        ParienteSeleccionado parienteSeleccionado;
+        PacienteSeleccionado pacienteSeleccionado;
 
         public frmAltaPaciente()
         {
             InitializeComponent();
+            parienteSeleccionado = ParienteSeleccionado.Instance();
+            pacienteSeleccionado = PacienteSeleccionado.Instance();
         }
 
         private void btnSeleccionarHabitacion_Click(object sender, EventArgs e)
@@ -62,7 +64,7 @@ namespace AñosFelices
         private void cargarDGV()
         {
             ParienteDTOMapper mapper = new ParienteDTOMapper();
-            var listado = mapper.LlenarListado(ParienteSeleccionado.Parientes);
+            var listado = mapper.LlenarListado(parienteSeleccionado.Parientes);
 
 
             dgvParientes.DataSource = listado;
@@ -71,85 +73,94 @@ namespace AñosFelices
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             var camaSeleccionada = CamaSeleccionada.Instance();
-            if (!String.IsNullOrEmpty(mkdDni.Text))
+            if (!String.IsNullOrEmpty(txtDni.Text))
             {
-                if (!String.IsNullOrEmpty(txtNombre.Text))
+                if (txtDni.Text.Length == 8)
                 {
-                    if (!String.IsNullOrEmpty(txtApellido.Text))
+                    if (!String.IsNullOrEmpty(txtNombre.Text))
                     {
-                        if (!String.IsNullOrEmpty(txtEstadoFisico.Text))
+                        if (!String.IsNullOrEmpty(txtApellido.Text))
                         {
-                            if (camaSeleccionada.Cama != null)
+                            if (!String.IsNullOrEmpty(txtEstadoFisico.Text))
                             {
-                                if (this.dgvParientes.RowCount > 0)
+                                if (camaSeleccionada.Cama != null)
                                 {
-                                    if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                    if (this.dgvParientes.RowCount > 0)
                                     {
-                                        var habitacion = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
-                                        habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
-                                        repositorioHabitacion.Editar(habitacion);
-
-                                        var Pariente = new Pariente();
-                                        var Paciente = new Paciente();
-                                        var PacienteDTO = new PacienteDTO();
-                                        var pacienteSeleccionado = PacienteSeleccionado.Instance();
-
-                                        if (pacienteSeleccionado.Paciente == null)
+                                        if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                         {
-                                            pacienteSeleccionado.Paciente = new Paciente();
+                                            var habitacion = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
+                                            habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
+                                            repositorioHabitacion.Editar(habitacion);
+
+                                            var Paciente = new Paciente();
+                                            var PacienteDTO = new PacienteDTO();
+
+                                            if (pacienteSeleccionado.Paciente == null)
+                                            {
+                                                pacienteSeleccionado.Paciente = new Paciente();
+                                            }
+
+                                            Paciente.Dni = Convert.ToInt32(this.txtDni.Text);
+                                            Paciente.Cama = habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
+                                            Paciente.Nombre = this.txtNombre.Text.Trim();
+                                            Paciente.Apellido = this.txtApellido.Text.Trim();
+                                            Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
+
+                                            ParienteDTOMapper mapper = new ParienteDTOMapper();
+                                            var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, Paciente);
+
+                                            Paciente.Parientes = listado;
+                                            repositorioPaciente.Agregar(Paciente);
+                                            MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            pacienteSeleccionado.Paciente = null;
+                                            parienteSeleccionado.Pariente = null;
+                                            parienteSeleccionado.Parientes = null;
+                                            this.Close();
                                         }
-
-                                        Paciente.Dni = Convert.ToInt32(this.mkdDni.Text);
-                                        Paciente.Cama = habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
-                                        Paciente.Nombre = this.txtNombre.Text.Trim();
-                                        Paciente.Apellido = this.txtApellido.Text.Trim();
-                                        Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
-
-                                        Paciente.Parientes = new List<Pariente>();
-
-                                        ParienteDTOMapper mapper = new ParienteDTOMapper();
-                                        var listado = mapper.LlenarListadoPersist(ParienteSeleccionado.Parientes, Paciente);
-                                
-                                        Paciente.Parientes = listado;
-                                        repositorioPaciente.Agregar(Paciente);
-                                        MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        pacienteSeleccionado.Paciente = null;
-                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Debe agregar al menos un pariente para dar de alta el paciente", "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Debe agregar al menos un pariente para dar de alta el paciente", "Error",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Debe seleccionar una habitación y una cama para dar de alta el paciente", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else
-                            {
-                                MessageBox.Show("Debe seleccionar una habitación y una cama para dar de alta el paciente", "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                                MessageBox.Show("El campo 'Estado Físico' es Obligatorio", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
-                            MessageBox.Show("El campo 'Estado Físico' es Obligatorio");
+                            MessageBox.Show("El campo 'Apellido' es Obligatorio", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                        MessageBox.Show("El campo 'Nombre' es Obligatorio", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                    MessageBox.Show("El campo 'Dni' debe poseer 8 dígitos", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("El campo 'Dni' es Obligatorio");
+                MessageBox.Show("El campo 'Dni' es Obligatorio", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            mkdDni.Text = null;
+            txtDni.Text = null;
             txtApellido.Text = null;
             txtCama.Text = null;
             txtEstadoFisico.Text = null;
             txtHabitacion.Text = null;
             txtNombre.Text = null;
+            pacienteSeleccionado.Paciente = null;
             this.Close();
         }
 
@@ -164,17 +175,17 @@ namespace AñosFelices
             {
                 int index;
                 var parienteDTO = new ParienteDTO();
+                var nombreForm = new frmAltaPaciente().Name;
                 index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
-                parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
-                parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value.ToString();
-                parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value.ToString();
-                parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value.ToString();
-                parienteDTO.Telefono1 = dgvParientes.SelectedRows[0].Cells[4].Value.ToString();
-                parienteDTO.Telefono2 = dgvParientes.SelectedRows[0].Cells[5].Value.ToString();
-                parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value.ToString();
-                parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value.ToString();
-                
-                var modificarPariente = new frmModificarPariente(index, parienteDTO);
+                parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value != null ? dgvParientes.SelectedRows[0].Cells[1].Value.ToString() : null;
+                parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value != null ? dgvParientes.SelectedRows[0].Cells[2].Value.ToString() : null;
+                parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value != null ? dgvParientes.SelectedRows[0].Cells[3].Value.ToString() : null;
+                parienteDTO.Telefono1 = dgvParientes.SelectedRows[0].Cells[4].Value != null ? dgvParientes.SelectedRows[0].Cells[4].Value.ToString() : null;
+                parienteDTO.Telefono2 = dgvParientes.SelectedRows[0].Cells[5].Value != null ? dgvParientes.SelectedRows[0].Cells[5].Value.ToString() : null;
+                parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value != null ? dgvParientes.SelectedRows[0].Cells[6].Value.ToString() : null;
+                parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value != null ? dgvParientes.SelectedRows[0].Cells[7].Value.ToString() : null;
+
+                var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
                 modificarPariente.ShowDialog();
 
                 cargarDGV();
@@ -189,13 +200,40 @@ namespace AñosFelices
                 {
                     var parienteDTO = new ParienteDTO();
                     parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
-                    if (ParienteSeleccionado.Parientes.Count() > 0)
+                    if (parienteSeleccionado.Parientes.Count() > 0)
                     {
-                        ParienteSeleccionado.Parientes.Remove(ParienteSeleccionado.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                        parienteSeleccionado.Parientes.Remove(parienteSeleccionado.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
                         cargarDGV();
                     }
                 }
             }
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtEstadoFisico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
     }
 }

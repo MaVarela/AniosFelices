@@ -18,9 +18,11 @@ namespace AñosFelices
     public partial class frmListadoPacientes : Form
     {
         IRepositorioPaciente repositorioPacientes = new RepositorioPaciente();
+        PacienteSeleccionado pacienteSeleccionado;
         public frmListadoPacientes()
         {
             InitializeComponent();
+            pacienteSeleccionado = PacienteSeleccionado.Instance();
 
             this.dgvPacientes.DataSource = repositorioPacientes.ObtenerTodos();
         }
@@ -32,7 +34,27 @@ namespace AñosFelices
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
+            if (estado == "A")
+            {
+                if (this.dgvPacientes.CurrentRow != null)
+                {
+                    var pacienteElegido = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value));
 
+                    pacienteSeleccionado.Paciente = pacienteElegido;
+
+                    frmModificarPaciente modificarPaciente = new frmModificarPaciente();
+                    modificarPaciente.ShowDialog();
+                    cargar();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un registro", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+                MessageBox.Show("El Paciente no se encuentra habilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void frmListadoPacientes_Load(object sender, EventArgs e)
@@ -55,30 +77,25 @@ namespace AñosFelices
             this.dgvPacientes.Columns["Estado"].DisplayIndex = 6;
         }
 
-        private void btnParientes_Click(object sender, EventArgs e)
+        private void btnHabilitar_Click(object sender, EventArgs e)
         {
-            if (this.dgvPacientes.CurrentRow != null)
+            String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
+            if (estado == "B")
             {
-                var pacienteSeleccionado = PacienteSeleccionado.Instance();
-                var paciente = new Paciente() { Cama = new Cama() { Habitacion = new Habitacion() } };
+                var paciente = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Dni"].Value));
 
-                pacienteSeleccionado.Paciente = paciente;
-                pacienteSeleccionado.Paciente.Dni = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value);
-                pacienteSeleccionado.Paciente.Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString();
-                pacienteSeleccionado.Paciente.Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                pacienteSeleccionado.Paciente.EstadoFisico = dgvPacientes.SelectedRows[0].Cells[5].Value.ToString();
-                pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[3].Value);
-                pacienteSeleccionado.Paciente.Cama.Id.IdCama = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[4].Value);
-                pacienteSeleccionado.Paciente.Estado = dgvPacientes.SelectedRows[0].Cells[6].Value.ToString();
+                paciente.Estado = "A";
 
-                var listarParientes = new frmListadoParientes();
-                listarParientes.ShowDialog();
+                foreach (var pariente in paciente.Parientes)
+                {
+                    pariente.Estado = "A";
+                }
+                repositorioPacientes.Editar(paciente);
+                MessageBox.Show("El Paciente ha sido habilitado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cargar();
             }
             else
-            {
-                MessageBox.Show("Debe seleccionar un registro", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MessageBox.Show("El Paciente ya se encuentra habilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

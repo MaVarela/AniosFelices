@@ -46,7 +46,12 @@ namespace AñosFelices
             List<String> mensajes = new List<String>();
 
             if (!String.IsNullOrEmpty(txtDni.Text))
-                usuario.Dni = Convert.ToInt32(txtDni.Text);
+            {
+                if (txtDni.Text.Length == 8)
+                    usuario.Dni = Convert.ToInt32(txtDni.Text);
+                else
+                    mensajes.Add("El campo 'Dni' debe poseer 8 dígitos");
+            }
             else
                 mensajes.Add("El campo 'DNI' es obligatorio");
             if (!String.IsNullOrEmpty(txtNombre.Text))

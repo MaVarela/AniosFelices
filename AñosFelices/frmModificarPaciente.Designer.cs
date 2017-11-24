@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mkdDni = new System.Windows.Forms.MaskedTextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.dgvParientes = new System.Windows.Forms.DataGridView();
@@ -47,18 +46,9 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDni = new System.Windows.Forms.Label();
+            this.txtDni = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mkdDni
-            // 
-            this.mkdDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mkdDni.Location = new System.Drawing.Point(150, 27);
-            this.mkdDni.Mask = "99999999";
-            this.mkdDni.Name = "mkdDni";
-            this.mkdDni.PromptChar = ' ';
-            this.mkdDni.Size = new System.Drawing.Size(100, 22);
-            this.mkdDni.TabIndex = 153;
             // 
             // btnModificar
             // 
@@ -66,9 +56,10 @@
             this.btnModificar.Location = new System.Drawing.Point(166, 345);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(113, 29);
-            this.btnModificar.TabIndex = 152;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar Pariente";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRemover
             // 
@@ -76,9 +67,10 @@
             this.btnRemover.Location = new System.Drawing.Point(299, 345);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(113, 29);
-            this.btnRemover.TabIndex = 151;
+            this.btnRemover.TabIndex = 7;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // dgvParientes
             // 
@@ -88,7 +80,7 @@
             this.dgvParientes.RowHeadersVisible = false;
             this.dgvParientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParientes.Size = new System.Drawing.Size(839, 84);
-            this.dgvParientes.TabIndex = 150;
+            this.dgvParientes.TabIndex = 13;
             // 
             // btnCancelar
             // 
@@ -96,9 +88,10 @@
             this.btnCancelar.Location = new System.Drawing.Point(758, 404);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(113, 29);
-            this.btnCancelar.TabIndex = 149;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -106,9 +99,10 @@
             this.btnAceptar.Location = new System.Drawing.Point(619, 404);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(113, 29);
-            this.btnAceptar.TabIndex = 148;
+            this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnAgregar
             // 
@@ -116,9 +110,10 @@
             this.btnAgregar.Location = new System.Drawing.Point(32, 345);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(113, 29);
-            this.btnAgregar.TabIndex = 147;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar Pariente";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnSeleccionarHabitacion
             // 
@@ -126,9 +121,10 @@
             this.btnSeleccionarHabitacion.Location = new System.Drawing.Point(714, 27);
             this.btnSeleccionarHabitacion.Name = "btnSeleccionarHabitacion";
             this.btnSeleccionarHabitacion.Size = new System.Drawing.Size(157, 29);
-            this.btnSeleccionarHabitacion.TabIndex = 146;
+            this.btnSeleccionarHabitacion.TabIndex = 10;
             this.btnSeleccionarHabitacion.Text = "Seleccionar Habitación";
             this.btnSeleccionarHabitacion.UseVisualStyleBackColor = true;
+            this.btnSeleccionarHabitacion.Click += new System.EventHandler(this.btnSeleccionarHabitacion_Click);
             // 
             // txtCama
             // 
@@ -137,7 +133,7 @@
             this.txtCama.Name = "txtCama";
             this.txtCama.ReadOnly = true;
             this.txtCama.Size = new System.Drawing.Size(100, 22);
-            this.txtCama.TabIndex = 145;
+            this.txtCama.TabIndex = 9;
             // 
             // txtHabitacion
             // 
@@ -146,32 +142,35 @@
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.ReadOnly = true;
             this.txtHabitacion.Size = new System.Drawing.Size(100, 22);
-            this.txtHabitacion.TabIndex = 144;
+            this.txtHabitacion.TabIndex = 8;
             // 
             // txtEstadoFisico
             // 
             this.txtEstadoFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEstadoFisico.Location = new System.Drawing.Point(150, 162);
+            this.txtEstadoFisico.MaxLength = 255;
             this.txtEstadoFisico.Multiline = true;
             this.txtEstadoFisico.Name = "txtEstadoFisico";
             this.txtEstadoFisico.Size = new System.Drawing.Size(221, 61);
-            this.txtEstadoFisico.TabIndex = 143;
+            this.txtEstadoFisico.TabIndex = 4;
             // 
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(150, 115);
+            this.txtApellido.MaxLength = 100;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(158, 22);
-            this.txtApellido.TabIndex = 142;
+            this.txtApellido.TabIndex = 3;
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(150, 68);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(158, 22);
-            this.txtNombre.TabIndex = 141;
+            this.txtNombre.TabIndex = 2;
             // 
             // lblCama
             // 
@@ -233,13 +232,24 @@
             this.lblDni.TabIndex = 135;
             this.lblDni.Text = "DNI: ";
             // 
+            // txtDni
+            // 
+            this.txtDni.AcceptsTab = true;
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(150, 28);
+            this.txtDni.MaxLength = 8;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.ReadOnly = true;
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 1;
+            // 
             // frmModificarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 449);
             this.ControlBox = false;
-            this.Controls.Add(this.mkdDni);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.dgvParientes);
@@ -263,6 +273,7 @@
             this.Name = "frmModificarPaciente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Paciente";
+            this.Load += new System.EventHandler(this.frmModificarPaciente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,7 +282,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MaskedTextBox mkdDni;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.DataGridView dgvParientes;
@@ -290,5 +300,6 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDni;
+        private System.Windows.Forms.TextBox txtDni;
     }
 }

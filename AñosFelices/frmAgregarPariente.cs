@@ -1,101 +1,219 @@
 ﻿using AñosFelices.DTOs;
-using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AñosFelices
 {
     public partial class frmAgregarPariente : Form
     {
+        ParienteSeleccionado pariente;
+
         public frmAgregarPariente()
         {
             InitializeComponent();
+            pariente = ParienteSeleccionado.Instance();
+            this.cmbParentezco.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(this.txtDni.Text.Trim()) && txtDni.Text != "")
+            List<String> mensajes = new List<String>();
+            var parienteDTO = new ParienteDTO();
+
+            if (!String.IsNullOrEmpty(txtDni.Text))
             {
-                if (!String.IsNullOrEmpty(this.txtApe_Pariente.Text.Trim()) && txtApe_Pariente.Text != "")
-                {
-                    if (!String.IsNullOrEmpty(this.txtNom_Pariente.Text.Trim()) && txtNom_Pariente.Text != "")
-                    {
-                        if (!String.IsNullOrEmpty(this.txtParentezco.Text.Trim()) && txtParentezco.Text != "")
-                        { 
-                            if (!String.IsNullOrEmpty(this.mkdTel_1.Text) && mkdTel_1.Text != "")
-                            {
-                                if (!String.IsNullOrEmpty(this.txtDireccion.Text.Trim()) && txtDireccion.Text != "")
-                                {
-                                    var pariente = ParienteSeleccionado.Instance();
-                                    var parienteDTO = new ParienteDTO();
-
-                                    if (pariente.Parientes == null)
-                                    {
-                                        pariente.Parientes = new List<ParienteDTO>();
-                                    }
-                                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text.Trim());
-                                    parienteDTO.Nombre = txtNom_Pariente.Text.Trim();
-                                    parienteDTO.Apellido = txtApe_Pariente.Text.Trim();
-                                    parienteDTO.Direccion = txtDireccion.Text.Trim();
-                                    parienteDTO.Mail = txtMail.Text.Trim();
-                                    parienteDTO.Telefono1 = mkdTel_1.Text.Trim();
-                                    parienteDTO.Telefono2 = mkdTel_2.Text.Trim();
-                                    parienteDTO.Parentezco = txtParentezco.Text.Trim();
-
-                                    pariente.Parientes.Add(parienteDTO);
-
-                                    this.Close();
-                                }
-                                else
-                                    MessageBox.Show("El campo 'Dirección' es Obligatorio");
-                            }
-                            else
-                                MessageBox.Show("El campo 'Teléfono 1' es Obligatorio");
-                        }
-                        else
-                            MessageBox.Show("El campo 'Parentezco' es Obligatorio");
-                    }
-                    else
-                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
-                }
+                if (txtDni.Text.Length == 8)
+                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
                 else
-                    MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                    mensajes.Add("El campo 'Dni' debe poseer 8 dígitos");
             }
             else
-                MessageBox.Show("El campo 'Dni' es Obligatorio");
+                mensajes.Add("El campo 'DNI' es obligatorio");
+            if (!String.IsNullOrEmpty(txtNombre.Text))
+                parienteDTO.Nombre = txtNombre.Text;
+            else
+                mensajes.Add("El campo 'Nombre' es obligatorio");
+            if (!String.IsNullOrEmpty(txtApellido.Text))
+                parienteDTO.Apellido = txtApellido.Text;
+            else
+                mensajes.Add("El campo 'Apellido' es obligatorio");
+            if (!String.IsNullOrEmpty(txtDireccion.Text))
+                parienteDTO.Direccion = txtDireccion.Text;
+            else
+                mensajes.Add("El campo 'Dirección' es obligatorio");
+
+            if (!String.IsNullOrEmpty(txtMail.Text))
+            {
+                if (validarEmail(txtMail.Text))
+                    parienteDTO.Mail = txtMail.Text;
+                else
+                    mensajes.Add("El formato del 'Mail' es incorrecto (ejemplo@dominio.com)");
+            }
+            if (!String.IsNullOrEmpty(txtTelefono_1.Text))
+            {
+                if (validarTelefono(txtTelefono_1.Text))
+                    parienteDTO.Telefono1 = txtTelefono_1.Text;
+                else
+                    mensajes.Add("El formato del 'Teléfono' es incorrecto (4740-4658/11-1234-1234)");
+            }
+            else
+                mensajes.Add("El campo 'Teléfono' es obligatorio");
+            if (!String.IsNullOrEmpty(txtTelefono_2.Text))
+            {
+                if (validarTelefono(txtTelefono_2.Text))
+                    parienteDTO.Telefono2 = txtTelefono_2.Text;
+                else
+                    mensajes.Add("El formato del 'Teléfono Opcional' es incorrecto (4740-4658/11-1234-1234)");
+            }
             
 
-            /*var Paciente = PacienteSeleccionado.Instance();
+            if (mensajes.Count.Equals(0))
+            {
+                if (pariente.Parientes == null)
+                {
+                    pariente.Parientes = new List<ParienteDTO>();
+                }
+                parienteDTO.Parentezco = cmbParentezco.SelectedItem.ToString();
 
-            ParienteId parienteId = new ParienteId();
-            parienteId.Paciente.Dni = Paciente.Paciente.Dni;
-            parienteId.DniPariente = Convert.ToInt32(txtDni.Text);
+                pariente.Parientes.Add(parienteDTO);
 
-            Pariente pariente = new Pariente() { Id = parienteId };
+                MessageBox.Show("El pariente se ha registrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var mensaje in mensajes)
+                {
+                    sb.AppendLine(mensaje);
+                }
 
-            pariente.Nombre = txtNom_Pariente.Text;
-            pariente.Apellido = txtApe_Pariente.Text;
-            pariente.Direccion = txtDireccion.Text;
-            pariente.Mail = txtMail.Text;
-            pariente.Telefono1 = mkdTel_1.Text;
-            pariente.Telefono2 = mkdTel_2.Text;
-            pariente.Parentezco = txtParentezco.Text;
-            this.Close();*/
+                MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtTelefono_1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            const char Guion = (char)45;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete && e.KeyChar != Guion;
+        }
+
+        private void txtTelefono_2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            const char Guion = (char)45;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete && e.KeyChar != Guion;
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        public static bool validarEmail(string email)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, sFormato))
+            {
+                if (Regex.Replace(email, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtMail.Text))
+            {
+                if (!validarEmail(txtMail.Text))
+                {
+                    txtMail.Clear();
+                    MessageBox.Show("Ha ingresado una dirección de correo no válida");
+                }
+            }
+        }
+
+        public static bool validarTelefono(string telefono)
+        {
+            String formato = "^[0-9]{4}-[0-9]{4}$";
+            String formatoCelular = "^[0-9]{2}-[0-9]{4}-[0-9]{4}$";
+
+            if (Regex.IsMatch(telefono, formato))
+            {
+                if (Regex.Replace(telefono, formato, String.Empty).Length == 0)
+                    return true;
+                else
+                    return false;
+            }
+            else if (Regex.IsMatch(telefono, formatoCelular))
+            {
+                if (Regex.Replace(telefono, formatoCelular, String.Empty).Length == 0)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
+        }
+
+        private void txtTelefono_1_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtTelefono_1.Text))
+            {
+                if (!validarTelefono(txtTelefono_1.Text))
+                {
+                    txtTelefono_1.Clear();
+                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido");
+                }
+            }
+        }
+
+        private void txtTelefono_2_Leave(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtTelefono_2.Text))
+            {
+                if (!validarTelefono(txtTelefono_2.Text))
+                {
+                    txtTelefono_2.Clear();
+                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido");
+                }
+            }
+        }
     }
 }
 
 
+                    

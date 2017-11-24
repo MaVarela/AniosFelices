@@ -32,7 +32,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnParientes = new System.Windows.Forms.Button();
+            this.btnHabilitar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,15 +80,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnParientes
+            // btnHabilitar
             // 
-            this.btnParientes.Location = new System.Drawing.Point(394, 283);
-            this.btnParientes.Name = "btnParientes";
-            this.btnParientes.Size = new System.Drawing.Size(150, 29);
-            this.btnParientes.TabIndex = 5;
-            this.btnParientes.Text = "Modificar Parientes";
-            this.btnParientes.UseVisualStyleBackColor = true;
-            this.btnParientes.Click += new System.EventHandler(this.btnParientes_Click);
+            this.btnHabilitar.Location = new System.Drawing.Point(436, 283);
+            this.btnHabilitar.Name = "btnHabilitar";
+            this.btnHabilitar.Size = new System.Drawing.Size(111, 29);
+            this.btnHabilitar.TabIndex = 5;
+            this.btnHabilitar.Text = "Habilitar";
+            this.btnHabilitar.UseVisualStyleBackColor = true;
+            this.btnHabilitar.Click += new System.EventHandler(this.btnHabilitar_Click);
             // 
             // frmListadoPacientes
             // 
@@ -96,7 +96,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 335);
             this.ControlBox = false;
-            this.Controls.Add(this.btnParientes);
+            this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.btnModificar);
@@ -121,6 +121,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnParientes;
+        private System.Windows.Forms.Button btnHabilitar;
     }
 }

@@ -46,7 +46,7 @@
             this.dgvParientes = new System.Windows.Forms.DataGridView();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.mkdDni = new System.Windows.Forms.MaskedTextBox();
+            this.txtDni = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,24 +107,30 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(141, 72);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(158, 22);
-            this.txtNombre.TabIndex = 7;
+            this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(141, 119);
+            this.txtApellido.MaxLength = 100;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(158, 22);
-            this.txtApellido.TabIndex = 8;
+            this.txtApellido.TabIndex = 3;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtEstadoFisico
             // 
             this.txtEstadoFisico.Location = new System.Drawing.Point(141, 166);
+            this.txtEstadoFisico.MaxLength = 255;
             this.txtEstadoFisico.Multiline = true;
             this.txtEstadoFisico.Name = "txtEstadoFisico";
             this.txtEstadoFisico.Size = new System.Drawing.Size(221, 61);
-            this.txtEstadoFisico.TabIndex = 9;
+            this.txtEstadoFisico.TabIndex = 4;
+            this.txtEstadoFisico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEstadoFisico_KeyPress);
             // 
             // txtHabitacion
             // 
@@ -132,7 +138,7 @@
             this.txtHabitacion.Name = "txtHabitacion";
             this.txtHabitacion.ReadOnly = true;
             this.txtHabitacion.Size = new System.Drawing.Size(100, 22);
-            this.txtHabitacion.TabIndex = 10;
+            this.txtHabitacion.TabIndex = 8;
             // 
             // txtCama
             // 
@@ -140,14 +146,14 @@
             this.txtCama.Name = "txtCama";
             this.txtCama.ReadOnly = true;
             this.txtCama.Size = new System.Drawing.Size(100, 22);
-            this.txtCama.TabIndex = 11;
+            this.txtCama.TabIndex = 9;
             // 
             // btnSeleccionarHabitacion
             // 
             this.btnSeleccionarHabitacion.Location = new System.Drawing.Point(644, 34);
             this.btnSeleccionarHabitacion.Name = "btnSeleccionarHabitacion";
             this.btnSeleccionarHabitacion.Size = new System.Drawing.Size(166, 29);
-            this.btnSeleccionarHabitacion.TabIndex = 12;
+            this.btnSeleccionarHabitacion.TabIndex = 10;
             this.btnSeleccionarHabitacion.Text = "Seleccionar Habitación";
             this.btnSeleccionarHabitacion.UseVisualStyleBackColor = true;
             this.btnSeleccionarHabitacion.Click += new System.EventHandler(this.btnSeleccionarHabitacion_Click);
@@ -157,7 +163,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(35, 347);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(111, 29);
-            this.btnAgregar.TabIndex = 14;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar Pariente";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -167,7 +173,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(629, 408);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(111, 29);
-            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -177,7 +183,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(763, 408);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 29);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -190,14 +196,14 @@
             this.dgvParientes.RowHeadersVisible = false;
             this.dgvParientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParientes.Size = new System.Drawing.Size(839, 84);
-            this.dgvParientes.TabIndex = 17;
+            this.dgvParientes.TabIndex = 13;
             // 
             // btnRemover
             // 
             this.btnRemover.Location = new System.Drawing.Point(303, 347);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(111, 29);
-            this.btnRemover.TabIndex = 18;
+            this.btnRemover.TabIndex = 7;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
@@ -207,19 +213,21 @@
             this.btnModificar.Location = new System.Drawing.Point(167, 347);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 29);
-            this.btnModificar.TabIndex = 19;
+            this.btnModificar.TabIndex = 6;
             this.btnModificar.Text = "Modificar Pariente";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // mkdDni
+            // txtDni
             // 
-            this.mkdDni.Location = new System.Drawing.Point(141, 31);
-            this.mkdDni.Mask = "99999999";
-            this.mkdDni.Name = "mkdDni";
-            this.mkdDni.PromptChar = ' ';
-            this.mkdDni.Size = new System.Drawing.Size(100, 22);
-            this.mkdDni.TabIndex = 134;
+            this.txtDni.AcceptsTab = true;
+            this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDni.Location = new System.Drawing.Point(141, 31);
+            this.txtDni.MaxLength = 8;
+            this.txtDni.Name = "txtDni";
+            this.txtDni.Size = new System.Drawing.Size(100, 22);
+            this.txtDni.TabIndex = 1;
+            this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
             // frmAltaPaciente
             // 
@@ -227,7 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 458);
             this.ControlBox = false;
-            this.Controls.Add(this.mkdDni);
+            this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.dgvParientes);
@@ -280,6 +288,6 @@
         private System.Windows.Forms.DataGridView dgvParientes;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.MaskedTextBox mkdDni;
+        private System.Windows.Forms.TextBox txtDni;
     }
 }

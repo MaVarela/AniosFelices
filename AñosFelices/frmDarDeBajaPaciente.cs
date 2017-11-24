@@ -18,10 +18,13 @@ namespace AñosFelices
 {
     public partial class frmDarDeBajaPaciente : Form
     {
-        IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+        IRepositorioPaciente repositorioPaciente;
+        IRepositorioPariente repositorioPariente;
         public frmDarDeBajaPaciente()
         {
             InitializeComponent();
+            repositorioPaciente = new RepositorioPaciente();
+            repositorioPariente = new RepositorioPariente();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -31,7 +34,31 @@ namespace AñosFelices
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
+            if (dgvPacientes.RowCount > 0)
+            {
+                String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
+                if (estado == "A")
+                {
+                    if (MessageBox.Show("¿Está seguro de que desea dar de Baja el Registro?", "Baja", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        Paciente paciente = new Paciente();
 
+                        paciente.Dni = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Dni"].Value);
+
+                        paciente = repositorioPaciente.ObtenerPorId(paciente.Dni);
+
+                        foreach (var pariente in paciente.Parientes)
+                        {
+                            repositorioPariente.Inhabilitar(pariente);
+                        }
+                        repositorioPaciente.Inhabilitar(paciente);
+                        MessageBox.Show("Registro Dado de Baja Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargar();
+                    }
+                }
+                else
+                    MessageBox.Show("El Paciente ya se encuentra deshabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmDarDeBajaPaciente_Load(object sender, EventArgs e)

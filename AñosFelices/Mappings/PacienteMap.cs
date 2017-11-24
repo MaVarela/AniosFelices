@@ -25,10 +25,12 @@ namespace AñosFelices.Mappings
                 .Not.Nullable()
                 .Not.LazyLoad();
             HasMany<Pariente>(x => x.Parientes)
-                    .AsBag()
+                    .AsSet()
                     .Not.LazyLoad()
                     .KeyColumn("DniPaciente")
-                    .Cascade.SaveUpdate();
+                    .Cascade.SaveUpdate()
+                    .Cascade.AllDeleteOrphan()
+                    .Inverse();
         }
     }
 }
