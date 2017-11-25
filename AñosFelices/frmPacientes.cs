@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using AñosFelices.EntidadesDeNegocio;
+using System.Linq;
 
 namespace AñosFelices
 {
@@ -26,7 +27,7 @@ namespace AñosFelices
         private void cargar()
         {
             PacienteDTOMapper mapper = new PacienteDTOMapper();
-            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos());
+            var listado = mapper.llenarListaPacienteDTO(repositorioPaciente.ObtenerTodos().Where(x => x.Estado == "A").ToList());
 
             this.dgvPacientes.DataSource = listado;
             this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
@@ -42,7 +43,7 @@ namespace AñosFelices
         {
             if (this.dgvPacientes.CurrentRow != null)
             {
-                if (dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "A")
+                if (dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado")
                 {
                     var pacienteSeleccionado = PacienteSeleccionado.Instance();
                     var paciente = new Paciente() { Cama = new Cama() { Habitacion = new Habitacion() } };
@@ -51,10 +52,10 @@ namespace AñosFelices
                     pacienteSeleccionado.Paciente.Dni = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value);
                     pacienteSeleccionado.Paciente.Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString();
                     pacienteSeleccionado.Paciente.Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                    pacienteSeleccionado.Paciente.EstadoFisico = dgvPacientes.SelectedRows[0].Cells[5].Value.ToString();
-                    pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[3].Value);
-                    pacienteSeleccionado.Paciente.Cama.Id.IdCama = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[4].Value);
-                    pacienteSeleccionado.Paciente.Estado = dgvPacientes.SelectedRows[0].Cells[6].Value.ToString();
+                    pacienteSeleccionado.Paciente.EstadoFisico = dgvPacientes.SelectedRows[0].Cells["EstadoFisico"].Value.ToString();
+                    pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Habitacion"].Value);
+                    pacienteSeleccionado.Paciente.Cama.Id.IdCama = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Cama"].Value);
+                    pacienteSeleccionado.Paciente.Estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
 
                     this.Close();
                 }

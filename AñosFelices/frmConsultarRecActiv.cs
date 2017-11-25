@@ -25,6 +25,7 @@ namespace AñosFelices
         private void frmConsultarRecActiv_Load(object sender, EventArgs e)
         {
             cargar();
+            cmbDato.SelectedIndex = 0;
         }
 
         private void cargar()
