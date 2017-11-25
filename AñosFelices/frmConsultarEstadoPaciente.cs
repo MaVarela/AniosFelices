@@ -22,6 +22,7 @@ namespace AñosFelices
         private void frmConsultarEstadoPaciente_Load(object sender, EventArgs e)
         {
             cargar();
+            cmbDato.SelectedIndex = 0;
         }
 
         private void cargar()

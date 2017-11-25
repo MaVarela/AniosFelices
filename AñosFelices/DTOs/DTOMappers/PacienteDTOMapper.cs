@@ -14,8 +14,11 @@ namespace AñosFelices.DTO
             {
                 var pacienteDTO = new PacienteDTO();
                 pacienteDTO.Dni = paciente.Dni;
-                pacienteDTO.Cama = paciente.Cama.IdCama.ToString();
-                pacienteDTO.Habitacion = paciente.Cama.Habitacion.IdHabitacion.ToString();
+                if (paciente.Cama != null)
+                {
+                    pacienteDTO.Cama = paciente.Cama.IdCama.ToString();
+                    pacienteDTO.Habitacion = paciente.Cama.Habitacion.IdHabitacion.ToString();
+                }
                 pacienteDTO.Nombre = paciente.Nombre;
                 pacienteDTO.Apellido = paciente.Apellido;
                 pacienteDTO.Sexo = paciente.Sexo;

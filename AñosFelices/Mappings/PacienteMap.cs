@@ -24,7 +24,7 @@ namespace AñosFelices.Mappings
             References(x => x.Cama)
                 .Columns("IdCama","IdHabitacion")
                 .Class<Cama>()
-                .Not.Nullable()
+                .Nullable()
                 .Not.LazyLoad();
             HasMany<Pariente>(x => x.Parientes)
                     .AsSet()

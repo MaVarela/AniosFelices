@@ -178,7 +178,8 @@ namespace AñosFelices
                 if (!validarEmail(txtMail.Text))
                 {
                     txtMail.Clear();
-                    MessageBox.Show("Ha ingresado una dirección de correo no válida");
+                    MessageBox.Show("Ha ingresado una dirección de correo no válida (ejemplo@dominio.com)");
+                    txtMail.Focus();
                 }
             }
         }
@@ -212,7 +213,8 @@ namespace AñosFelices
                 if (!validarTelefono(txtTelefono_1.Text))
                 {
                     txtTelefono_1.Clear();
-                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido");
+                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido (4740-4658/11-1234-1234)");
+                    txtTelefono_1.Focus();
                 }
             }
         }
@@ -224,7 +226,8 @@ namespace AñosFelices
                 if (!validarTelefono(txtTelefono_2.Text))
                 {
                     txtTelefono_2.Clear();
-                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido");
+                    MessageBox.Show("Se ha ingresado un teléfono con formato no válido (4740-4658/11-1234-1234)");
+                    txtTelefono_2.Focus();
                 }
             }
         }

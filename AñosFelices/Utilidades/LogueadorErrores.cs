@@ -13,7 +13,7 @@ namespace AñosFelices.Utilidades
         /// </summary>
         public static void Loguear(Exception ex)
         {
-            /*string strPath = @"C:\Logs\Errores.txt";
+            string strPath = @"C:\Logs\Errores.txt";
             if (!File.Exists(strPath))
             {
                 File.Create(strPath).Dispose();
@@ -25,7 +25,7 @@ namespace AñosFelices.Utilidades
                 sw.WriteLine("Mensaje de error: " + ex.Message);
                 sw.WriteLine("Stack Trace: " + ex.StackTrace);
                 sw.WriteLine("===========Fin============= " + DateTime.Now);
-            }*/
+            }
         }
     }
 }

@@ -84,7 +84,6 @@ namespace AñosFelices
 
         private void btnHabilitar_Click(object sender, EventArgs e)
         {
-            String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
             try
             {
                 if (this.dgvPacientes.CurrentRow != null)
@@ -97,9 +96,16 @@ namespace AñosFelices
                     {
                         pariente.Estado = "A";
                     }
-                    repositorioPacientes.Editar(paciente);
+                    /*repositorioPacientes.Editar(paciente);
                     MessageBox.Show("El Paciente ha sido habilitado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();*/
+                    pacienteSeleccionado.Paciente = paciente;
+
+                    frmModificarPaciente modificarPaciente = new frmModificarPaciente();
+                    modificarPaciente.ShowDialog();
                     cargar();
+
+
                 }
                 else
                 {

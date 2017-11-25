@@ -103,8 +103,8 @@ namespace AñosFelices
 
                     if (paciente == null)
                     {
-                        paciente = new Paciente(34493020, "Masculino", System.DateTime.Today, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
-                       var pariente = new Pariente(34493021, "Pepa", "Pig", paciente, "1144342200", null, "Hija", "Calle 123", "PepaPig@gmail.com");
+                       paciente = new Paciente(10455633, "Masculino", System.DateTime.Today, hab1.Camas.First(), "José", "Perez", "No Dependiente", null);
+                       var pariente = new Pariente(24445102, "Marcela", "Perez", paciente, "1150170733", null, "Hija", "Francia 550", "MarcelgaPerez@gmail.com");
                        paciente.Parientes.Add(pariente);
                        repositorioPaciente.Agregar(paciente);
                     }
@@ -120,7 +120,7 @@ namespace AñosFelices
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
                     }
-                    var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
+                    //var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
                 }
                 catch (Exception e)
                 {

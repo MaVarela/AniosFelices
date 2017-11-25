@@ -119,47 +119,56 @@ namespace AñosFelices
                     {
                         if (!String.IsNullOrEmpty(this.txtEstadoFisico.Text.Trim()) && txtEstadoFisico.Text != "")
                         {
-                            if (MessageBox.Show("¿Está seguro de que desea Modificar el Registro?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                            if (camaSeleccionada.Cama != null)
                             {
-                                pacienteSeleccionado.Paciente.Nombre = this.txtNombre.Text.Trim();
-                                pacienteSeleccionado.Paciente.Apellido = this.txtApellido.Text.Trim();
-                                pacienteSeleccionado.Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
-                                pacienteSeleccionado.Paciente.FechaIngreso = dtpFecha.Value.Date;
-                                ParienteDTOMapper mapper = new ParienteDTOMapper();
-                                pacienteSeleccionado.Paciente.Parientes.Clear();
-
-                                var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, pacienteSeleccionado.Paciente);
-                                foreach (var newPariente in listado)
+                                if (MessageBox.Show("¿Está seguro de que desea Modificar el Registro?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                 {
-                                    pacienteSeleccionado.Paciente.Parientes.Add(newPariente);
+                                    pacienteSeleccionado.Paciente.Nombre = this.txtNombre.Text.Trim();
+                                    pacienteSeleccionado.Paciente.Apellido = this.txtApellido.Text.Trim();
+                                    pacienteSeleccionado.Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
+                                    pacienteSeleccionado.Paciente.FechaIngreso = dtpFecha.Value.Date;
+                                    ParienteDTOMapper mapper = new ParienteDTOMapper();
+                                    pacienteSeleccionado.Paciente.Parientes.Clear();
+
+                                    var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, pacienteSeleccionado.Paciente);
+                                    foreach (var newPariente in listado)
+                                    {
+                                        pacienteSeleccionado.Paciente.Parientes.Add(newPariente);
+                                    }
+
+                                    if (parienteSeleccionado.Parientes == null)
+                                    {
+                                        parienteSeleccionado.Parientes = new List<ParienteDTO>();
+                                    }
+
+                                    if ((pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion != Convert.ToInt32(txtHabitacion.Text)) 
+                                        || (pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.IdCama != Convert.ToInt32(txtCama.Text)))
+                                    {
+                                        var idCama = pacienteSeleccionado.Paciente.Cama.IdCama;
+                                        var idHabitacion = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion;
+                                        var habitacion = repositorioHabitacion.ObtenerPorId(idHabitacion);
+                                        var habitacionElegida = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
+
+                                        habitacion.Camas.Where(x => x.IdCama == idCama).FirstOrDefault().Estado = "L";
+                                        repositorioHabitacion.Editar(habitacion);
+                                        habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
+                                        pacienteSeleccionado.Paciente.Cama = habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
+
+                                    }
+
+                                    if (pacienteSeleccionado.Paciente.Cama == null)
+                                        pacienteSeleccionado.Paciente.Cama = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion).Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).First();
+                                    repositorioPaciente.Editar(pacienteSeleccionado.Paciente);
+                                    MessageBox.Show("El paciente se ha modificado con exito");
+                                    pacienteSeleccionado.Paciente = null;
+                                    parienteSeleccionado.Parientes = null;
+                                    parienteSeleccionado.Pariente = null;
+                                    this.Close();
                                 }
-
-                                if (parienteSeleccionado.Parientes == null)
-                                {
-                                    parienteSeleccionado.Parientes = new List<ParienteDTO>();
-                                }
-
-                                if (pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion != Convert.ToInt32(txtHabitacion.Text) || pacienteSeleccionado.Paciente.Cama.IdCama != Convert.ToInt32(txtCama.Text))
-                                {
-                                    var idCama = pacienteSeleccionado.Paciente.Cama.IdCama;
-                                    var idHabitacion = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion;
-                                    var habitacion = repositorioHabitacion.ObtenerPorId(idHabitacion);
-                                    var habitacionElegida = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
-
-                                    habitacion.Camas.Where(x => x.IdCama == idCama).FirstOrDefault().Estado = "L";
-                                    repositorioHabitacion.Editar(habitacion);
-                                    habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
-                                    pacienteSeleccionado.Paciente.Cama = habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
-
-                                }
-
-                                repositorioPaciente.Editar(pacienteSeleccionado.Paciente);
-                                MessageBox.Show("El paciente se ha modificado con exito");
-                                pacienteSeleccionado.Paciente = null;
-                                parienteSeleccionado.Parientes = null;
-                                parienteSeleccionado.Pariente = null;
-                                this.Close();
                             }
+                            else
+                                MessageBox.Show("Se debe asignar una habitación para poder habilitar al paciente", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                             MessageBox.Show("El campo 'Estado Fisico' es Obligatorio");
@@ -193,14 +202,16 @@ namespace AñosFelices
 
         private void frmModificarPaciente_Load(object sender, EventArgs e)
         {
-            //HabitacionDTOMapper mapper = new HabitacionDTOMapper();
             txtDni.Text = pacienteSeleccionado.Paciente.Dni.ToString();
             txtDni.ReadOnly = true;
             txtNombre.Text = pacienteSeleccionado.Paciente.Nombre.ToString();
             txtApellido.Text = pacienteSeleccionado.Paciente.Apellido.ToString();
             txtEstadoFisico.Text = pacienteSeleccionado.Paciente.EstadoFisico.ToString();
-            txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
-            txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+            if (pacienteSeleccionado.Paciente.Cama != null)
+            {
+                txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
+                txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+            }
             dtpFecha.Value = pacienteSeleccionado.Paciente.FechaIngreso;
 
             if (pacienteSeleccionado.Paciente.Sexo.ToString() == "Femenino")

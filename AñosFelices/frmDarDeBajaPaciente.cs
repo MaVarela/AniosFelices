@@ -20,11 +20,13 @@ namespace AñosFelices
     {
         IRepositorioPaciente repositorioPaciente;
         IRepositorioPariente repositorioPariente;
+        IRepositorioCama repositorioCama;
         public frmDarDeBajaPaciente()
         {
             InitializeComponent();
             repositorioPaciente = new RepositorioPaciente();
             repositorioPariente = new RepositorioPariente();
+            repositorioCama = new RepositorioCama();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -51,6 +53,9 @@ namespace AñosFelices
                         {
                             repositorioPariente.Inhabilitar(pariente);
                         }
+                        paciente.Cama.Estado = "L";
+                        repositorioCama.Editar(paciente.Cama);
+                        paciente.Cama = null;
                         repositorioPaciente.Inhabilitar(paciente);
                         MessageBox.Show("Registro Dado de Baja Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cargar();
