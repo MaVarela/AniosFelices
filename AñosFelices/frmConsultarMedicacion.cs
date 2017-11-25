@@ -124,6 +124,8 @@ namespace AñosFelices
                     lblMensaje.ForeColor = Color.Red;
                     e.Handled = true;
                 }
+
+                else { lblMensaje.Visible = false; }
             }
             else
             {
@@ -137,8 +139,16 @@ namespace AñosFelices
                         lblMensaje.ForeColor = Color.Red;
                         e.Handled = true;
                     }
+
+                    else { lblMensaje.Visible = false; }
                 }
             }
+        }
+
+        private void cmbDato_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtDato.Text = "";
+            lblMensaje.Visible = false;
         }
     }
 }

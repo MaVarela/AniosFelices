@@ -76,6 +76,7 @@
             this.txtDato.Name = "txtDato";
             this.txtDato.Size = new System.Drawing.Size(108, 22);
             this.txtDato.TabIndex = 10;
+            this.txtDato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDato_KeyPress);
             // 
             // cmbDato
             // 
@@ -91,6 +92,7 @@
             this.cmbDato.Name = "cmbDato";
             this.cmbDato.Size = new System.Drawing.Size(121, 24);
             this.cmbDato.TabIndex = 9;
+            this.cmbDato.SelectionChangeCommitted += new System.EventHandler(this.cmbDato_SelectionChangeCommitted);
             // 
             // lbl1
             // 
@@ -113,7 +115,7 @@
             // lblMensaje
             // 
             this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Location = new System.Drawing.Point(449, 41);
+            this.lblMensaje.Location = new System.Drawing.Point(458, 42);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(35, 13);
             this.lblMensaje.TabIndex = 14;

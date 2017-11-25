@@ -83,6 +83,7 @@
             this.cmbDato.Name = "cmbDato";
             this.cmbDato.Size = new System.Drawing.Size(121, 24);
             this.cmbDato.TabIndex = 9;
+            this.cmbDato.SelectionChangeCommitted += new System.EventHandler(this.cmbDato_SelectionChangeCommitted);
             // 
             // lbl1
             // 
