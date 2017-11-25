@@ -43,6 +43,7 @@
             this.habitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarHabitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaDeHabitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificacionDeHabitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libroDeGuardiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarActividadFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarComidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,7 @@
             this.modificarEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darDeBajaEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darDeBajaHabitacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,7 +166,9 @@
             // 
             this.habitacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listarHabitacionesToolStripMenuItem,
-            this.altaDeHabitacionesToolStripMenuItem});
+            this.altaDeHabitacionesToolStripMenuItem,
+            this.modificacionDeHabitacionesToolStripMenuItem,
+            this.darDeBajaHabitacionesToolStripMenuItem});
             this.habitacionesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.habitacionesToolStripMenuItem.Name = "habitacionesToolStripMenuItem";
             this.habitacionesToolStripMenuItem.Size = new System.Drawing.Size(95, 21);
@@ -181,8 +185,15 @@
             // 
             this.altaDeHabitacionesToolStripMenuItem.Name = "altaDeHabitacionesToolStripMenuItem";
             this.altaDeHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
-            this.altaDeHabitacionesToolStripMenuItem.Text = "Alta de Habitaciones";
+            this.altaDeHabitacionesToolStripMenuItem.Text = "Registrar Habitaciones";
             this.altaDeHabitacionesToolStripMenuItem.Click += new System.EventHandler(this.altaDeHabitacionesToolStripMenuItem_Click);
+            // 
+            // modificacionDeHabitacionesToolStripMenuItem
+            // 
+            this.modificacionDeHabitacionesToolStripMenuItem.Name = "modificacionDeHabitacionesToolStripMenuItem";
+            this.modificacionDeHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.modificacionDeHabitacionesToolStripMenuItem.Text = "Modificación de Habitaciones";
+            this.modificacionDeHabitacionesToolStripMenuItem.Click += new System.EventHandler(this.modificacionDeHabitacionesToolStripMenuItem_Click);
             // 
             // libroDeGuardiasToolStripMenuItem
             // 
@@ -263,29 +274,29 @@
             // registrarPacienteToolStripMenuItem
             // 
             this.registrarPacienteToolStripMenuItem.Name = "registrarPacienteToolStripMenuItem";
-            this.registrarPacienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.registrarPacienteToolStripMenuItem.Text = "Registrar";
+            this.registrarPacienteToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.registrarPacienteToolStripMenuItem.Text = "Registrar Pacientes";
             this.registrarPacienteToolStripMenuItem.Click += new System.EventHandler(this.registrarPacienteToolStripMenuItem_Click);
             // 
             // modificarPacientesToolStripMenuItem
             // 
             this.modificarPacientesToolStripMenuItem.Name = "modificarPacientesToolStripMenuItem";
-            this.modificarPacientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.modificarPacientesToolStripMenuItem.Text = "Modificar";
+            this.modificarPacientesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.modificarPacientesToolStripMenuItem.Text = "Modificar Pacientes";
             this.modificarPacientesToolStripMenuItem.Click += new System.EventHandler(this.modificarPacientesToolStripMenuItem_Click);
             // 
             // listarPacientesToolStripMenuItem
             // 
             this.listarPacientesToolStripMenuItem.Name = "listarPacientesToolStripMenuItem";
-            this.listarPacientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listarPacientesToolStripMenuItem.Text = "Listar";
+            this.listarPacientesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.listarPacientesToolStripMenuItem.Text = "Listar Pacientes";
             this.listarPacientesToolStripMenuItem.Click += new System.EventHandler(this.listarPacientesToolStripMenuItem_Click);
             // 
             // darDeBajaPacienteToolStripMenuItem
             // 
             this.darDeBajaPacienteToolStripMenuItem.Name = "darDeBajaPacienteToolStripMenuItem";
-            this.darDeBajaPacienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.darDeBajaPacienteToolStripMenuItem.Text = "Dar de Baja";
+            this.darDeBajaPacienteToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.darDeBajaPacienteToolStripMenuItem.Text = "Dar de Baja Pacientes";
             this.darDeBajaPacienteToolStripMenuItem.Click += new System.EventHandler(this.darDeBajaPacienteToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
@@ -327,6 +338,13 @@
             this.darDeBajaEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.darDeBajaEmpleadoToolStripMenuItem.Text = "Dar de Baja Empleados";
             this.darDeBajaEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.darDeBajaEmpleadoToolStripMenuItem_Click);
+            // 
+            // darDeBajaHabitacionesToolStripMenuItem
+            // 
+            this.darDeBajaHabitacionesToolStripMenuItem.Name = "darDeBajaHabitacionesToolStripMenuItem";
+            this.darDeBajaHabitacionesToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.darDeBajaHabitacionesToolStripMenuItem.Text = "Dar de Baja Habitaciones";
+            this.darDeBajaHabitacionesToolStripMenuItem.Click += new System.EventHandler(this.darDeBajaHabitacionesToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -384,6 +402,8 @@
         private System.Windows.Forms.ToolStripMenuItem registrarMedicaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarEstadoDelPacienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaDeHabitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificacionDeHabitacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem darDeBajaHabitacionesToolStripMenuItem;
     }
 }
 

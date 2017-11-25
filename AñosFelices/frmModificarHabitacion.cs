@@ -11,30 +11,28 @@ using AñosFelices.EntidadesDeNegocio;
 
 namespace AñosFelices
 {
-    public partial class frmAltaHabitacion : Form
+    public partial class frmModificarHabitacion : Form
     {
         CamasSeleccionadas camasSeleccionadas = CamasSeleccionadas.Instance();
+        HabitacionSeleccionada habitacionSeleccionada = HabitacionSeleccionada.Instance();
         IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
 
-        public frmAltaHabitacion()
+        public frmModificarHabitacion()
         {
             InitializeComponent();
-            txtEstado.Text = "Disponible";
+            this.txtNroHabitacion.Text = habitacionSeleccionada.HabitacionRecuperada.IdHabitacion.ToString();
+            txtEstado.Text = habitacionSeleccionada.HabitacionRecuperada.Estado == "A" ? "Habilitada" : "Inhabilitada";
             cargarCmbCategorias();
+            CamaDTOMapper mapper = new CamaDTOMapper();
+            camasSeleccionadas.Camas = mapper.LlenarListado(habitacionSeleccionada.HabitacionRecuperada.Camas.ToList());
             cargarGrid();
         }
 
         private void cargarGrid()
         {
-            var cama = new CamaDTO();
             if (camasSeleccionadas.Camas == null)
                 camasSeleccionadas.Camas = new List<CamaDTO>();
-            if (camasSeleccionadas.Camas.Count() == 0)
-            {
-                cama.IdCama = 1;
-                cama.Estado = "Libre";
-            }
-            camasSeleccionadas.Camas.Add(cama);
+
             CamaDTOMapper mapper = new CamaDTOMapper();
             var listado = mapper.LlenarListado(camasSeleccionadas.Camas);
 
@@ -46,7 +44,6 @@ namespace AñosFelices
             this.dgvCamas.Columns["Estado"].DisplayIndex = 1;
             this.dgvCamas.Columns["Estado"].ReadOnly = true; ;
             this.dgvCamas.Columns["IdHabitacion"].Visible = false;
-            ((DataGridViewTextBoxColumn)this.dgvCamas.Columns[0]).MaxInputLength = 2;
         }
 
         private void cargarCmbCategorias()
@@ -57,7 +54,8 @@ namespace AñosFelices
             cmbCategoria.Items.Add("Mujeres - Medianamente Dependientes");
             cmbCategoria.Items.Add("Hombres - Dependientes");
             cmbCategoria.Items.Add("Mujeres - Dependientes");
-            cmbCategoria.SelectedIndex = 0;
+            cmbCategoria.SelectedItem = habitacionSeleccionada.HabitacionRecuperada.Categoria;
+            cmbCategoria.Enabled = false;
         }
 
         private void btnAgregar_Click(object sender, System.EventArgs e)
@@ -75,7 +73,7 @@ namespace AñosFelices
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    if (camasSeleccionadas.Camas.Where(x => x.IdCama == i+1).Count() == 0)
+                    if (camasSeleccionadas.Camas.Where(x => x.IdCama == i + 1).Count() == 0)
                     {
                         cama.IdCama = i + 1;
                         break;
@@ -99,6 +97,7 @@ namespace AñosFelices
         private void btnCancelar_Click(object sender, System.EventArgs e)
         {
             camasSeleccionadas.Camas = null;
+            habitacionSeleccionada.HabitacionRecuperada = null;
             this.Close();
         }
 
@@ -110,7 +109,7 @@ namespace AñosFelices
                 cama.IdCama = Convert.ToInt16(dgvCamas.SelectedRows[0].Cells[0].Value);
                 if (camasSeleccionadas.Camas.Count() > 1)
                 {
-                    if(dgvCamas.SelectedRows[0].Cells[2].Value.ToString() == "Libre")
+                    if (dgvCamas.SelectedRows[0].Cells[2].Value.ToString() == "Libre")
                         camasSeleccionadas.Camas.Remove(camasSeleccionadas.Camas.Where(x => x.IdCama == cama.IdCama).First());
                     else
                         MessageBox.Show("No se puede remover una cama ocupada.", "Error",
@@ -129,49 +128,33 @@ namespace AñosFelices
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnModificar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 CamaDTOMapper mapper = new CamaDTOMapper();
                 var listado = mapper.LlenarListadoBe(camasSeleccionadas.Camas);
 
-                Habitacion habitacion = new Habitacion();
-                habitacion.Categoria = cmbCategoria.Text;
+                habitacionSeleccionada.HabitacionRecuperada.Categoria = cmbCategoria.SelectedItem.ToString();
+                
 
                 foreach (var cama in listado)
                 {
-                    cama.Habitacion = habitacion;
+                    cama.Habitacion = habitacionSeleccionada.HabitacionRecuperada;
                 }
 
-                habitacion.Camas = listado;
-
-                habitacion = repositorioHabitacion.Agregar(habitacion);
-                txtNroHabitacion.Text = habitacion.IdHabitacion.ToString();
-                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                camasSeleccionadas.Camas = null;
-                this.Close();
-            }
-        }
-
-        private void dgvCamas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress -= new KeyPressEventHandler(IdCama_KeyPress);
-            if (dgvCamas.CurrentCell.ColumnIndex == 0)
-            {
-                TextBox tb = e.Control as TextBox;
-                if (tb != null)
+                habitacionSeleccionada.HabitacionRecuperada.Camas.Clear();
+                foreach(var cama in listado)
                 {
-                    tb.KeyPress += new KeyPressEventHandler(IdCama_KeyPress);
-                }
-            }
-        }
+                    habitacionSeleccionada.HabitacionRecuperada.Camas.Add(cama);
+                }                
 
-        private void IdCama_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
+                habitacionSeleccionada.HabitacionRecuperada = repositorioHabitacion.Editar(habitacionSeleccionada.HabitacionRecuperada);
+                txtNroHabitacion.Text = habitacionSeleccionada.HabitacionRecuperada.IdHabitacion.ToString();
+                MessageBox.Show("Registro Modificado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                camasSeleccionadas.Camas = null;
+                habitacionSeleccionada.HabitacionRecuperada = null;
+                this.Close();
             }
         }
     }

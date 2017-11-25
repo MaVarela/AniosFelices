@@ -213,5 +213,17 @@ namespace AñosFelices
 
             return;
         }
+
+        private void modificacionDeHabitacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var modificarHabitacion = new frmListaHabitaciones();
+            modificarHabitacion.Show();
+        }
+
+        private void darDeBajaHabitacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var darDeBajaHabitacion = new frmDarDeBajaHabitaciones();
+            darDeBajaHabitacion.Show();
+        }
     }
 }

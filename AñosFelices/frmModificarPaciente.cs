@@ -52,8 +52,6 @@ namespace AñosFelices
 
                 if (parienteSeleccionado.Parientes != null)
                 {
-                    //MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     cargarDGVParientes();
                 }
             }

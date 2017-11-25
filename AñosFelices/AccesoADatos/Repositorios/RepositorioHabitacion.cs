@@ -75,6 +75,27 @@ namespace AñosFelices.AccesoADatos.Repositorios
         }
 
         /// <summary>
+        /// Permite habilitar un habitación
+        /// </summary>
+        /// <param name="obj">Habitación a habilitar</param>
+        /// <returns>Habitación</returns>
+        public Habitacion Habilitar(Habitacion obj)
+        {
+            if (obj != null)
+            {
+                using (ISession session = NHibernateHelper.OpenSession())
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    obj.Estado = "A";
+                    session.Update(obj);
+                    transaction.Commit();
+                    return obj;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Permite recuperar una habitación en base a su identificador
         /// </summary>
         /// <param name="id">Identificador de la habitación</param>

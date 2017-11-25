@@ -1,6 +1,6 @@
 ﻿namespace AñosFelices
 {
-    partial class frmHabitacionesList
+    partial class frmDarDeBajaHabitaciones
     {
         /// <summary>
         /// Required designer variable.
@@ -53,12 +53,12 @@
             // 
             this.btnSeleccionarCama.Location = new System.Drawing.Point(254, 257);
             this.btnSeleccionarCama.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSeleccionarCama.Name = "btnSeleccionarCama";
+            this.btnSeleccionarCama.Name = "btnInhabilitar";
             this.btnSeleccionarCama.Size = new System.Drawing.Size(111, 29);
             this.btnSeleccionarCama.TabIndex = 2;
-            this.btnSeleccionarCama.Text = "Seleccionar";
+            this.btnSeleccionarCama.Text = "Inhabilitar";
             this.btnSeleccionarCama.UseVisualStyleBackColor = true;
-            this.btnSeleccionarCama.Click += new System.EventHandler(this.btnSeleccionarCama_Click);
+            this.btnSeleccionarCama.Click += new System.EventHandler(this.btnInhabilitar_Click);
             // 
             // btnCancelar
             // 
@@ -74,13 +74,13 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(343, 12);
+            this.lblDescripcion.Location = new System.Drawing.Point(260, 9);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(155, 16);
+            this.lblDescripcion.Size = new System.Drawing.Size(238, 16);
             this.lblDescripcion.TabIndex = 4;
-            this.lblDescripcion.Text = "Seleccione la habitación";
+            this.lblDescripcion.Text = "Seleccione la habitación a dar de baja";
             // 
-            // frmHabitacionesList
+            // frmDarDeBajaHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,9 +94,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(539, 338);
             this.MinimumSize = new System.Drawing.Size(539, 338);
-            this.Name = "frmHabitacionesList";
+            this.Name = "frmDarDeBajaHabitaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Habitaciones";
+            this.Text = "Dar de Baja Habitaciones";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHabitaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

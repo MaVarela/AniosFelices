@@ -7,5 +7,11 @@ namespace AñosFelices.AccesoADatos.IRepositorios
     /// </summary>
     public interface IRepositorioHabitacion : IRepositorioGenerico<Habitacion, int>
     {
+        /// <summary>
+        /// Permite habilitar un habitación
+        /// </summary>
+        /// <param name="obj">Habitación a habilitar</param>
+        /// <returns>Habitación</returns>
+        Habitacion Habilitar(Habitacion obj);
     }
 }
