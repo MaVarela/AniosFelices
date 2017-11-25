@@ -38,22 +38,22 @@
             // 
             // dgvHabitaciones
             // 
-            this.dgvHabitaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvHabitaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvHabitaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHabitaciones.Location = new System.Drawing.Point(29, 44);
+            this.dgvHabitaciones.Location = new System.Drawing.Point(29, 48);
             this.dgvHabitaciones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHabitaciones.MultiSelect = false;
             this.dgvHabitaciones.Name = "dgvHabitaciones";
             this.dgvHabitaciones.ReadOnly = true;
             this.dgvHabitaciones.RowHeadersVisible = false;
             this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHabitaciones.Size = new System.Drawing.Size(469, 187);
+            this.dgvHabitaciones.Size = new System.Drawing.Size(397, 187);
             this.dgvHabitaciones.TabIndex = 1;
             this.dgvHabitaciones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHabitaciones_CellMouseClick);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(254, 257);
+            this.btnModificar.Location = new System.Drawing.Point(182, 257);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 29);
@@ -64,7 +64,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(387, 257);
+            this.btnCancelar.Location = new System.Drawing.Point(315, 257);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 29);
@@ -76,7 +76,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(274, 9);
+            this.lblDescripcion.Location = new System.Drawing.Point(202, 9);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(224, 16);
             this.lblDescripcion.TabIndex = 4;
@@ -84,7 +84,7 @@
             // 
             // btnHabilitar
             // 
-            this.btnHabilitar.Location = new System.Drawing.Point(121, 257);
+            this.btnHabilitar.Location = new System.Drawing.Point(49, 257);
             this.btnHabilitar.Margin = new System.Windows.Forms.Padding(4);
             this.btnHabilitar.Name = "btnHabilitar";
             this.btnHabilitar.Size = new System.Drawing.Size(111, 29);
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 299);
+            this.ClientSize = new System.Drawing.Size(448, 299);
             this.ControlBox = false;
             this.Controls.Add(this.btnHabilitar);
             this.Controls.Add(this.lblDescripcion);
@@ -106,8 +106,8 @@
             this.Controls.Add(this.dgvHabitaciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(539, 338);
-            this.MinimumSize = new System.Drawing.Size(539, 338);
+            this.MaximumSize = new System.Drawing.Size(464, 338);
+            this.MinimumSize = new System.Drawing.Size(464, 338);
             this.Name = "frmListaHabitaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Habitaciones";

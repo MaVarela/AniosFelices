@@ -30,7 +30,7 @@ namespace AñosFelices
         {
             if (this.dgvCamas.CurrentRow != null)
             {
-                if (this.dgvCamas.CurrentRow.Cells[2].Value.ToString() == "L")
+                if (this.dgvCamas.CurrentRow.Cells[2].Value.ToString() == "Libre")
                 {
                     var camaSeleccionada = CamaSeleccionada.Instance();
                     camaSeleccionada.Cama = new CamaDTO();

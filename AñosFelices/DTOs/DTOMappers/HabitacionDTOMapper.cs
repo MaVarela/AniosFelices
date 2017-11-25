@@ -64,11 +64,10 @@ namespace AñosFelices.DTOs.DTOMappers
                 var habitacionDTO = new HabitacionDTO();
                 habitacionDTO.Id = habitacion.IdHabitacion;
                 habitacionDTO.Categoria = habitacion.Categoria;
-                habitacionDTO.Estado = habitacion.Estado;
+                habitacionDTO.Estado = habitacion.Estado == "A" ? "Habilitada" : "Inhabilitada";
 
                 string [] Sexo;
                 Sexo = habitacionDTO.Categoria.Split(' ');
-                //habitacionDTO.Categoria = Sexo[0];
 
                 if (Sexo[0] == sexo)
                 {

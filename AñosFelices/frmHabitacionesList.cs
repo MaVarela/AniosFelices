@@ -19,9 +19,7 @@ namespace AñosFelices
             InitializeComponent();
             HabitacionDTOMapper mapper = new HabitacionDTOMapper();
 
-            //var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
-            var listado = mapper.LlenarListadoSexo((List<Habitacion>)repositorioHabitacion.ObtenerTodos(), sexo);
-            var listado = mapper.LlenarListado(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList());
+            var listado = mapper.LlenarListadoSexo(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList(), sexo);
 
             this.dgvHabitaciones.DataSource = listado;
         }
