@@ -61,7 +61,7 @@ namespace AñosFelices
                 RespLegal = repositorioUsuario.ObtenerPorId(34493011);
                 if (RespLegal == null)
                 {
-                    Usuario reslegal = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es");
+                    Usuario reslegal = new Usuario(34493011, rol1, "123456", "Mariano", "Varela", "México 751", "4736-7808", null, "marianovarela89@yahoo.es", System.DateTime.Today);
                     RespLegal = repositorioUsuario.Agregar(reslegal);
                 }
             }
@@ -70,7 +70,7 @@ namespace AñosFelices
                 getMedico = repositorioUsuario.ObtenerPorId(34493012);
                 if (getMedico == null)
                 {
-                    Usuario uMedico = new Usuario(34493012, rol3, "123456", "Juan", "Navarro", "Patagonia 235", "4740-2240", null, "juanNavarro@gmail.com");
+                    Usuario uMedico = new Usuario(34493012, rol3, "123456", "Juan", "Navarro", "Patagonia 235", "4740-2240", null, "juanNavarro@gmail.com", System.DateTime.Today);
                     repositorioUsuario.Agregar(uMedico);
                 }
             }
@@ -103,10 +103,10 @@ namespace AñosFelices
 
                     if (paciente == null)
                     {
-                        paciente = new Paciente(34493020, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
-                        var pariente = new Pariente(34493021, "Pepa", "Pig", paciente, "1144342200", null, "Hija", "Calle 123", "PepaPig@gmail.com");
-                        paciente.Parientes.Add(pariente);
-                        repositorioPaciente.Agregar(paciente);
+                        paciente = new Paciente(34493020, "Masculino", System.DateTime.Today, hab1.Camas.First(), "Pepe", "Grillo", "No Dependiente", null);
+                       var pariente = new Pariente(34493021, "Pepa", "Pig", paciente, "1144342200", null, "Hija", "Calle 123", "PepaPig@gmail.com");
+                       paciente.Parientes.Add(pariente);
+                       repositorioPaciente.Agregar(paciente);
                     }
                     LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
                     idLibroGuardias.Paciente = paciente;

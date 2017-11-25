@@ -19,6 +19,7 @@ namespace AñosFelices
         public virtual String Telefono1 { get; set; }
         public virtual String Telefono2 { get; set; }
         public virtual String Mail { get; set; }
+        public virtual DateTime FechaIngreso { get; set; }
         public virtual String Estado { get; set; }
     }
 }

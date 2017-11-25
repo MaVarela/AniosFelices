@@ -14,11 +14,13 @@ namespace AñosFelices
     public partial class frmHabitacionesList : Form
     {
         IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
-        public frmHabitacionesList()
+        public frmHabitacionesList(String sexo)
         {
             InitializeComponent();
             HabitacionDTOMapper mapper = new HabitacionDTOMapper();
 
+            //var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
+            var listado = mapper.LlenarListadoSexo((List<Habitacion>)repositorioHabitacion.ObtenerTodos(), sexo);
             var listado = mapper.LlenarListado(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList());
 
             this.dgvHabitaciones.DataSource = listado;

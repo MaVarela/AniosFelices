@@ -43,7 +43,9 @@ namespace AñosFelices
             this.dgvEmpleados.Columns["Telefono2"].HeaderText = "Teléfono Opcional";
             this.dgvEmpleados.Columns["Mail"].DisplayIndex = 6;
             this.dgvEmpleados.Columns["Rol"].DisplayIndex = 7;
-            this.dgvEmpleados.Columns["Estado"].DisplayIndex = 8;
+            this.dgvEmpleados.Columns["FechaIngreso"].DisplayIndex = 8;
+            this.dgvEmpleados.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+            this.dgvEmpleados.Columns["Estado"].DisplayIndex = 9;
             this.dgvEmpleados.Columns["Password"].Visible = false;
             this.dgvEmpleados.Columns["IdRol"].Visible = false;
         }

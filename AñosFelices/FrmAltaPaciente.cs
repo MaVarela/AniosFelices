@@ -28,16 +28,27 @@ namespace AñosFelices
 
         private void btnSeleccionarHabitacion_Click(object sender, EventArgs e)
         {
-            var camaSeleccionada = CamaSeleccionada.Instance();
-            var ListadoHabitaciones = new frmHabitacionesList();
-            ListadoHabitaciones.ShowDialog();
-
-
-            if (camaSeleccionada.Cama != null)
+            if(rdbFemenino.Checked != true && rdbMasculino.Checked != true)
+                MessageBox.Show("Debe seleccionar el Sexo para poder asignar Habitación y Cama", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                this.txtCama.Text = camaSeleccionada.Cama.IdCama.ToString();
-                this.txtHabitacion.Text = camaSeleccionada.Cama.IdHabitacion.ToString();
-            }
+                String sexo;
+                if (rdbFemenino.Checked == true)
+                    sexo = "Mujeres";
+                else
+                    sexo = "Hombres";
+
+                var camaSeleccionada = CamaSeleccionada.Instance();
+                var ListadoHabitaciones = new frmHabitacionesList(sexo);
+                ListadoHabitaciones.ShowDialog();
+
+
+                if (camaSeleccionada.Cama != null)
+                {
+                    this.txtCama.Text = camaSeleccionada.Cama.IdCama.ToString();
+                    this.txtHabitacion.Text = camaSeleccionada.Cama.IdHabitacion.ToString();
+                }
+            }  
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -83,53 +94,65 @@ namespace AñosFelices
                         {
                             if (!String.IsNullOrEmpty(txtEstadoFisico.Text))
                             {
-                                if (camaSeleccionada.Cama != null)
-                                {
-                                    if (this.dgvParientes.RowCount > 0)
+                                if (rdbFemenino.Checked != false || rdbMasculino.Checked != false)
+                                {   
+                                    if (camaSeleccionada.Cama != null)
                                     {
-                                        if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                                        if (this.dgvParientes.RowCount > 0)
                                         {
-                                            var habitacion = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
-                                            habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
-                                            repositorioHabitacion.Editar(habitacion);
-
-                                            var Paciente = new Paciente();
-                                            var PacienteDTO = new PacienteDTO();
-
-                                            if (pacienteSeleccionado.Paciente == null)
+                                            if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                                             {
-                                                pacienteSeleccionado.Paciente = new Paciente();
+                                                var habitacion = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
+                                                habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
+                                                repositorioHabitacion.Editar(habitacion);
+
+                                                var Paciente = new Paciente();
+                                                var PacienteDTO = new PacienteDTO();
+
+                                                if (pacienteSeleccionado.Paciente == null)
+                                                {
+                                                    pacienteSeleccionado.Paciente = new Paciente();
+                                                }
+
+                                                Paciente.Dni = Convert.ToInt32(this.txtDni.Text);
+                                                Paciente.Cama = habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
+                                                Paciente.Nombre = this.txtNombre.Text.Trim();
+                                                Paciente.Apellido = this.txtApellido.Text.Trim();
+                                                Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
+                                                Paciente.FechaIngreso = dtpFecha.Value.Date;
+                                            
+                                                if (rdbFemenino.Checked == true)
+                                                    Paciente.Sexo = rdbFemenino.Text;
+                                                else
+                                                    Paciente.Sexo = rdbMasculino.Text;
+
+                                                ParienteDTOMapper mapper = new ParienteDTOMapper();
+                                                var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, Paciente);
+
+                                                Paciente.Parientes = listado;
+                                                repositorioPaciente.Agregar(Paciente);
+                                                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                pacienteSeleccionado.Paciente = null;
+                                                parienteSeleccionado.Pariente = null;
+                                                parienteSeleccionado.Parientes = null;
+                                                this.Close();
                                             }
-
-                                            Paciente.Dni = Convert.ToInt32(this.txtDni.Text);
-                                            Paciente.Cama = habitacion.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
-                                            Paciente.Nombre = this.txtNombre.Text.Trim();
-                                            Paciente.Apellido = this.txtApellido.Text.Trim();
-                                            Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
-
-                                            ParienteDTOMapper mapper = new ParienteDTOMapper();
-                                            var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, Paciente);
-
-                                            Paciente.Parientes = listado;
-                                            repositorioPaciente.Agregar(Paciente);
-                                            MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            pacienteSeleccionado.Paciente = null;
-                                            parienteSeleccionado.Pariente = null;
-                                            parienteSeleccionado.Parientes = null;
-                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Debe agregar al menos un pariente para dar de alta el paciente", "Error",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Debe agregar al menos un pariente para dar de alta el paciente", "Error",
-                                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Debe seleccionar una habitación y una cama para dar de alta el paciente", "Error",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 else
-                                {
-                                    MessageBox.Show("Debe seleccionar una habitación y una cama para dar de alta el paciente", "Error",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                    MessageBox.Show("Debe seleccionar el Sexo para dar de alta el paciente", "Error", 
+                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                                 MessageBox.Show("El campo 'Estado Físico' es Obligatorio", "Error",
@@ -177,6 +200,7 @@ namespace AñosFelices
                 var parienteDTO = new ParienteDTO();
                 var nombreForm = new frmAltaPaciente().Name;
                 index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
+                parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
                 parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value != null ? dgvParientes.SelectedRows[0].Cells[1].Value.ToString() : null;
                 parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value != null ? dgvParientes.SelectedRows[0].Cells[2].Value.ToString() : null;
                 parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value != null ? dgvParientes.SelectedRows[0].Cells[3].Value.ToString() : null;

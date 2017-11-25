@@ -97,6 +97,7 @@
             this.MaximumSize = new System.Drawing.Size(902, 400);
             this.MinimumSize = new System.Drawing.Size(902, 400);
             this.Name = "frmListarEmpleados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);

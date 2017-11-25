@@ -19,6 +19,10 @@ namespace AniosFelicesSystem.EntidadesDeNegocio
         /// </summary>
         public virtual String Apellido { get; set; }
 
+        public virtual String Sexo { get; set; }
+
+        public virtual DateTime FechaIngreso { get; set; }
+
         /// <summary>
         /// Habitacion del paciente
         /// </summary>

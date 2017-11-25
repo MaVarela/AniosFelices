@@ -33,7 +33,13 @@ namespace AñosFelices
 
         private void btnSeleccionarHabitacion_Click(object sender, EventArgs e)
         {
-            var ListadoHabitaciones = new frmHabitacionesList();
+            String sexo = "";
+            if (rdbFemenino.Checked == true)
+                sexo = "Mujeres";
+            else
+                sexo = "Hombres";
+
+            var ListadoHabitaciones = new frmHabitacionesList(sexo);
             ListadoHabitaciones.ShowDialog();
 
             if (camaSeleccionada.Cama != null)
@@ -118,6 +124,7 @@ namespace AñosFelices
                                 pacienteSeleccionado.Paciente.Nombre = this.txtNombre.Text.Trim();
                                 pacienteSeleccionado.Paciente.Apellido = this.txtApellido.Text.Trim();
                                 pacienteSeleccionado.Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
+                                pacienteSeleccionado.Paciente.FechaIngreso = dtpFecha.Value.Date;
                                 ParienteDTOMapper mapper = new ParienteDTOMapper();
                                 pacienteSeleccionado.Paciente.Parientes.Clear();
 
@@ -187,7 +194,6 @@ namespace AñosFelices
         private void frmModificarPaciente_Load(object sender, EventArgs e)
         {
             //HabitacionDTOMapper mapper = new HabitacionDTOMapper();
-
             txtDni.Text = pacienteSeleccionado.Paciente.Dni.ToString();
             txtDni.ReadOnly = true;
             txtNombre.Text = pacienteSeleccionado.Paciente.Nombre.ToString();
@@ -195,6 +201,12 @@ namespace AñosFelices
             txtEstadoFisico.Text = pacienteSeleccionado.Paciente.EstadoFisico.ToString();
             txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
             txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+            dtpFecha.Value = pacienteSeleccionado.Paciente.FechaIngreso;
+
+            if (pacienteSeleccionado.Paciente.Sexo.ToString() == "Femenino")
+                rdbFemenino.Checked = true;
+            else
+                rdbMasculino.Checked = true;
             
             ParienteDTOMapper mapper = new ParienteDTOMapper();
             var listado = mapper.LlenarListado((List<Pariente>)repositorioPariente.ObtenerTodos());

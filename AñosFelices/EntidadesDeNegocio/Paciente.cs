@@ -27,10 +27,12 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <param name="apellido">Apellido del paciente</param>
         /// <param name="estadoFisico">Estado Físico del paciente</param>
         /// <param name="estado">Estado</param>
-        public Paciente(int dni, Cama cama, String nombre, String apellido, String estadoFisico, ICollection<Pariente> parientes)
+        public Paciente(int dni, String sexo, DateTime fechaIngreso, Cama cama, String nombre, String apellido, String estadoFisico, ICollection<Pariente> parientes)
         {
             this.Parientes = parientes != null ? parientes : new List<Pariente>();
             this.Dni = dni;
+            this.Sexo = sexo;
+            this.FechaIngreso = fechaIngreso;
             this.Cama = cama;
             this.Nombre = nombre;
             this.Apellido = apellido;
@@ -55,7 +57,11 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <summary>
         /// Habitacion del paciente
         /// </summary>
-        
+
+        public virtual String Sexo { get; set; }
+
+        public virtual DateTime FechaIngreso { get; set; }
+
         public virtual Cama Cama { get; set; }
 
         /// <summary>

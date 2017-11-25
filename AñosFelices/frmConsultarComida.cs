@@ -165,14 +165,18 @@ namespace AñosFelices
             this.dgvComida.Columns[13].Visible = false;
         }
 
-        private void txtApellido_MouseClick(object sender, MouseEventArgs e)
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.txtApellido.SelectionStart = 0;
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
 
-        private void txtNombre_MouseClick(object sender, MouseEventArgs e)
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.txtNombre.SelectionStart = 0;
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
     }
 }

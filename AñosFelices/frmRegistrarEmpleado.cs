@@ -96,6 +96,8 @@ namespace AñosFelices
                 mensajes.Add("El campo 'Password' es obligatorio");
             usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
 
+            usuario.FechaIngreso = dtpFecha.Value.Date;
+
             if (mensajes.Count.Equals(0))
             {
                 usuario = repositorioUsuarios.Agregar(usuario);

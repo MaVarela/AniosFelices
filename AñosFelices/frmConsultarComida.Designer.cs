@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbTurno = new System.Windows.Forms.ComboBox();
             this.lblTurno = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
@@ -40,8 +41,9 @@
             this.dgvComida = new System.Windows.Forms.DataGridView();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
-            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.cmsConsultarC = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComida)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +119,7 @@
             // btnReestablecer
             // 
             this.btnReestablecer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReestablecer.Location = new System.Drawing.Point(802, 57);
+            this.btnReestablecer.Location = new System.Drawing.Point(802, 54);
             this.btnReestablecer.Name = "btnReestablecer";
             this.btnReestablecer.Size = new System.Drawing.Size(111, 29);
             this.btnReestablecer.TabIndex = 20;
@@ -127,7 +129,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(802, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(802, 14);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(111, 29);
             this.btnBuscar.TabIndex = 19;
@@ -153,7 +155,7 @@
             this.cmbFiltrar.FormattingEnabled = true;
             this.cmbFiltrar.Location = new System.Drawing.Point(85, 20);
             this.cmbFiltrar.Name = "cmbFiltrar";
-            this.cmbFiltrar.Size = new System.Drawing.Size(121, 24);
+            this.cmbFiltrar.Size = new System.Drawing.Size(131, 24);
             this.cmbFiltrar.TabIndex = 15;
             this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             // 
@@ -169,25 +171,28 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(610, 57);
-            this.txtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtNombre.ContextMenuStrip = this.cmsConsultarC;
+            this.txtNombre.Location = new System.Drawing.Point(611, 55);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PromptChar = ' ';
-            this.txtNombre.Size = new System.Drawing.Size(172, 22);
-            this.txtNombre.TabIndex = 135;
-            this.txtNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNombre_MouseClick);
+            this.txtNombre.Size = new System.Drawing.Size(172, 20);
+            this.txtNombre.TabIndex = 139;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
-            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(611, 22);
-            this.txtApellido.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtApellido.ContextMenuStrip = this.cmsConsultarC;
+            this.txtApellido.Location = new System.Drawing.Point(611, 18);
+            this.txtApellido.MaxLength = 100;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.PromptChar = ' ';
-            this.txtApellido.Size = new System.Drawing.Size(172, 22);
-            this.txtApellido.TabIndex = 134;
-            this.txtApellido.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtApellido_MouseClick);
+            this.txtApellido.Size = new System.Drawing.Size(172, 20);
+            this.txtApellido.TabIndex = 138;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
+            // 
+            // cmsConsultarC
+            // 
+            this.cmsConsultarC.Name = "cmsConsultarC";
+            this.cmsConsultarC.Size = new System.Drawing.Size(61, 4);
             // 
             // frmConsultarComida
             // 
@@ -235,7 +240,8 @@
         private System.Windows.Forms.DataGridView dgvComida;
         private System.Windows.Forms.ComboBox cmbFiltrar;
         private System.Windows.Forms.Label lblFiltrar;
-        private System.Windows.Forms.MaskedTextBox txtNombre;
-        private System.Windows.Forms.MaskedTextBox txtApellido;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.ContextMenuStrip cmsConsultarC;
     }
 }
