@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblDni = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.cmbParentezco = new System.Windows.Forms.ComboBox();
             this.txtTelefono_1 = new System.Windows.Forms.TextBox();
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
+            this.cmsModPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // lblDni
@@ -82,14 +84,17 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.ContextMenuStrip = this.cmsModPariente;
             this.txtApellido.Location = new System.Drawing.Point(141, 108);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.MaxLength = 100;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(194, 22);
             this.txtApellido.TabIndex = 3;
             // 
             // txtDireccion
             // 
+            this.txtDireccion.ContextMenuStrip = this.cmsModPariente;
             this.txtDireccion.Location = new System.Drawing.Point(141, 279);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.MaxLength = 255;
@@ -99,6 +104,7 @@
             // 
             // txtMail
             // 
+            this.txtMail.ContextMenuStrip = this.cmsModPariente;
             this.txtMail.Location = new System.Drawing.Point(141, 322);
             this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.MaxLength = 100;
@@ -179,15 +185,17 @@
             // txtDni
             // 
             this.txtDni.AcceptsTab = true;
+            this.txtDni.ContextMenuStrip = this.cmsModPariente;
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(141, 26);
-            this.txtDni.MaxLength = 1;
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(100, 22);
-            this.txtDni.TabIndex = 35;
+            this.txtDni.TabIndex = 1;
             // 
             // txtNombre
             // 
+            this.txtNombre.ContextMenuStrip = this.cmsModPariente;
             this.txtNombre.Location = new System.Drawing.Point(141, 67);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
@@ -199,12 +207,14 @@
             this.cmbParentezco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbParentezco.FormattingEnabled = true;
             this.cmbParentezco.Items.AddRange(new object[] {
+            "Esposo",
+            "Esposa",
             "Hijo",
             "Hija",
             "Hermano",
             "Hermana",
-            "Prima",
             "Primo",
+            "Prima",
             "Tío",
             "Tía",
             "Sobrino",
@@ -218,6 +228,7 @@
             // 
             // txtTelefono_1
             // 
+            this.txtTelefono_1.ContextMenuStrip = this.cmsModPariente;
             this.txtTelefono_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_1.Location = new System.Drawing.Point(141, 192);
             this.txtTelefono_1.MaxLength = 12;
@@ -227,12 +238,18 @@
             // 
             // txtTelefono_2
             // 
+            this.txtTelefono_2.ContextMenuStrip = this.cmsModPariente;
             this.txtTelefono_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_2.Location = new System.Drawing.Point(141, 235);
             this.txtTelefono_2.MaxLength = 12;
             this.txtTelefono_2.Name = "txtTelefono_2";
             this.txtTelefono_2.Size = new System.Drawing.Size(100, 22);
             this.txtTelefono_2.TabIndex = 6;
+            // 
+            // cmsModPariente
+            // 
+            this.cmsModPariente.Name = "cmsModPariente";
+            this.cmsModPariente.Size = new System.Drawing.Size(61, 4);
             // 
             // frmModificarPariente
             // 
@@ -263,6 +280,7 @@
             this.MaximumSize = new System.Drawing.Size(408, 472);
             this.MinimumSize = new System.Drawing.Size(408, 472);
             this.Name = "frmModificarPariente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Pariente";
             this.Load += new System.EventHandler(this.frmModificarPariente_Load);
             this.ResumeLayout(false);
@@ -290,5 +308,6 @@
         private System.Windows.Forms.ComboBox cmbParentezco;
         private System.Windows.Forms.TextBox txtTelefono_1;
         private System.Windows.Forms.TextBox txtTelefono_2;
+        private System.Windows.Forms.ContextMenuStrip cmsModPariente;
     }
 }

@@ -40,6 +40,7 @@ namespace AñosFelices
             txtTelefono_2.Text = empleadoSeleccionado.Usuario.Telefono2;
             txtMail.Text = empleadoSeleccionado.Usuario.Mail;
             txtPassword.Text = empleadoSeleccionado.Usuario.Password;
+            dtpFecha.Value = empleadoSeleccionado.Usuario.FechaIngreso;
             this.txtEstado.Text = empleadoSeleccionado.Usuario.Estado;
             this.cmbRol.DataSource = repositorioRol.ObtenerTodos();
             this.cmbRol.DisplayMember = "Descripcion";
@@ -101,6 +102,8 @@ namespace AñosFelices
                 else
                     mensajes.Add("El campo 'Password' es obligatorio");
                 empleadoSeleccionado.Usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
+
+                empleadoSeleccionado.Usuario.FechaIngreso = dtpFecha.Value.Date;
                 
                 if (mensajes.Count.Equals(0))
                 {

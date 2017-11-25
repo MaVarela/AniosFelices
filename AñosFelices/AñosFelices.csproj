@@ -89,6 +89,12 @@
     <Compile Include="AccesoADatos\Repositorios\RepositorioPariente.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioRol.cs" />
     <Compile Include="AccesoADatos\Repositorios\RepositorioUsuario.cs" />
+    <Compile Include="frmDarDeBajaHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDarDeBajaHabitaciones.Designer.cs">
+      <DependentUpon>frmDarDeBajaHabitaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTOs\CamaDTO.cs" />
     <Compile Include="DTOs\DTOMappers\CamaDTOMapper.cs" />
     <Compile Include="DTOs\DTOMappers\HabitacionDTOMapper.cs" />
@@ -123,6 +129,18 @@
     </Compile>
     <Compile Include="frmAgregarPariente.Designer.cs">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaHabitaciones.Designer.cs">
+      <DependentUpon>frmListaHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarHabitacion.Designer.cs">
+      <DependentUpon>frmModificarHabitacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAltaHabitacion.cs">
       <SubType>Form</SubType>
@@ -362,6 +380,15 @@
     <Compile Include="Utilidades\LogueadorErrores.cs" />
     <EmbeddedResource Include="frmAgregarPariente.resx">
       <DependentUpon>frmAgregarPariente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDarDeBajaHabitaciones.resx">
+      <DependentUpon>frmDarDeBajaHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaHabitaciones.resx">
+      <DependentUpon>frmListaHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarHabitacion.resx">
+      <DependentUpon>frmModificarHabitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaHabitacion.resx">
       <DependentUpon>frmAltaHabitacion.cs</DependentUpon>

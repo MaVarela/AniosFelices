@@ -47,10 +47,10 @@ namespace AñosFelices
 
             if (!String.IsNullOrEmpty(txtDni.Text))
             {
-                if (txtDni.Text.Length == 8)
+                if (txtDni.Text.Length > 7 && txtDni.Text.Length <= 8)
                     usuario.Dni = Convert.ToInt32(txtDni.Text);
                 else
-                    mensajes.Add("El campo 'Dni' debe poseer 8 dígitos");
+                    mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");
             }
             else
                 mensajes.Add("El campo 'DNI' es obligatorio");
@@ -95,6 +95,8 @@ namespace AñosFelices
             else
                 mensajes.Add("El campo 'Password' es obligatorio");
             usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
+
+            usuario.FechaIngreso = dtpFecha.Value.Date;
 
             if (mensajes.Count.Equals(0))
             {

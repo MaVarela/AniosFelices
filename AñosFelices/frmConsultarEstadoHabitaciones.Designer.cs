@@ -43,6 +43,7 @@
             this.dgvHabitaciones.MultiSelect = false;
             this.dgvHabitaciones.Name = "dgvHabitaciones";
             this.dgvHabitaciones.ReadOnly = true;
+            this.dgvHabitaciones.RowHeadersVisible = false;
             this.dgvHabitaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHabitaciones.Size = new System.Drawing.Size(414, 168);
             this.dgvHabitaciones.TabIndex = 2;

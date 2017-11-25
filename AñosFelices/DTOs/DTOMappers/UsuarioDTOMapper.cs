@@ -23,6 +23,7 @@ namespace AñosFelices
                 usuarioDTO.Mail = usuario.Mail;
                 usuarioDTO.Telefono1 = usuario.Telefono1;
                 usuarioDTO.Telefono2 = usuario.Telefono2;
+                usuarioDTO.FechaIngreso = usuario.FechaIngreso;
                 usuarioDTO.Estado = usuario.Estado == "A" ? "Habilitado" : "Inhabilitado";
                 listadoUsuarios.Add(usuarioDTO);
             }

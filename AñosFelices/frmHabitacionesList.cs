@@ -7,18 +7,19 @@ using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AñosFelices
 {
     public partial class frmHabitacionesList : Form
     {
         IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
-        public frmHabitacionesList()
+        public frmHabitacionesList(String sexo)
         {
             InitializeComponent();
             HabitacionDTOMapper mapper = new HabitacionDTOMapper();
 
-            var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
+            var listado = mapper.LlenarListadoSexo(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList(), sexo);
 
             this.dgvHabitaciones.DataSource = listado;
         }
@@ -27,7 +28,7 @@ namespace AñosFelices
         {
             if (this.dgvHabitaciones.CurrentRow != null)
             {
-                if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "A")
+                if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "Habilitada")
                 {
                     var habitacionSeleccionada = HabitacionSeleccionada.Instance();
                     var camaSeleccionada = CamaSeleccionada.Instance();
@@ -44,7 +45,7 @@ namespace AñosFelices
                         this.Close();
                 }
                 else
-                    MessageBox.Show("La Habitación seleccionada no se encuentra Disponible. Seleccione otra.", "Error",
+                    MessageBox.Show("La Habitación seleccionada no se encuentra disponible. Seleccione otra.", "Error",
                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

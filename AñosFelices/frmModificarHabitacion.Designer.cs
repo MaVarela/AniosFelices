@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 namespace AñosFelices
 {
-    partial class frmAltaHabitacion
+    partial class frmModificarHabitacion
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace AñosFelices
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCamas)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@ namespace AñosFelices
             this.dgvCamas.RowHeadersVisible = false;
             this.dgvCamas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCamas.Size = new System.Drawing.Size(245, 131);
-            this.dgvCamas.TabIndex = 3;
+            this.dgvCamas.TabIndex = 4;
             // 
             // lblNroHabitacion
             // 
@@ -97,7 +97,7 @@ namespace AñosFelices
             this.txtNroHabitacion.Name = "txtNroHabitacion";
             this.txtNroHabitacion.ReadOnly = true;
             this.txtNroHabitacion.Size = new System.Drawing.Size(73, 22);
-            this.txtNroHabitacion.TabIndex = 7;
+            this.txtNroHabitacion.TabIndex = 1;
             // 
             // cmbCategoria
             // 
@@ -108,7 +108,7 @@ namespace AñosFelices
             this.cmbCategoria.Location = new System.Drawing.Point(137, 87);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(293, 24);
-            this.cmbCategoria.TabIndex = 8;
+            this.cmbCategoria.TabIndex = 2;
             // 
             // txtEstado
             // 
@@ -117,7 +117,7 @@ namespace AñosFelices
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
             this.txtEstado.Size = new System.Drawing.Size(100, 22);
-            this.txtEstado.TabIndex = 9;
+            this.txtEstado.TabIndex = 3;
             // 
             // btnAgregar
             // 
@@ -125,7 +125,7 @@ namespace AñosFelices
             this.btnAgregar.Location = new System.Drawing.Point(126, 206);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(31, 23);
-            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "+";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -136,21 +136,21 @@ namespace AñosFelices
             this.btnRemover.Location = new System.Drawing.Point(126, 239);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(31, 23);
-            this.btnRemover.TabIndex = 11;
+            this.btnRemover.TabIndex = 6;
             this.btnRemover.Text = "-";
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
-            // btnAceptar
+            // btnModificar
             // 
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(185, 362);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(111, 29);
-            this.btnAceptar.TabIndex = 12;
-            this.btnAceptar.Text = "Registrar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(185, 362);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(111, 29);
+            this.btnModificar.TabIndex = 7;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCancelar
             // 
@@ -158,12 +158,12 @@ namespace AñosFelices
             this.btnCancelar.Location = new System.Drawing.Point(319, 362);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(111, 29);
-            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // frmAltaHabitacion
+            // frmModificarHabitacion
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,7 +171,7 @@ namespace AñosFelices
             this.ClientSize = new System.Drawing.Size(472, 409);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtEstado);
@@ -183,8 +183,8 @@ namespace AñosFelices
             this.Controls.Add(this.dgvCamas);
             this.MaximumSize = new System.Drawing.Size(488, 448);
             this.MinimumSize = new System.Drawing.Size(488, 448);
-            this.Name = "frmAltaHabitacion";
-            this.Text = "Registrar Habitación";
+            this.Name = "frmModificarHabitacion";
+            this.Text = "Modificar Habitación";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCamas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,7 +202,7 @@ namespace AñosFelices
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCancelar;
     }
 }

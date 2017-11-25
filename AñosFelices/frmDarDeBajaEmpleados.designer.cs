@@ -42,6 +42,7 @@
             this.dgvEmpleados.MultiSelect = false;
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.ReadOnly = true;
+            this.dgvEmpleados.RowHeadersVisible = false;
             this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(648, 232);
             this.dgvEmpleados.TabIndex = 4;
@@ -89,6 +90,7 @@
             this.MaximumSize = new System.Drawing.Size(743, 400);
             this.MinimumSize = new System.Drawing.Size(743, 400);
             this.Name = "frmDarDeBajaEmpleados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dar De Baja Empleado";
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);

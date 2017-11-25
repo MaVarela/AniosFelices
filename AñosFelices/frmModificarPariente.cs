@@ -19,6 +19,7 @@ namespace AñosFelices
         ParienteDTO parienteDTO = new ParienteDTO();
         ParienteSeleccionado pariente;
         String nombreFormM;
+        int DniPariente;
 
         public frmModificarPariente(int index, ParienteDTO parienteDTO, String nombreForm)
         {
@@ -31,63 +32,16 @@ namespace AñosFelices
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //if (!String.IsNullOrEmpty(this.txtDni.Text.Trim()) && txtDni.Text != "")
-            //{
-            //    if (!String.IsNullOrEmpty(this.txtApe_Pariente.Text.Trim()) && txtApe_Pariente.Text != "")
-            //    {
-            //        if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text != "")
-            //        {
-            //            if (!String.IsNullOrEmpty(this.cmbParentezco.Text.Trim()) && cmbParentezco.Text != "")
-            //            {
-            //                if (!String.IsNullOrEmpty(this.txtTelefono_1.Text) && txtTelefono_1.Text != "")
-            //                {
-            //                    if (!String.IsNullOrEmpty(this.txtDireccion.Text.Trim()) && txtDireccion.Text != "")
-            //                    {
-            //                        if (MessageBox.Show("¿Está seguro de que desea Modificar el Registro?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            //                        {
-            //                            var pariente = ParienteSeleccionado.Instance();
-            //                            var parienteDTO = new ParienteDTO();
-
-            //                            parienteDTO.Dni = Convert.ToInt32(txtDni.Text.Trim());
-            //                            parienteDTO.Nombre = txtNombre.Text.Trim();
-            //                            parienteDTO.Apellido = txtApe_Pariente.Text.Trim();
-            //                            parienteDTO.Direccion = txtDireccion.Text.Trim();
-            //                            parienteDTO.Mail = txtMail.Text.Trim();
-            //                            parienteDTO.Telefono1 = txtTelefono_1.Text.Trim();
-            //                            parienteDTO.Telefono2 = txtTelefono_2.Text.Trim();
-            //                            parienteDTO.Parentezco = cmbParentezco.SelectedText;
-
-            //                            pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
-            //                            pariente.Parientes.Insert(index, parienteDTO);
-
-
-            //                            MessageBox.Show("Registro Modificado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //                            this.Close();
-            //                        }
-            //                    }
-            //                    else
-            //                        MessageBox.Show("El campo 'Dirección' es Obligatorio");
-            //                }
-            //                else
-            //                    MessageBox.Show("El campo 'Teléfono 1' es Obligatorio");
-            //            }
-            //            else
-            //                MessageBox.Show("El campo 'Parentezco' es Obligatorio");
-            //        }
-            //        else
-            //            MessageBox.Show("El campo 'Nombre' es Obligatorio");
-            //    }
-            //    else
-            //        MessageBox.Show("El campo 'Apellido' es Obligatorio");
-            //}
-            //else
-            //    MessageBox.Show("El campo 'Dni' es Obligatorio");
-
             List<String> mensajes = new List<String>();
             var parienteDTO = new ParienteDTO();
 
             if (!String.IsNullOrEmpty(txtDni.Text))
-                parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
+            {
+                if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
+                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
+                else
+                    mensajes.Add("El campo 'Dni' debe poseer entre 7 y 8 dígitos");
+            }
             else
                 mensajes.Add("El campo 'DNI' es obligatorio");
             if (!String.IsNullOrEmpty(txtNombre.Text))
@@ -137,7 +91,8 @@ namespace AñosFelices
                 parienteDTO.Parentezco = cmbParentezco.SelectedItem.ToString();
 
 
-                pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                //pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == DniPariente).First());
                 pariente.Parientes.Insert(index, parienteDTO);
 
                 MessageBox.Show("El pariente se ha modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,11 +126,13 @@ namespace AñosFelices
             txtTelefono_1.Text = parienteDTO.Telefono1;
             txtTelefono_2.Text = parienteDTO.Telefono2;
             this.cmbParentezco.SelectedItem = parienteDTO.Parentezco;
-            
+            DniPariente = parienteDTO.Dni;
+
             if (nombreFormM == "frmModificarPaciente")
             {
                 txtDni.ReadOnly = true;
             }
+
         }
 
         private void txtTelefono_1_KeyPress(object sender, KeyPressEventArgs e)

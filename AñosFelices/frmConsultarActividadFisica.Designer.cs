@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.dgvActividad = new System.Windows.Forms.DataGridView();
@@ -40,8 +41,9 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblTurno = new System.Windows.Forms.Label();
             this.cmbTurno = new System.Windows.Forms.ComboBox();
-            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
-            this.txtNombre = new System.Windows.Forms.MaskedTextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.cmsConsultarA = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtApellido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvActividad)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             this.cmbFiltrar.FormattingEnabled = true;
             this.cmbFiltrar.Location = new System.Drawing.Point(85, 16);
             this.cmbFiltrar.Name = "cmbFiltrar";
-            this.cmbFiltrar.Size = new System.Drawing.Size(121, 24);
+            this.cmbFiltrar.Size = new System.Drawing.Size(131, 24);
             this.cmbFiltrar.TabIndex = 1;
             this.cmbFiltrar.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrar_SelectedIndexChanged);
             // 
@@ -168,27 +170,30 @@
             this.cmbTurno.Size = new System.Drawing.Size(111, 24);
             this.cmbTurno.TabIndex = 13;
             // 
-            // txtApellido
-            // 
-            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(612, 16);
-            this.txtApellido.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.PromptChar = ' ';
-            this.txtApellido.Size = new System.Drawing.Size(172, 22);
-            this.txtApellido.TabIndex = 132;
-            this.txtApellido.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtApellido_MouseClick);
-            // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(612, 51);
-            this.txtNombre.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtNombre.ContextMenuStrip = this.cmsConsultarA;
+            this.txtNombre.Location = new System.Drawing.Point(612, 50);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PromptChar = ' ';
-            this.txtNombre.Size = new System.Drawing.Size(172, 22);
-            this.txtNombre.TabIndex = 133;
-            this.txtNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtNombre_MouseClick);
+            this.txtNombre.Size = new System.Drawing.Size(172, 20);
+            this.txtNombre.TabIndex = 139;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            // 
+            // cmsConsultarA
+            // 
+            this.cmsConsultarA.Name = "contextMenuStrip1";
+            this.cmsConsultarA.Size = new System.Drawing.Size(61, 4);
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.ContextMenuStrip = this.cmsConsultarA;
+            this.txtApellido.Location = new System.Drawing.Point(612, 15);
+            this.txtApellido.MaxLength = 100;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(172, 20);
+            this.txtApellido.TabIndex = 138;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // frmConsultarActividadFisica
             // 
@@ -236,7 +241,8 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.ComboBox cmbTurno;
-        private System.Windows.Forms.MaskedTextBox txtApellido;
-        private System.Windows.Forms.MaskedTextBox txtNombre;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.ContextMenuStrip cmsConsultarA;
     }
 }

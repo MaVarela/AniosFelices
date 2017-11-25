@@ -23,7 +23,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 var habitacionDTO = new HabitacionDTO();
                 habitacionDTO.Id = habitacion.IdHabitacion;
                 habitacionDTO.Categoria = habitacion.Categoria;
-                habitacionDTO.Estado = habitacion.Estado;
+                habitacionDTO.Estado = habitacion.Estado == "A" ? "Habilitada" : "Inhabilitada";
 
                 listadoHabitaciones.Add(habitacionDTO);
             }
@@ -47,9 +47,32 @@ namespace AñosFelices.DTOs.DTOMappers
                 var habitacionDTO = new HabitacionDTO();
                 habitacionDTO.Id = habitacion.IdHabitacion;
                 habitacionDTO.Categoria = habitacion.Categoria;
-                habitacionDTO.Estado = estado;
+                habitacionDTO.Estado = habitacion.Estado == "B" ? "Inhabilitada" : estado;
 
                 listadoHabitaciones.Add(habitacionDTO);
+            }
+
+            return listadoHabitaciones;
+        }
+
+        public List<HabitacionDTO> LlenarListadoSexo(List<Habitacion> habitaciones, string sexo)
+        {
+            var listadoHabitaciones = new List<HabitacionDTO>();
+
+            foreach (var habitacion in habitaciones)
+            {
+                var habitacionDTO = new HabitacionDTO();
+                habitacionDTO.Id = habitacion.IdHabitacion;
+                habitacionDTO.Categoria = habitacion.Categoria;
+                habitacionDTO.Estado = habitacion.Estado == "A" ? "Habilitada" : "Inhabilitada";
+
+                string [] Sexo;
+                Sexo = habitacionDTO.Categoria.Split(' ');
+
+                if (Sexo[0] == sexo)
+                {
+                    listadoHabitaciones.Add(habitacionDTO);
+                }
             }
 
             return listadoHabitaciones;

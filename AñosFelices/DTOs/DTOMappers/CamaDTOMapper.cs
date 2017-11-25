@@ -19,7 +19,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 var camaDTO = new CamaDTO();
                 camaDTO.IdCama = cama.IdCama;
                 camaDTO.IdHabitacion = cama.Habitacion.IdHabitacion;
-                camaDTO.Estado = cama.Estado;
+                camaDTO.Estado = cama.Estado == "L" ? "Libre" : "Ocupada";
 
                 listadoCamas.Add(camaDTO);
             }

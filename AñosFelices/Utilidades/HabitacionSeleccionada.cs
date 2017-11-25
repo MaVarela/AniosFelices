@@ -1,4 +1,5 @@
 ﻿using AñosFelices.DTOs;
+using AñosFelices.EntidadesDeNegocio;
 
 namespace AñosFelices.Utilidades
 {
@@ -20,5 +21,7 @@ namespace AñosFelices.Utilidades
         }
 
         public HabitacionDTO Habitacion { get; set; }
+
+        public Habitacion HabitacionRecuperada { get; set; }
     }
 }

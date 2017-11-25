@@ -17,6 +17,8 @@ namespace AñosFelices.Mappings
             Id(x => x.Dni, "DniPaciente").GeneratedBy.Assigned().Not.Nullable();
             Map(x => x.Nombre, "Nombre").Not.Nullable();
             Map(x => x.Apellido, "Apellido").Not.Nullable();
+            Map(x => x.Sexo, "Sexo").Not.Nullable();
+            Map(x => x.FechaIngreso, "FechaIngreso").Not.Nullable();
             Map(x => x.Estado, "Estado").Not.Nullable();
             Map(x => x.EstadoFisico, "EstadoFisico");
             References(x => x.Cama)
