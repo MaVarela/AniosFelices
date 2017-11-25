@@ -3,6 +3,7 @@ using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.DTO;
 using AñosFelices.Utilidades;
 using System;
+using System.Linq;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -13,7 +14,10 @@ namespace AñosFelices
 {
     public partial class frmConsultarEstadoPaciente : Form
     {
-        IRepositorioHistoriaClinica repositoriohisoriaclinica = new RepositorioHistoriaClinica();
+        IRepositorioHistoriaClinica repositoriohistoriaclinica = new RepositorioHistoriaClinica();
+        IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+        UsuarioLogueado usuario = UsuarioLogueado.Instance();
+
         public frmConsultarEstadoPaciente()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace AñosFelices
         private void cargar()
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
-            var listado = mapper.ListarEstadoGeneral((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+            var listado = mapper.ListarEstadoGeneral((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
 
             configurarGrilla(listado);
 
@@ -58,7 +62,7 @@ namespace AñosFelices
             List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
             if (cmbDato.Text == "Todos")
             {
-                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
             }
 
             if (cmbDato.Text == "DNI Paciente")
@@ -66,12 +70,12 @@ namespace AñosFelices
 
                 if (txtDato.Text != "")
                 {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(int.Parse(txtDato.Text),null,null));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(int.Parse(txtDato.Text),null,null));
                 }
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
@@ -80,12 +84,12 @@ namespace AñosFelices
 
                 if (txtDato.Text != "")
                 {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, txtDato.Text, null));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, txtDato.Text, null));
                 }
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
@@ -94,12 +98,12 @@ namespace AñosFelices
 
                 if (txtDato.Text != "")
                 {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, txtDato.Text));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, txtDato.Text));
                 }
                 else
                 {
                     MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
+                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
                 }
             }
 
@@ -152,6 +156,24 @@ namespace AñosFelices
         {
             txtDato.Text = "";
             lblMensaje.Visible = false;
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (this.dgvEstadoPaciente.CurrentRow != null)
+            {
+
+                var frmDetalle = new frmDetalleHistoriaClinica();
+                var historiaclinicaSeleccionada = HistoriaClinicaSeleccionada.Instance();
+                var paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(dgvEstadoPaciente.SelectedRows[0].Cells[0].Value));
+                var fechavisita = Convert.ToDateTime(dgvEstadoPaciente.SelectedRows[0].Cells[4].Value);
+                var historiaclinicaId = new HistoriaClinicaId() { FechaVisita = fechavisita, Paciente = paciente, Usuario = usuario.Usuario };
+                var historiaclinica = repositoriohistoriaclinica.ObtenerPorUsuarioPacienteFecha(historiaclinicaId).Where(x => !String.IsNullOrEmpty(x.EstadoGeneral)).FirstOrDefault();
+
+                historiaclinicaSeleccionada.HistoriaClinica = historiaclinica;
+
+                frmDetalle.Show();
+            }
         }
     }
 }

@@ -220,6 +220,12 @@
     <Compile Include="frmDarDeBajaPaciente.Designer.cs">
       <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetalleHistoriaClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetalleHistoriaClinica.Designer.cs">
+      <DependentUpon>frmDetalleHistoriaClinica.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHabitacionesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +371,7 @@
     <Compile Include="Utilidades\ConsultaActiva.cs" />
     <Compile Include="Utilidades\EmpleadoSeleccionado.cs" />
     <Compile Include="Utilidades\HabitacionSeleccionada.cs" />
+    <Compile Include="Utilidades\HistoriaClinicaSeleccionada.cs" />
     <Compile Include="Utilidades\ParienteSeleccionado.cs" />
     <Compile Include="Utilidades\UsuarioLogueado.cs" />
     <Compile Include="Mappings\UsuarioMap.cs" />
@@ -421,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDarDeBajaPaciente.resx">
       <DependentUpon>frmDarDeBajaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetalleHistoriaClinica.resx">
+      <DependentUpon>frmDetalleHistoriaClinica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHabitacionesList.resx">
       <DependentUpon>frmHabitacionesList.cs</DependentUpon>
