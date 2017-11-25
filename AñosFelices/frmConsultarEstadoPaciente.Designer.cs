@@ -34,6 +34,7 @@
             this.cmbDato = new System.Windows.Forms.ComboBox();
             this.lbl1 = new System.Windows.Forms.Label();
             this.dgvEstadoPaciente = new System.Windows.Forms.DataGridView();
+            this.lblMensaje = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstadoPaciente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,13 +52,14 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(622, 36);
+            this.btnBuscar.Location = new System.Drawing.Point(622, 30);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(111, 29);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnBuscar_KeyPress);
             // 
             // txtDato
             // 
@@ -66,13 +68,15 @@
             this.txtDato.Name = "txtDato";
             this.txtDato.Size = new System.Drawing.Size(108, 22);
             this.txtDato.TabIndex = 2;
+            this.txtDato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDato_KeyPress);
             // 
             // cmbDato
             // 
+            this.cmbDato.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDato.FormattingEnabled = true;
             this.cmbDato.Items.AddRange(new object[] {
-            "",
+            "Todos",
             "DNI Paciente",
             "Nombre",
             "Apellido"});
@@ -80,6 +84,7 @@
             this.cmbDato.Name = "cmbDato";
             this.cmbDato.Size = new System.Drawing.Size(121, 24);
             this.cmbDato.TabIndex = 1;
+            this.cmbDato.SelectionChangeCommitted += new System.EventHandler(this.cmbDato_SelectionChangeCommitted);
             // 
             // lbl1
             // 
@@ -99,12 +104,23 @@
             this.dgvEstadoPaciente.Size = new System.Drawing.Size(662, 338);
             this.dgvEstadoPaciente.TabIndex = 4;
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Location = new System.Drawing.Point(469, 41);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(35, 13);
+            this.lblMensaje.TabIndex = 15;
+            this.lblMensaje.Text = "label1";
+            this.lblMensaje.Visible = false;
+            // 
             // frmConsultarEstadoPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 484);
             this.ControlBox = false;
+            this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtDato);
@@ -130,5 +146,6 @@
         private System.Windows.Forms.ComboBox cmbDato;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.DataGridView dgvEstadoPaciente;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }

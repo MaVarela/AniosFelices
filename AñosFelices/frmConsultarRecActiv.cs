@@ -2,6 +2,7 @@
 using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.DTO;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using AñosFelices.EntidadesDeNegocio;
@@ -53,7 +54,7 @@ namespace AñosFelices
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
             List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
-            if (cmbDato.Text == "")
+            if (cmbDato.Text == "Todos")
             {
                 listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohisoriaclinica.BuscarRegistros(null, null, null));
             }
@@ -103,9 +104,48 @@ namespace AñosFelices
             configurarGrilla(listado);
         }
 
+        private void txtDato_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cmbDato.Text == "DNI Paciente")
+            {
+                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    txtDato.Text = "";
+                    lblMensaje.Text = "*Solo se permiten numeros";
+                    lblMensaje.Visible = true;
+                    lblMensaje.ForeColor = Color.Red;
+                    e.Handled = true;
+                }
+
+                else { lblMensaje.Visible = false; }
+            }
+            else
+            {
+                if (cmbDato.Text == "Nombre" || cmbDato.Text == "Apellido")
+                {
+                    if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                    {
+                        txtDato.Text = "";
+                        lblMensaje.Text = "*Solo se permiten letras";
+                        lblMensaje.Visible = true;
+                        lblMensaje.ForeColor = Color.Red;
+                        e.Handled = true;
+                    }
+
+                    else { lblMensaje.Visible = false; }
+                }
+            }
+        }
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cmbDato_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            txtDato.Text = "";
+            lblMensaje.Visible = false;
         }
 
     }
