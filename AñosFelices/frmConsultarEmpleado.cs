@@ -41,6 +41,7 @@ namespace AñosFelices
             txtTelefono_2.Text = empleadoSeleccionado.Usuario.Telefono2;
             txtMail.Text = empleadoSeleccionado.Usuario.Mail;
             txtPassword.Text = empleadoSeleccionado.Usuario.Password;
+            dtpFecha.Value = empleadoSeleccionado.Usuario.FechaIngreso;
             this.txtEstado.Text = empleadoSeleccionado.Usuario.Estado;
             this.cmbRol.DataSource = repositorioRol.ObtenerTodos();
             this.cmbRol.DisplayMember = "Descripcion";

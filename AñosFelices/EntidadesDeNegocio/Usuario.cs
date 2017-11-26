@@ -27,7 +27,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <param name="telefono2">Teléfono del Usuario</param>
         /// <param name="mail">Dirección de correo del Usuario</param>
         /// <param name="estado">Estado</param>
-        public Usuario(int dni, Rol rol, String password, String nombre, String apellido, String direccion, String telefono1, String telefono2, String mail)
+        public Usuario(int dni, Rol rol, String password, String nombre, String apellido, String direccion, String telefono1, String telefono2, String mail, DateTime fechaIngreso)
         {
             this.Dni = dni;
             this.Rol = rol;
@@ -38,6 +38,7 @@ namespace AñosFelices.EntidadesDeNegocio
             this.Telefono1 = telefono1;
             this.Telefono2 = telefono2;
             this.Mail = mail;
+            this.FechaIngreso = fechaIngreso;
         }
 
         /// <summary>
@@ -54,6 +55,8 @@ namespace AñosFelices.EntidadesDeNegocio
         /// Password del Usuario
         /// </summary>
         public virtual String Password { get; set; }
+
+        public virtual DateTime FechaIngreso { get; set; }
 
         /// <summary>
         /// Implementa la lógica necesaria para determinar la igualdad entre instancias de esta clase

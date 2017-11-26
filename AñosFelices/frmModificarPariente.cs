@@ -19,6 +19,7 @@ namespace AñosFelices
         ParienteDTO parienteDTO = new ParienteDTO();
         ParienteSeleccionado pariente;
         String nombreFormM;
+        int DniPariente;
 
         public frmModificarPariente(int index, ParienteDTO parienteDTO, String nombreForm)
         {
@@ -87,7 +88,12 @@ namespace AñosFelices
             var parienteDTO = new ParienteDTO();
 
             if (!String.IsNullOrEmpty(txtDni.Text))
-                parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
+            {
+                if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
+                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
+                else
+                    mensajes.Add("El campo 'Dni' debe poseer entre 7 y 8 dígitos");
+            }
             else
                 mensajes.Add("El campo 'DNI' es obligatorio");
             if (!String.IsNullOrEmpty(txtNombre.Text))
@@ -137,7 +143,8 @@ namespace AñosFelices
                 parienteDTO.Parentezco = cmbParentezco.SelectedItem.ToString();
 
 
-                pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                //pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                pariente.Parientes.Remove(pariente.Parientes.Where(x => x.Dni == DniPariente).First());
                 pariente.Parientes.Insert(index, parienteDTO);
 
                 MessageBox.Show("El pariente se ha modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,11 +178,13 @@ namespace AñosFelices
             txtTelefono_1.Text = parienteDTO.Telefono1;
             txtTelefono_2.Text = parienteDTO.Telefono2;
             this.cmbParentezco.SelectedItem = parienteDTO.Parentezco;
-            
+            DniPariente = parienteDTO.Dni;
+
             if (nombreFormM == "frmModificarPaciente")
             {
                 txtDni.ReadOnly = true;
             }
+
         }
 
         private void txtTelefono_1_KeyPress(object sender, KeyPressEventArgs e)

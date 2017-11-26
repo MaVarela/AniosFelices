@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblDni = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -49,6 +50,9 @@
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.lblEstado = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.cmsConsultarEmpleado = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // lblDni
@@ -133,6 +137,7 @@
             // 
             // cmbRol
             // 
+            this.cmbRol.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.Enabled = false;
             this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,6 +159,7 @@
             // 
             // txtMail
             // 
+            this.txtMail.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(165, 187);
             this.txtMail.Name = "txtMail";
@@ -163,6 +169,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(165, 143);
             this.txtDireccion.Name = "txtDireccion";
@@ -172,6 +179,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(165, 102);
             this.txtApellido.Name = "txtApellido";
@@ -181,6 +189,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(165, 59);
             this.txtNombre.Name = "txtNombre";
@@ -190,6 +199,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(165, 320);
             this.txtPassword.Name = "txtPassword";
@@ -200,7 +210,7 @@
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(266, 457);
+            this.btnCerrar.Location = new System.Drawing.Point(266, 507);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(113, 29);
             this.btnCerrar.TabIndex = 10;
@@ -211,6 +221,7 @@
             // txtDni
             // 
             this.txtDni.AcceptsTab = true;
+            this.txtDni.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(165, 24);
             this.txtDni.MaxLength = 8;
@@ -221,6 +232,7 @@
             // 
             // txtTelefono_1
             // 
+            this.txtTelefono_1.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtTelefono_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_1.Location = new System.Drawing.Point(165, 231);
             this.txtTelefono_1.MaxLength = 12;
@@ -231,6 +243,7 @@
             // 
             // txtTelefono_2
             // 
+            this.txtTelefono_2.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtTelefono_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_2.Location = new System.Drawing.Point(165, 273);
             this.txtTelefono_2.MaxLength = 12;
@@ -241,8 +254,9 @@
             // 
             // txtEstado
             // 
+            this.txtEstado.ContextMenuStrip = this.cmsConsultarEmpleado;
             this.txtEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEstado.Location = new System.Drawing.Point(165, 409);
+            this.txtEstado.Location = new System.Drawing.Point(165, 459);
             this.txtEstado.Name = "txtEstado";
             this.txtEstado.ReadOnly = true;
             this.txtEstado.Size = new System.Drawing.Size(100, 22);
@@ -252,18 +266,44 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstado.Location = new System.Drawing.Point(24, 409);
+            this.lblEstado.Location = new System.Drawing.Point(24, 459);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(57, 16);
             this.lblEstado.TabIndex = 25;
             this.lblEstado.Text = "Estado: ";
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(24, 412);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(116, 16);
+            this.lblFecha.TabIndex = 101;
+            this.lblFecha.Text = "Fecha de Ingreso:";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(165, 413);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(241, 22);
+            this.dtpFecha.TabIndex = 100;
+            // 
+            // cmsConsultarEmpleado
+            // 
+            this.cmsConsultarEmpleado.Name = "cmsConsultarEmpleado";
+            this.cmsConsultarEmpleado.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmConsultarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 500);
+            this.ClientSize = new System.Drawing.Size(432, 554);
             this.ControlBox = false;
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtEstado);
             this.Controls.Add(this.lblEstado);
             this.Controls.Add(this.txtTelefono_2);
@@ -287,9 +327,9 @@
             this.Controls.Add(this.lblDni);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(437, 539);
             this.MinimumSize = new System.Drawing.Size(437, 539);
             this.Name = "frmConsultarEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultar Empleado";
             this.Load += new System.EventHandler(this.frmConsultarEmpleado_Load);
             this.ResumeLayout(false);
@@ -320,5 +360,8 @@
         private System.Windows.Forms.TextBox txtTelefono_2;
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ContextMenuStrip cmsConsultarEmpleado;
+        private System.Windows.Forms.Label lblFecha;
+        internal System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }

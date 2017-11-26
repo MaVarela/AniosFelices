@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbParentezco = new System.Windows.Forms.ComboBox();
+            this.cmsAddPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -99,6 +101,7 @@
             // 
             // txtMail
             // 
+            this.txtMail.ContextMenuStrip = this.cmsAddPariente;
             this.txtMail.Location = new System.Drawing.Point(141, 321);
             this.txtMail.MaxLength = 100;
             this.txtMail.Name = "txtMail";
@@ -108,6 +111,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.ContextMenuStrip = this.cmsAddPariente;
             this.txtDireccion.Location = new System.Drawing.Point(141, 275);
             this.txtDireccion.MaxLength = 255;
             this.txtDireccion.Name = "txtDireccion";
@@ -116,6 +120,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.ContextMenuStrip = this.cmsAddPariente;
             this.txtApellido.Location = new System.Drawing.Point(142, 106);
             this.txtApellido.MaxLength = 100;
             this.txtApellido.Name = "txtApellido";
@@ -125,7 +130,9 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.ContextMenuStrip = this.cmsAddPariente;
             this.txtNombre.Location = new System.Drawing.Point(141, 63);
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(194, 22);
             this.txtNombre.TabIndex = 2;
@@ -164,6 +171,7 @@
             // txtDni
             // 
             this.txtDni.AcceptsTab = true;
+            this.txtDni.ContextMenuStrip = this.cmsAddPariente;
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(141, 24);
             this.txtDni.MaxLength = 8;
@@ -174,6 +182,7 @@
             // 
             // txtTelefono_2
             // 
+            this.txtTelefono_2.ContextMenuStrip = this.cmsAddPariente;
             this.txtTelefono_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_2.Location = new System.Drawing.Point(141, 230);
             this.txtTelefono_2.MaxLength = 12;
@@ -185,6 +194,7 @@
             // 
             // txtTelefono_1
             // 
+            this.txtTelefono_1.ContextMenuStrip = this.cmsAddPariente;
             this.txtTelefono_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_1.Location = new System.Drawing.Point(141, 188);
             this.txtTelefono_1.MaxLength = 12;
@@ -219,12 +229,14 @@
             this.cmbParentezco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbParentezco.FormattingEnabled = true;
             this.cmbParentezco.Items.AddRange(new object[] {
+            "Esposo",
+            "Esposa",
             "Hijo",
             "Hija",
             "Hermano",
             "Hermana",
-            "Prima",
             "Primo",
+            "Prima",
             "Tío",
             "Tía",
             "Sobrino",
@@ -235,6 +247,11 @@
             this.cmbParentezco.Name = "cmbParentezco";
             this.cmbParentezco.Size = new System.Drawing.Size(121, 24);
             this.cmbParentezco.TabIndex = 4;
+            // 
+            // cmsAddPariente
+            // 
+            this.cmsAddPariente.Name = "cmsAddPariente";
+            this.cmsAddPariente.Size = new System.Drawing.Size(61, 4);
             // 
             // frmAgregarPariente
             // 
@@ -265,6 +282,7 @@
             this.MaximumSize = new System.Drawing.Size(408, 472);
             this.MinimumSize = new System.Drawing.Size(408, 472);
             this.Name = "frmAgregarPariente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Pariente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -291,5 +309,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbParentezco;
+        private System.Windows.Forms.ContextMenuStrip cmsAddPariente;
     }
 }

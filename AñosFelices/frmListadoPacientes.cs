@@ -74,7 +74,10 @@ namespace AñosFelices
             this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
             this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
             this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-            this.dgvPacientes.Columns["Estado"].DisplayIndex = 6;
+            this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+            this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+            this.dgvPacientes.Columns["Sexo"].Visible = false;
+            this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
         }
 
         private void btnHabilitar_Click(object sender, EventArgs e)

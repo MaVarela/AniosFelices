@@ -18,6 +18,8 @@ namespace AñosFelices.DTO
                 pacienteDTO.Habitacion = paciente.Cama.Habitacion.IdHabitacion.ToString();
                 pacienteDTO.Nombre = paciente.Nombre;
                 pacienteDTO.Apellido = paciente.Apellido;
+                pacienteDTO.Sexo = paciente.Sexo;
+                pacienteDTO.FechaIngreso = paciente.FechaIngreso;
                 pacienteDTO.EstadoFisico = paciente.EstadoFisico;
                 pacienteDTO.Estado = paciente.Estado;
 

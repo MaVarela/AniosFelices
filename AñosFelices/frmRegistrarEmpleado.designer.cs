@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +49,9 @@
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtTelefono_1 = new System.Windows.Forms.TextBox();
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.cmsAddEmpleado = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +136,7 @@
             // 
             // cmbRol
             // 
+            this.cmbRol.ContextMenuStrip = this.cmsAddEmpleado;
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbRol.FormattingEnabled = true;
@@ -152,6 +157,7 @@
             // 
             // txtMail
             // 
+            this.txtMail.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMail.Location = new System.Drawing.Point(165, 187);
             this.txtMail.Name = "txtMail";
@@ -161,6 +167,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(165, 143);
             this.txtDireccion.Name = "txtDireccion";
@@ -169,6 +176,7 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido.Location = new System.Drawing.Point(165, 102);
             this.txtApellido.Name = "txtApellido";
@@ -178,6 +186,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(165, 59);
             this.txtNombre.Name = "txtNombre";
@@ -187,6 +196,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(165, 320);
             this.txtPassword.Name = "txtPassword";
@@ -196,10 +206,10 @@
             // btnRegistrar
             // 
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(137, 412);
+            this.btnRegistrar.Location = new System.Drawing.Point(137, 459);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(113, 29);
-            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.TabIndex = 11;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -207,10 +217,10 @@
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(266, 412);
+            this.btnCancelar.Location = new System.Drawing.Point(266, 459);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(113, 29);
-            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -218,6 +228,7 @@
             // txtDni
             // 
             this.txtDni.AcceptsTab = true;
+            this.txtDni.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDni.Location = new System.Drawing.Point(165, 24);
             this.txtDni.MaxLength = 8;
@@ -228,6 +239,7 @@
             // 
             // txtTelefono_1
             // 
+            this.txtTelefono_1.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtTelefono_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_1.Location = new System.Drawing.Point(165, 231);
             this.txtTelefono_1.MaxLength = 12;
@@ -239,6 +251,7 @@
             // 
             // txtTelefono_2
             // 
+            this.txtTelefono_2.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtTelefono_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono_2.Location = new System.Drawing.Point(165, 273);
             this.txtTelefono_2.MaxLength = 12;
@@ -248,12 +261,38 @@
             this.txtTelefono_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_2_KeyPress);
             this.txtTelefono_2.Leave += new System.EventHandler(this.txtTelefono_2_Leave);
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(24, 411);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(116, 16);
+            this.lblFecha.TabIndex = 97;
+            this.lblFecha.Text = "Fecha de Ingreso:";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(165, 411);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(241, 22);
+            this.dtpFecha.TabIndex = 10;
+            // 
+            // cmsAddEmpleado
+            // 
+            this.cmsAddEmpleado.Name = "cmsAddEmpleado";
+            this.cmsAddEmpleado.Size = new System.Drawing.Size(61, 4);
+            // 
             // frmRegistrarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 465);
+            this.ClientSize = new System.Drawing.Size(433, 502);
             this.ControlBox = false;
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtTelefono_2);
             this.Controls.Add(this.txtTelefono_1);
             this.Controls.Add(this.txtDni);
@@ -276,9 +315,10 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(425, 504);
-            this.MinimumSize = new System.Drawing.Size(425, 504);
+            this.MaximumSize = new System.Drawing.Size(449, 541);
+            this.MinimumSize = new System.Drawing.Size(449, 541);
             this.Name = "frmRegistrarEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Empleado";
             this.Load += new System.EventHandler(this.frmRegistrarEmpleado_Load);
             this.ResumeLayout(false);
@@ -308,5 +348,8 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtTelefono_1;
         private System.Windows.Forms.TextBox txtTelefono_2;
+        private System.Windows.Forms.Label lblFecha;
+        internal System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.ContextMenuStrip cmsAddEmpleado;
     }
 }
