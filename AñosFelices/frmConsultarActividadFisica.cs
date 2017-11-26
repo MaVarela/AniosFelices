@@ -185,5 +185,29 @@ namespace AñosFelices
 
             e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (this.dgvActividad.CurrentRow != null)
+            {
+                LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
+                IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+
+                var idActividad = mapper.llenarListaLibroDeGuardiasDTOID((List<LibroDeGuardias>)repositorioLibroDeGuardias.ObtenerTodos(), dgvActividad.CurrentRow.Index);
+                //IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+
+                
+                LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+
+                var frmConsultar = new frmConsultarActividad();
+                var registroSeleccionado = RegistroSeleccionado.Instance();
+                
+                var actividad = repositorioLibroDeGuardias.ObtenerPorId(idActividad);
+
+                registroSeleccionado.Registro = actividad;
+
+                frmConsultar.Show();
+            }
+        }
     }
 }

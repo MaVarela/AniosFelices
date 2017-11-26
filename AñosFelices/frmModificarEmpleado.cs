@@ -60,20 +60,20 @@ namespace AñosFelices
                 
                 List<String> mensajes = new List<String>();
                 
-                if (!String.IsNullOrEmpty(txtNombre.Text))
-                    empleadoSeleccionado.Usuario.Nombre = txtNombre.Text;
+                if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
+                    empleadoSeleccionado.Usuario.Nombre = txtNombre.Text.Trim();
                 else
                     mensajes.Add("El campo 'Nombre' es obligatorio");
-                if (!String.IsNullOrEmpty(txtApellido.Text))
-                    empleadoSeleccionado.Usuario.Apellido = txtApellido.Text;
+                if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
+                    empleadoSeleccionado.Usuario.Apellido = txtApellido.Text.Trim();
                 else
                     mensajes.Add("El campo 'Apellido' es obligatorio");
-                if (!String.IsNullOrEmpty(txtDireccion.Text))
-                    empleadoSeleccionado.Usuario.Direccion = txtDireccion.Text;
+                if (!String.IsNullOrEmpty(txtDireccion.Text.Trim()))
+                    empleadoSeleccionado.Usuario.Direccion = txtDireccion.Text.Trim();
                 else
                     mensajes.Add("El campo 'Dirección' es obligatorio");
 
-                if (!String.IsNullOrEmpty(txtMail.Text))
+                if (!String.IsNullOrEmpty(txtMail.Text.Trim()))
                 {
                     if (validarEmail(txtMail.Text))
                         empleadoSeleccionado.Usuario.Mail = txtMail.Text;
@@ -235,6 +235,12 @@ namespace AñosFelices
                     MessageBox.Show("Se ha ingresado un teléfono con formato no válido");
                 }
             }
+        }
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsDigit(e.KeyChar) && !Char.IsLetter(e.KeyChar) && e.KeyChar != Delete;
         }
     }
 }

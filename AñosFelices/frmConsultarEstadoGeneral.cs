@@ -176,5 +176,10 @@ namespace AñosFelices
 
             e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

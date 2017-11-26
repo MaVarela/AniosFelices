@@ -38,6 +38,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbRol = new System.Windows.Forms.ComboBox();
+            this.cmsAddEmpleado = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.cmsAddEmpleado = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -145,6 +145,11 @@
             this.cmbRol.Size = new System.Drawing.Size(214, 24);
             this.cmbRol.TabIndex = 9;
             // 
+            // cmsAddEmpleado
+            // 
+            this.cmsAddEmpleado.Name = "cmsAddEmpleado";
+            this.cmsAddEmpleado.Size = new System.Drawing.Size(61, 4);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -199,9 +204,11 @@
             this.txtPassword.ContextMenuStrip = this.cmsAddEmpleado;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(165, 320);
+            this.txtPassword.MaxLength = 8;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(121, 22);
             this.txtPassword.TabIndex = 8;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnRegistrar
             // 
@@ -279,11 +286,6 @@
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(241, 22);
             this.dtpFecha.TabIndex = 10;
-            // 
-            // cmsAddEmpleado
-            // 
-            this.cmsAddEmpleado.Name = "cmsAddEmpleado";
-            this.cmsAddEmpleado.Size = new System.Drawing.Size(61, 4);
             // 
             // frmRegistrarEmpleado
             // 

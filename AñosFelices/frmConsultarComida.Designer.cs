@@ -42,8 +42,9 @@
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.cmsConsultarC = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComida)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +126,7 @@
             this.btnReestablecer.TabIndex = 20;
             this.btnReestablecer.Text = "Reestablecer";
             this.btnReestablecer.UseVisualStyleBackColor = true;
+            this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
             // btnBuscar
             // 
@@ -179,6 +181,11 @@
             this.txtNombre.TabIndex = 139;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
+            // cmsConsultarC
+            // 
+            this.cmsConsultarC.Name = "cmsConsultarC";
+            this.cmsConsultarC.Size = new System.Drawing.Size(61, 4);
+            // 
             // txtApellido
             // 
             this.txtApellido.ContextMenuStrip = this.cmsConsultarC;
@@ -189,10 +196,16 @@
             this.txtApellido.TabIndex = 138;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
-            // cmsConsultarC
+            // btnSeleccionar
             // 
-            this.cmsConsultarC.Name = "cmsConsultarC";
-            this.cmsConsultarC.Size = new System.Drawing.Size(61, 4);
+            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionar.Location = new System.Drawing.Point(802, 304);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(113, 29);
+            this.btnSeleccionar.TabIndex = 141;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // frmConsultarComida
             // 
@@ -200,6 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 406);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.cmbTurno);
@@ -243,5 +257,6 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.ContextMenuStrip cmsConsultarC;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

@@ -142,6 +142,12 @@
     <Compile Include="frmCamas.Designer.cs">
       <DependentUpon>frmCamas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarActividad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarActividad.Designer.cs">
+      <DependentUpon>frmConsultarActividad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarActividadFisica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +348,7 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\RegistroSeleccionado.cs" />
     <Compile Include="Utilidades\CamasSeleccionadas.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />
@@ -364,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCamas.resx">
       <DependentUpon>frmCamas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarActividad.resx">
+      <DependentUpon>frmConsultarActividad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarActividadFisica.resx">
       <DependentUpon>frmConsultarActividadFisica.cs</DependentUpon>

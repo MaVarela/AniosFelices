@@ -86,13 +86,13 @@ namespace AñosFelices
             var camaSeleccionada = CamaSeleccionada.Instance();
             if (!String.IsNullOrEmpty(txtDni.Text))
             {
-                if (txtDni.Text.Length == 8)
+                if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
                 {
-                    if (!String.IsNullOrEmpty(txtNombre.Text))
+                    if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
                     {
-                        if (!String.IsNullOrEmpty(txtApellido.Text))
+                        if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
                         {
-                            if (!String.IsNullOrEmpty(txtEstadoFisico.Text))
+                            if (!String.IsNullOrEmpty(txtEstadoFisico.Text.Trim()))
                             {
                                 if (rdbFemenino.Checked != false || rdbMasculino.Checked != false)
                                 {   
@@ -167,7 +167,7 @@ namespace AñosFelices
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("El campo 'Dni' debe poseer 8 dígitos", "Error",
+                    MessageBox.Show("El campo 'Dni' debe poseer entre 7 y 8 dígitos", "Error",
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
