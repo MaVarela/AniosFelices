@@ -34,9 +34,6 @@ namespace AñosFelices
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
-            if (estado == "A")
-            {
                 if (this.dgvPacientes.CurrentRow != null)
                 {
                     var pacienteElegido = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value));
@@ -52,9 +49,6 @@ namespace AñosFelices
                     MessageBox.Show("Debe seleccionar un registro", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-                MessageBox.Show("El Paciente no se encuentra habilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void frmListadoPacientes_Load(object sender, EventArgs e)
@@ -78,27 +72,56 @@ namespace AñosFelices
             this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
             this.dgvPacientes.Columns["Sexo"].Visible = false;
             this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+
+            configurarHabilitarModificar();
+        }
+
+        private void configurarHabilitarModificar()
+        {
+            btnModificar.Enabled = dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado";
+            btnHabilitar.Enabled = !(dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado");
         }
 
         private void btnHabilitar_Click(object sender, EventArgs e)
         {
             String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
-            if (estado == "B")
+            try
             {
-                var paciente = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Dni"].Value));
-
-                paciente.Estado = "A";
-
-                foreach (var pariente in paciente.Parientes)
+                if (this.dgvPacientes.CurrentRow != null)
                 {
-                    pariente.Estado = "A";
+                    var paciente = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells["Dni"].Value));
+
+                    paciente.Estado = "A";
+
+                    foreach (var pariente in paciente.Parientes)
+                    {
+                        pariente.Estado = "A";
+                    }
+                    repositorioPacientes.Editar(paciente);
+                    MessageBox.Show("El Paciente ha sido habilitado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();
                 }
-                repositorioPacientes.Editar(paciente);
-                MessageBox.Show("El Paciente ha sido habilitado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cargar();
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un registro", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
-                MessageBox.Show("El Paciente ya se encuentra habilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                pacienteSeleccionado.Paciente = null;
+            }
+        }
+
+        private void dgvPacientes_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            configurarHabilitarModificar();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace AñosFelices.DTO
                 pacienteDTO.Sexo = paciente.Sexo;
                 pacienteDTO.FechaIngreso = paciente.FechaIngreso;
                 pacienteDTO.EstadoFisico = paciente.EstadoFisico;
-                pacienteDTO.Estado = paciente.Estado;
+                pacienteDTO.Estado = paciente.Estado == "A" ? "Habilitado" : "Inhabilitado";
 
                 /*Asi con las propiedades que necesites*/
                 listadoPacientes.Add(pacienteDTO);

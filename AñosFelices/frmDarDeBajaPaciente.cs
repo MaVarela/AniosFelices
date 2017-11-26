@@ -34,11 +34,11 @@ namespace AñosFelices
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            if (dgvPacientes.RowCount > 0)
+            try
             {
-                String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
-                if (estado == "A")
+                if (dgvPacientes.RowCount > 0)
                 {
+                    String estado = dgvPacientes.SelectedRows[0].Cells["Estado"].Value.ToString();
                     if (MessageBox.Show("¿Está seguro de que desea dar de Baja el Registro?", "Baja", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
                         Paciente paciente = new Paciente();
@@ -57,7 +57,20 @@ namespace AñosFelices
                     }
                 }
                 else
-                    MessageBox.Show("El Paciente ya se encuentra deshabilitado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                {
+                    MessageBox.Show("Debe seleccionar un registro", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                
             }
         }
 
@@ -69,7 +82,7 @@ namespace AñosFelices
         private void cargar()
         {
             PacienteDTOMapper mapper = new PacienteDTOMapper();
-            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos());
+            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos()).Where(x => x.Estado == "Habilitado").ToList();
 
             this.dgvPacientes.DataSource = listado;
             this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;

@@ -69,6 +69,7 @@
             this.dgvPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPacientes.Size = new System.Drawing.Size(771, 204);
             this.dgvPacientes.TabIndex = 3;
+            this.dgvPacientes.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPacientes_CellMouseClick);
             // 
             // btnCancelar
             // 
