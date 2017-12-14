@@ -40,7 +40,7 @@ namespace AñosFelices
             lblPaciente.Text = lblPaciente.Text + pacienteSeleccionado.Paciente.Dni + " - " + pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
             ParienteDTOMapper mapper = new ParienteDTOMapper();
 
-            var listado = mapper.LlenarListado((List<Pariente>)repositorioPariente.ObtenerTodos());
+            var listado = mapper.LlenarListado(pacienteSeleccionado.Paciente.Parientes.ToList());
 
             this.dgvParientes.DataSource = listado;
         }

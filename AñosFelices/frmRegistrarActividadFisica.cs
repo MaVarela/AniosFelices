@@ -41,9 +41,12 @@ namespace AñosFelices
             frmPacientes frmPacientes = new frmPacientes();
             frmPacientes.ShowDialog();
 
-            txtPaciente.Text = pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
-            txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
-            txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+            if (pacienteSeleccionado.Paciente != null)
+            {
+                txtPaciente.Text = pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
+                txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
+                txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

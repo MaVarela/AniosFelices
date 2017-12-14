@@ -43,21 +43,16 @@ namespace AñosFelices.DTOs.DTOMappers
             
             foreach (var parienteDTO in parientes)
             {
-                ParienteId idPariente = new ParienteId();
-                idPariente.DniPariente = parienteDTO.Dni;
-                idPariente.Paciente = paciente;
                 var pariente = new Pariente();
-
-                pariente.Id = idPariente;
-                pariente.DniPariente = idPariente.DniPariente;
-                pariente.Paciente = idPariente.Paciente;
-
+                                
+                pariente.Dni = parienteDTO.Dni;
                 pariente.Nombre = parienteDTO.Nombre;
                 pariente.Apellido = parienteDTO.Apellido;
                 pariente.Direccion = parienteDTO.Direccion;
                 pariente.Mail = parienteDTO.Mail;
                 pariente.Telefono1 = parienteDTO.Telefono1;
                 pariente.Telefono2 = parienteDTO.Telefono2;
+                pariente.Pacientes.Add(paciente);
                 pariente.Parentezco = parienteDTO.Parentezco;
                 pariente.Estado = "A";
 
@@ -69,13 +64,12 @@ namespace AñosFelices.DTOs.DTOMappers
 
         public List<ParienteDTO> LlenarListado(List<Pariente> parientes)
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
             var listadoParientes = new List<ParienteDTO>();
 
             foreach (var pariente in parientes)
             {
                 var parienteDTO = new ParienteDTO();
-                parienteDTO.Dni = pariente.DniPariente;
+                parienteDTO.Dni = pariente.Dni;
                 parienteDTO.Nombre = pariente.Nombre;
                 parienteDTO.Apellido = pariente.Apellido;
                 parienteDTO.Direccion = pariente.Direccion;
@@ -83,11 +77,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 parienteDTO.Telefono1 = pariente.Telefono1;
                 parienteDTO.Telefono2 = pariente.Telefono2;
                 parienteDTO.Parentezco = pariente.Parentezco;
-
-                if(pariente.Paciente.Dni == pacienteSeleccionado.Paciente.Dni)
-                {
-                    listadoParientes.Add(parienteDTO);
-                }
+                listadoParientes.Add(parienteDTO);
             }
 
             return listadoParientes;

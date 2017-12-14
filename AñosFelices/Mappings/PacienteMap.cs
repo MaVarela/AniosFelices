@@ -25,14 +25,15 @@ namespace AñosFelices.Mappings
                 .Columns("IdCama","IdHabitacion")
                 .Class<Cama>()
                 .Nullable()
-                .Not.LazyLoad();
-            HasMany<Pariente>(x => x.Parientes)
+                .Not.LazyLoad()
+                .Cascade.SaveUpdate();
+            HasManyToMany<Pariente>(x => x.Parientes)
                     .AsSet()
                     .Not.LazyLoad()
-                    .KeyColumn("DniPaciente")
-                    .Cascade.SaveUpdate()
-                    .Cascade.AllDeleteOrphan()
-                    .Inverse();
+                    .Table("PacientesParientes")
+                    .ParentKeyColumn("DniPaciente")
+                    .ChildKeyColumn("DniPariente")
+                    .Cascade.SaveUpdate();
         }
     }
 }

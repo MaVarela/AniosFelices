@@ -64,7 +64,7 @@
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Location = new System.Drawing.Point(197, 239);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(197, 22);
+            this.dtpFecha.Size = new System.Drawing.Size(239, 22);
             this.dtpFecha.TabIndex = 63;
             // 
             // txtPaciente

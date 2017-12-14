@@ -35,7 +35,6 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.dgvRecAliment = new System.Windows.Forms.DataGridView();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecAliment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,24 +115,12 @@
             this.lblMensaje.Text = "label1";
             this.lblMensaje.Visible = false;
             // 
-            // btnDetalle
-            // 
-            this.btnDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalle.Location = new System.Drawing.Point(492, 443);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(111, 29);
-            this.btnDetalle.TabIndex = 16;
-            this.btnDetalle.Text = "Ver en detalle";
-            this.btnDetalle.UseVisualStyleBackColor = true;
-            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
-            // 
             // frmConsultarRecAlim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 484);
             this.ControlBox = false;
-            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBuscar);
@@ -161,6 +148,5 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.DataGridView dgvRecAliment;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.Button btnDetalle;
     }
 }

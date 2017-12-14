@@ -1,5 +1,6 @@
 ﻿using AñosFelices.EntidadesDeNegocio;
 using System;
+using System.Collections.Generic;
 
 namespace AñosFelices.EntidadesDeNegocio
 {
@@ -13,7 +14,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// </summary>
         public Pariente()
         {
-
+            this.Pacientes = new List<Paciente>();
         }
 
         /// <summary>
@@ -27,11 +28,10 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <param name="direccion">Dirección del pariente</param>
         /// <param name="mail">Dirección de correo del pariente</param>
         /// <param name="estado">Estado</param>
-        public Pariente(int dni, String nombre, String apellido, Paciente paciente, String telefono1, String telefono2, String parentezco, String direccion, String mail)
+        public Pariente(int dni, String nombre, String apellido, String telefono1, String telefono2, String parentezco, String direccion, String mail, ICollection<Paciente> pacientes)
         {
-            this.Id = new ParienteId();
-            this.DniPariente = dni;
-            this.Paciente = paciente;
+            this.Dni = dni;
+            this.Pacientes = pacientes != null ? pacientes : new List<Paciente>();
             this.Telefono1 = telefono1;
             this.Telefono2 = telefono2;
             this.Parentezco = parentezco;
@@ -42,34 +42,45 @@ namespace AñosFelices.EntidadesDeNegocio
             this.Estado = "A";
         }
 
-         private ParienteId parienteId { get; set; }
+        /// <summary>
+        /// Dni de la persona
+        /// </summary>
+        public virtual int Dni { get; set; }
+
+        //private ParienteId parienteId { get; set; }
+
+        ///// <summary>
+        ///// Identificador de Historia Clínica
+        ///// </summary>
+        //public virtual ParienteId Id
+        //{
+        //    get { return this.parienteId; }
+        //    set { this.parienteId = value; }
+        //}
+
+        ///// <summary>
+        ///// Dni del Pariente
+        ///// </summary>
+        //public virtual int DniPariente
+        //{
+        //    get { return this.Id.DniPariente; }
+        //    set { this.Id.DniPariente = value; }
+        //}
 
         /// <summary>
-        /// Identificador de Historia Clínica
+        /// Camas de la habitación
         /// </summary>
-        public virtual ParienteId Id
-        {
-            get { return this.parienteId; }
-            set { this.parienteId = value; }
-        }
-
-        /// <summary>
-        /// Dni del Pariente
-        /// </summary>
-        public virtual int DniPariente
-        {
-            get { return this.Id.DniPariente; }
-            set { this.Id.DniPariente = value; }
-        }
+        public virtual ICollection<Paciente> Pacientes { get; set; }
 
         /// <summary>
         /// Habitación a la que pertenece la cama
         /// </summary>
-        public virtual Paciente Paciente
-        {
-            get { return this.Id.Paciente; }
-            set { this.Id.Paciente = value; }
-        }
+        //public virtual Paciente Paciente
+        //{
+        //    get { return this.Id.Paciente; }
+        //    set { this.Id.Paciente = value; }
+        //}
+
         /// <summary>
         /// Parentezco con el paciente
         /// </summary>
@@ -87,7 +98,7 @@ namespace AñosFelices.EntidadesDeNegocio
             var entidad = (obj as Pariente);
             if (entidad == null)
                 return false;
-            return (this.Id.Equals(entidad.Id));
+            return (this.Dni.Equals(entidad.Dni));
         }
 
         /// <summary>
@@ -96,7 +107,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// <returns>Hashcode de la instancia</returns>
         public override int GetHashCode()
         {
-            return Id.GetHashCode();
+            return Dni.GetHashCode();
         }
     }
 }

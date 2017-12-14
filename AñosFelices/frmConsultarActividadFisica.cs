@@ -18,6 +18,7 @@ namespace AñosFelices
     public partial class frmConsultarActividadFisica : Form
     {
         IRepositorioLibroDeGuardias repositorioLibroDeGuardias = new RepositorioLibroDeGuardias();
+        
 
         public frmConsultarActividadFisica()
         {

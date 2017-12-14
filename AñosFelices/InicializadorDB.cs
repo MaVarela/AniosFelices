@@ -4,6 +4,7 @@ using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.Utilidades;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace AñosFelices
 {
@@ -80,7 +81,7 @@ namespace AñosFelices
             {
                 if (hab1 == null)
                 {
-                    Habitacion habitacion = new Habitacion("Hombres (Alta Dependencia)", null);
+                    Habitacion habitacion = new Habitacion("Hombres - Dependientes", null);
                     Cama cama = new Cama(1, habitacion);
                     Cama cama2 = new Cama(2, habitacion);
                     habitacion.Camas.Add(cama);
@@ -103,10 +104,12 @@ namespace AñosFelices
 
                     if (paciente == null)
                     {
-                       paciente = new Paciente(10455633, "Masculino", System.DateTime.Today, hab1.Camas.First(), "José", "Perez", "No Dependiente", null);
-                       var pariente = new Pariente(24445102, "Marcela", "Perez", paciente, "1150170733", null, "Hija", "Francia 550", "MarcelgaPerez@gmail.com");
+                        hab1.Camas.First().Estado = "O";
+                        paciente = new Paciente(34493020, "Masculino", System.DateTime.Today, hab1.Camas.First(), "José", "Perez", "No Dependiente", null);
+                       var pariente = new Pariente(24445102, "Marcela", "Perez", "1150170733", null, "Hija", "Francia 550", "MarcelgaPerez@gmail.com", null);
+                       pariente.Pacientes.Add(paciente);
                        paciente.Parientes.Add(pariente);
-                       repositorioPaciente.Agregar(paciente);
+                       paciente = repositorioPaciente.Agregar(paciente);
                     }
                     LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
                     idLibroGuardias.Paciente = paciente;
@@ -120,7 +123,9 @@ namespace AñosFelices
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
                     }
-                    //var registros = repositorioLibroDeGuardias.BuscarRegistros(null, "Pe", "G", idLibroGuardias.Turno);
+
+                    List<Pariente> parientes = repositorioPariente.ObtenerParientesNoAsociados(paciente.Parientes.ToList()).ToList();
+                    
                 }
                 catch (Exception e)
                 {

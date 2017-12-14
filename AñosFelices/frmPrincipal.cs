@@ -166,7 +166,7 @@ namespace AñosFelices
         {
             var rol = usuarioLogueado.Usuario.Rol.Descripcion;
 
-            /*if (rol == "Responsable Legal")
+            if (rol == "Responsable Legal")
             {
                 this.libroDeGuardiasToolStripMenuItem.Visible = false;
                 this.pacientesToolStripMenuItem.Visible = true;
@@ -175,7 +175,7 @@ namespace AñosFelices
                 this.consultarHistoriaClinicaToolStripMenuItem.Visible = true;
                 this.registrarHistoriaClinicaToolStripMenuItem.Visible = true;
                 this.consultarLibroDeGuardiasToolStripMenuItem.Visible = true;
-            }*/
+            }
             if (rol == "Médico")
             {
                 this.libroDeGuardiasToolStripMenuItem.Visible = false;

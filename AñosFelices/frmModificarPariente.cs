@@ -37,27 +37,27 @@ namespace AñosFelices
 
             if (!String.IsNullOrEmpty(txtDni.Text))
             {
-                if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
+                if (txtDni.Text.Length == 8)
                     parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
                 else
-                    mensajes.Add("El campo 'Dni' debe poseer entre 7 y 8 dígitos");
+                    mensajes.Add("El campo 'Dni' debe poseer 8 dígitos");
             }
             else
                 mensajes.Add("El campo 'DNI' es obligatorio");
-            if (!String.IsNullOrEmpty(txtNombre.Text))
-                parienteDTO.Nombre = txtNombre.Text;
+            if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
+                parienteDTO.Nombre = txtNombre.Text.Trim();
             else
                 mensajes.Add("El campo 'Nombre' es obligatorio");
-            if (!String.IsNullOrEmpty(txtApellido.Text))
-                parienteDTO.Apellido = txtApellido.Text;
+            if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
+                parienteDTO.Apellido = txtApellido.Text.Trim();
             else
                 mensajes.Add("El campo 'Apellido' es obligatorio");
-            if (!String.IsNullOrEmpty(txtDireccion.Text))
-                parienteDTO.Direccion = txtDireccion.Text;
+            if (!String.IsNullOrEmpty(txtDireccion.Text.Trim()))
+                parienteDTO.Direccion = txtDireccion.Text.Trim();
             else
                 mensajes.Add("El campo 'Dirección' es obligatorio");
 
-            if (!String.IsNullOrEmpty(txtMail.Text))
+            if (!String.IsNullOrEmpty(txtMail.Text.Trim()))
             {
                 if (validarEmail(txtMail.Text))
                     parienteDTO.Mail = txtMail.Text;

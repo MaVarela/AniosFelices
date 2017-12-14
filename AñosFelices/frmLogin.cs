@@ -22,15 +22,23 @@ namespace AñosFelices
             {
                 if (!String.IsNullOrEmpty(this.txtPass.Text))
                 {
-                    var usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(this.txtDni.Text));
-                    if (usuario != null && usuario.Password == txtPass.Text)
+                    int dni;
+                    if (Int32.TryParse(this.txtDni.Text, out dni))
                     {
-                        usuarioLogueado.Usuario = usuario;
-                        
-                        this.Close();
+                        var usuario = repositorioUsuario.ObtenerPorId(dni);
+                        if (usuario != null && usuario.Password == txtPass.Text)
+                        {
+                            usuarioLogueado.Usuario = usuario;
+
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Usuario o Password inválidos");
                     }
                     else
-                        MessageBox.Show("Usuario o Password inválidos");
+                    {
+                        MessageBox.Show("El campo 'Dni' debe ser solo numérico");
+                    }
                 }
                 else
                     MessageBox.Show("El campo 'Password' es Obligatorio");

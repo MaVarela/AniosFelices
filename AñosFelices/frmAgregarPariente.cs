@@ -5,12 +5,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Linq;
+using AñosFelices.AccesoADatos.IRepositorios;
+using AñosFelices.AccesoADatos.Repositorios;
 
 namespace AñosFelices
 {
     public partial class frmAgregarPariente : Form
     {
         ParienteSeleccionado pariente;
+        IRepositorioUsuario repositorioUsuarios = new RepositorioUsuario();
+        IRepositorioPaciente repositorioPacientes = new RepositorioPaciente();
+        IRepositorioPariente repositorioParientes = new RepositorioPariente();
 
         public frmAgregarPariente()
         {
@@ -21,78 +27,94 @@ namespace AñosFelices
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<String> mensajes = new List<String>();
-            var parienteDTO = new ParienteDTO();
-
-            if (!String.IsNullOrEmpty(txtDni.Text))
-            {
-                if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
-                    parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
-                else
-                    mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");
-            }
-            else
-                mensajes.Add("El campo 'DNI' es obligatorio");
-            if (!String.IsNullOrEmpty(txtNombre.Text))
-                parienteDTO.Nombre = txtNombre.Text;
-            else
-                mensajes.Add("El campo 'Nombre' es obligatorio");
-            if (!String.IsNullOrEmpty(txtApellido.Text))
-                parienteDTO.Apellido = txtApellido.Text;
-            else
-                mensajes.Add("El campo 'Apellido' es obligatorio");
-            if (!String.IsNullOrEmpty(txtDireccion.Text))
-                parienteDTO.Direccion = txtDireccion.Text;
-            else
-                mensajes.Add("El campo 'Dirección' es obligatorio");
-
-            if (!String.IsNullOrEmpty(txtMail.Text))
-            {
-                if (validarEmail(txtMail.Text))
-                    parienteDTO.Mail = txtMail.Text;
-                else
-                    mensajes.Add("El formato del 'Mail' es incorrecto (ejemplo@dominio.com)");
-            }
-            if (!String.IsNullOrEmpty(txtTelefono_1.Text))
-            {
-                if (validarTelefono(txtTelefono_1.Text))
-                    parienteDTO.Telefono1 = txtTelefono_1.Text;
-                else
-                    mensajes.Add("El formato del 'Teléfono' es incorrecto (4740-4658/11-1234-1234)");
-            }
-            else
-                mensajes.Add("El campo 'Teléfono' es obligatorio");
-            if (!String.IsNullOrEmpty(txtTelefono_2.Text))
-            {
-                if (validarTelefono(txtTelefono_2.Text))
-                    parienteDTO.Telefono2 = txtTelefono_2.Text;
-                else
-                    mensajes.Add("El formato del 'Teléfono Opcional' es incorrecto (4740-4658/11-1234-1234)");
-            }
-            
-
-            if (mensajes.Count.Equals(0))
+            try
             {
                 if (pariente.Parientes == null)
                 {
                     pariente.Parientes = new List<ParienteDTO>();
                 }
-                parienteDTO.Parentezco = cmbParentezco.SelectedItem.ToString();
 
-                pariente.Parientes.Add(parienteDTO);
+                List<String> mensajes = new List<String>();
+                var parienteDTO = new ParienteDTO();
 
-                MessageBox.Show("El pariente se ha registrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (var mensaje in mensajes)
+                if (!String.IsNullOrEmpty(txtDni.Text))
                 {
-                    sb.AppendLine(mensaje);
+                    if (txtDni.Text.Length >= 7 || txtDni.Text.Length == 8)
+                        parienteDTO.Dni = Convert.ToInt32(txtDni.Text);
+                    else
+                        mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");
+                }
+                else
+                    mensajes.Add("El campo 'DNI' es obligatorio");
+                if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
+                    parienteDTO.Nombre = txtNombre.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Nombre' es obligatorio");
+                if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
+                    parienteDTO.Apellido = txtApellido.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Apellido' es obligatorio");
+                if (!String.IsNullOrEmpty(txtDireccion.Text.Trim()))
+                    parienteDTO.Direccion = txtDireccion.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Dirección' es obligatorio");
+
+                if (!String.IsNullOrEmpty(txtMail.Text.Trim()))
+                {
+                    if (validarEmail(txtMail.Text))
+                        parienteDTO.Mail = txtMail.Text;
+                    else
+                        mensajes.Add("El formato del 'Mail' es incorrecto (ejemplo@dominio.com)");
+                }
+                if (!String.IsNullOrEmpty(txtTelefono_1.Text))
+                {
+                    if (validarTelefono(txtTelefono_1.Text))
+                        parienteDTO.Telefono1 = txtTelefono_1.Text;
+                    else
+                        mensajes.Add("El formato del 'Teléfono' es incorrecto (4740-4658/11-1234-1234)");
+                }
+                else
+                    mensajes.Add("El campo 'Teléfono' es obligatorio");
+                if (!String.IsNullOrEmpty(txtTelefono_2.Text))
+                {
+                    if (validarTelefono(txtTelefono_2.Text))
+                        parienteDTO.Telefono2 = txtTelefono_2.Text;
+                    else
+                        mensajes.Add("El formato del 'Teléfono Opcional' es incorrecto (4740-4658/11-1234-1234)");
+                }
+                if (pariente.Parientes != null)
+                {
+                    var dni = Convert.ToInt32(txtDni.Text);
+
+                    if (repositorioPacientes.Existe(dni) || repositorioParientes.Existe(dni) || repositorioUsuarios.Existe(dni) || pariente.Parientes.Where(x => x.Dni == dni).Count() > 0)
+                        mensajes.Add("El Dni ingresado ya se encuentra registrado");
                 }
 
-                MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (mensajes.Count.Equals(0))
+                {
+                    parienteDTO.Parentezco = cmbParentezco.SelectedItem.ToString();
+
+                    pariente.Parientes.Add(parienteDTO);
+
+                    MessageBox.Show("El pariente se ha registrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var mensaje in mensajes)
+                    {
+                        sb.AppendLine(mensaje);
+                    }
+
+                    MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 

@@ -152,24 +152,5 @@ namespace AñosFelices
             txtDato.Text = "";
             lblMensaje.Visible = false;
         }
-
-        private void btnDetalle_Click(object sender, EventArgs e)
-        {
-            if (this.dgvRecAliment.CurrentRow != null)
-            {
-
-                var frmDetalle = new frmDetalleHistoriaClinica();
-                var historiaclinicaSeleccionada = HistoriaClinicaSeleccionada.Instance();
-                var paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(dgvRecAliment.SelectedRows[0].Cells[0].Value));
-                var fechavisita = Convert.ToDateTime(dgvRecAliment.SelectedRows[0].Cells[4].Value);
-                var historiaclinicaId = new HistoriaClinicaId() { FechaVisita = fechavisita, Paciente = paciente, Usuario = usuario.Usuario };
-                var historiaclinica = repositoriohistoriaclinica.ObtenerPorUsuarioPacienteFecha(historiaclinicaId).Where(x => !String.IsNullOrEmpty(x.RecomendacionAlimentaria)).FirstOrDefault();
-
-                historiaclinicaSeleccionada.HistoriaClinica = historiaclinica;
-
-                frmDetalle.Show();
-            }
-        }
-
     }
 }

@@ -250,7 +250,7 @@
             // 
             this.lblPresion.AutoSize = true;
             this.lblPresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPresion.Location = new System.Drawing.Point(389, 148);
+            this.lblPresion.Location = new System.Drawing.Point(434, 148);
             this.lblPresion.Name = "lblPresion";
             this.lblPresion.Size = new System.Drawing.Size(57, 16);
             this.lblPresion.TabIndex = 112;
@@ -260,7 +260,7 @@
             // 
             this.lblTemperatura.AutoSize = true;
             this.lblTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperatura.Location = new System.Drawing.Point(389, 193);
+            this.lblTemperatura.Location = new System.Drawing.Point(434, 193);
             this.lblTemperatura.Name = "lblTemperatura";
             this.lblTemperatura.Size = new System.Drawing.Size(89, 16);
             this.lblTemperatura.TabIndex = 113;
@@ -270,7 +270,7 @@
             // 
             this.lblAzucar.AutoSize = true;
             this.lblAzucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAzucar.Location = new System.Drawing.Point(389, 230);
+            this.lblAzucar.Location = new System.Drawing.Point(434, 238);
             this.lblAzucar.Name = "lblAzucar";
             this.lblAzucar.Size = new System.Drawing.Size(52, 16);
             this.lblAzucar.TabIndex = 114;
@@ -302,14 +302,14 @@
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Location = new System.Drawing.Point(179, 236);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(197, 22);
+            this.dtpFecha.Size = new System.Drawing.Size(239, 22);
             this.dtpFecha.TabIndex = 122;
             // 
             // lnlGrado
             // 
             this.lnlGrado.AutoSize = true;
             this.lnlGrado.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnlGrado.Location = new System.Drawing.Point(554, 190);
+            this.lnlGrado.Location = new System.Drawing.Point(599, 190);
             this.lnlGrado.Name = "lnlGrado";
             this.lnlGrado.Size = new System.Drawing.Size(17, 22);
             this.lnlGrado.TabIndex = 123;
@@ -319,7 +319,7 @@
             // 
             this.lblGazucar.AutoSize = true;
             this.lblGazucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGazucar.Location = new System.Drawing.Point(554, 227);
+            this.lblGazucar.Location = new System.Drawing.Point(599, 235);
             this.lblGazucar.Name = "lblGazucar";
             this.lblGazucar.Size = new System.Drawing.Size(42, 16);
             this.lblGazucar.TabIndex = 124;
@@ -329,7 +329,7 @@
             // 
             this.lblGpresion.AutoSize = true;
             this.lblGpresion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGpresion.Location = new System.Drawing.Point(590, 152);
+            this.lblGpresion.Location = new System.Drawing.Point(635, 152);
             this.lblGpresion.Name = "lblGpresion";
             this.lblGpresion.Size = new System.Drawing.Size(48, 16);
             this.lblGpresion.TabIndex = 125;
@@ -339,7 +339,7 @@
             // 
             this.txtPresion2.AllowPromptAsInput = false;
             this.txtPresion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPresion2.Location = new System.Drawing.Point(545, 148);
+            this.txtPresion2.Location = new System.Drawing.Point(590, 148);
             this.txtPresion2.Mask = "99";
             this.txtPresion2.Name = "txtPresion2";
             this.txtPresion2.PromptChar = ' ';
@@ -350,7 +350,7 @@
             // txtTemperatura
             // 
             this.txtTemperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperatura.Location = new System.Drawing.Point(485, 193);
+            this.txtTemperatura.Location = new System.Drawing.Point(530, 193);
             this.txtTemperatura.Mask = "99";
             this.txtTemperatura.Name = "txtTemperatura";
             this.txtTemperatura.PromptChar = ' ';
@@ -361,7 +361,7 @@
             // txtAzucar
             // 
             this.txtAzucar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAzucar.Location = new System.Drawing.Point(485, 230);
+            this.txtAzucar.Location = new System.Drawing.Point(530, 238);
             this.txtAzucar.Mask = "999";
             this.txtAzucar.Name = "txtAzucar";
             this.txtAzucar.PromptChar = ' ';
@@ -372,7 +372,7 @@
             // txtPresion1
             // 
             this.txtPresion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPresion1.Location = new System.Drawing.Point(485, 147);
+            this.txtPresion1.Location = new System.Drawing.Point(530, 147);
             this.txtPresion1.Mask = "999";
             this.txtPresion1.Name = "txtPresion1";
             this.txtPresion1.PromptChar = ' ';
@@ -384,7 +384,7 @@
             // 
             this.lblBarra.AutoSize = true;
             this.lblBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBarra.Location = new System.Drawing.Point(532, 152);
+            this.lblBarra.Location = new System.Drawing.Point(577, 152);
             this.lblBarra.Name = "lblBarra";
             this.lblBarra.Size = new System.Drawing.Size(12, 16);
             this.lblBarra.TabIndex = 134;
@@ -397,7 +397,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(651, 615);
+            this.ClientSize = new System.Drawing.Size(707, 615);
             this.ControlBox = false;
             this.Controls.Add(this.lblBarra);
             this.Controls.Add(this.txtPresion1);
@@ -432,7 +432,7 @@
             this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.lblUsuario);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(667, 654);
+            this.MaximumSize = new System.Drawing.Size(723, 654);
             this.MinimumSize = new System.Drawing.Size(667, 654);
             this.Name = "frmRegistrarEstadoGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

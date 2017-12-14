@@ -63,5 +63,30 @@ namespace AñosFelices.DTOs.DTOMappers
                     return listadoEstadoDTO;
             }
         }
+
+        public LibroDeGuardiasId llenarListaLibroDeGuardiasDTOID(List<LibroDeGuardias> registros, int index)
+        {
+            var consultaActiva = ConsultaActiva.Instance();
+            var idActividad = new LibroDeGuardiasId();
+            var listadoActividadDTO = new List<LibroDeGuardiasDTO>();
+            var listadoComidaDTO = new List<LibroDeGuardiasDTO>();
+            var listadoEstadoDTO = new List<LibroDeGuardiasDTO>();
+            int contador = 0;
+
+            foreach (var registro in registros)
+            {
+                if (contador == index)
+                {
+                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+
+                    idActividad.Usuario = registro.Usuario;
+                    idActividad.Paciente = registro.Paciente;
+                    idActividad.Turno = registro.Turno;
+                    return idActividad;
+                }
+                contador++;
+            }
+            return idActividad;
+        }
     }
 }

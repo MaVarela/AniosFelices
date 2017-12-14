@@ -366,6 +366,7 @@
     <Compile Include="Mappings\PacienteMap.cs" />
     <Compile Include="Mappings\ParienteMap.cs" />
     <Compile Include="Mappings\RolMap.cs" />
+    <Compile Include="Utilidades\RegistroSeleccionado.cs" />
     <Compile Include="Utilidades\CamasSeleccionadas.cs" />
     <Compile Include="Utilidades\CamaSeleccionada.cs" />
     <Compile Include="Utilidades\ConsultaActiva.cs" />

@@ -84,6 +84,22 @@ namespace AñosFelices.AccesoADatos.Repositorios
         }
 
         /// <summary>
+        /// Verifica dado un dni si existe en la tabla de pacientes
+        /// </summary>
+        /// <param name="id">Identificador del Paciente</param>
+        /// <returns>True en caso que exista, false en caso contrario</returns>
+        public bool Existe(int id)
+        {
+            bool existe = false;
+
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                existe = (session.Get<Paciente>(id) != null);
+            }
+            return existe;
+        }
+
+        /// <summary>
         /// Permite recuperar un listado de Pacientes
         /// </summary>
         /// <returns>Una lista de Pacientes</returns>

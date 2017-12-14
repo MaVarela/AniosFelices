@@ -158,20 +158,7 @@ namespace AñosFelices
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            if (this.dgvMedicacion.CurrentRow != null)
-            {
 
-                var frmDetalle = new frmDetalleHistoriaClinica();
-                var historiaclinicaSeleccionada = HistoriaClinicaSeleccionada.Instance();
-                var paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(dgvMedicacion.SelectedRows[0].Cells[0].Value));
-                var fechavisita = Convert.ToDateTime(dgvMedicacion.SelectedRows[0].Cells[4].Value);
-                var historiaclinicaId = new HistoriaClinicaId() { FechaVisita = fechavisita, Paciente = paciente, Usuario = usuario.Usuario };
-                var historiaclinica = repositoriohistoriaclinica.ObtenerPorUsuarioPacienteFecha(historiaclinicaId).Where(x => !String.IsNullOrEmpty(x.MedicacionRecomendada)).FirstOrDefault();
-
-                historiaclinicaSeleccionada.HistoriaClinica = historiaclinica;
-
-                frmDetalle.Show();
-            }
         }
     }
 }

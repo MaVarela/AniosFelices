@@ -42,8 +42,8 @@
             this.cmbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.cmsConsultarC = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtApellido = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComida)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +125,7 @@
             this.btnReestablecer.TabIndex = 20;
             this.btnReestablecer.Text = "Reestablecer";
             this.btnReestablecer.UseVisualStyleBackColor = true;
+            this.btnReestablecer.Click += new System.EventHandler(this.btnReestablecer_Click);
             // 
             // btnBuscar
             // 
@@ -179,6 +180,11 @@
             this.txtNombre.TabIndex = 139;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
+            // cmsConsultarC
+            // 
+            this.cmsConsultarC.Name = "cmsConsultarC";
+            this.cmsConsultarC.Size = new System.Drawing.Size(61, 4);
+            // 
             // txtApellido
             // 
             this.txtApellido.ContextMenuStrip = this.cmsConsultarC;
@@ -188,11 +194,6 @@
             this.txtApellido.Size = new System.Drawing.Size(172, 20);
             this.txtApellido.TabIndex = 138;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
-            // 
-            // cmsConsultarC
-            // 
-            this.cmsConsultarC.Name = "cmsConsultarC";
-            this.cmsConsultarC.Size = new System.Drawing.Size(61, 4);
             // 
             // frmConsultarComida
             // 

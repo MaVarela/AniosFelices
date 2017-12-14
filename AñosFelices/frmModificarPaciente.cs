@@ -8,6 +8,7 @@ using AñosFelices.DTOs.DTOMappers;
 using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using AñosFelices.DTOs;
+using System.Text;
 
 namespace AñosFelices
 {
@@ -70,124 +71,144 @@ namespace AñosFelices
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvParientes.RowCount > 0)
+            try
             {
-                var nombreForm = new frmModificarPaciente().Name;
-                int index;
-                var parienteDTO = new ParienteDTO();
-                index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
-                parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
-                parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value != null ? dgvParientes.SelectedRows[0].Cells[1].Value.ToString() : null;
-                parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value != null ? dgvParientes.SelectedRows[0].Cells[2].Value.ToString() : null;
-                parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value != null ? dgvParientes.SelectedRows[0].Cells[3].Value.ToString() : null;
-                parienteDTO.Telefono1 = dgvParientes.SelectedRows[0].Cells[4].Value != null ? dgvParientes.SelectedRows[0].Cells[4].Value.ToString() : null;
-                parienteDTO.Telefono2 = dgvParientes.SelectedRows[0].Cells[5].Value != null ? dgvParientes.SelectedRows[0].Cells[5].Value.ToString() : null;
-                parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value != null ? dgvParientes.SelectedRows[0].Cells[6].Value.ToString() : null;
-                parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value != null ? dgvParientes.SelectedRows[0].Cells[7].Value.ToString() : null;
+                if (dgvParientes.RowCount > 0)
+                {
+                    var nombreForm = new frmModificarPaciente().Name;
+                    int index;
+                    var parienteDTO = new ParienteDTO();
+                    index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
+                    parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
+                    parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value != null ? dgvParientes.SelectedRows[0].Cells[1].Value.ToString() : null;
+                    parienteDTO.Apellido = dgvParientes.SelectedRows[0].Cells[2].Value != null ? dgvParientes.SelectedRows[0].Cells[2].Value.ToString() : null;
+                    parienteDTO.Direccion = dgvParientes.SelectedRows[0].Cells[3].Value != null ? dgvParientes.SelectedRows[0].Cells[3].Value.ToString() : null;
+                    parienteDTO.Telefono1 = dgvParientes.SelectedRows[0].Cells[4].Value != null ? dgvParientes.SelectedRows[0].Cells[4].Value.ToString() : null;
+                    parienteDTO.Telefono2 = dgvParientes.SelectedRows[0].Cells[5].Value != null ? dgvParientes.SelectedRows[0].Cells[5].Value.ToString() : null;
+                    parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value != null ? dgvParientes.SelectedRows[0].Cells[6].Value.ToString() : null;
+                    parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value != null ? dgvParientes.SelectedRows[0].Cells[7].Value.ToString() : null;
 
-                var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
-                modificarPariente.ShowDialog();
+                    var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
+                    modificarPariente.ShowDialog();
 
-                cargarDGVParientes();
+                    cargarDGVParientes();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if (dgvParientes.RowCount > 0)
+            try
             {
-                if (MessageBox.Show("¿Está seguro de que desea eliminar el Pariente?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (dgvParientes.RowCount > 0)
                 {
-                    var parienteDTO = new ParienteDTO();
-                    parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
-                    if (parienteSeleccionado.Parientes.Count() > 0)
+                    if (MessageBox.Show("¿Está seguro de que desea eliminar el Pariente?", "Eliminar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        parienteSeleccionado.Parientes.Remove(parienteSeleccionado.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
-                        cargarDGVParientes();
+                        var parienteDTO = new ParienteDTO();
+                        parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
+                        if (parienteSeleccionado.Parientes.Count() > 0)
+                        {
+                            parienteSeleccionado.Parientes.Remove(parienteSeleccionado.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                            pacienteSeleccionado.Paciente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First().Pacientes.Remove(pacienteSeleccionado.Paciente);
+                            pacienteSeleccionado.Paciente.Parientes.Remove(pacienteSeleccionado.Paciente.Parientes.Where(x => x.Dni == parienteDTO.Dni).First());
+                            cargarDGVParientes();
+                        }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.txtDni.Text.Trim()) && txtDni.Text != "")
+            try
             {
-                if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text != "")
+                List<String> mensajes = new List<String>();
+
+                if (String.IsNullOrEmpty(this.txtNombre.Text.Trim()))
+                    mensajes.Add("El campo 'Nombre' es Obligatorio");
+                if (String.IsNullOrEmpty(this.txtApellido.Text.Trim()))
+                    mensajes.Add("El campo 'Apellido' es Obligatorio");
+                if (String.IsNullOrEmpty(this.txtEstadoFisico.Text.Trim()))
+                    mensajes.Add("El campo 'Estado Físico' es Obligatorio");
+
+                if (mensajes.Count.Equals(0))
                 {
-                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text != "")
+                    if (MessageBox.Show("¿Está seguro de que desea Modificar el Registro?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        if (!String.IsNullOrEmpty(this.txtEstadoFisico.Text.Trim()) && txtEstadoFisico.Text != "")
+                        pacienteSeleccionado.Paciente.Nombre = this.txtNombre.Text.Trim();
+                        pacienteSeleccionado.Paciente.Apellido = this.txtApellido.Text.Trim();
+                        pacienteSeleccionado.Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
+                        pacienteSeleccionado.Paciente.FechaIngreso = dtpFecha.Value.Date;
+                        ParienteDTOMapper mapper = new ParienteDTOMapper();
+                        pacienteSeleccionado.Paciente.Parientes.Clear();
+
+                        var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, pacienteSeleccionado.Paciente);
+                        foreach (var newPariente in listado)
                         {
-                            if (camaSeleccionada.Cama != null)
-                            {
-                                if (MessageBox.Show("¿Está seguro de que desea Modificar el Registro?", "Modificar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                                {
-                                    pacienteSeleccionado.Paciente.Nombre = this.txtNombre.Text.Trim();
-                                    pacienteSeleccionado.Paciente.Apellido = this.txtApellido.Text.Trim();
-                                    pacienteSeleccionado.Paciente.EstadoFisico = this.txtEstadoFisico.Text.Trim();
-                                    pacienteSeleccionado.Paciente.FechaIngreso = dtpFecha.Value.Date;
-                                    ParienteDTOMapper mapper = new ParienteDTOMapper();
-                                    pacienteSeleccionado.Paciente.Parientes.Clear();
-
-                                    var listado = mapper.LlenarListadoPersist(parienteSeleccionado.Parientes, pacienteSeleccionado.Paciente);
-                                    foreach (var newPariente in listado)
-                                    {
-                                        pacienteSeleccionado.Paciente.Parientes.Add(newPariente);
-                                    }
-
-                                    if (parienteSeleccionado.Parientes == null)
-                                    {
-                                        parienteSeleccionado.Parientes = new List<ParienteDTO>();
-                                    }
-
-                                    if ((pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion != Convert.ToInt32(txtHabitacion.Text)) 
-                                        || (pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.IdCama != Convert.ToInt32(txtCama.Text)))
-                                    {
-                                        var idCama = pacienteSeleccionado.Paciente.Cama.IdCama;
-                                        var idHabitacion = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion;
-                                        var habitacion = repositorioHabitacion.ObtenerPorId(idHabitacion);
-                                        var habitacionElegida = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
-
-                                        habitacion.Camas.Where(x => x.IdCama == idCama).FirstOrDefault().Estado = "L";
-                                        repositorioHabitacion.Editar(habitacion);
-                                        habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
-                                        pacienteSeleccionado.Paciente.Cama = habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
-
-                                    }
-
-                                    if (pacienteSeleccionado.Paciente.Cama == null)
-                                        pacienteSeleccionado.Paciente.Cama = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion).Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).First();
-                                    repositorioPaciente.Editar(pacienteSeleccionado.Paciente);
-                                    MessageBox.Show("El paciente se ha modificado con exito");
-                                    pacienteSeleccionado.Paciente = null;
-                                    parienteSeleccionado.Parientes = null;
-                                    parienteSeleccionado.Pariente = null;
-                                    this.Close();
-                                }
-                            }
-                            else
-                                MessageBox.Show("Se debe asignar una habitación para poder habilitar al paciente", "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //newPariente.Pacientes.Add(pacienteSeleccionado.Paciente);
+                            pacienteSeleccionado.Paciente.Parientes.Add(newPariente);
                         }
-                        else
-                            MessageBox.Show("El campo 'Estado Fisico' es Obligatorio");
+
+                        if ((pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion != Convert.ToInt32(txtHabitacion.Text))
+                            || (pacienteSeleccionado.Paciente.Cama != null && pacienteSeleccionado.Paciente.Cama.IdCama != Convert.ToInt32(txtCama.Text)))
+                        {
+                            var idCama = pacienteSeleccionado.Paciente.Cama.IdCama;
+                            var idHabitacion = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion;
+                            var habitacion = repositorioHabitacion.ObtenerPorId(idHabitacion);
+                            var habitacionElegida = repositorioHabitacion.ObtenerPorId(camaSeleccionada.Cama.IdHabitacion);
+
+                            habitacion.Camas.Where(x => x.IdCama == idCama).FirstOrDefault().Estado = "L";
+                            repositorioHabitacion.Editar(habitacion);
+                            habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault().Estado = "O";
+                            pacienteSeleccionado.Paciente.Cama = habitacionElegida.Camas.Where(x => x.IdCama == camaSeleccionada.Cama.IdCama).FirstOrDefault();
+
+                        }
+
+                        repositorioPaciente.Editar(pacienteSeleccionado.Paciente);
+                        MessageBox.Show("El paciente se ha modificado con exito");
+                        pacienteSeleccionado.Paciente = null;
+                        parienteSeleccionado.Parientes = null;
+                        parienteSeleccionado.Pariente = null;
+                        camaSeleccionada.Cama = null;
+                        this.Close();
                     }
-                    else
-                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
                 }
                 else
-                    MessageBox.Show("El campo 'Nombre' es Obligatorio");
-            }
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var mensaje in mensajes)
+                    {
+                        sb.AppendLine(mensaje);
+                    }
 
-            else
-                MessageBox.Show("El campo 'Dni' es Obligatorio");
+                    MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             pacienteSeleccionado.Paciente = null;
             parienteSeleccionado.Parientes = null;
+            camaSeleccionada.Cama = null;
             this.Close();
         }
 
@@ -202,32 +223,43 @@ namespace AñosFelices
 
         private void frmModificarPaciente_Load(object sender, EventArgs e)
         {
-            txtDni.Text = pacienteSeleccionado.Paciente.Dni.ToString();
-            txtDni.ReadOnly = true;
-            txtNombre.Text = pacienteSeleccionado.Paciente.Nombre.ToString();
-            txtApellido.Text = pacienteSeleccionado.Paciente.Apellido.ToString();
-            txtEstadoFisico.Text = pacienteSeleccionado.Paciente.EstadoFisico.ToString();
-            if (pacienteSeleccionado.Paciente.Cama != null)
+            try
             {
-                txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
-                txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+                txtDni.Text = pacienteSeleccionado.Paciente.Dni.ToString();
+                txtDni.ReadOnly = true;
+                txtNombre.Text = pacienteSeleccionado.Paciente.Nombre.ToString();
+                txtApellido.Text = pacienteSeleccionado.Paciente.Apellido.ToString();
+                txtEstadoFisico.Text = pacienteSeleccionado.Paciente.EstadoFisico.ToString();
+                if (pacienteSeleccionado.Paciente.Cama != null)
+                {
+                    CamaDTOMapper mapperCama = new CamaDTOMapper();
+                    txtHabitacion.Text = pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion.ToString();
+                    txtCama.Text = pacienteSeleccionado.Paciente.Cama.IdCama.ToString();
+                    camaSeleccionada.Cama = mapperCama.LlenarListado(new List<Cama>() { pacienteSeleccionado.Paciente.Cama }).FirstOrDefault();
+                }
+                dtpFecha.Value = pacienteSeleccionado.Paciente.FechaIngreso;
+
+                if (pacienteSeleccionado.Paciente.Sexo.ToString() == "Femenino")
+                    rdbFemenino.Checked = true;
+                else
+                    rdbMasculino.Checked = true;
+
+                ParienteDTOMapper mapper = new ParienteDTOMapper();
+                var listado = mapper.LlenarListado(pacienteSeleccionado.Paciente.Parientes.ToList());
+                dgvParientes.DataSource = listado;
+
+                if (parienteSeleccionado.Parientes == null)
+                {
+                    parienteSeleccionado.Parientes = new List<ParienteDTO>();
+                }
+                parienteSeleccionado.Parientes = listado;
             }
-            dtpFecha.Value = pacienteSeleccionado.Paciente.FechaIngreso;
-
-            if (pacienteSeleccionado.Paciente.Sexo.ToString() == "Femenino")
-                rdbFemenino.Checked = true;
-            else
-                rdbMasculino.Checked = true;
-            
-            ParienteDTOMapper mapper = new ParienteDTOMapper();
-            var listado = mapper.LlenarListado((List<Pariente>)repositorioPariente.ObtenerTodos());
-            dgvParientes.DataSource = listado;
-
-            if (parienteSeleccionado.Parientes == null)
+            catch(Exception ex)
             {
-                parienteSeleccionado.Parientes = new List<ParienteDTO>();
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
-            parienteSeleccionado.Parientes = listado;
         }
     }
 }
