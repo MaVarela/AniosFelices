@@ -13,6 +13,9 @@ namespace AñosFelices
 {
     public partial class frmRegistrarEmpleado : Form
     {
+        IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
+        IRepositorioPariente repositorioParientes = new RepositorioPariente();
+
         public frmRegistrarEmpleado()
         {
             InitializeComponent();
@@ -97,6 +100,9 @@ namespace AñosFelices
             usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
 
             usuario.FechaIngreso = dtpFecha.Value.Date;
+
+            if (repositorioPaciente.Existe(usuario.Dni) || repositorioParientes.Existe(usuario.Dni) || repositorioUsuarios.Existe(usuario.Dni))
+                mensajes.Add("El Dni ingresado ya se encuentra registrado");
 
             if (mensajes.Count.Equals(0))
             {
