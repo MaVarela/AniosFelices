@@ -116,11 +116,9 @@
     <Compile Include="EntidadesDeNegocio\HistoriaClinica.cs" />
     <Compile Include="EntidadesDeNegocio\HistoriaClinicaId.cs" />
     <Compile Include="EntidadesDeNegocio\LibroDeGuardias.cs" />
-    <Compile Include="EntidadesDeNegocio\LibroDeGuardiasId.cs" />
     <Compile Include="EntidadesDeNegocio\Paciente.cs" />
     <Compile Include="DTOs\PacienteDTO.cs" />
     <Compile Include="EntidadesDeNegocio\Pariente.cs" />
-    <Compile Include="EntidadesDeNegocio\ParienteId.cs" />
     <Compile Include="EntidadesDeNegocio\Persona.cs" />
     <Compile Include="EntidadesDeNegocio\Rol.cs" />
     <Compile Include="EntidadesDeNegocio\Usuario.cs" />

@@ -64,7 +64,7 @@ namespace AñosFelices.DTOs.DTOMappers
             }
         }
 
-        public LibroDeGuardiasId llenarListaLibroDeGuardiasDTOID(List<LibroDeGuardias> registros, int index)
+        /*public LibroDeGuardiasId llenarListaLibroDeGuardiasDTOID(List<LibroDeGuardias> registros, int index)
         {
             var consultaActiva = ConsultaActiva.Instance();
             var idActividad = new LibroDeGuardiasId();
@@ -87,6 +87,6 @@ namespace AñosFelices.DTOs.DTOMappers
                 contador++;
             }
             return idActividad;
-        }
+        }*/
     }
 }

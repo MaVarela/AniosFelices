@@ -13,10 +13,18 @@ namespace AñosFelices.Mappings
         public LibroDeGuardiasMap()
         {
             Table("LibroDeGuardias");
-            CompositeId(x => x.Id)
-                .KeyReference(x => x.Paciente, "DniPaciente")
-                .KeyReference(x => x.Usuario, "DniUsuario")
-                .KeyProperty(x => x.Turno, "Turno");
+            Id(x => x.Id, "IdLibroDeGuardia").GeneratedBy.Increment();
+            References(x => x.Usuario)
+                .Column("DniUsuario")
+                .Class<Usuario>()
+                .Not.Nullable()
+                .Not.LazyLoad();
+            References(x => x.Paciente)
+                .Column("DniPaciente")
+                .Class<Paciente>()
+                .Not.Nullable()
+                .Not.LazyLoad();
+            Map(x => x.Turno, "Turno");
             Map(x => x.MedicacionAdministrada, "MedAdministrada");
             Map(x => x.Observaciones, "Observaciones");
             Map(x => x.Presion, "Presion");

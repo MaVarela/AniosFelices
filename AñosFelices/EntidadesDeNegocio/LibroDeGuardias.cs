@@ -13,7 +13,7 @@ namespace AñosFelices.EntidadesDeNegocio
         /// </summary>
         public LibroDeGuardias()
         {
-            this.Id = new LibroDeGuardiasId();
+
         }
 
         /// <summary>
@@ -47,44 +47,25 @@ namespace AñosFelices.EntidadesDeNegocio
             this.Temperatura = temperatura;
         }
 
-        private LibroDeGuardiasId libroDeGuardiasId { get; set; }
-
         /// <summary>
         /// Identificador de Historia Clínica
         /// </summary>
-        public virtual LibroDeGuardiasId Id
-        {
-            get { return this.libroDeGuardiasId; }
-            set { this.libroDeGuardiasId = value; }
-        }
-
+        public virtual long Id { get; set; }
 
         /// <summary>
         /// Paciente
         /// </summary>
-        public virtual Paciente Paciente
-        {
-            get { return this.Id.Paciente; }
-            set { this.Id.Paciente = value; }
-        }
+        public virtual Paciente Paciente { get; set; }
 
         /// <summary>
         /// Usuario
         /// </summary>
-        public virtual Usuario Usuario
-        {
-            get { return this.Id.Usuario; }
-            set { this.Id.Usuario = value; }
-        }
+        public virtual Usuario Usuario { get; set; }
 
         /// <summary>
         /// Turno
         /// </summary>
-        public virtual String Turno
-        {
-            get { return this.Id.Turno; }
-            set { this.Id.Turno = value; }
-        }
+        public virtual String Turno { get; set; }
 
         /// <summary>
         /// Fecha

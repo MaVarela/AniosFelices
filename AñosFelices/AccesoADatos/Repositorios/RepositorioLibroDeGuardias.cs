@@ -2,6 +2,7 @@
 using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using NHibernate.Criterion;
 using NHibernate.SqlCommand;
@@ -59,7 +60,7 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// </summary>
         /// <param name="id">Identificador del registro de libro de guardias</param>
         /// <returns>Un registro del libro de guardias</returns>
-        public LibroDeGuardias ObtenerPorId(LibroDeGuardiasId id)
+        public LibroDeGuardias ObtenerPorId(long id)
         {
             if(id != null)
             {
@@ -98,7 +99,7 @@ namespace AñosFelices.AccesoADatos.Repositorios
             {
                 var criteria = session
                     .CreateCriteria(typeof(LibroDeGuardias));
-                criteria.CreateCriteria("Id.Paciente", "Paciente", JoinType.InnerJoin);
+                criteria.CreateCriteria("Paciente", "Paciente", JoinType.InnerJoin);
                 if(fecha != null)
                     criteria.Add(Restrictions.Eq("Fecha", fecha));
                 if (!String.IsNullOrEmpty(nombre))
@@ -111,6 +112,85 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 var registrosLibroDeGuardias = criteria.List<LibroDeGuardias>();
 
                 return registrosLibroDeGuardias;
+            }
+        }
+
+        /// <summary>
+        /// Verifica dado un dni si existe en la tabla de parientes
+        /// </summary>
+        /// <param name="id">Identificador del Pariente</param>
+        /// <returns>True en caso que exista, false en caso contrario</returns>
+        public bool Existe(Paciente paciente, String turno, String nombreCampo)
+        {
+            bool existe = false;
+
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(LibroDeGuardias));
+                criteria.Add(Restrictions.Eq("Fecha", DateTime.Today));
+                criteria.Add(Restrictions.Eq("Paciente.Dni", paciente.Dni));
+                if (!String.IsNullOrEmpty(turno))
+                    criteria.Add(Restrictions.Like("Turno", turno, MatchMode.Anywhere));
+                if(!String.IsNullOrEmpty(nombreCampo))
+                {
+                    if(nombreCampo == "ActividadRealizada")
+                        criteria.Add(Restrictions.IsNull("ActividadRealizada"));
+                    if (nombreCampo == "ComidaRealizada")
+                        criteria.Add(Restrictions.IsNull("ComidaRealizada"));
+                    else
+                    {
+                        criteria.Add(Restrictions.IsNull("MedicacionAdministrada"));
+                        criteria.Add(Restrictions.IsNull("Temperatura"));
+                        criteria.Add(Restrictions.IsNull("Azucar"));
+                        criteria.Add(Restrictions.IsNull("Observaciones"));
+                        criteria.Add(Restrictions.IsNull("Recomendaciones"));
+                    }
+                }
+
+                var registrosLibroDeGuardias = criteria.List<LibroDeGuardias>();
+
+                existe = (registrosLibroDeGuardias.Count > 0);
+            }
+            return existe;
+        }
+
+        /// <summary>
+        /// Obtiene un registro de libro de guardias en base a los parámetros recibidos
+        /// </summary>
+        /// <param name="paciente">Paciente</param>
+        /// <param name="turno">Turno</param>
+        /// <param name="nombreCampo">Indica el tipo de registro</param>
+        /// <returns>True en caso que exista, false en caso contrario</returns>
+        public LibroDeGuardias ObtenerPorPacienteTurnoTipoRegistro(Paciente paciente, String turno, String nombreCampo)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(LibroDeGuardias));
+                criteria.Add(Restrictions.Eq("Fecha", DateTime.Today));
+                criteria.Add(Restrictions.Eq("Paciente.Dni", paciente.Dni));
+                if (!String.IsNullOrEmpty(turno))
+                    criteria.Add(Restrictions.Like("Turno", turno, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(nombreCampo))
+                {
+                    if (nombreCampo == "ActividadRealizada")
+                        criteria.Add(Restrictions.IsNull("ActividadRealizada"));
+                    if (nombreCampo == "ComidaRealizada")
+                        criteria.Add(Restrictions.IsNull("ComidaRealizada"));
+                    else
+                    {
+                        criteria.Add(Restrictions.IsNull("MedicacionAdministrada"));
+                        criteria.Add(Restrictions.IsNull("Temperatura"));
+                        criteria.Add(Restrictions.IsNull("Azucar"));
+                        criteria.Add(Restrictions.IsNull("Observaciones"));
+                        criteria.Add(Restrictions.IsNull("Recomendaciones"));
+                    }
+                }
+
+                var registrosLibroDeGuardias = criteria.List<LibroDeGuardias>();
+
+                return registrosLibroDeGuardias.FirstOrDefault();
             }
         }
     }

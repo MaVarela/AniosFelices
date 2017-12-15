@@ -31,16 +31,25 @@ namespace AñosFelices
 
         private void cargar()
         {
-            var consultaActiva = ConsultaActiva.Instance();
-            consultaActiva.Consulta = "ConsultarEstado";
-            cargarCmbFiltrar();
+            try
+            {
+                var consultaActiva = ConsultaActiva.Instance();
+                consultaActiva.Consulta = "ConsultarEstado";
+                cargarCmbFiltrar();
 
-            LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
-            var listado = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.ObtenerTodos());
+                LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
+                var listado = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.ObtenerTodos());
 
-            this.dgvEstado.DataSource = listado;
-            this.dgvEstado.Columns[6].Visible = false;
-            this.dgvEstado.Columns[7].Visible = false;
+                this.dgvEstado.DataSource = listado;
+                this.dgvEstado.Columns[6].Visible = false;
+                this.dgvEstado.Columns[7].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void cargarCmbFiltrar()
@@ -121,27 +130,15 @@ namespace AñosFelices
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
-            if (cmbFiltrar.SelectedItem.ToString() == "Paciente")
+            try
             {
-                if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text != "")
+                LibroDeGuardiasDTOMapper mapper = new LibroDeGuardiasDTOMapper();
+                if (cmbFiltrar.SelectedItem.ToString() == "Paciente")
                 {
-                    if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text != "")
-                        this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(null, txtNombre.Text, txtApellido.Text, null));
-                    else
-                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
-                }
-                else
-                    MessageBox.Show("El campo 'Apellido' es Obligatorio");
-            }
-            else
-            {
-                if (cmbFiltrar.SelectedItem.ToString() == "Paciente - Fecha")
-                {
-                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text != "")
                     {
-                        if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
-                            this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, txtNombre.Text, txtApellido.Text, null));
+                        if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text != "")
+                            this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(null, txtNombre.Text, txtApellido.Text, null));
                         else
                             MessageBox.Show("El campo 'Nombre' es Obligatorio");
                     }
@@ -149,10 +146,31 @@ namespace AñosFelices
                         MessageBox.Show("El campo 'Apellido' es Obligatorio");
                 }
                 else
-                    this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, null, null, cmbTurno.Text));
+                {
+                    if (cmbFiltrar.SelectedItem.ToString() == "Paciente - Fecha")
+                    {
+                        if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                        {
+                            if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                                this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, txtNombre.Text, txtApellido.Text, null));
+                            else
+                                MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                        }
+                        else
+                            MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                    }
+                    else
+                        this.dgvEstado.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, null, null, cmbTurno.Text));
+                }
+                this.dgvEstado.Columns[6].Visible = false;
+                this.dgvEstado.Columns[7].Visible = false;
             }
-            this.dgvEstado.Columns[6].Visible = false;
-            this.dgvEstado.Columns[7].Visible = false;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void btnReestablecer_Click(object sender, EventArgs e)

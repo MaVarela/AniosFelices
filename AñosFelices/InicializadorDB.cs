@@ -111,14 +111,18 @@ namespace AñosFelices
                        paciente.Parientes.Add(pariente);
                        paciente = repositorioPaciente.Agregar(paciente);
                     }
-                    LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
-                    idLibroGuardias.Paciente = paciente;
-                    idLibroGuardias.Turno = "Diurno, Actividad Física";
-                    idLibroGuardias.Usuario = RespLegal;
-                    var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(idLibroGuardias);
+                    //LibroDeGuardiasId idLibroGuardias = new LibroDeGuardiasId();
+                    //idLibroGuardias.Paciente = paciente;
+                    //idLibroGuardias.Turno = "Diurno, Actividad Física";
+                    //idLibroGuardias.Usuario = RespLegal;
+                    var actividadFisica = repositorioLibroDeGuardias.ObtenerPorId(1);
                     if (actividadFisica == null)
                     {
-                        actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
+                        //actividadFisica = new LibroDeGuardias() { Id = idLibroGuardias };
+                        actividadFisica = new LibroDeGuardias();
+                        actividadFisica.Paciente = paciente;
+                        actividadFisica.Turno = "Diurno, Actividad Física";
+                        actividadFisica.Usuario = RespLegal;
                         actividadFisica.ActividadRealizada = "Yoga";
                         actividadFisica.Fecha = System.DateTime.Today;
                         actividadFisica = repositorioLibroDeGuardias.Agregar(actividadFisica);
