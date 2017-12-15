@@ -2,6 +2,8 @@
 using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System.Collections.Generic;
+using System;
+using NHibernate.Criterion;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {
@@ -133,6 +135,30 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     .CreateCriteria(typeof(Usuario))
                     .List<Usuario>();
                 return usuarios;
+            }
+        }
+
+        public IList<Usuario> BuscarRegistros(int? rol, String nombre, String apellido)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(Usuario));
+
+                if (rol != null)
+                {
+                    criteria.CreateAlias("Rol", "rol");
+                    criteria.Add(Expression.Eq("rol.IdRol", rol));
+                }
+
+                if (!String.IsNullOrEmpty(apellido))
+                    criteria.Add(Restrictions.Like("Apellido", apellido, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(nombre))
+                    criteria.Add(Restrictions.Like("Nombre", nombre, MatchMode.Anywhere));
+
+                var registrosUsuarios = criteria.List<Usuario>();
+
+                return registrosUsuarios;
             }
         }
     }

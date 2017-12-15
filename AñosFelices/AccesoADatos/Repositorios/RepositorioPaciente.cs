@@ -2,6 +2,8 @@
 using AñosFelices.AccesoADatos.IRepositorios;
 using NHibernate;
 using System.Collections.Generic;
+using System;
+using NHibernate.Criterion;
 
 namespace AñosFelices.AccesoADatos.Repositorios
 {
@@ -111,6 +113,30 @@ namespace AñosFelices.AccesoADatos.Repositorios
                     .CreateCriteria(typeof(Paciente))
                     .List<Paciente>();
                 return pacientes;
+            }
+        }
+
+        public IList<Paciente> BuscarRegistros(int? habitacion, String nombre, String apellido)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                var criteria = session
+                    .CreateCriteria(typeof(Paciente));
+
+                if (habitacion != null)
+                {
+                    criteria.CreateAlias("Cama", "cama");
+                    criteria.Add(Expression.Eq("cama.Id.Habitacion.IdHabitacion", habitacion));
+                }
+
+                if (!String.IsNullOrEmpty(apellido))
+                    criteria.Add(Restrictions.Like("Apellido", apellido, MatchMode.Anywhere));
+                if (!String.IsNullOrEmpty(nombre))
+                    criteria.Add(Restrictions.Like("Nombre", nombre, MatchMode.Anywhere));
+
+                var registrosPacientes = criteria.List<Paciente>();
+
+                return registrosPacientes;
             }
         }
     }

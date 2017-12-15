@@ -19,6 +19,7 @@ namespace AñosFelices
             var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
 
             cargarGrilla();
+            cargarCmbFiltrar();
         }
 
         private void cargarGrilla()
@@ -45,6 +46,13 @@ namespace AñosFelices
             this.dgvEmpleados.Columns["IdRol"].Visible = false;
         }
 
+        private void cargarCmbFiltrar()
+        {
+            cmbFiltrar.Items.Add("Rol");
+            cmbFiltrar.Items.Add("Usuario");
+            cmbFiltrar.SelectedIndex = 0;
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -62,6 +70,98 @@ namespace AñosFelices
 
                 frmConsultar.Show();
             }
-        }      
+        }
+
+        private void cargarCmbRol()
+        {
+            IRepositorioRol repositorioRol = new RepositorioRol();
+            var listado = repositorioRol.ObtenerTodos();
+
+            cmbRol.DataSource = listado;
+            cmbRol.DisplayMember = "Descripcion";
+            cmbRol.ValueMember = "IdRol";
+
+            cmbRol.SelectedIndex = 0;
+        }
+
+        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltrar.Text == "Rol")
+            {
+                txtApellido.Text = null;
+                txtNombre.Text = null;
+                lblRol.Visible = true;
+                cmbRol.Visible = true;
+                cargarCmbRol();
+                lblApellido.Visible = false;
+                txtApellido.Visible = false;
+                lblNombre.Visible = false;
+                txtNombre.Visible = false;
+            }
+            else
+            {
+                txtApellido.Text = null;
+                txtNombre.Text = null;
+                lblRol.Visible = false;
+                cmbRol.Visible = false;
+                lblApellido.Visible = true;
+                txtApellido.Visible = true;
+                lblNombre.Visible = true;
+                txtNombre.Visible = true;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+
+            if (cmbFiltrar.SelectedItem.ToString() == "Usuario")
+            {
+                if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                {
+                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                        this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
+                    else
+                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                }
+                else
+                    MessageBox.Show("El campo 'Nombre' es Obligatorio");
+            }
+            else
+            {
+                this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(Convert.ToInt32(cmbRol.SelectedValue), null, null));
+            }
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            cmbFiltrar.Items.Clear();
+            txtApellido.Text = null;
+            txtNombre.Text = null;
+            cargar();
+        }
+
+        private void cargar()
+        {
+            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
+
+            cargarGrilla();
+            cargarCmbFiltrar();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using AñosFelices.EntidadesDeNegocio;
+using System;
+using System.Collections.Generic;
 
 namespace AñosFelices.AccesoADatos.IRepositorios
 {
@@ -13,5 +15,7 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// <param name="id">Identificador del Paciente</param>
         /// <returns>True en caso que exista, false en caso contrario</returns>
         bool Existe(int id);
+
+        IList<Paciente> BuscarRegistros(int? habitacion, String nombre, String apellido);
     }
 }

@@ -12,6 +12,7 @@ using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using AñosFelices.DTO;
+using AñosFelices.DTOs.DTOMappers;
 
 namespace AñosFelices
 {
@@ -49,6 +50,32 @@ namespace AñosFelices
             this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
             this.dgvPacientes.Columns["Sexo"].Visible = false;
             this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+
+            cargarCmbFiltrar();
+            cmbHabitaciones.Items.Clear();
+            cargarCmbHabitaciones();
+        }
+
+        private void cargarCmbFiltrar()
+        {
+            cmbFiltrar.Items.Add("Habitación");
+            cmbFiltrar.Items.Add("Paciente");
+            cmbFiltrar.SelectedIndex = 0;
+        }
+
+        private void cargarCmbHabitaciones()
+        {
+            IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
+            HabitacionDTOMapper mapper = new HabitacionDTOMapper();
+            var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
+
+            for (int i = 0; i < listado.Count; i++)
+            {
+                cmbHabitaciones.Items.Add(listado[i].Id.ToString() + " - " + listado[i].Categoria.ToString());
+                cmbHabitaciones.ValueMember = listado[i].Id.ToString();
+            }
+
+            cmbHabitaciones.SelectedIndex = 0;
         }
 
         private void btnParientes_Click(object sender, EventArgs e)
@@ -78,6 +105,110 @@ namespace AñosFelices
                 MessageBox.Show("Debe seleccionar un registro", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFiltrar.Text == "Habitación")
+            {
+                txtApellido.Text = null;
+                txtNombre.Text = null;
+                lblHabitacion.Visible = true;
+                cmbHabitaciones.Items.Clear();
+                cmbHabitaciones.Visible = true;
+                cargarCmbHabitaciones();
+                lblApellido.Visible = false;
+                txtApellido.Visible = false;
+                lblNombre.Visible = false;
+                txtNombre.Visible = false;
+            }
+            else
+            {
+                txtApellido.Text = null;
+                txtNombre.Text = null;
+                lblHabitacion.Visible = false;
+                cmbHabitaciones.Items.Clear();
+                cmbHabitaciones.Visible = false;
+                lblApellido.Visible = true;
+                txtApellido.Visible = true;
+                lblNombre.Visible = true;
+                txtNombre.Visible = true;
+            }
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            cmbHabitaciones.Items.Clear();
+            cmbFiltrar.Items.Clear();
+            txtApellido.Text = null;
+            txtNombre.Text = null;
+            cargar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            PacienteDTOMapper mapper = new PacienteDTOMapper();
+
+            if (cmbFiltrar.SelectedItem.ToString() == "Paciente")
+            {
+                if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                {
+                    if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                    {
+                        this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
+
+                        this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                        this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                        this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                        this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                        this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                        this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                        this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                        this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                        this.dgvPacientes.Columns["Sexo"].Visible = false;
+                        this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                    }
+                    else
+                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                }
+                else
+                    MessageBox.Show("El campo 'Apellido' es Obligatorio");
+            }
+            else
+            {
+                int habitacion;
+
+                string[] Habitacion;
+                Habitacion = cmbHabitaciones.Text.Split('-');
+                habitacion = Convert.ToInt32(Habitacion[0].Trim());
+
+                this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(habitacion, null, null));
+
+                this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                this.dgvPacientes.Columns["Sexo"].Visible = false;
+                this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+
+            e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace AñosFelices.Utilidades
             string strPath = @"C:\Logs\Errores.txt";
             if (!File.Exists(strPath))
             {
-                File.Create(strPath).Dispose();
+                //File.Create(strPath).Dispose();
             }
             using (StreamWriter sw = File.AppendText(strPath))
             {

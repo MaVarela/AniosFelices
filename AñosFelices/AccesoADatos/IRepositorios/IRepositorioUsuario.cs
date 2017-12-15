@@ -1,4 +1,6 @@
 ﻿using AñosFelices.EntidadesDeNegocio;
+using System;
+using System.Collections.Generic;
 
 namespace AñosFelices.AccesoADatos.IRepositorios
 {
@@ -20,5 +22,7 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// <param name="id">Identificador del Usuario</param>
         /// <returns>True en caso que exista, false en caso contrario</returns>
         bool Existe(int id);
+
+        IList<Usuario> BuscarRegistros(int? rol, String nombre, String apellido);
     }
 }
