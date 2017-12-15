@@ -62,38 +62,47 @@ namespace AñosFelices
 
         private void btnAgregar_Click(object sender, System.EventArgs e)
         {
-            var cama = new CamaDTO();
-            if (camasSeleccionadas.Camas == null)
-                camasSeleccionadas.Camas = new List<CamaDTO>();
-            if (camasSeleccionadas.Camas.Count() == 0)
+            try
             {
-                cama.IdCama = 1;
-                cama.Estado = "Libre";
-                camasSeleccionadas.Camas.Add(cama);
-            }
-            else if (camasSeleccionadas.Camas.Count() < 5)
-            {
-                for (int i = 0; i < 5; i++)
+                var cama = new CamaDTO();
+                if (camasSeleccionadas.Camas == null)
+                    camasSeleccionadas.Camas = new List<CamaDTO>();
+                if (camasSeleccionadas.Camas.Count() == 0)
                 {
-                    if (camasSeleccionadas.Camas.Where(x => x.IdCama == i+1).Count() == 0)
-                    {
-                        cama.IdCama = i + 1;
-                        break;
-                    }
+                    cama.IdCama = 1;
+                    cama.Estado = "Libre";
+                    camasSeleccionadas.Camas.Add(cama);
                 }
-                cama.Estado = "Libre";
-                camasSeleccionadas.Camas.Add(cama);
+                else if (camasSeleccionadas.Camas.Count() < 5)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (camasSeleccionadas.Camas.Where(x => x.IdCama == i + 1).Count() == 0)
+                        {
+                            cama.IdCama = i + 1;
+                            break;
+                        }
+                    }
+                    cama.Estado = "Libre";
+                    camasSeleccionadas.Camas.Add(cama);
+                }
+                else
+                {
+                    MessageBox.Show("Solo se pueden agregar 5 camas por habitación.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                CamaDTOMapper mapper = new CamaDTOMapper();
+                var listado = mapper.LlenarListado(camasSeleccionadas.Camas);
+
+                this.dgvCamas.DataSource = listado;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Solo se pueden agregar 5 camas por habitación.", "Error",
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
-
-            CamaDTOMapper mapper = new CamaDTOMapper();
-            var listado = mapper.LlenarListado(camasSeleccionadas.Camas);
-
-            this.dgvCamas.DataSource = listado;
         }
 
         private void btnCancelar_Click(object sender, System.EventArgs e)
@@ -104,75 +113,93 @@ namespace AñosFelices
 
         private void btnRemover_Click(object sender, System.EventArgs e)
         {
-            if (dgvCamas.CurrentRow != null)
+            try
             {
-                var cama = new CamaDTO();
-                cama.IdCama = Convert.ToInt16(dgvCamas.SelectedRows[0].Cells[0].Value);
-                if (camasSeleccionadas.Camas.Count() > 1)
+                if (dgvCamas.CurrentRow != null)
                 {
-                    if(dgvCamas.SelectedRows[0].Cells[2].Value.ToString() == "Libre")
-                        camasSeleccionadas.Camas.Remove(camasSeleccionadas.Camas.Where(x => x.IdCama == cama.IdCama).First());
+                    var cama = new CamaDTO();
+                    cama.IdCama = Convert.ToInt16(dgvCamas.SelectedRows[0].Cells[0].Value);
+                    if (camasSeleccionadas.Camas.Count() > 1)
+                    {
+                        if (dgvCamas.SelectedRows[0].Cells[2].Value.ToString() == "Libre")
+                            camasSeleccionadas.Camas.Remove(camasSeleccionadas.Camas.Where(x => x.IdCama == cama.IdCama).First());
+                        else
+                            MessageBox.Show("No se puede remover una cama ocupada.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     else
-                        MessageBox.Show("No se puede remover una cama ocupada.", "Error",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show("La habitación debe poseer al menos una cama.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    CamaDTOMapper mapper = new CamaDTOMapper();
+                    var listado = mapper.LlenarListado(camasSeleccionadas.Camas);
+
+                    this.dgvCamas.DataSource = listado;
                 }
-                else
-                {
-                    MessageBox.Show("La habitación debe poseer al menos una cama.", "Error",
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                CamaDTOMapper mapper = new CamaDTOMapper();
-                var listado = mapper.LlenarListado(camasSeleccionadas.Camas);
-
-                this.dgvCamas.DataSource = listado;
+                LogueadorErrores.Loguear(ex);
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            try
             {
-                CamaDTOMapper mapper = new CamaDTOMapper();
-                var listado = mapper.LlenarListadoBe(camasSeleccionadas.Camas);
-
-                Habitacion habitacion = new Habitacion();
-                habitacion.Categoria = cmbCategoria.Text;
-
-                foreach (var cama in listado)
+                if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    cama.Habitacion = habitacion;
-                }
+                    CamaDTOMapper mapper = new CamaDTOMapper();
+                    var listado = mapper.LlenarListadoBe(camasSeleccionadas.Camas);
 
-                habitacion.Camas = listado;
+                    Habitacion habitacion = new Habitacion();
+                    habitacion.Categoria = cmbCategoria.Text;
 
-                habitacion = repositorioHabitacion.Agregar(habitacion);
-                txtNroHabitacion.Text = habitacion.IdHabitacion.ToString();
-                MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                camasSeleccionadas.Camas = null;
-                this.Close();
-            }
-        }
+                    foreach (var cama in listado)
+                    {
+                        cama.Habitacion = habitacion;
+                    }
 
-        private void dgvCamas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            e.Control.KeyPress -= new KeyPressEventHandler(IdCama_KeyPress);
-            if (dgvCamas.CurrentCell.ColumnIndex == 0)
-            {
-                TextBox tb = e.Control as TextBox;
-                if (tb != null)
-                {
-                    tb.KeyPress += new KeyPressEventHandler(IdCama_KeyPress);
+                    habitacion.Camas = listado;
+
+                    habitacion = repositorioHabitacion.Agregar(habitacion);
+                    txtNroHabitacion.Text = habitacion.IdHabitacion.ToString();
+                    MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    camasSeleccionadas.Camas = null;
+                    this.Close();
                 }
             }
-        }
-
-        private void IdCama_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            catch (Exception ex)
             {
-                e.Handled = true;
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
+
+        //private void dgvCamas_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        //{
+        //    e.Control.KeyPress -= new KeyPressEventHandler(IdCama_KeyPress);
+        //    if (dgvCamas.CurrentCell.ColumnIndex == 0)
+        //    {
+        //        TextBox tb = e.Control as TextBox;
+        //        if (tb != null)
+        //        {
+        //            tb.KeyPress += new KeyPressEventHandler(IdCama_KeyPress);
+        //        }
+        //    }
+        //}
+
+        //private void IdCama_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+        //    {
+        //        e.Handled = true;
+        //    }
+        //}
     }
 }

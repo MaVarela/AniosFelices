@@ -5,6 +5,7 @@ using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.DTOs.DTOMappers;
 using AñosFelices.EntidadesDeNegocio;
+using AñosFelices.Utilidades;
 
 namespace AñosFelices
 {
@@ -60,28 +61,46 @@ namespace AñosFelices
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            if (this.dgvEmpleados.CurrentRow != null)
+            try
             {
-                var frmConsultar = new frmConsultarEmpleado();
-                var empleadoSeleccionado = EmpleadoSeleccionado.Instance();
-                var empleado = repositorioUsuario.ObtenerPorId(Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells["Dni"].Value));
+                if (this.dgvEmpleados.CurrentRow != null)
+                {
+                    var frmConsultar = new frmConsultarEmpleado();
+                    var empleadoSeleccionado = EmpleadoSeleccionado.Instance();
+                    var empleado = repositorioUsuario.ObtenerPorId(Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells["Dni"].Value));
 
-                empleadoSeleccionado.Usuario = empleado;
+                    empleadoSeleccionado.Usuario = empleado;
 
-                frmConsultar.Show();
+                    frmConsultar.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 
         private void cargarCmbRol()
         {
-            IRepositorioRol repositorioRol = new RepositorioRol();
-            var listado = repositorioRol.ObtenerTodos();
+            try
+            {
+                IRepositorioRol repositorioRol = new RepositorioRol();
+                var listado = repositorioRol.ObtenerTodos();
 
-            cmbRol.DataSource = listado;
-            cmbRol.DisplayMember = "Descripcion";
-            cmbRol.ValueMember = "IdRol";
+                cmbRol.DataSource = listado;
+                cmbRol.DisplayMember = "Descripcion";
+                cmbRol.ValueMember = "IdRol";
 
-            cmbRol.SelectedIndex = 0;
+                cmbRol.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void cmbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,23 +132,32 @@ namespace AñosFelices
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
-
-            if (cmbFiltrar.SelectedItem.ToString() == "Usuario")
+            try
             {
-                if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+
+                if (cmbFiltrar.SelectedItem.ToString() == "Usuario")
                 {
-                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
-                        this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
+                    if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                    {
+                        if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                            this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
+                        else
+                            MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                    }
                     else
-                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
                 }
                 else
-                    MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                {
+                    this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(Convert.ToInt32(cmbRol.SelectedValue), null, null));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.dgvEmpleados.DataSource = mapper.LlenarListado((List<Usuario>)repositorioUsuario.BuscarRegistros(Convert.ToInt32(cmbRol.SelectedValue), null, null));
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 
@@ -143,11 +171,20 @@ namespace AñosFelices
 
         private void cargar()
         {
-            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
-            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
+            try
+            {
+                UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+                var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
 
-            cargarGrilla();
-            cargarCmbFiltrar();
+                cargarGrilla();
+                cargarCmbFiltrar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)

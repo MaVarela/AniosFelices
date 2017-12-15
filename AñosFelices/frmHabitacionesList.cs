@@ -26,27 +26,36 @@ namespace AñosFelices
 
         private void btnSeleccionarCama_Click(object sender, System.EventArgs e)
         {
-            if (this.dgvHabitaciones.CurrentRow != null)
+            try
             {
-                if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "Habilitada")
+                if (this.dgvHabitaciones.CurrentRow != null)
                 {
-                    var habitacionSeleccionada = HabitacionSeleccionada.Instance();
-                    var camaSeleccionada = CamaSeleccionada.Instance();
-                    habitacionSeleccionada.Habitacion = new HabitacionDTO();
+                    if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "Habilitada")
+                    {
+                        var habitacionSeleccionada = HabitacionSeleccionada.Instance();
+                        var camaSeleccionada = CamaSeleccionada.Instance();
+                        habitacionSeleccionada.Habitacion = new HabitacionDTO();
 
-                    habitacionSeleccionada.Habitacion.Id = Convert.ToInt32(this.dgvHabitaciones.SelectedRows[0].Cells[0].Value);
-                    habitacionSeleccionada.Habitacion.Categoria = this.dgvHabitaciones.SelectedRows[0].Cells[1].Value.ToString();
-                    habitacionSeleccionada.Habitacion.Estado = this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString();
-                    this.btnSeleccionarCama.Enabled = false;
-                    frmCamas frmCamas = new frmCamas();
-                    frmCamas.ShowDialog();
-                    this.btnSeleccionarCama.Enabled = true;
-                    if (camaSeleccionada.Cama != null)
-                        this.Close();
+                        habitacionSeleccionada.Habitacion.Id = Convert.ToInt32(this.dgvHabitaciones.SelectedRows[0].Cells[0].Value);
+                        habitacionSeleccionada.Habitacion.Categoria = this.dgvHabitaciones.SelectedRows[0].Cells[1].Value.ToString();
+                        habitacionSeleccionada.Habitacion.Estado = this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString();
+                        this.btnSeleccionarCama.Enabled = false;
+                        frmCamas frmCamas = new frmCamas();
+                        frmCamas.ShowDialog();
+                        this.btnSeleccionarCama.Enabled = true;
+                        if (camaSeleccionada.Cama != null)
+                            this.Close();
+                    }
+                    else
+                        MessageBox.Show("La Habitación seleccionada no se encuentra disponible. Seleccione otra.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("La Habitación seleccionada no se encuentra disponible. Seleccione otra.", "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

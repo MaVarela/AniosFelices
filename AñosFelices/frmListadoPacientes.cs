@@ -34,6 +34,8 @@ namespace AñosFelices
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
                 if (this.dgvPacientes.CurrentRow != null)
                 {
                     var pacienteElegido = repositorioPacientes.ObtenerPorId(Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value));
@@ -49,6 +51,13 @@ namespace AñosFelices
                     MessageBox.Show("Debe seleccionar un registro", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmListadoPacientes_Load(object sender, EventArgs e)
@@ -58,28 +67,46 @@ namespace AñosFelices
 
         private void cargar()
         {
-            PacienteDTOMapper mapper = new PacienteDTOMapper();
-            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPacientes.ObtenerTodos());
+            try
+            {
+                PacienteDTOMapper mapper = new PacienteDTOMapper();
+                var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPacientes.ObtenerTodos());
 
-            this.dgvPacientes.DataSource = listado;
-            this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
-            this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
-            this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
-            this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
-            this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
-            this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-            this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
-            this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
-            this.dgvPacientes.Columns["Sexo"].Visible = false;
-            this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                this.dgvPacientes.DataSource = listado;
+                this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                this.dgvPacientes.Columns["Sexo"].Visible = false;
+                this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
 
-            configurarHabilitarModificar();
+                configurarHabilitarModificar();
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void configurarHabilitarModificar()
         {
-            btnModificar.Enabled = dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado";
-            btnHabilitar.Enabled = !(dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado");
+            try
+            {
+                btnModificar.Enabled = dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado";
+                btnHabilitar.Enabled = !(dgvPacientes.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado");
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHabilitar_Click(object sender, EventArgs e)
@@ -96,9 +123,6 @@ namespace AñosFelices
                     {
                         pariente.Estado = "A";
                     }
-                    /*repositorioPacientes.Editar(paciente);
-                    MessageBox.Show("El Paciente ha sido habilitado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    cargar();*/
                     pacienteSeleccionado.Paciente = paciente;
 
                     frmModificarPaciente modificarPaciente = new frmModificarPaciente();

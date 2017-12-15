@@ -8,6 +8,7 @@ using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.DTOs.DTOMappers;
 using System.Text.RegularExpressions;
 using System.Text;
+using AñosFelices.Utilidades;
 
 namespace AñosFelices
 {
@@ -15,6 +16,8 @@ namespace AñosFelices
     {
         IRepositorioPaciente repositorioPaciente = new RepositorioPaciente();
         IRepositorioPariente repositorioParientes = new RepositorioPariente();
+        IRepositorioUsuario repositorioUsuarios = new RepositorioUsuario();
+        IRepositorioRol repositorioRol = new RepositorioRol();
 
         public frmRegistrarEmpleado()
         {
@@ -29,8 +32,6 @@ namespace AñosFelices
 
         private void frmRegistrarEmpleado_Load(object sender, EventArgs e)
         {
-            IRepositorioRol repositorioRol = new RepositorioRol();
-            IRepositorioUsuario repositorioUsuario = new RepositorioUsuario();
             var rol = repositorioRol.ObtenerTodos();
             RolDTOMapper mapper = new RolDTOMapper();
             var listado = mapper.LlenarListado((List<Rol>)rol.ToList());
@@ -42,84 +43,92 @@ namespace AñosFelices
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            IRepositorioUsuario repositorioUsuarios = new RepositorioUsuario();
-            IRepositorioRol repositorioRol = new RepositorioRol();
             Usuario usuario = new Usuario();
 
             List<String> mensajes = new List<String>();
 
-            if (!String.IsNullOrEmpty(txtDni.Text.Trim()))
+            try
             {
-                if (txtDni.Text.Length > 7 && txtDni.Text.Length <= 8)
-                    usuario.Dni = Convert.ToInt32(txtDni.Text);
-                else
-                    mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");
-            }
-            else
-                mensajes.Add("El campo 'DNI' es obligatorio");
-            if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
-                usuario.Nombre = txtNombre.Text.Trim();
-            else
-                mensajes.Add("El campo 'Nombre' es obligatorio");
-            if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
-                usuario.Apellido = txtApellido.Text.Trim();
-            else
-                mensajes.Add("El campo 'Apellido' es obligatorio");
-            if (!String.IsNullOrEmpty(txtDireccion.Text.Trim()))
-                usuario.Direccion = txtDireccion.Text.Trim();
-            else
-                mensajes.Add("El campo 'Dirección' es obligatorio");
 
-            if (!String.IsNullOrEmpty(txtMail.Text.Trim()))
-            {
-                if (validarEmail(txtMail.Text))
-                    usuario.Mail = txtMail.Text;
-                else
-                    mensajes.Add("El formato del 'Mail' es incorrecto (ejemplo@dominio.com)");
-            }
-            if (!String.IsNullOrEmpty(txtTelefono_1.Text))
-            {
-                if(validarTelefono(txtTelefono_1.Text))
-                    usuario.Telefono1 = txtTelefono_1.Text;
-                else
-                    mensajes.Add("El formato del 'Teléfono' es incorrecto (4740-4658/11-1234-1234)");
-            }
-            else
-                mensajes.Add("El campo 'Teléfono' es obligatorio");
-            if (!String.IsNullOrEmpty(txtTelefono_2.Text))
-            {
-                if (validarTelefono(txtTelefono_2.Text))
-                    usuario.Telefono2 = txtTelefono_2.Text;
-                else
-                    mensajes.Add("El formato del 'Teléfono Opcional' es incorrecto (4740-4658/11-1234-1234)");
-            }
-            if (!String.IsNullOrEmpty(txtPassword.Text))
-                usuario.Password = txtPassword.Text;
-            else
-                mensajes.Add("El campo 'Password' es obligatorio");
-            usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
-
-            usuario.FechaIngreso = dtpFecha.Value.Date;
-
-            if (repositorioPaciente.Existe(usuario.Dni) || repositorioParientes.Existe(usuario.Dni) || repositorioUsuarios.Existe(usuario.Dni))
-                mensajes.Add("El Dni ingresado ya se encuentra registrado");
-
-            if (mensajes.Count.Equals(0))
-            {
-                usuario = repositorioUsuarios.Agregar(usuario);
-                MessageBox.Show("El empleado se ha registrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                usuario = null;
-                this.Close();
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (var mensaje in mensajes)
+                if (!String.IsNullOrEmpty(txtDni.Text.Trim()))
                 {
-                    sb.AppendLine(mensaje);
+                    if (txtDni.Text.Length > 7 && txtDni.Text.Length <= 8)
+                        usuario.Dni = Convert.ToInt32(txtDni.Text);
+                    else
+                        mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");
                 }
+                else
+                    mensajes.Add("El campo 'DNI' es obligatorio");
+                if (!String.IsNullOrEmpty(txtNombre.Text.Trim()))
+                    usuario.Nombre = txtNombre.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Nombre' es obligatorio");
+                if (!String.IsNullOrEmpty(txtApellido.Text.Trim()))
+                    usuario.Apellido = txtApellido.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Apellido' es obligatorio");
+                if (!String.IsNullOrEmpty(txtDireccion.Text.Trim()))
+                    usuario.Direccion = txtDireccion.Text.Trim();
+                else
+                    mensajes.Add("El campo 'Dirección' es obligatorio");
 
-                MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!String.IsNullOrEmpty(txtMail.Text.Trim()))
+                {
+                    if (validarEmail(txtMail.Text))
+                        usuario.Mail = txtMail.Text;
+                    else
+                        mensajes.Add("El formato del 'Mail' es incorrecto (ejemplo@dominio.com)");
+                }
+                if (!String.IsNullOrEmpty(txtTelefono_1.Text))
+                {
+                    if (validarTelefono(txtTelefono_1.Text))
+                        usuario.Telefono1 = txtTelefono_1.Text;
+                    else
+                        mensajes.Add("El formato del 'Teléfono' es incorrecto (4740-4658/11-1234-1234)");
+                }
+                else
+                    mensajes.Add("El campo 'Teléfono' es obligatorio");
+                if (!String.IsNullOrEmpty(txtTelefono_2.Text))
+                {
+                    if (validarTelefono(txtTelefono_2.Text))
+                        usuario.Telefono2 = txtTelefono_2.Text;
+                    else
+                        mensajes.Add("El formato del 'Teléfono Opcional' es incorrecto (4740-4658/11-1234-1234)");
+                }
+                if (!String.IsNullOrEmpty(txtPassword.Text))
+                    usuario.Password = txtPassword.Text;
+                else
+                    mensajes.Add("El campo 'Password' es obligatorio");
+                usuario.Rol = repositorioRol.ObtenerPorId(Convert.ToInt32(cmbRol.SelectedValue));
+
+                usuario.FechaIngreso = dtpFecha.Value.Date;
+
+                if (repositorioPaciente.Existe(usuario.Dni) || repositorioParientes.Existe(usuario.Dni) || repositorioUsuarios.Existe(usuario.Dni))
+                    mensajes.Add("El Dni ingresado ya se encuentra registrado");
+
+                if (mensajes.Count.Equals(0))
+                {
+                    usuario = repositorioUsuarios.Agregar(usuario);
+                    MessageBox.Show("El empleado se ha registrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    usuario = null;
+                    this.Close();
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (var mensaje in mensajes)
+                    {
+                        sb.AppendLine(mensaje);
+                    }
+
+                    MessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
         }
 

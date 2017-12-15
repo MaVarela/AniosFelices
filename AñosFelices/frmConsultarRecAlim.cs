@@ -31,10 +31,19 @@ namespace AñosFelices
 
         private void cargar()
         {
-            HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
-            var listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
+            try
+            {
+                HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
+                var listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
 
-            configurarGrilla(listado);
+                configurarGrilla(listado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void configurarGrilla(List<HistoriaClinicaDTO> listado)
@@ -59,51 +68,61 @@ namespace AñosFelices
         {
             HistoriaClinicaDTOMapper mapper = new HistoriaClinicaDTOMapper();
             List<HistoriaClinicaDTO> listado = new List<HistoriaClinicaDTO>();
-            if (cmbDato.Text == "Todos")
-            {
-                listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
-            }
 
-            if (cmbDato.Text == "DNI Paciente")
+            try
             {
-
-                if (txtDato.Text != "")
+                if (cmbDato.Text == "Todos")
                 {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(int.Parse(txtDato.Text), null, null));
-                }
-                else
-                {
-                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
                 }
+
+                if (cmbDato.Text == "DNI Paciente")
+                {
+
+                    if (txtDato.Text != "")
+                    {
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(int.Parse(txtDato.Text), null, null));
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
+                    }
+                }
+
+                if (cmbDato.Text == "Nombre")
+                {
+
+                    if (txtDato.Text != "")
+                    {
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, txtDato.Text, null));
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
+                    }
+                }
+
+                if (cmbDato.Text == "Apellido")
+                {
+
+                    if (txtDato.Text != "")
+                    {
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, txtDato.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
+                    }
+                }
             }
-
-            if (cmbDato.Text == "Nombre")
+            catch (Exception ex)
             {
-
-                if (txtDato.Text != "")
-                {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, txtDato.Text, null));
-                }
-                else
-                {
-                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
-                }
-            }
-
-            if (cmbDato.Text == "Apellido")
-            {
-
-                if (txtDato.Text != "")
-                {
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, txtDato.Text));
-                }
-                else
-                {
-                    MessageBox.Show("No se han completado los campos. Por favor ingresar los datos correpondientes", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    listado = mapper.ListarConsultasHistoriasClinicas((List<HistoriaClinica>)repositoriohistoriaclinica.BuscarRegistros(null, null, null));
-                }
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
             }
 
             configurarGrilla(listado);

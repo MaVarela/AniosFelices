@@ -23,30 +23,48 @@ namespace AñosFelices
         {
             HabitacionDTOMapper mapper = new HabitacionDTOMapper();
 
-            var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
+            try
+            {
+                var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
 
-            this.dgvHabitaciones.DataSource = listado;
+                this.dgvHabitaciones.DataSource = listado;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnModificar_Click(object sender, System.EventArgs e)
         {
-            if (this.dgvHabitaciones.CurrentRow != null)
+            try
             {
-                if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "Habilitada")
+                if (this.dgvHabitaciones.CurrentRow != null)
                 {
-                    habitacionSeleccionada.HabitacionRecuperada = repositorioHabitacion.ObtenerPorId(Convert.ToInt32(this.dgvHabitaciones.SelectedRows[0].Cells[0].Value));
+                    if (this.dgvHabitaciones.CurrentRow.Cells[2].Value.ToString() == "Habilitada")
+                    {
+                        habitacionSeleccionada.HabitacionRecuperada = repositorioHabitacion.ObtenerPorId(Convert.ToInt32(this.dgvHabitaciones.SelectedRows[0].Cells[0].Value));
 
-                    this.btnModificar.Enabled = false;
-                    frmModificarHabitacion frmModificarHabitacion = new frmModificarHabitacion();
-                    frmModificarHabitacion.ShowDialog();
-                    this.btnModificar.Enabled = true;
-                    cargarGrid();
-                    configurarHabilitarModificar();
-                    habitacionSeleccionada.HabitacionRecuperada = null;
+                        this.btnModificar.Enabled = false;
+                        frmModificarHabitacion frmModificarHabitacion = new frmModificarHabitacion();
+                        frmModificarHabitacion.ShowDialog();
+                        this.btnModificar.Enabled = true;
+                        cargarGrid();
+                        configurarHabilitarModificar();
+                        habitacionSeleccionada.HabitacionRecuperada = null;
+                    }
+                    else
+                        MessageBox.Show("La Habitación seleccionada se encuentra inhabilitada. Seleccione otra.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("La Habitación seleccionada se encuentra inhabilitada. Seleccione otra.", "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -85,8 +103,17 @@ namespace AñosFelices
 
         private void configurarHabilitarModificar()
         {
-            btnModificar.Enabled = dgvHabitaciones.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitada";
-            btnHabilitar.Enabled = !(dgvHabitaciones.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitada");
+            try
+            {
+                btnModificar.Enabled = dgvHabitaciones.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitada";
+                btnHabilitar.Enabled = !(dgvHabitaciones.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitada");
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmListaHabitaciones_Load(object sender, EventArgs e)

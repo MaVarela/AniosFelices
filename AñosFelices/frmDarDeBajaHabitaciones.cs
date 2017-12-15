@@ -2,6 +2,7 @@
 using AñosFelices.AccesoADatos.Repositorios;
 using AñosFelices.DTOs.DTOMappers;
 using AñosFelices.EntidadesDeNegocio;
+using AñosFelices.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,30 +27,48 @@ namespace AñosFelices
 
         private void cargar()
         {
-            HabitacionDTOMapper mapper = new HabitacionDTOMapper();
+            try
+            {
+                HabitacionDTOMapper mapper = new HabitacionDTOMapper();
 
-            var listado = mapper.LlenarListado(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList());
+                var listado = mapper.LlenarListado(repositorioHabitacion.ObtenerTodos().Where(x => x.Estado == "A").ToList());
 
-            this.dgvHabitaciones.DataSource = listado;
+                this.dgvHabitaciones.DataSource = listado;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnInhabilitar_Click(object sender, EventArgs e)
         {
-            if (this.dgvHabitaciones.RowCount > 0)
+            try
             {
-                if (MessageBox.Show("¿Está seguro de que desea dar de Baja el Registro?", "Baja", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                if (this.dgvHabitaciones.RowCount > 0)
                 {
-                    var habitacion = repositorioHabitacion.ObtenerPorId(Convert.ToInt32(dgvHabitaciones.SelectedRows[0].Cells[0].Value));
-
-                    if (habitacion.Camas.Where(x => x.Estado == "O").Count() == 0)
+                    if (MessageBox.Show("¿Está seguro de que desea dar de Baja el Registro?", "Baja", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                     {
-                        repositorioHabitacion.Inhabilitar(habitacion);
-                        MessageBox.Show("Registro Dado de Baja Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        cargar();
+                        var habitacion = repositorioHabitacion.ObtenerPorId(Convert.ToInt32(dgvHabitaciones.SelectedRows[0].Cells[0].Value));
+
+                        if (habitacion.Camas.Where(x => x.Estado == "O").Count() == 0)
+                        {
+                            repositorioHabitacion.Inhabilitar(habitacion);
+                            MessageBox.Show("Registro Dado de Baja Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cargar();
+                        }
+                        else
+                            MessageBox.Show("No se puede dar de baja una habitación con pacientes asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("No se puede dar de baja una habitación con pacientes asignados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -162,13 +162,13 @@ namespace AñosFelices.AccesoADatos.Repositorios
         /// <param name="turno">Turno</param>
         /// <param name="nombreCampo">Indica el tipo de registro</param>
         /// <returns>True en caso que exista, false en caso contrario</returns>
-        public LibroDeGuardias ObtenerPorPacienteTurnoTipoRegistro(Paciente paciente, String turno, String nombreCampo)
+        public LibroDeGuardias ObtenerPorPacienteTurnoTipoRegistro(Paciente paciente, String turno, String nombreCampo, DateTime fecha)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 var criteria = session
                     .CreateCriteria(typeof(LibroDeGuardias));
-                criteria.Add(Restrictions.Eq("Fecha", DateTime.Today));
+                criteria.Add(Restrictions.Eq("Fecha", fecha));
                 criteria.Add(Restrictions.Eq("Paciente.Dni", paciente.Dni));
                 if (!String.IsNullOrEmpty(turno))
                     criteria.Add(Restrictions.Like("Turno", turno, MatchMode.Anywhere));

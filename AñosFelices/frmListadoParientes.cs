@@ -40,13 +40,22 @@ namespace AñosFelices
 
         private void cargar()
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
-            lblPaciente.Text = lblPaciente.Text + pacienteSeleccionado.Paciente.Dni + " - " + pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
-            ParienteDTOMapper mapper = new ParienteDTOMapper();
+            try
+            {
+                var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                lblPaciente.Text = lblPaciente.Text + pacienteSeleccionado.Paciente.Dni + " - " + pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
+                ParienteDTOMapper mapper = new ParienteDTOMapper();
 
-            var listado = mapper.LlenarListado((List<Pariente>)repositorioPariente.ObtenerTodos());
+                var listado = mapper.LlenarListado((List<Pariente>)repositorioPariente.ObtenerTodos());
 
-            this.dgvParientes.DataSource = listado;
+                this.dgvParientes.DataSource = listado;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

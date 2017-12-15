@@ -32,15 +32,24 @@ namespace AñosFelices
 
         private void frmDetalleHistoriaClinica_Load(object sender, System.EventArgs e)
         {
-            txtDni.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Dni.ToString();
-            txtNombre.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Nombre;
-            txtApellido.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Apellido;
-            txtUsuario.Text = historiaclinicaSeleccionada.HistoriaClinica.Usuario.Dni.ToString();
-            txtFechavisita.Text = historiaclinicaSeleccionada.HistoriaClinica.FechaVisita.ToString();
-            rtxtEstado.Text = historiaclinicaSeleccionada.HistoriaClinica.EstadoGeneral;
-            rtxtMedicacion.Text = historiaclinicaSeleccionada.HistoriaClinica.MedicacionRecomendada;
-            rtxtActivFisica.Text = historiaclinicaSeleccionada.HistoriaClinica.RecomendacionActividadFisica;
-            rtxtAlimentacion.Text = historiaclinicaSeleccionada.HistoriaClinica.RecomendacionAlimentaria;
+            try
+            {
+                txtDni.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Dni.ToString();
+                txtNombre.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Nombre;
+                txtApellido.Text = historiaclinicaSeleccionada.HistoriaClinica.Paciente.Apellido;
+                txtUsuario.Text = historiaclinicaSeleccionada.HistoriaClinica.Usuario.Dni.ToString();
+                txtFechavisita.Text = historiaclinicaSeleccionada.HistoriaClinica.FechaVisita.ToString();
+                rtxtEstado.Text = historiaclinicaSeleccionada.HistoriaClinica.EstadoGeneral;
+                rtxtMedicacion.Text = historiaclinicaSeleccionada.HistoriaClinica.MedicacionRecomendada;
+                rtxtActivFisica.Text = historiaclinicaSeleccionada.HistoriaClinica.RecomendacionActividadFisica;
+                rtxtAlimentacion.Text = historiaclinicaSeleccionada.HistoriaClinica.RecomendacionAlimentaria;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

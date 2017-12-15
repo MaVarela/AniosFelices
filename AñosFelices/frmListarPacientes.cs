@@ -36,24 +36,33 @@ namespace AñosFelices
 
         private void cargar()
         {
-            PacienteDTOMapper mapper = new PacienteDTOMapper();
-            var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos());
+            try
+            {
+                PacienteDTOMapper mapper = new PacienteDTOMapper();
+                var listado = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.ObtenerTodos());
 
-            this.dgvPacientes.DataSource = listado;
-            this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
-            this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
-            this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
-            this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
-            this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
-            this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-            this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
-            this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
-            this.dgvPacientes.Columns["Sexo"].Visible = false;
-            this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                this.dgvPacientes.DataSource = listado;
+                this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                this.dgvPacientes.Columns["Sexo"].Visible = false;
+                this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
 
-            cargarCmbFiltrar();
-            cmbHabitaciones.Items.Clear();
-            cargarCmbHabitaciones();
+                cargarCmbFiltrar();
+                cmbHabitaciones.Items.Clear();
+                cargarCmbHabitaciones();
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cargarCmbFiltrar()
@@ -65,45 +74,54 @@ namespace AñosFelices
 
         private void cargarCmbHabitaciones()
         {
-            IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
-            HabitacionDTOMapper mapper = new HabitacionDTOMapper();
-            var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
-
-            for (int i = 0; i < listado.Count; i++)
+            try
             {
-                cmbHabitaciones.Items.Add(listado[i].Id.ToString() + " - " + listado[i].Categoria.ToString());
-                cmbHabitaciones.ValueMember = listado[i].Id.ToString();
-            }
+                IRepositorioHabitacion repositorioHabitacion = new RepositorioHabitacion();
+                HabitacionDTOMapper mapper = new HabitacionDTOMapper();
+                var listado = mapper.LlenarListado((List<Habitacion>)repositorioHabitacion.ObtenerTodos());
 
-            cmbHabitaciones.SelectedIndex = 0;
+                for (int i = 0; i < listado.Count; i++)
+                {
+                    cmbHabitaciones.Items.Add(listado[i].Id.ToString() + " - " + listado[i].Categoria.ToString());
+                    cmbHabitaciones.ValueMember = listado[i].Id.ToString();
+                }
+
+                cmbHabitaciones.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnParientes_Click(object sender, EventArgs e)
         {
-            if (this.dgvPacientes.CurrentRow != null)
+            try
             {
-                var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                if (this.dgvPacientes.CurrentRow != null)
+                {
+                    var pacienteSeleccionado = PacienteSeleccionado.Instance();
 
 
-                var dniPaciente = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value);
-                pacienteSeleccionado.Paciente = repositorioPaciente.ObtenerPorId(dniPaciente);
-                //pacienteSeleccionado.Paciente.Dni = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value);
-                //pacienteSeleccionado.Paciente.Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString();
-                //pacienteSeleccionado.Paciente.Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                //pacienteSeleccionado.Paciente.Sexo = dgvPacientes.SelectedRows[0].Cells[3].Value.ToString();
-                //pacienteSeleccionado.Paciente.FechaIngreso = Convert.ToDateTime(dgvPacientes.SelectedRows[0].Cells[4].Value.ToString());
-                //pacienteSeleccionado.Paciente.EstadoFisico = dgvPacientes.SelectedRows[0].Cells["EstadoFisico"].Value.ToString();
-                //pacienteSeleccionado.Paciente.Cama.Habitacion.IdHabitacion = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[5].Value);
-                //pacienteSeleccionado.Paciente.Cama.Id.IdCama = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[6].Value);
-                //pacienteSeleccionado.Paciente.Estado = dgvPacientes.SelectedRows[0].Cells[8].Value.ToString();
-                
-                var listarParientes = new frmParientes();
-                listarParientes.ShowDialog();
+                    var dniPaciente = Convert.ToInt32(dgvPacientes.SelectedRows[0].Cells[0].Value);
+                    pacienteSeleccionado.Paciente = repositorioPaciente.ObtenerPorId(dniPaciente);
+
+                    var listarParientes = new frmParientes();
+                    listarParientes.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un registro", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar un registro", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -149,51 +167,60 @@ namespace AñosFelices
         {
             PacienteDTOMapper mapper = new PacienteDTOMapper();
 
-            if (cmbFiltrar.SelectedItem.ToString() == "Paciente")
+            try
             {
-                if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
+                if (cmbFiltrar.SelectedItem.ToString() == "Paciente")
                 {
-                    if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                    if (!String.IsNullOrEmpty(this.txtApellido.Text.Trim()) && txtApellido.Text.Trim() != "")
                     {
-                        this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
+                        if (!String.IsNullOrEmpty(this.txtNombre.Text.Trim()) && txtNombre.Text.Trim() != "")
+                        {
+                            this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(null, txtNombre.Text, txtApellido.Text));
 
-                        this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
-                        this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
-                        this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
-                        this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
-                        this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
-                        this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-                        this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
-                        this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
-                        this.dgvPacientes.Columns["Sexo"].Visible = false;
-                        this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                            this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                            this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                            this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                            this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                            this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                            this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                            this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                            this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                            this.dgvPacientes.Columns["Sexo"].Visible = false;
+                            this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                        }
+                        else
+                            MessageBox.Show("El campo 'Nombre' es Obligatorio");
                     }
                     else
-                        MessageBox.Show("El campo 'Nombre' es Obligatorio");
+                        MessageBox.Show("El campo 'Apellido' es Obligatorio");
                 }
                 else
-                    MessageBox.Show("El campo 'Apellido' es Obligatorio");
+                {
+                    int habitacion;
+
+                    string[] Habitacion;
+                    Habitacion = cmbHabitaciones.Text.Split('-');
+                    habitacion = Convert.ToInt32(Habitacion[0].Trim());
+
+                    this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(habitacion, null, null));
+
+                    this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
+                    this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
+                    this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
+                    this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
+                    this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
+                    this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
+                    this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
+                    this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
+                    this.dgvPacientes.Columns["Sexo"].Visible = false;
+                    this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                int habitacion;
-
-                string[] Habitacion;
-                Habitacion = cmbHabitaciones.Text.Split('-');
-                habitacion = Convert.ToInt32(Habitacion[0].Trim());
-
-                this.dgvPacientes.DataSource = mapper.llenarListaPacienteDTO((List<Paciente>)repositorioPaciente.BuscarRegistros(habitacion, null, null));
-
-                this.dgvPacientes.Columns["Dni"].DisplayIndex = 0;
-                this.dgvPacientes.Columns["Apellido"].DisplayIndex = 1;
-                this.dgvPacientes.Columns["Nombre"].DisplayIndex = 2;
-                this.dgvPacientes.Columns["EstadoFisico"].DisplayIndex = 3;
-                this.dgvPacientes.Columns["Habitacion"].DisplayIndex = 4;
-                this.dgvPacientes.Columns["Cama"].DisplayIndex = 5;
-                this.dgvPacientes.Columns["FechaIngreso"].DisplayIndex = 6;
-                this.dgvPacientes.Columns["Estado"].DisplayIndex = 7;
-                this.dgvPacientes.Columns["Sexo"].Visible = false;
-                this.dgvPacientes.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

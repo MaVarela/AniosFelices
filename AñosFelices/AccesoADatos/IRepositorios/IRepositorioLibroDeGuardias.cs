@@ -26,7 +26,7 @@ namespace AñosFelices.AccesoADatos.IRepositorios
         /// <param name="turno">Turno</param>
         /// <param name="nombreCampo">Indica el tipo de registro</param>
         /// <returns>True en caso que exista, false en caso contrario</returns>
-        LibroDeGuardias ObtenerPorPacienteTurnoTipoRegistro(Paciente paciente, String turno, String nombreCampo);
+        LibroDeGuardias ObtenerPorPacienteTurnoTipoRegistro(Paciente paciente, String turno, String nombreCampo, DateTime fecha);
 
         /// <summary>
         /// Verifica dado un dni si existe en la tabla de parientes

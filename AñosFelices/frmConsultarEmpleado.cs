@@ -8,6 +8,7 @@ using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.DTOs.DTOMappers;
 using System.Text.RegularExpressions;
 using System.Text;
+using AñosFelices.Utilidades;
 
 namespace AñosFelices
 {
@@ -33,21 +34,29 @@ namespace AñosFelices
 
             RolDTOMapper mapper = new RolDTOMapper();
 
-            txtDni.Text = empleadoSeleccionado.Usuario.Dni.ToString();
-            txtNombre.Text = empleadoSeleccionado.Usuario.Nombre;
-            txtApellido.Text = empleadoSeleccionado.Usuario.Apellido;
-            txtDireccion.Text = empleadoSeleccionado.Usuario.Direccion;
-            txtTelefono_1.Text = empleadoSeleccionado.Usuario.Telefono1;
-            txtTelefono_2.Text = empleadoSeleccionado.Usuario.Telefono2;
-            txtMail.Text = empleadoSeleccionado.Usuario.Mail;
-            txtPassword.Text = empleadoSeleccionado.Usuario.Password;
-            dtpFecha.Value = empleadoSeleccionado.Usuario.FechaIngreso;
-            this.txtEstado.Text = empleadoSeleccionado.Usuario.Estado;
-            this.cmbRol.DataSource = repositorioRol.ObtenerTodos();
-            this.cmbRol.DisplayMember = "Descripcion";
-            this.cmbRol.ValueMember = "IdRol";
-            this.cmbRol.SelectedValue = empleadoSeleccionado.Usuario.Rol.IdRol;
+            try
+            {
+                txtDni.Text = empleadoSeleccionado.Usuario.Dni.ToString();
+                txtNombre.Text = empleadoSeleccionado.Usuario.Nombre;
+                txtApellido.Text = empleadoSeleccionado.Usuario.Apellido;
+                txtDireccion.Text = empleadoSeleccionado.Usuario.Direccion;
+                txtTelefono_1.Text = empleadoSeleccionado.Usuario.Telefono1;
+                txtTelefono_2.Text = empleadoSeleccionado.Usuario.Telefono2;
+                txtMail.Text = empleadoSeleccionado.Usuario.Mail;
+                txtPassword.Text = empleadoSeleccionado.Usuario.Password;
+                dtpFecha.Value = empleadoSeleccionado.Usuario.FechaIngreso;
+                this.txtEstado.Text = empleadoSeleccionado.Usuario.Estado;
+                this.cmbRol.DataSource = repositorioRol.ObtenerTodos();
+                this.cmbRol.DisplayMember = "Descripcion";
+                this.cmbRol.ValueMember = "IdRol";
+                this.cmbRol.SelectedValue = empleadoSeleccionado.Usuario.Rol.IdRol;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
-
     }
 }

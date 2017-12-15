@@ -29,25 +29,34 @@ namespace AñosFelices
 
         private void cargarGrilla()
         {
-            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
-            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos()).Where(x => x.Estado == "Habilitado").ToList();
+            try
+            {
+                UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+                var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos()).Where(x => x.Estado == "Habilitado").ToList();
 
-            this.dgvEmpleados.DataSource = listado;
-            this.dgvEmpleados.Columns["Dni"].DisplayIndex = 0;
-            this.dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
-            this.dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
-            this.dgvEmpleados.Columns["Direccion"].DisplayIndex = 3;
-            this.dgvEmpleados.Columns["Telefono1"].DisplayIndex = 4;
-            this.dgvEmpleados.Columns["Telefono1"].HeaderText = "Teléfono";
-            this.dgvEmpleados.Columns["Telefono2"].DisplayIndex = 5;
-            this.dgvEmpleados.Columns["Telefono2"].HeaderText = "Teléfono Opcional";
-            this.dgvEmpleados.Columns["Mail"].DisplayIndex = 6;
-            this.dgvEmpleados.Columns["Rol"].DisplayIndex = 7;
-            this.dgvEmpleados.Columns["FechaIngreso"].DisplayIndex = 8;
-            this.dgvEmpleados.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
-            this.dgvEmpleados.Columns["Estado"].DisplayIndex = 9;
-            this.dgvEmpleados.Columns["Password"].Visible = false;
-            this.dgvEmpleados.Columns["IdRol"].Visible = false;
+                this.dgvEmpleados.DataSource = listado;
+                this.dgvEmpleados.Columns["Dni"].DisplayIndex = 0;
+                this.dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
+                this.dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
+                this.dgvEmpleados.Columns["Direccion"].DisplayIndex = 3;
+                this.dgvEmpleados.Columns["Telefono1"].DisplayIndex = 4;
+                this.dgvEmpleados.Columns["Telefono1"].HeaderText = "Teléfono";
+                this.dgvEmpleados.Columns["Telefono2"].DisplayIndex = 5;
+                this.dgvEmpleados.Columns["Telefono2"].HeaderText = "Teléfono Opcional";
+                this.dgvEmpleados.Columns["Mail"].DisplayIndex = 6;
+                this.dgvEmpleados.Columns["Rol"].DisplayIndex = 7;
+                this.dgvEmpleados.Columns["FechaIngreso"].DisplayIndex = 8;
+                this.dgvEmpleados.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                this.dgvEmpleados.Columns["Estado"].DisplayIndex = 9;
+                this.dgvEmpleados.Columns["Password"].Visible = false;
+                this.dgvEmpleados.Columns["IdRol"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -84,6 +93,7 @@ namespace AñosFelices
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            empleadoSeleccionado.Usuario = null;
             this.Close();
         }
     }

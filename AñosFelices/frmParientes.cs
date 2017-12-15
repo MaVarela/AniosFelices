@@ -1,17 +1,9 @@
 ﻿using AñosFelices.AccesoADatos.IRepositorios;
 using AñosFelices.AccesoADatos.Repositorios;
-using AñosFelices.DTOs;
 using AñosFelices.DTOs.DTOMappers;
-using AñosFelices.EntidadesDeNegocio;
 using AñosFelices.Utilidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AñosFelices
@@ -36,13 +28,22 @@ namespace AñosFelices
 
         private void cargar()
         {
-            var pacienteSeleccionado = PacienteSeleccionado.Instance();
-            lblPaciente.Text = lblPaciente.Text + pacienteSeleccionado.Paciente.Dni + " - " + pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
-            ParienteDTOMapper mapper = new ParienteDTOMapper();
+            try
+            {
+                var pacienteSeleccionado = PacienteSeleccionado.Instance();
+                lblPaciente.Text = lblPaciente.Text + pacienteSeleccionado.Paciente.Dni + " - " + pacienteSeleccionado.Paciente.Apellido + " " + pacienteSeleccionado.Paciente.Nombre;
+                ParienteDTOMapper mapper = new ParienteDTOMapper();
 
-            var listado = mapper.LlenarListado(pacienteSeleccionado.Paciente.Parientes.ToList());
+                var listado = mapper.LlenarListado(pacienteSeleccionado.Paciente.Parientes.ToList());
 
-            this.dgvParientes.DataSource = listado;
+                this.dgvParientes.DataSource = listado;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

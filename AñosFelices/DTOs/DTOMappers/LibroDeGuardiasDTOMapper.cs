@@ -12,7 +12,6 @@ namespace AñosFelices.DTOs.DTOMappers
 {
     public class LibroDeGuardiasDTOMapper
     {
-
         public List<LibroDeGuardiasDTO> llenarListaLibroDeGuardiasDTO(List<LibroDeGuardias> registros)
         {
             var consultaActiva = ConsultaActiva.Instance();
@@ -64,6 +63,7 @@ namespace AñosFelices.DTOs.DTOMappers
             }
         }
 
+        #region codigo viejo
         /*public LibroDeGuardiasId llenarListaLibroDeGuardiasDTOID(List<LibroDeGuardias> registros, int index)
         {
             var consultaActiva = ConsultaActiva.Instance();
@@ -88,5 +88,6 @@ namespace AñosFelices.DTOs.DTOMappers
             }
             return idActividad;
         }*/
+        #endregion
     }
 }

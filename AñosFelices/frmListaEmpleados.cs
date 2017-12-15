@@ -17,59 +17,86 @@ namespace AñosFelices
             InitializeComponent();
             empleadoSeleccionado = EmpleadoSeleccionado.Instance();
             UsuarioDTOMapper mapper = new UsuarioDTOMapper();
-            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
+            try
+            {
+                var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
 
-            cargarGrilla();
+                cargarGrilla();
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
         private void cargarGrilla()
         {
-            UsuarioDTOMapper mapper = new UsuarioDTOMapper();
-            var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
+            try
+            {
+                UsuarioDTOMapper mapper = new UsuarioDTOMapper();
+                var listado = mapper.LlenarListado((List<Usuario>)repositorioUsuario.ObtenerTodos());
 
-            this.dgvEmpleados.DataSource = listado;
-            this.dgvEmpleados.Columns["Dni"].DisplayIndex = 0;
-            this.dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
-            this.dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
-            this.dgvEmpleados.Columns["Direccion"].DisplayIndex = 3;
-            this.dgvEmpleados.Columns["Direccion"].HeaderText = "Dirección";
-            this.dgvEmpleados.Columns["Telefono1"].DisplayIndex = 4;
-            this.dgvEmpleados.Columns["Telefono1"].HeaderText = "Teléfono";
-            this.dgvEmpleados.Columns["Telefono2"].DisplayIndex = 5;
-            this.dgvEmpleados.Columns["Telefono2"].HeaderText = "Teléfono Opcional";
-            this.dgvEmpleados.Columns["Mail"].DisplayIndex = 6;
-            this.dgvEmpleados.Columns["Rol"].DisplayIndex = 7;
-            this.dgvEmpleados.Columns["FechaIngreso"].DisplayIndex = 8;
-            this.dgvEmpleados.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
-            this.dgvEmpleados.Columns["Estado"].DisplayIndex = 9;
-            this.dgvEmpleados.Columns["Password"].Visible = false;
-            this.dgvEmpleados.Columns["IdRol"].Visible = false;
+                this.dgvEmpleados.DataSource = listado;
+                this.dgvEmpleados.Columns["Dni"].DisplayIndex = 0;
+                this.dgvEmpleados.Columns["Nombre"].DisplayIndex = 1;
+                this.dgvEmpleados.Columns["Apellido"].DisplayIndex = 2;
+                this.dgvEmpleados.Columns["Direccion"].DisplayIndex = 3;
+                this.dgvEmpleados.Columns["Direccion"].HeaderText = "Dirección";
+                this.dgvEmpleados.Columns["Telefono1"].DisplayIndex = 4;
+                this.dgvEmpleados.Columns["Telefono1"].HeaderText = "Teléfono";
+                this.dgvEmpleados.Columns["Telefono2"].DisplayIndex = 5;
+                this.dgvEmpleados.Columns["Telefono2"].HeaderText = "Teléfono Opcional";
+                this.dgvEmpleados.Columns["Mail"].DisplayIndex = 6;
+                this.dgvEmpleados.Columns["Rol"].DisplayIndex = 7;
+                this.dgvEmpleados.Columns["FechaIngreso"].DisplayIndex = 8;
+                this.dgvEmpleados.Columns["FechaIngreso"].HeaderText = "Fecha de Ingreso";
+                this.dgvEmpleados.Columns["Estado"].DisplayIndex = 9;
+                this.dgvEmpleados.Columns["Password"].Visible = false;
+                this.dgvEmpleados.Columns["IdRol"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-             if (this.dgvEmpleados.CurrentRow != null)
+            try
             {
-                if (dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado")
+                if (this.dgvEmpleados.CurrentRow != null)
                 {
-                    var frmModificar = new frmModificarEmpleado();
-                    var empleado = repositorioUsuario.ObtenerPorId(Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells["Dni"].Value));
+                    if (dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado")
+                    {
+                        var frmModificar = new frmModificarEmpleado();
+                        var empleado = repositorioUsuario.ObtenerPorId(Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells["Dni"].Value));
 
-                    empleadoSeleccionado.Usuario = empleado;
-                    frmModificar.ShowDialog();
-                    cargarGrilla();
-                    configurarHabilitarModificar();
+                        empleadoSeleccionado.Usuario = empleado;
+                        frmModificar.ShowDialog();
+                        cargarGrilla();
+                        configurarHabilitarModificar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Empleado INHABILITADO. No se puede Modificar");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Empleado INHABILITADO. No se puede Modificar");
+                    MessageBox.Show("Debe seleccionar un registro", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Debe seleccionar un registro", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -79,8 +106,17 @@ namespace AñosFelices
         }
         private void configurarHabilitarModificar()
         {
-            btnModificar.Enabled = dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado";
-            btnHabilitar.Enabled = !(dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado");
+            try
+            {
+                btnModificar.Enabled = dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado";
+                btnHabilitar.Enabled = !(dgvEmpleados.CurrentRow.Cells["Estado"].Value.ToString() == "Habilitado");
+            }
+            catch (Exception ex)
+            {
+                LogueadorErrores.Loguear(ex);
+                MessageBox.Show("Ha ocurrido un error inesperado, revisar el log para más detalles", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHabilitar_Click(object sender, EventArgs e)
