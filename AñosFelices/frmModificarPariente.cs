@@ -18,16 +18,15 @@ namespace AñosFelices
         int index;
         ParienteDTO parienteDTO = new ParienteDTO();
         ParienteSeleccionado pariente;
-        String nombreFormM;
+        
         int DniPariente;
 
-        public frmModificarPariente(int index, ParienteDTO parienteDTO, String nombreForm)
+        public frmModificarPariente(int index, ParienteDTO parienteDTO)
         {
             InitializeComponent();
             this.index = index;
             this.parienteDTO = parienteDTO;
             pariente = ParienteSeleccionado.Instance();
-            this.nombreFormM = nombreForm;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -137,11 +136,7 @@ namespace AñosFelices
                 txtTelefono_2.Text = parienteDTO.Telefono2;
                 this.cmbParentezco.SelectedItem = parienteDTO.Parentezco;
                 DniPariente = parienteDTO.Dni;
-
-                if (nombreFormM == "frmModificarPaciente")
-                {
-                    txtDni.ReadOnly = true;
-                }
+                txtDni.ReadOnly = true;
             }
             catch (Exception ex)
             {

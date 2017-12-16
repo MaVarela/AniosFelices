@@ -54,6 +54,7 @@
             this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.rdbMasculino = new System.Windows.Forms.RadioButton();
             this.cmsAltaPaciente = new System.Windows.Forms.ContextMenuStrip(this.components);
+            //this.btnAgregar_pariente_existente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParientes)).BeginInit();
             this.grpSexo.SuspendLayout();
             this.SuspendLayout();
@@ -293,6 +294,16 @@
             this.rdbMasculino.Text = "Masculino";
             this.rdbMasculino.UseVisualStyleBackColor = true;
             // 
+            // btnAgregar_pariente_existente
+            // 
+            //this.btnAgregar_pariente_existente.Location = new System.Drawing.Point(35, 408);
+            //this.btnAgregar_pariente_existente.Name = "btnAgregar_pariente_existente";
+            //this.btnAgregar_pariente_existente.Size = new System.Drawing.Size(229, 29);
+            //this.btnAgregar_pariente_existente.TabIndex = 97;
+            //this.btnAgregar_pariente_existente.Text = "Agregar Pariente Existente";
+            //this.btnAgregar_pariente_existente.UseVisualStyleBackColor = true;
+            //this.btnAgregar_pariente_existente.Click += new System.EventHandler(this.btnAgregar_nuevo_pariente_Click);
+            // 
             // cmsAltaPaciente
             // 
             this.cmsAltaPaciente.Name = "cmsAltaPaciente";
@@ -326,6 +337,7 @@
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblDni);
+            //this.Controls.Add(this.btnAgregar_pariente_existente);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(916, 497);
@@ -369,5 +381,6 @@
         private System.Windows.Forms.RadioButton rdbFemenino;
         private System.Windows.Forms.RadioButton rdbMasculino;
         private System.Windows.Forms.ContextMenuStrip cmsAltaPaciente;
+        //private System.Windows.Forms.Button btnAgregar_pariente_existente;
     }
 }

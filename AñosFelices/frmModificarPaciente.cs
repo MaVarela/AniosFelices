@@ -75,7 +75,6 @@ namespace AñosFelices
             {
                 if (dgvParientes.RowCount > 0)
                 {
-                    var nombreForm = new frmModificarPaciente().Name;
                     int index;
                     var parienteDTO = new ParienteDTO();
                     index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
@@ -88,7 +87,7 @@ namespace AñosFelices
                     parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value != null ? dgvParientes.SelectedRows[0].Cells[6].Value.ToString() : null;
                     parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value != null ? dgvParientes.SelectedRows[0].Cells[7].Value.ToString() : null;
 
-                    var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
+                    var modificarPariente = new frmModificarPariente(index, parienteDTO);
                     modificarPariente.ShowDialog();
 
                     cargarDGVParientes();

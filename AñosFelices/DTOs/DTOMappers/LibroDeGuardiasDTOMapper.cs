@@ -33,7 +33,7 @@ namespace AñosFelices.DTOs.DTOMappers
                 libroDeGuardiasDTO.Presion = registro.Presion;
                 libroDeGuardiasDTO.Temperatura = Convert.ToInt32(registro.Temperatura);
                 libroDeGuardiasDTO.Azucar = Convert.ToInt32(registro.Azucar);
-                libroDeGuardiasDTO.MedicacionAdministrada = registro.Observaciones;
+                libroDeGuardiasDTO.MedicacionAdministrada = registro.MedicacionAdministrada;
                 libroDeGuardiasDTO.Observaciones = registro.Observaciones;
                 libroDeGuardiasDTO.Recomendaciones = registro.Recomendaciones;
 

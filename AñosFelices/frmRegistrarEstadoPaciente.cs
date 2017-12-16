@@ -50,9 +50,9 @@ namespace AñosFelices
             {
                 List<String> mensajes = new List<String>();
 
-                if (!String.IsNullOrEmpty(this.txtPaciente.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtPaciente.Text.Trim()))
                     mensajes.Add("El campo 'Paciente' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtEstadoGeneral.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtEstadoGeneral.Text.Trim()))
                     mensajes.Add("El campo 'Estado General' es Obligatorio");
 
                 if (mensajes.Count.Equals(0))

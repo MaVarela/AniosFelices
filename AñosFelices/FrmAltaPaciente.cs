@@ -214,7 +214,6 @@ namespace AñosFelices
                 {
                     int index;
                     var parienteDTO = new ParienteDTO();
-                    var nombreForm = new frmAltaPaciente().Name;
                     index = Convert.ToInt32(dgvParientes.CurrentRow.Index.ToString());
                     parienteDTO.Dni = Convert.ToInt32(dgvParientes.SelectedRows[0].Cells[0].Value);
                     parienteDTO.Nombre = dgvParientes.SelectedRows[0].Cells[1].Value != null ? dgvParientes.SelectedRows[0].Cells[1].Value.ToString() : null;
@@ -225,7 +224,7 @@ namespace AñosFelices
                     parienteDTO.Mail = dgvParientes.SelectedRows[0].Cells[6].Value != null ? dgvParientes.SelectedRows[0].Cells[6].Value.ToString() : null;
                     parienteDTO.Parentezco = dgvParientes.SelectedRows[0].Cells[7].Value != null ? dgvParientes.SelectedRows[0].Cells[7].Value.ToString() : null;
 
-                    var modificarPariente = new frmModificarPariente(index, parienteDTO, nombreForm);
+                    var modificarPariente = new frmModificarPariente(index, parienteDTO);
                     modificarPariente.ShowDialog();
 
                     cargarDGV();
@@ -293,5 +292,11 @@ namespace AñosFelices
 
             e.Handled = !Char.IsLetter(e.KeyChar) && !Char.IsSeparator(e.KeyChar) && e.KeyChar != Delete;
         }
+
+        //private void btnAgregar_nuevo_pariente_Click(object sender, EventArgs e)
+        //{
+        //    var seleccionarPariente = new FrmSeleccionarPariente();
+        //    seleccionarPariente.ShowDialog();
+        //}
     }
 }

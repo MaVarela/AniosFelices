@@ -284,6 +284,12 @@
     <Compile Include="frmPacientes.Designer.cs">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmParentezco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParentezco.designer.cs">
+      <DependentUpon>FrmParentezco.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmParientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,6 +355,12 @@
     </Compile>
     <Compile Include="frmRegistrarRecomendacionMedicacion.Designer.cs">
       <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSeleccionarPariente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSeleccionarPariente.designer.cs">
+      <DependentUpon>FrmSeleccionarPariente.cs</DependentUpon>
     </Compile>
     <Compile Include="InicializadorDB.cs" />
     <Compile Include="frmLogin.cs">
@@ -462,6 +474,9 @@
     <EmbeddedResource Include="frmPacientes.resx">
       <DependentUpon>frmPacientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmParentezco.resx">
+      <DependentUpon>FrmParentezco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmParientes.resx">
       <DependentUpon>frmParientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -497,6 +512,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarRecomendacionMedicacion.resx">
       <DependentUpon>frmRegistrarRecomendacionMedicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeleccionarPariente.resx">
+      <DependentUpon>FrmSeleccionarPariente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
