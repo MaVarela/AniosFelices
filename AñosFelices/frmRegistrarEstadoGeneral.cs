@@ -68,21 +68,21 @@ namespace AñosFelices
             {
                 List<String> mensajes = new List<String>();
 
-                if (!String.IsNullOrEmpty(this.txtPaciente.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtPaciente.Text.Trim()))
                     mensajes.Add("El campo 'Paciente' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtPresion1.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtPresion1.Text.Trim()))
                     mensajes.Add("El campo 'Presión' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtPresion2.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtPresion2.Text.Trim()))
                     mensajes.Add("El campo 'Presión' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtTemperatura.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtTemperatura.Text.Trim()))
                     mensajes.Add("El campo 'Temperatura' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtAzucar.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtAzucar.Text.Trim()))
                     mensajes.Add("El campo 'Azúcar' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtMedicacion.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtMedicacion.Text.Trim()))
                     mensajes.Add("El campo 'Medicación Administrada' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtObservaciones.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtObservaciones.Text.Trim()))
                     mensajes.Add("El campo 'Observaciones' es Obligatorio");
-                if (!String.IsNullOrEmpty(this.txtRecomendaciones.Text.Trim()))
+                if (String.IsNullOrEmpty(this.txtRecomendaciones.Text.Trim()))
                     mensajes.Add("El campo 'Recomendaciones' es Obligatorio");
 
                 if (mensajes.Count.Equals(0))

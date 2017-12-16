@@ -135,16 +135,16 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 if(!String.IsNullOrEmpty(nombreCampo))
                 {
                     if(nombreCampo == "ActividadRealizada")
-                        criteria.Add(Restrictions.IsNull("ActividadRealizada"));
+                        criteria.Add(Restrictions.IsNotNull("ActividadRealizada"));
                     if (nombreCampo == "ComidaRealizada")
-                        criteria.Add(Restrictions.IsNull("ComidaRealizada"));
-                    else
+                        criteria.Add(Restrictions.IsNotNull("ComidaRealizada"));
+                    if (nombreCampo == "")
                     {
-                        criteria.Add(Restrictions.IsNull("MedicacionAdministrada"));
-                        criteria.Add(Restrictions.IsNull("Temperatura"));
-                        criteria.Add(Restrictions.IsNull("Azucar"));
-                        criteria.Add(Restrictions.IsNull("Observaciones"));
-                        criteria.Add(Restrictions.IsNull("Recomendaciones"));
+                        criteria.Add(Restrictions.IsNotNull("MedicacionAdministrada"));
+                        criteria.Add(Restrictions.IsNotNull("Temperatura"));
+                        criteria.Add(Restrictions.IsNotNull("Azucar"));
+                        criteria.Add(Restrictions.IsNotNull("Observaciones"));
+                        criteria.Add(Restrictions.IsNotNull("Recomendaciones"));
                     }
                 }
 
@@ -175,16 +175,16 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 if (!String.IsNullOrEmpty(nombreCampo))
                 {
                     if (nombreCampo == "ActividadRealizada")
-                        criteria.Add(Restrictions.IsNull("ActividadRealizada"));
+                        criteria.Add(Restrictions.IsNotNull("ActividadRealizada"));
                     if (nombreCampo == "ComidaRealizada")
-                        criteria.Add(Restrictions.IsNull("ComidaRealizada"));
-                    else
+                        criteria.Add(Restrictions.IsNotNull("ComidaRealizada"));
+                    if (nombreCampo == "")
                     {
-                        criteria.Add(Restrictions.IsNull("MedicacionAdministrada"));
-                        criteria.Add(Restrictions.IsNull("Temperatura"));
-                        criteria.Add(Restrictions.IsNull("Azucar"));
-                        criteria.Add(Restrictions.IsNull("Observaciones"));
-                        criteria.Add(Restrictions.IsNull("Recomendaciones"));
+                        criteria.Add(Restrictions.IsNotNull("MedicacionAdministrada"));
+                        criteria.Add(Restrictions.IsNotNull("Temperatura"));
+                        criteria.Add(Restrictions.IsNotNull("Azucar"));
+                        criteria.Add(Restrictions.IsNotNull("Observaciones"));
+                        criteria.Add(Restrictions.IsNotNull("Recomendaciones"));
                     }
                 }
 

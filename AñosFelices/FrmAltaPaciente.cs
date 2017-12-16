@@ -100,6 +100,8 @@ namespace AñosFelices
                     {
                         if (!Int32.TryParse(this.txtDni.Text, out dni))
                             mensajes.Add("El campo 'Dni' debe ser solo numérico");
+                        if(parienteSeleccionado.Parientes.Where(x => x.Dni == dni).Count() > 0)
+                            mensajes.Add("El campo 'Dni' no puede ser duplicado");
                     }
                     else
                     {
