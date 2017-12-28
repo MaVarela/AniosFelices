@@ -34,6 +34,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtDni = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDni
@@ -103,6 +105,26 @@
             this.txtDni.TabIndex = 0;
             this.txtDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDni_KeyPress);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.Location = new System.Drawing.Point(288, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 16);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label1.Location = new System.Drawing.Point(288, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 16);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "*";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -110,6 +132,8 @@
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(322, 190);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -140,5 +164,7 @@
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -107,7 +107,7 @@ namespace AñosFelices.AccesoADatos.Repositorios
                 if (!String.IsNullOrEmpty(apellido))
                     criteria.Add(Restrictions.Like("Paciente.Apellido", apellido, MatchMode.Anywhere));
                 if (!String.IsNullOrEmpty(turno))
-                    criteria.Add(Restrictions.Like("Id.Turno", turno, MatchMode.Anywhere));
+                    criteria.Add(Restrictions.Like("Turno", turno, MatchMode.Anywhere));
 
                 var registrosLibroDeGuardias = criteria.List<LibroDeGuardias>();
 

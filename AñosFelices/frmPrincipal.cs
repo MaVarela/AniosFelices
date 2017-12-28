@@ -169,7 +169,7 @@ namespace AñosFelices
             if (rol == "Responsable Legal")
             {
                 //pooner nuevamente en false
-                this.libroDeGuardiasToolStripMenuItem.Visible = true;
+                this.libroDeGuardiasToolStripMenuItem.Visible = false;
                 this.pacientesToolStripMenuItem.Visible = true;
                 this.empleadosToolStripMenuItem.Visible = true;
                 this.habitacionesToolStripMenuItem.Visible = true;

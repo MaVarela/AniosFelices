@@ -33,6 +33,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtApellido = new System.Windows.Forms.TextBox();
+            this.cmsModPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtMail = new System.Windows.Forms.TextBox();
             this.lblParentezco = new System.Windows.Forms.Label();
@@ -47,7 +48,12 @@
             this.cmbParentezco = new System.Windows.Forms.ComboBox();
             this.txtTelefono_1 = new System.Windows.Forms.TextBox();
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
-            this.cmsModPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDni
@@ -91,6 +97,11 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(194, 22);
             this.txtApellido.TabIndex = 3;
+            // 
+            // cmsModPariente
+            // 
+            this.cmsModPariente.Name = "cmsModPariente";
+            this.cmsModPariente.Size = new System.Drawing.Size(61, 4);
             // 
             // txtDireccion
             // 
@@ -246,10 +257,65 @@
             this.txtTelefono_2.Size = new System.Drawing.Size(100, 22);
             this.txtTelefono_2.TabIndex = 6;
             // 
-            // cmsModPariente
+            // label10
             // 
-            this.cmsModPariente.Name = "cmsModPariente";
-            this.cmsModPariente.Size = new System.Drawing.Size(61, 4);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.Location = new System.Drawing.Point(249, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 16);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label1.Location = new System.Drawing.Point(341, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 16);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "*";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label2.Location = new System.Drawing.Point(342, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 16);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label4.Location = new System.Drawing.Point(268, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 16);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label7.Location = new System.Drawing.Point(249, 192);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(13, 16);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label8.Location = new System.Drawing.Point(341, 279);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(13, 16);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "*";
             // 
             // frmModificarPariente
             // 
@@ -257,6 +323,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 433);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtTelefono_2);
             this.Controls.Add(this.txtTelefono_1);
             this.Controls.Add(this.cmbParentezco);
@@ -309,5 +381,11 @@
         private System.Windows.Forms.TextBox txtTelefono_1;
         private System.Windows.Forms.TextBox txtTelefono_2;
         private System.Windows.Forms.ContextMenuStrip cmsModPariente;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }

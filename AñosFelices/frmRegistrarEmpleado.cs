@@ -52,7 +52,7 @@ namespace AñosFelices
 
                 if (!String.IsNullOrEmpty(txtDni.Text.Trim()))
                 {
-                    if (txtDni.Text.Length > 7 && txtDni.Text.Length <= 8)
+                    if (txtDni.Text.Length >= 7 && txtDni.Text.Length <= 8)
                         usuario.Dni = Convert.ToInt32(txtDni.Text);
                     else
                         mensajes.Add("El campo 'Dni' debe poseer al menos 7 dígitos");

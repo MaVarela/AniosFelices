@@ -52,6 +52,14 @@
             this.txtTelefono_2 = new System.Windows.Forms.TextBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -287,12 +295,100 @@
             this.dtpFecha.Size = new System.Drawing.Size(241, 22);
             this.dtpFecha.TabIndex = 10;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label10.Location = new System.Drawing.Point(273, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 16);
+            this.label10.TabIndex = 98;
+            this.label10.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label11.Location = new System.Drawing.Point(385, 59);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 16);
+            this.label11.TabIndex = 99;
+            this.label11.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label12.Location = new System.Drawing.Point(385, 102);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 16);
+            this.label12.TabIndex = 100;
+            this.label12.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label13.Location = new System.Drawing.Point(385, 143);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(13, 16);
+            this.label13.TabIndex = 101;
+            this.label13.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label14.Location = new System.Drawing.Point(273, 231);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(13, 16);
+            this.label14.TabIndex = 102;
+            this.label14.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label15.Location = new System.Drawing.Point(292, 320);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(13, 16);
+            this.label15.TabIndex = 103;
+            this.label15.Text = "*";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label16.Location = new System.Drawing.Point(385, 363);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(13, 16);
+            this.label16.TabIndex = 104;
+            this.label16.Text = "*";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label17.Location = new System.Drawing.Point(412, 411);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(13, 16);
+            this.label17.TabIndex = 105;
+            this.label17.Text = "*";
+            // 
             // frmRegistrarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 502);
             this.ControlBox = false;
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtTelefono_2);
@@ -353,5 +449,13 @@
         private System.Windows.Forms.Label lblFecha;
         internal System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.ContextMenuStrip cmsAddEmpleado;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
     }
 }

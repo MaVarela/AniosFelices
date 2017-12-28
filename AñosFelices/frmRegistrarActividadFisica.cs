@@ -86,16 +86,19 @@ namespace AñosFelices
 
                     if (!existe)
                     {
-                        var actividad = new LibroDeGuardias();
-                        actividad.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
-                        actividad.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
-                        actividad.Turno = turno;
-                        actividad.Fecha = dtpFecha.Value.Date;
-                        actividad.ActividadRealizada = txtActividad.Text.Trim();
-                        actividad = repositorioLibroDeGuardias.Agregar(actividad);
-                        MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        pacienteSeleccionado.Paciente = null;
-                        this.Close();
+                        if (MessageBox.Show("¿Está seguro de que desea guardar el Registro?", "Guardar", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                        {
+                            var actividad = new LibroDeGuardias();
+                            actividad.Usuario = repositorioUsuario.ObtenerPorId(Convert.ToInt32(usuarioLogueado.Usuario.Dni));
+                            actividad.Paciente = repositorioPaciente.ObtenerPorId(Convert.ToInt32(pacienteSeleccionado.Paciente.Dni));
+                            actividad.Turno = turno;
+                            actividad.Fecha = dtpFecha.Value.Date;
+                            actividad.ActividadRealizada = txtActividad.Text.Trim();
+                            actividad = repositorioLibroDeGuardias.Agregar(actividad);
+                            MessageBox.Show("Registro Guardado Correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            pacienteSeleccionado.Paciente = null;
+                            this.Close();
+                        }
                     }
                     else
                     {

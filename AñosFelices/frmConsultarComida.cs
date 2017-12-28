@@ -165,7 +165,7 @@ namespace AñosFelices
                             MessageBox.Show("El campo 'Apellido' es Obligatorio");
                     }
                     else
-                        this.dgvComida.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, null, null, cmbTurno.Text));
+                        this.dgvComida.DataSource = mapper.llenarListaLibroDeGuardiasDTO((List<LibroDeGuardias>)repositorioLibroDeGuardias.BuscarRegistros(dtpFecha.Value.Date, null, null, cmbTurno.Text + ", Comida"));
                 }
                 this.dgvComida.Columns[6].Visible = false;
                 this.dgvComida.Columns[8].Visible = false;

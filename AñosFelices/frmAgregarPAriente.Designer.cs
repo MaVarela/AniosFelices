@@ -35,6 +35,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
+            this.cmsAddPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -47,7 +48,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbParentezco = new System.Windows.Forms.ComboBox();
-            this.cmsAddPariente = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -108,6 +114,11 @@
             this.txtMail.Size = new System.Drawing.Size(194, 22);
             this.txtMail.TabIndex = 8;
             this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
+            // 
+            // cmsAddPariente
+            // 
+            this.cmsAddPariente.Name = "cmsAddPariente";
+            this.cmsAddPariente.Size = new System.Drawing.Size(61, 4);
             // 
             // txtDireccion
             // 
@@ -248,10 +259,59 @@
             this.cmbParentezco.Size = new System.Drawing.Size(121, 24);
             this.cmbParentezco.TabIndex = 4;
             // 
-            // cmsAddPariente
+            // label9
             // 
-            this.cmsAddPariente.Name = "cmsAddPariente";
-            this.cmsAddPariente.Size = new System.Drawing.Size(61, 4);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(341, 63);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(13, 16);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(250, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(13, 16);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(341, 106);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(13, 16);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(269, 145);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(13, 16);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(247, 188);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(13, 16);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(341, 275);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(13, 16);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "*";
             // 
             // frmAgregarPariente
             // 
@@ -259,6 +319,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 433);
             this.ControlBox = false;
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbParentezco);
             this.Controls.Add(this.txtTelefono_2);
             this.Controls.Add(this.txtTelefono_1);
@@ -310,5 +376,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbParentezco;
         private System.Windows.Forms.ContextMenuStrip cmsAddPariente;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }
